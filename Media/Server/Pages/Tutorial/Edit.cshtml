@@ -1,0 +1,61 @@
+﻿@page
+@model Media.Server.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Tutorial</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Tutorial.id" />
+            <div class="form-group">
+                <label asp-for="Tutorial.Title" class="control-label"></label>
+                <input asp-for="Tutorial.Title" class="form-control" />
+                <span asp-validation-for="Tutorial.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tutorial.Desctription" class="control-label"></label>
+                <input asp-for="Tutorial.Desctription" class="form-control" />
+                <span asp-validation-for="Tutorial.Desctription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tutorial.PriceRand" class="control-label"></label>
+                <input asp-for="Tutorial.PriceRand" class="form-control" />
+                <span asp-validation-for="Tutorial.PriceRand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tutorial.ProfesionalID" class="control-label"></label>
+                <input asp-for="Tutorial.ProfesionalID" class="form-control" />
+                <span asp-validation-for="Tutorial.ProfesionalID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tutorial.DateCreated" class="control-label"></label>
+                <input asp-for="Tutorial.DateCreated" class="form-control" />
+                <span asp-validation-for="Tutorial.DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tutorial.PriceCredits" class="control-label"></label>
+                <input asp-for="Tutorial.PriceCredits" class="form-control" />
+                <span asp-validation-for="Tutorial.PriceCredits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

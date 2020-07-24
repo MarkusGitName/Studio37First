@@ -1,0 +1,33 @@
+﻿@using Studio37Media.Shared
+
+@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+    public string msg = "";
+
+    private void IncrementCount()
+    {
+        currentCount++;
+        try
+        {
+            Profile p = new Profile();
+                //APILibrary.APIGet<Profile>("7a868787y-02be-4ff-kuyf3-5ad71a98ebef", "profiles");
+        }
+        catch (Exception e)
+        {
+            msg = e.ToString();
+            Console.WriteLine(e.Message.ToString());
+        }
+    }
+
+}
+<p>
+    @msg
+</p>

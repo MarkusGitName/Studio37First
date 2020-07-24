@@ -1,3 +1,4 @@
+
 namespace Media.Server.Models.DataModels
 {
     using System;
@@ -6,6 +7,10 @@ namespace Media.Server.Models.DataModels
     using System.ComponentModel.DataAnnotations.Schema;
   //  using System.Data.Entity.Spatial;
 
+
+    public class Tutorials
+    {
+    }
     public partial class Profile
     {
 

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Media.Server.Models.DataModels;
 
 namespace Media.Server.Data
 {
@@ -17,5 +18,6 @@ namespace Media.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        public DbSet<Media.Server.Models.DataModels.Profile> Profile { get; set; }
     }
 }

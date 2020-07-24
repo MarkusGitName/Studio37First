@@ -1,0 +1,67 @@
+﻿@page
+@model Media.Server.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutorial[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutorial[0].Desctription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutorial[0].PriceRand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutorial[0].ProfesionalID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutorial[0].DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tutorial[0].PriceCredits)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Tutorial) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Desctription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceRand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfesionalID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PriceCredits)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

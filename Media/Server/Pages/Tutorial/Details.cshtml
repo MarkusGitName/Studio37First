@@ -1,0 +1,56 @@
+﻿@page
+@model Media.Server.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Tutorial</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutorial.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutorial.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutorial.Desctription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutorial.Desctription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutorial.PriceRand)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutorial.PriceRand)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutorial.ProfesionalID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutorial.ProfesionalID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutorial.DateCreated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutorial.DateCreated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutorial.PriceCredits)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tutorial.PriceCredits)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Tutorial.id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

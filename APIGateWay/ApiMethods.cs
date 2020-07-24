@@ -9,7 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace APIGateWay
 {
-    class ApiMethods
+    public class ApiMethods
     {
 
         //  public static string url = "https://auction-prop-api.azurewebsites.net/api/";
