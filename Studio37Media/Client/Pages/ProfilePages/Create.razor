@@ -1,0 +1,73 @@
+﻿@page "/profile/create"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared
+
+@attribute [Authorize]
+@inject HttpClient Http
+<h1>Create</h1>
+
+@try
+{
+    <EditForm Model="@profile" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div>
+            <label for="firstName">first name: </label>
+            <input type="text" @bind="profile.FirstName" />
+        </div>
+
+        <div>
+            <label for="LastName">Last Name: </label>
+            <input type="text" @bind="profile.LastName" />
+        </div>
+        <div>
+            <label for="DateOfBirth">Date Of Birth</label>
+            <input type="date" @bind="profile.DateOfBirth" />
+        </div>
+        <div>
+            <label for="ProfilePhoto">Profile Photo: </label>
+            <input type="text" @bind="profile.ProfilePhoto" />
+        </div>
+        <div>
+            <label for="Country">Country: </label>
+            <input type="text" @bind="profile.Country" />
+        </div>
+        <div>
+            <label for="WallPhoto">Wall Photo: </label>
+            <input type="text" @bind="profile.WallPhoto" />
+        </div>
+
+        <div>
+            <label for="Bio">Bio: </label>
+            <input type="text" @bind="profile.Bio" />
+        </div>
+        <div>
+            <label for="PhoneNumber">PhoneNumber: </label>
+            <input type="text" @bind="profile.PhoneNumber" />
+        </div>
+        <div>
+            <label for="Website">Website: </label>
+            <input type="text" @bind="profile.Website" />
+        </div>
+
+        <button type="submit">Submit</button>
+    </EditForm>
+    @code {
+
+        Profile profile = new Profile();
+
+        async void HandleFormSubmit()
+        {
+            await Http.PostAsJsonAsync<Profile>("Profile", profile);
+        }
+    }
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.ToString());
+    <label for="firstName">@e.ToString() </label>
+}
+
+

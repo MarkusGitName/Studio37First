@@ -1,0 +1,57 @@
+﻿@page "/profile"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared
+@attribute [Authorize]
+@inject HttpClient Http
+<h1>Index</h1>
+
+
+@if (profiles == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>ProfilePhoto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var profile in profiles)
+            {
+                <tr>
+                    <td>@profile.UserID</td>
+                    <td>@profile.FirstName</td>
+                    <td>@profile.LastName</td>
+                    <td>@profile.ProfilePhoto</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <input />
+}
+
+@code {
+    private Profile[] profiles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            profiles = await Http.GetFromJsonAsync<Profile[]>("WeatherForecast");
+            //await Http.PostAsJsonAsync(); 
+            //<Profile>("Profile");
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+
+}

@@ -23,6 +23,7 @@ namespace Studio37Media.Shared
         [StringLength(150)]
         public string LastName { get; set; }
 
+        
         public DateTime DateOfBirth { get; set; }
 
         [Required]
