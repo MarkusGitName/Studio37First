@@ -5,7 +5,8 @@ namespace Studio37Media.Shared
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-  //  using System.Data.Entity.Spatial;
+
+    //  using System.Data.Entity.Spatial;
 
 
     public partial class Profile
@@ -42,7 +43,10 @@ namespace Studio37Media.Shared
         [Required]
         public string Bio { get; set; }
 
-        public int PhoneNumber { get; set; }
+
+        [Required]
+        [StringLength(13,MinimumLength =1)]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(50)]

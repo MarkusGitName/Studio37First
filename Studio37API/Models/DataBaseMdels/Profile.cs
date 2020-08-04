@@ -59,7 +59,10 @@ namespace Studio37API.Models.DataBaseMdels
         [Required]
         public string Bio { get; set; }
 
-        public int PhoneNumber { get; set; }
+
+        [Required]
+        [StringLength( 13 ,MinimumLength =10)]
+        public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(50)]
