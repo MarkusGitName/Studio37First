@@ -23,11 +23,11 @@ namespace Studio37API.Models.DataBaseMdels
 
         [Column("Category")]
         [Required]
-        [StringLength(450)]
+        [StringLength(150)]
         public string Category1 { get; set; }
 
         [Required]
-        [StringLength(450)]
+        [StringLength(150)]
         public string SubCategory { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

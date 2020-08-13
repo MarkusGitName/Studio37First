@@ -14,7 +14,9 @@ namespace Studio37API.Models.DataBaseMdels
         {
             LiveShowCattegories = new HashSet<LiveShowCattegory>();
             LiveShowComments = new HashSet<LiveShowComment>();
+            LiveShowSales = new HashSet<LiveShowSale>();
             LiveShowViews = new HashSet<LiveShowView>();
+            PostLiveShows = new HashSet<PostLiveShow>();
             Likes = new HashSet<Like>();
         }
 
@@ -33,6 +35,12 @@ namespace Studio37API.Models.DataBaseMdels
 
         public int PriceCredits { get; set; }
 
+        [Column(TypeName = "text")]
+        public string Description { get; set; }
+
+        [StringLength(50)]
+        public string Title { get; set; }
+
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -42,7 +50,13 @@ namespace Studio37API.Models.DataBaseMdels
         public virtual ICollection<LiveShowComment> LiveShowComments { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LiveShowSale> LiveShowSales { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveShowView> LiveShowViews { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostLiveShow> PostLiveShows { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }

@@ -12,7 +12,9 @@ namespace Studio37API.Models.DataBaseMdels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tutorial()
         {
+            PostTutorials = new HashSet<PostTutorial>();
             TutorialCattegories = new HashSet<TutorialCattegory>();
+            TutorialComments = new HashSet<TutorialComment>();
             TutorialPromoPhotoes = new HashSet<TutorialPromoPhoto>();
             TutorialPromoVideos = new HashSet<TutorialPromoVideo>();
             TutorialRatings = new HashSet<TutorialRating>();
@@ -41,7 +43,15 @@ namespace Studio37API.Models.DataBaseMdels
         public int PriceCredits { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostTutorial> PostTutorials { get; set; }
+
+        public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialCattegory> TutorialCattegories { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TutorialComment> TutorialComments { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialPromoPhoto> TutorialPromoPhotoes { get; set; }

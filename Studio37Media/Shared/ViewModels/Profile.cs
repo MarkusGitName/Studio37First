@@ -1,16 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Studio37Media.Shared
+namespace Studio37Media.Shared.ViewModels
 {
+
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    //  using System.Data.Entity.Spatial;
-
-
+    [Table("Profile")]
     public partial class Profile
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Profile()
+        {
+            ClassRatings = new HashSet<ClassRating>();
+            Comments = new HashSet<Comment>();
+            Events = new HashSet<Event>();
+            EventUsers = new HashSet<EventUser>();
+            Groups = new HashSet<Group>();
+            Likes = new HashSet<Like>();
+            LiveShowViews = new HashSet<LiveShowView>();
+            Messages = new HashSet<Message>();
+            Payments = new HashSet<Payment>();
+            Sales = new HashSet<Sale>();
+            TutorialRatings = new HashSet<TutorialRating>();
+            UserCattegories = new HashSet<UserCattegory>();
+            UserChats = new HashSet<UserChat>();
+            UserSocialMediaLinks = new HashSet<UserSocialMediaLink>();
+            Profile1 = new HashSet<Profile>();
+            Profiles = new HashSet<Profile>();
+            Groups1 = new HashSet<Group>();
+            Likes1 = new HashSet<Like>();
+        }
 
         [Key]
         [StringLength(450)]
@@ -24,7 +48,6 @@ namespace Studio37Media.Shared
         [StringLength(150)]
         public string LastName { get; set; }
 
-        
         public DateTime DateOfBirth { get; set; }
 
         [Required]
@@ -43,15 +66,68 @@ namespace Studio37Media.Shared
         [Required]
         public string Bio { get; set; }
 
-
         [Required]
-        [StringLength(13,MinimumLength =1)]
+        [StringLength(12)]
         public string PhoneNumber { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Website { get; set; }
 
-     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClassRating> ClassRatings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Event> Events { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EventUser> EventUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Group> Groups { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Like> Likes { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LiveShowView> LiveShowViews { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payment> Payments { get; set; }
+
+        public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sale> Sales { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TutorialRating> TutorialRatings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserCattegory> UserCattegories { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserChat> UserChats { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserSocialMediaLink> UserSocialMediaLinks { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profile> Profile1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Profile> Profiles { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Group> Groups1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Like> Likes1 { get; set; }
     }
 }

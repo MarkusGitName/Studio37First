@@ -15,11 +15,6 @@ namespace Studio37API.Models.DataBaseMdels
 
         public Guid SaleID { get; set; }
 
-        [Column(TypeName = "money")]
-        public decimal PriceRand { get; set; }
-
-        public int? PriceCredits { get; set; }
-
         public virtual ClassVideo ClassVideo { get; set; }
 
         public virtual Sale Sale { get; set; }

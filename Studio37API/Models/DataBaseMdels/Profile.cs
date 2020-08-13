@@ -13,11 +13,14 @@ namespace Studio37API.Models.DataBaseMdels
         public Profile()
         {
             ClassRatings = new HashSet<ClassRating>();
+            Comments = new HashSet<Comment>();
             Events = new HashSet<Event>();
             EventUsers = new HashSet<EventUser>();
             Groups = new HashSet<Group>();
+            Likes = new HashSet<Like>();
             LiveShowViews = new HashSet<LiveShowView>();
             Messages = new HashSet<Message>();
+            Payments = new HashSet<Payment>();
             Sales = new HashSet<Sale>();
             TutorialRatings = new HashSet<TutorialRating>();
             UserCattegories = new HashSet<UserCattegory>();
@@ -26,7 +29,7 @@ namespace Studio37API.Models.DataBaseMdels
             Profile1 = new HashSet<Profile>();
             Profiles = new HashSet<Profile>();
             Groups1 = new HashSet<Group>();
-            Likes = new HashSet<Like>();
+            Likes1 = new HashSet<Like>();
         }
 
         [Key]
@@ -59,9 +62,8 @@ namespace Studio37API.Models.DataBaseMdels
         [Required]
         public string Bio { get; set; }
 
-
         [Required]
-        [StringLength( 13 ,MinimumLength =10)]
+        [StringLength(12)]
         public string PhoneNumber { get; set; }
 
         [Required]
@@ -70,6 +72,9 @@ namespace Studio37API.Models.DataBaseMdels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassRating> ClassRatings { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Event> Events { get; set; }
@@ -81,10 +86,16 @@ namespace Studio37API.Models.DataBaseMdels
         public virtual ICollection<Group> Groups { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Like> Likes { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveShowView> LiveShowViews { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Message> Messages { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payment> Payments { get; set; }
 
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
@@ -113,6 +124,6 @@ namespace Studio37API.Models.DataBaseMdels
         public virtual ICollection<Group> Groups1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<Like> Likes1 { get; set; }
     }
 }

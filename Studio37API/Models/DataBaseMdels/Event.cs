@@ -13,6 +13,7 @@ namespace Studio37API.Models.DataBaseMdels
         {
             EventGroups = new HashSet<EventGroup>();
             EventUsers = new HashSet<EventUser>();
+            PostEvents = new HashSet<PostEvent>();
         }
 
         public Guid id { get; set; }
@@ -42,5 +43,8 @@ namespace Studio37API.Models.DataBaseMdels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventUser> EventUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostEvent> PostEvents { get; set; }
     }
 }

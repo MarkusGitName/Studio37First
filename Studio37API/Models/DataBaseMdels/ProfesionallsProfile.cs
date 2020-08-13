@@ -16,6 +16,7 @@ namespace Studio37API.Models.DataBaseMdels
             ProfesionalsDocuments = new HashSet<ProfesionalsDocument>();
             Sales = new HashSet<Sale>();
             Stickers = new HashSet<Sticker>();
+            Tutorials = new HashSet<Tutorial>();
         }
 
         [Key]
@@ -49,5 +50,8 @@ namespace Studio37API.Models.DataBaseMdels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sticker> Stickers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tutorial> Tutorials { get; set; }
     }
 }

@@ -18,6 +18,9 @@ namespace Studio37API.Models.DataBaseMdels
         [StringLength(450)]
         public string Link { get; set; }
 
+        [StringLength(100)]
+        public string Title { get; set; }
+
         public virtual Profile Profile { get; set; }
     }
 }

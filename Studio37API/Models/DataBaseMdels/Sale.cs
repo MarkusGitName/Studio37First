@@ -13,6 +13,7 @@ namespace Studio37API.Models.DataBaseMdels
         public Sale()
         {
             ClassVideoSales = new HashSet<ClassVideoSale>();
+            LiveShowSales = new HashSet<LiveShowSale>();
             TutorialSales = new HashSet<TutorialSale>();
         }
 
@@ -31,8 +32,14 @@ namespace Studio37API.Models.DataBaseMdels
 
         public int Credits { get; set; }
 
+        [Column(TypeName = "date")]
+        public DateTime Date { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassVideoSale> ClassVideoSales { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LiveShowSale> LiveShowSales { get; set; }
 
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 

@@ -12,37 +12,23 @@
 
 @try
 {
-
     <InputFile OnChange="HandleSelection" />
-
-
-
 
 }
 catch
 {
 }
 
-
-
 <p>@status</p>
 
-
-
 @if (!string.IsNullOrEmpty(imageDataURL))
-
 {
-
     <img src="@imageDataURL" style="height:300px;width:300px" />
-
 }
 
 else if (!string.IsNullOrEmpty(fileTextContents))
-
 {
-
     <pre>@fileTextContents</pre>
-
 }
 
 
@@ -50,35 +36,22 @@ else if (!string.IsNullOrEmpty(fileTextContents))
 @code {
 
     string status;
-
     string imageDataURL = "";
-
     string fileTextContents = "";
-
     IFileListEntry[] file;
 
-
-
     async Task HandleSelection(IFileListEntry[] files)
-
     {
-
         imageDataURL = "";
-
         fileTextContents = "";
-
         var file = files.FirstOrDefault();
 
         if (file != null)
-
         {
-
             //check to see if the file is an image or a text file
-
             var fileType = GetFileType(file.Name);
 
             if (fileType == "image")
-
             {
 
                 var ms = new MemoryStream();
