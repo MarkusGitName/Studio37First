@@ -29,7 +29,7 @@ namespace Studio37Media.Server.Controllers
             {
                 foreach (var file in HttpContext.Request.Form.Files)
                 {
-                    var path = Path.Combine(environment.ContentRootPath, "uploadss", file.FileName);
+                    var path = Path.Combine(environment.ContentRootPath, "uploads", file.FileName);
                     using (var stream = new FileStream(path, FileMode.Create))
                     {
                         await file.CopyToAsync(stream);
