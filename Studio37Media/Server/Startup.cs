@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Studio37Media.Server.Data;
 using Studio37Media.Server.Models;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace Studio37Media.Server
 {
@@ -79,6 +81,15 @@ namespace Studio37Media.Server
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
+            });
+
+            app.UseStaticFiles();
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+               Path.Combine(Directory.GetCurrentDirectory(), "uploads")),
+                RequestPath = "/uploads"
             });
         }
     }

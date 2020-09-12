@@ -1,13 +1,11 @@
-@page "/fetchdata"
+﻿@page "/profile"
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-@using Studio37Media.Shared
+@using Studio37Media.Shared.ViewModels
 @attribute [Authorize]
 @inject HttpClient Http
+<h1>Index</h1>
 
-<h1>Weather forecast</h1>
-
-<p>This component demonstrates fetching data from the server.</p>
 
 @if (profiles == null)
 {
@@ -36,6 +34,7 @@ else
             }
         </tbody>
     </table>
+    <input />
 }
 
 @code {
@@ -46,6 +45,8 @@ else
         try
         {
             profiles = await Http.GetFromJsonAsync<Profile[]>("WeatherForecast");
+            //await Http.PostAsJsonAsync(); 
+            //<Profile>("Profile");
         }
         catch (AccessTokenNotAvailableException exception)
         {

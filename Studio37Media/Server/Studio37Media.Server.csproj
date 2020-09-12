@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <Folder Include="DataAccess\" />
-    <Folder Include="uploads\" />
+    <Folder Include="uploads\ProfilePhotos\" />
   </ItemGroup>
 
 </Project>
