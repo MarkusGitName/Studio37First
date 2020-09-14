@@ -1,8 +1,46 @@
 ﻿@page "/"
-@using Studio37Media.Client
 
-<h1>Hello, world!</h1>
 
-Welcome to your new app.
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@inject HttpClient Http
+
+
+<div>
+</div>
+
+
+@if (posts == null)
+{
+
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (Post post in posts)
+    {
+
+    }
+}
+
+
+@code{
+    List<Post> posts = new List<Post>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+          //  posts = await Http.GetFromJsonAsync<List<Post>>("Post");
+
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}
+

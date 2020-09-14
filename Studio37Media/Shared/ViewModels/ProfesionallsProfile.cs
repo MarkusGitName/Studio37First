@@ -22,7 +22,6 @@ namespace Studio37Media.Shared.ViewModels
             Tutorials = new HashSet<Tutorial>();
         }
 
-        [Key]
         [StringLength(450)]
         public string UserID { get; set; }
 

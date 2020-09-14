@@ -1,0 +1,182 @@
+﻿@page "/Tutorial/CreateTutorial"
+
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+
+@attribute [Authorize]
+@inject HttpClient client
+@inject HttpClient Http
+<h1>Create Profile</h1>
+<hr />
+
+@try
+{
+    <EditForm Model="@newTutorial" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group row">
+            <label for="FirstName" class="col-sm-1 col-form-label">Tutorial Title</label>
+            <div class="col-sm-5">
+                <InputText id="FirstName" class="form-control" placeholder="First Name"
+                           @bind-Value="newTutorial.Title" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="LastName" class="col-sm-1 col-form-label">Describsion </label>
+            <div class="col-sm-5">
+                <InputTextArea id="LastName" class="form-control" placeholder="Last Name"
+                               @bind-Value="newTutorial.Desctription" />
+            </div>
+        </div>
+        <div class="form-group  row">
+            <label for="DateOfBirth" class="col-sm-1 col-form-label">Price in credits</label>
+            <div class="col-sm-5">
+                <InputNumber id="DateOfBirth" class="form-control"
+                             min=0
+                             @bind-Value="newTutorial.PriceCredits" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group row">
+            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Promo Videos</label>
+            <div class="col-sm-5">
+                <InputFile OnChange="PromoVideoSelection" />
+            </div>
+            @foreach (string filestat in ListOfPromoVideosStat)
+            {
+                <p>@filestat</p>
+            }
+        </div>
+
+
+
+
+        <div class="form-group row">
+            <label for="WallPhoto" class="col-sm-1 col-form-label">Promo Photos</label>
+            <div class="col-sm-5">
+
+                <InputFile OnChange="PromoPhotoSellection" />
+            </div>
+            @foreach (string filestat in ListOfPromoPhotosStats)
+            {
+                <p>@filestat</p>
+            }
+        </div>
+
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+    </EditForm>
+
+    @code {
+        IFileListEntry[] ProfilePhoto;
+        IFileListEntry[] WallPhoto;
+
+        List<string> ListOfPromoVideosStat = new List<string>();
+        List<string> ListOfPromoPhotosStats = new List<string>();
+
+        string PromoVideoStats;
+        string PromoPhotoStats;
+
+        Tutorial newTutorial = new Tutorial();
+
+        MultipartFormDataContent TutorialPromoVideoContent = new MultipartFormDataContent();
+        MultipartFormDataContent TutorialPromoPhotoContent = new MultipartFormDataContent();
+
+ 
+
+        protected override async Task OnInitializedAsync()
+        {
+            newTutorial.id = Guid.NewGuid();
+        }
+
+        async void HandleFormSubmit()
+        {
+            await Http.PostAsJsonAsync<Tutorial>("Tutorial", newTutorial);
+
+        }
+
+
+        async Task PromoVideoSelection(IFileListEntry[] files)
+        {
+            var file = files.FirstOrDefault();
+            if (file != null)
+            {
+                // Just load into .NET memory to show it can be done
+                // Alternatively it could be saved to disk, or parsed in memory, or similar
+                var ms = new MemoryStream();
+                await file.Data.CopyToAsync(ms);
+
+                PromoVideoStats = $"Finished loading {file.Size} bytes from {file.Name}";
+                ListOfPromoVideosStat.Add(PromoVideoStats);
+
+                TutorialPromoVideoContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/TutorialPromoVideo", file.Name }
+                };
+                
+
+                TutorialPromoVideo promoVid = new TutorialPromoVideo();
+                promoVid.PromoVideo.VideoPath = "/uploads/TutorialPromoVideo/" + file.Name;
+                promoVid.PromoVideo.id =Guid.NewGuid();
+                promoVid.id = Guid.NewGuid();
+
+                newTutorial.TutorialPromoVideos.Add(promoVid);
+                await client.PostAsync("FileUpload", TutorialPromoVideoContent);
+
+
+            }
+
+        }
+
+        async Task PromoPhotoSellection(IFileListEntry[] files)
+        {
+            var file = files.FirstOrDefault();
+            PromoPhotoStats = $"Finished loading {file.Size} bytes from {file.Name}";
+            ListOfPromoPhotosStats.Add(PromoPhotoStats);
+
+            if (file != null)
+            {
+                // Just load into .NET memory to show it can be done
+                // Alternatively it could be saved to disk, or parsed in memory, or similar
+                var ms = new MemoryStream();
+                await file.Data.CopyToAsync(ms);
+
+                TutorialPromoPhotoContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/TutorialPromoPhoto", file.Name }
+                };
+
+                await client.PostAsync("FileUpload", TutorialPromoPhotoContent);
+
+                TutorialPromoPhoto promoPhoto = new TutorialPromoPhoto();
+                promoPhoto.PromoPhoto.PhotoPath = "/uploads/TutorialPromoPhoto/" + file.Name;
+                promoPhoto.PromoPhoto.id = Guid.NewGuid();
+                promoPhoto.id =Guid.NewGuid();
+
+
+                newTutorial.TutorialPromoPhotoes.Add(promoPhoto);
+                
+                await client.PostAsync("FileUpload", TutorialPromoPhotoContent);
+            }
+
+        }
+
+
+
+    }
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.ToString());
+    <label for="firstName">@e.ToString() </label>
+}

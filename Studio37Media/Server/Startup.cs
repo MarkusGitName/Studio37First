@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using Studio37Media.Server.Data;
 using Studio37Media.Server.Models;
+
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 
@@ -46,8 +47,6 @@ namespace Studio37Media.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,6 +82,8 @@ namespace Studio37Media.Server
                 endpoints.MapFallbackToFile("index.html");
             });
 
+            // using Microsoft.Extensions.FileProviders;
+            // using System.IO;
             app.UseStaticFiles();
 
             app.UseStaticFiles(new StaticFileOptions
@@ -91,6 +92,7 @@ namespace Studio37Media.Server
                Path.Combine(Directory.GetCurrentDirectory(), "uploads")),
                 RequestPath = "/uploads"
             });
+
         }
     }
 }

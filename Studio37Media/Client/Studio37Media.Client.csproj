@@ -40,9 +40,6 @@
     <Folder Include="Components\PhootoComponents\" />
     <Folder Include="Components\PaymentComponents\" />
     <Folder Include="Components\PostComponents\" />
-    <Folder Include="Components\TutorialComponents\" />
-    <Folder Include="Components\ProfesionalProfileComponents\" />
-    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
 </Project>

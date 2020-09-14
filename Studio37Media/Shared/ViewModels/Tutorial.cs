@@ -18,8 +18,8 @@ namespace Studio37Media.Shared.ViewModels
             PostTutorials = new HashSet<PostTutorial>();
             TutorialCattegories = new HashSet<TutorialCattegory>();
             TutorialComments = new HashSet<TutorialComment>();
-            TutorialPromoPhotoes = new HashSet<TutorialPromoPhoto>();
-            TutorialPromoVideos = new HashSet<TutorialPromoVideo>();
+            TutorialPromoPhotoes = new List<TutorialPromoPhoto>();
+            TutorialPromoVideos = new List<TutorialPromoVideo>();
             TutorialRatings = new HashSet<TutorialRating>();
             TutorialSales = new HashSet<TutorialSale>();
         }
@@ -37,7 +37,6 @@ namespace Studio37Media.Shared.ViewModels
         [Column(TypeName = "money")]
         public decimal PriceRand { get; set; }
 
-        [Required]
         [StringLength(450)]
         public string ProfesionalID { get; set; }
 
@@ -56,11 +55,9 @@ namespace Studio37Media.Shared.ViewModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialComment> TutorialComments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialPromoPhoto> TutorialPromoPhotoes { get; set; }
+        public virtual List<TutorialPromoPhoto> TutorialPromoPhotoes { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialPromoVideo> TutorialPromoVideos { get; set; }
+        public virtual List<TutorialPromoVideo> TutorialPromoVideos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialRating> TutorialRatings { get; set; }

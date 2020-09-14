@@ -15,10 +15,7 @@ namespace Studio37Media.Shared
 
         public static T APIGetALL<T>(string APIAddress)
         {
-            //  try
-            //     {
-            // TODO: Add insert logic here
-
+        
             object model = new object();
             string ResponseString = "";
             HttpWebResponse response = null;
@@ -29,11 +26,6 @@ namespace Studio37Media.Shared
                 request.Accept = "application/json"; //"application/xml"; 
                 request.Method = "GET";
 
-                // JavaScriptSerializer jss = new JavaScriptSerializer();
-
-
-
-                //  jss.MaxJsonLength = 10 * 8096 * 8096;
                 response = (HttpWebResponse)request.GetResponse();
 
                 ResponseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
