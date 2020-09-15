@@ -23,7 +23,7 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-      public virtual ICollection<PostPhoto> PostPhotos { get; set; }
+        public virtual ICollection<PostPhoto> PostPhotos { get; set; }
 
         public virtual ICollection<Like> Likes { get; set; }
     }

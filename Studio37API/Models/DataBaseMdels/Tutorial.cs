@@ -1,5 +1,6 @@
 namespace Studio37API.Models.DataBaseMdels
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -45,6 +46,7 @@ namespace Studio37API.Models.DataBaseMdels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostTutorial> PostTutorials { get; set; }
 
+        [JsonIgnore]
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -24,6 +24,6 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(100)]
         public string Title { get; set; }
 
-        public virtual Profile Profile { get; set; }
+   //     public virtual Profile Profile { get; set; }
     }
 }

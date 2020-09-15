@@ -40,7 +40,7 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual ICollection<CommentComment> CommentComments1 { get; set; }
 
-        public virtual Profile Profile { get; set; }
+       // public virtual Profile Profile { get; set; }
 
         public virtual ICollection<LiveShowComment> LiveShowComments { get; set; }
 

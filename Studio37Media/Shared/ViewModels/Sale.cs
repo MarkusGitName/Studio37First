@@ -42,7 +42,7 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual Profile Profile { get; set; }
+     //   public virtual Profile Profile { get; set; }
 
         public virtual ICollection<TutorialSale> TutorialSales { get; set; }
     }

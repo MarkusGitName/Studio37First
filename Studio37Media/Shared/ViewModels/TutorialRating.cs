@@ -21,7 +21,7 @@ namespace Studio37Media.Shared.ViewModels
 
         public int Rating { get; set; }
 
-        public virtual Profile Profile { get; set; }
+     //   public virtual Profile Profile { get; set; }
 
         public virtual Tutorial Tutorial { get; set; }
     }

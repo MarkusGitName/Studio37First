@@ -30,7 +30,7 @@ namespace Studio37Media.Shared.ViewModels
 
         public DateTime date { get; set; }
 
-        public virtual Profile Profile { get; set; }
+      //  public virtual Profile Profile { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
 

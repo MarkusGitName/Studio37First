@@ -40,7 +40,7 @@ namespace Studio37Media.Shared.ViewModels
 
          public virtual ICollection<EventGroup> EventGroups { get; set; }
 
-        public virtual Profile Profile { get; set; }
+       // public virtual Profile Profile { get; set; }
 
          public virtual ICollection<EventUser> EventUsers { get; set; }
 

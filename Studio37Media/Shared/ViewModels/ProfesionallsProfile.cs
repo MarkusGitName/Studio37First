@@ -39,7 +39,7 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual ICollection<LiveShow> LiveShows { get; set; }
 
-        public virtual Profile Profile { get; set; }
+      //  public virtual Profile Profile { get; set; }
 
         public virtual ICollection<ProfesionalsDocument> ProfesionalsDocuments { get; set; }
 

@@ -39,7 +39,7 @@ namespace Studio37Media.Shared.ViewModels
 
          public virtual ICollection<GoupMediaLink> GoupMediaLinks { get; set; }
 
-        public virtual Profile Profile { get; set; }
+      //  public virtual Profile Profile { get; set; }
 
         public virtual ICollection<Profile> Profiles { get; set; }
     }

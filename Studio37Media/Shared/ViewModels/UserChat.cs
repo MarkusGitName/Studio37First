@@ -21,6 +21,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual Chat Chat { get; set; }
 
-        public virtual Profile Profile { get; set; }
+    //    public virtual Profile Profile { get; set; }
     }
 }

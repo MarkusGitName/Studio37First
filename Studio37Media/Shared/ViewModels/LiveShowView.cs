@@ -26,6 +26,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual LiveShow LiveShow { get; set; }
 
-        public virtual Profile Profile { get; set; }
+      //  public virtual Profile Profile { get; set; }
     }
 }
