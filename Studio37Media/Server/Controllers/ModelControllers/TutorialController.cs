@@ -43,7 +43,7 @@ namespace Studio37Media.Server.Controllers.FileController
         public void Post(Tutorial Model)
         {
             Model.ProfesionalID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Tutorial ReturnTutorial = APILibrary.APIPost<Tutorial>(Model, "Tutorials");
+            APILibrary.APIPost<Tutorial>(Model, "tutorials");
             
         }
         [HttpPut("{id}")]
