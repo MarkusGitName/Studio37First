@@ -9,7 +9,6 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("UserChat")]
     public partial class UserChat
     {
         public Guid id { get; set; }

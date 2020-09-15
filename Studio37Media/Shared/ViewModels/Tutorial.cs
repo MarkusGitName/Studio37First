@@ -12,7 +12,6 @@ namespace Studio37Media.Shared.ViewModels
     [Table("Tutorial")]
     public partial class Tutorial
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tutorial()
         {
             PostTutorials = new HashSet<PostTutorial>();
@@ -44,25 +43,20 @@ namespace Studio37Media.Shared.ViewModels
 
         public int PriceCredits { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostTutorial> PostTutorials { get; set; }
 
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialCattegory> TutorialCattegories { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialComment> TutorialComments { get; set; }
+       public virtual ICollection<TutorialComment> TutorialComments { get; set; }
 
         public virtual List<TutorialPromoPhoto> TutorialPromoPhotoes { get; set; }
 
         public virtual List<TutorialPromoVideo> TutorialPromoVideos { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialRating> TutorialRatings { get; set; }
+         public virtual ICollection<TutorialRating> TutorialRatings { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialSale> TutorialSales { get; set; }
+       public virtual ICollection<TutorialSale> TutorialSales { get; set; }
     }
 }

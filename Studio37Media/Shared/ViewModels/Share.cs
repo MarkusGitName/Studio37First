@@ -12,7 +12,6 @@ namespace Studio37Media.Shared.ViewModels
     [Table("Share")]
     public partial class Share
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Share()
         {
             Likes = new HashSet<Like>();
@@ -34,7 +33,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual Post Post { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Like> Likes { get; set; }
+       public virtual ICollection<Like> Likes { get; set; }
     }
 }

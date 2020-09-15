@@ -11,7 +11,6 @@ namespace Studio37Media.Shared.ViewModels
 
     public partial class Sticker
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sticker()
         {
             StickerCattegories = new HashSet<StickerCattegory>();
@@ -27,7 +26,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StickerCattegory> StickerCattegories { get; set; }
     }
 }

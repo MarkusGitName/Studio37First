@@ -11,8 +11,7 @@ namespace Studio37Media.Shared.ViewModels
 
     public partial class Video
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Video()
+       public Video()
         {
             PostVideos = new HashSet<PostVideo>();
         }
@@ -23,7 +22,6 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostVideo> PostVideos { get; set; }
+       public virtual ICollection<PostVideo> PostVideos { get; set; }
     }
 }

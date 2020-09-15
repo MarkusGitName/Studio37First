@@ -12,7 +12,6 @@ namespace Studio37Media.Shared.ViewModels
 
     public partial class Group
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Group()
         {
             EventGroups = new HashSet<EventGroup>();
@@ -36,15 +35,12 @@ namespace Studio37Media.Shared.ViewModels
 
         public DateTime DateCreated { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EventGroup> EventGroups { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GoupMediaLink> GoupMediaLinks { get; set; }
+         public virtual ICollection<GoupMediaLink> GoupMediaLinks { get; set; }
 
         public virtual Profile Profile { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Profile> Profiles { get; set; }
     }
 }

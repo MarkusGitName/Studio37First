@@ -11,8 +11,7 @@ namespace Studio37Media.Shared.ViewModels
 
     public partial class Photo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Photo()
+         public Photo()
         {
             PostPhotos = new HashSet<PostPhoto>();
             Likes = new HashSet<Like>();
@@ -24,10 +23,8 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostPhoto> PostPhotos { get; set; }
+      public virtual ICollection<PostPhoto> PostPhotos { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Like> Likes { get; set; }
     }
 }

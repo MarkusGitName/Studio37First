@@ -9,8 +9,7 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("TutorialComment")]
-    public partial class TutorialComment
+   public partial class TutorialComment
     {
         public Guid id { get; set; }
 
