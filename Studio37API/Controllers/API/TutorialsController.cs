@@ -18,9 +18,10 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Tutorials
-        public IQueryable<Tutorial> GetTutorials()
+        public List<Tutorial> GetTutorials()
         {
-            return db.Tutorials;
+            List<Tutorial> tutorials = new List<Tutorial>(db.Tutorials);
+            return tutorials;
         }
 
         // GET: api/Tutorials/5
