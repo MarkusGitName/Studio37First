@@ -350,6 +350,8 @@
     <Compile Include="Models\ViewModels\ChatViewModel.cs" />
     <Compile Include="Models\ViewModels\ClassRatingViewModel.cs" />
     <Compile Include="Models\ViewModels\ClassVideoCattegoryViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClassVideoCommentViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClassVideoSaleViewModel.cs" />
     <Compile Include="Models\ViewModels\ClassVideoViewModel.cs" />
     <Compile Include="Models\ViewModels\TutorialViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
