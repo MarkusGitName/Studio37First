@@ -6,7 +6,6 @@ namespace Studio37API.Models.DataBaseMdels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Chat")]
     public partial class ChatViewModel
     {
          public ChatViewModel(Chat incomingChat)
