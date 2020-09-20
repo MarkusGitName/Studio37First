@@ -24,14 +24,14 @@ namespace Studio37Media.Server.Controllers.FileController
             this.logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("{apiname}", Name = "GetTutorials")]
         public IEnumerable<Tutorial> Get()
         {
 
             IEnumerable<Tutorial> tutorials = APILibrary.APIGetALL<IEnumerable<Tutorial>>("Tutorials");
             return tutorials;
         }
-        [HttpGet("{id}")]
+        [HttpGet("{apiname}/{id}", Name = "GetTutorialsById")]
         public Tutorial Get(string id)
         {
 
@@ -39,21 +39,21 @@ namespace Studio37Media.Server.Controllers.FileController
             return tutorial;
         }
 
-        [HttpPost]
+        [HttpPost("{apiname}", Name = "PostTutorial")]
         public void Post(Tutorial Model)
         {
             Model.ProfesionalID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             APILibrary.APIPost<Tutorial>(Model, "tutorials");
             
         }
-        [HttpPut("{id}")]
+        [HttpPut("{apiname}/{id}", Name = "PutTutorial")]
         public Tutorial Edit(Tutorial Model, string id)
         {
             Model.ProfesionalID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Tutorial ReturnTutorial = APILibrary.APIPut<Tutorial>(Model, id, "Tutorials");
             return ReturnTutorial;
         }
-        [HttpPut("{id}")]
+        [HttpPut("{apiname}/{id}", Name = "DeleteTutorial")]
         public Tutorial Delete(Tutorial Model, string id)
         {
             Model.ProfesionalID = User.FindFirstValue(ClaimTypes.NameIdentifier);

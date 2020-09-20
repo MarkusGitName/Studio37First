@@ -24,14 +24,13 @@ namespace Studio37Media.Server.Controllers.FileController
             this.logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("{apiname}", Name = "GetProfiles")]
         public IEnumerable<Profile> Get()
         {
-
             IEnumerable<Profile> profiles = APILibrary.APIGetALL<IEnumerable<Profile>>("Profiles");
             return profiles;
         }
-        [HttpGet("{id}")]
+        [HttpGet("{apiname}/{id}", Name = "GetProfileById")]
         public Profile Get(string id)
         {
 
@@ -39,21 +38,21 @@ namespace Studio37Media.Server.Controllers.FileController
             return profiles;
         }
 
-        [HttpPost]
+        [HttpPost("{apiname}", Name = "PostProfile")]
         public Profile Post(Profile Model)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Profile ReturnProfile = APILibrary.APIPost<Profile>(Model, "Profiles");
             return ReturnProfile;
         }
-        [HttpPut("{id}")]
+        [HttpPut("{apiname}/{id}", Name = "PutProfile")]
         public Profile Edit(Profile Model, string id)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Profile ReturnProfile = APILibrary.APIPut<Profile>(Model,id, "Profiles");
             return ReturnProfile;
         }
-        [HttpPut("{id}")]
+        [HttpPut("{apiname}/{id}", Name = "DeleteProfile")]
         public Profile Delete(Profile Model, string id)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);

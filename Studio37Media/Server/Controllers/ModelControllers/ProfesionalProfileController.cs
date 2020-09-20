@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Studio37Media.Shared;
 using Studio37Media.Shared.ViewModels;
 
@@ -14,8 +15,15 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     [ApiController]
     public class ProfesionalProfileController : ControllerBase
     {
+        private readonly ILogger<ProfesionalProfileController> logger;
+
+        public ProfesionalProfileController(ILogger<ProfesionalProfileController> logger)
+        {
+            this.logger = logger;
+        }
+
         // GET: api/Profesional
-        [HttpGet]
+        [HttpGet("{apiname}", Name = "GetProfesionals")]
         public IEnumerable<ProfesionallsProfile> Get()
         {
             IEnumerable<ProfesionallsProfile> profiles = APILibrary.APIGetALL<IEnumerable<ProfesionallsProfile>>("ProfesionallsProfiles");
@@ -23,7 +31,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // GET: api/Profesional/5
-        [HttpGet("{id}")]
+        [HttpGet("{apiname}/{id}", Name = "GetProfesionalById")]
         public ProfesionallsProfile Get(string id)
         {
             //Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -32,7 +40,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // POST: api/Profesional
-        [HttpPost]
+        [HttpPost("{apiname}", Name = "PostProfesional")]
         public void Post(ProfesionallsProfile Model)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -41,7 +49,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // PUT: api/Profesional/5
-        [HttpPut("{id}")]
+        [HttpPut("{apiname}/{id}", Name = "PutProfesional")]
         public void Put(string id, ProfesionallsProfile Model)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -50,7 +58,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{apiname}/{id}", Name = "DeleteProfesional")]
         public void Delete()
         {
 
