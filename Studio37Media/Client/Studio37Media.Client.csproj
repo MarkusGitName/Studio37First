@@ -43,10 +43,10 @@
     <Folder Include="Components\LiveShowComponents\" />
     <Folder Include="Components\MessageComponents\" />
     <Folder Include="Components\CommentComponent\" />
+    <Folder Include="Components\PostComponents\" />
     <Folder Include="Components\VideoComponents\" />
     <Folder Include="Components\PhootoComponents\" />
     <Folder Include="Components\PaymentComponents\" />
-    <Folder Include="Components\PostComponents\" />
   </ItemGroup>
 
 </Project>
