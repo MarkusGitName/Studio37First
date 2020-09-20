@@ -11,7 +11,6 @@ namespace Studio37Media.Shared.ViewModels
 
     public partial class Event
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Event()
         {
             EventGroups = new HashSet<EventGroup>();
@@ -39,15 +38,12 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(450)]
         public string EventThumbnail { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EventGroup> EventGroups { get; set; }
+         public virtual ICollection<EventGroup> EventGroups { get; set; }
 
-        public virtual Profile Profile { get; set; }
+       // public virtual Profile Profile { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EventUser> EventUsers { get; set; }
+         public virtual ICollection<EventUser> EventUsers { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostEvent> PostEvents { get; set; }
     }
 }

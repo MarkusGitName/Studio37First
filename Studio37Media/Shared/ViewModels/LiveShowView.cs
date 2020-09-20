@@ -10,7 +10,6 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("LiveShowView")]
     public partial class LiveShowView
     {
         public Guid id { get; set; }
@@ -27,6 +26,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual LiveShow LiveShow { get; set; }
 
-        public virtual Profile Profile { get; set; }
+      //  public virtual Profile Profile { get; set; }
     }
 }

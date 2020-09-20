@@ -31,7 +31,11 @@
 
   <ItemGroup>
     <Folder Include="DataAccess\" />
-    <Folder Include="uploads\" />
+    <Folder Include="uploads\Logos\" />
+    <Folder Include="uploads\TutorialPromoPhoto\" />
+    <Folder Include="uploads\TutorialPromoVideo\" />
+    <Folder Include="uploads\WallPhotos\" />
+    <Folder Include="uploads\ProfilePhotos\" />
   </ItemGroup>
 
 </Project>

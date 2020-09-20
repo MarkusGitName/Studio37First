@@ -1,0 +1,103 @@
+﻿@page "/ProfesionalProfileComponents/CreateProfProfile"
+
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+@inject HttpClient Client
+<h1>Create Profile</h1>
+<hr />
+
+
+<EditForm Model="@newProfesionalprofile" OnValidSubmit="@HandleFormSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group row">
+        <label for="FirstName" class="col-sm-1 col-form-label">Years of Experience</label>
+        <div class="col-sm-5">
+            <InputNumber id="FirstName" class="form-control" placeholder="First Name"
+                         @bind-Value="newProfesionalprofile.YearsExperience" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="LastName" class="col-sm-1 col-form-label">Profile Description</label>
+        <div class="col-sm-5">
+            <InputTextArea id="LastName" class="form-control" placeholder="Last Name"
+                           @bind-Value="newProfesionalprofile.Description" />
+        </div>
+    </div>
+    <div class="form-group  row">
+        <label for="DateOfBirth" class="col-sm-1 col-form-label">Profesional Email</label>
+        <div class="col-sm-5">
+            <InputText id="DateOfBirth" class="form-control"
+                       min="1950-01-01"
+                       @bind-Value="newProfesionalprofile.ProfesionalEmail" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="WallPhoto" class="col-sm-1 col-form-label">Upload youre Logo</label>
+        <div class="col-sm-5">
+
+            <InputFile OnChange="LogoSellection" />
+        </div>
+        <p>@LogoUploadStatus</p>
+    </div>
+
+
+
+    <button class="class=" btn btn-primary"" type="submit">Submit</button>
+</EditForm>
+
+@code {
+
+    ProfesionallsProfile newProfesionalprofile = new ProfesionallsProfile();
+    string LogoUploadStatus;
+
+
+    MultipartFormDataContent LogoContex = new MultipartFormDataContent();
+
+    async void HandleFormSubmit()
+    {
+        await Http.PostAsync("FileUpload", LogoContex);
+        await Http.PostAsJsonAsync<ProfesionallsProfile>("ProfesionalProfile", newProfesionalprofile);
+  
+
+
+    }
+    async Task LogoSellection(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        LogoUploadStatus = $"Finished loading {file.Size} bytes from {file.Name}";
+
+        if (file != null)
+        {
+            // Just load into .NET memory to show it can be done
+            // Alternatively it could be saved to disk, or parsed in memory, or similar
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+
+            LogoContex = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/Logos", file.Name }
+                };
+
+            newProfesionalprofile.Logo = "/uploads/Logos/" + file.Name;
+        }
+
+    }
+
+}
+
+
+

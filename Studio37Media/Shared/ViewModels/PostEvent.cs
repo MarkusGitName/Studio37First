@@ -9,8 +9,7 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("PostEvent")]
-    public partial class PostEvent
+   public partial class PostEvent
     {
         public Guid id { get; set; }
 

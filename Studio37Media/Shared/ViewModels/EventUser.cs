@@ -21,6 +21,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual Event Event { get; set; }
 
-        public virtual Profile Profile { get; set; }
+       // public virtual Profile Profile { get; set; }
     }
 }

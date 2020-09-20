@@ -1,0 +1,46 @@
+﻿@page "/"
+
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+@inject HttpClient Http
+
+
+<div>
+</div>
+
+
+@if (posts == null)
+{
+
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (Post post in posts)
+    {
+
+    }
+}
+
+
+@code{
+    List<Post> posts = new List<Post>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+          //  posts = await Http.GetFromJsonAsync<List<Post>>("Post");
+
+        }
+        catch (AccessTokenNotAvailableException exception)
+        {
+            exception.Redirect();
+        }
+    }
+}
+

@@ -11,27 +11,27 @@ using System.Threading.Tasks;
 
 namespace Studio37Media.Server.Controllers.FileController
 {
-        [Authorize]
-        [ApiController]
-        [Route("[controller]")]
-        public class ProfileController : ControllerBase
+    [Authorize]
+    [ApiController]
+    [Route("[controller]")]
+    public class ProfileController : ControllerBase
+    {
+
+        private readonly ILogger<ProfileController> logger;
+
+        public ProfileController(ILogger<ProfileController> logger)
+        {
+            this.logger = logger;
+        }
+
+        [HttpGet]
+        public IEnumerable<Profile> Get()
         {
 
-            private readonly ILogger<ProfileController> logger;
-
-            public ProfileController(ILogger<ProfileController> logger)
-            {
-                this.logger = logger;
-            }
-
-            [HttpGet]
-            public IEnumerable<Profile> Get()
-            {
-
-                IEnumerable<Profile> profiles = APILibrary.APIGetALL<IEnumerable<Profile>>("Profiles");
-                return profiles;
-            }
-        [HttpGet]
+            IEnumerable<Profile> profiles = APILibrary.APIGetALL<IEnumerable<Profile>>("Profiles");
+            return profiles;
+        }
+        [HttpGet("{id}")]
         public Profile Get(string id)
         {
 
@@ -46,14 +46,14 @@ namespace Studio37Media.Server.Controllers.FileController
             Profile ReturnProfile = APILibrary.APIPost<Profile>(Model, "Profiles");
             return ReturnProfile;
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public Profile Edit(Profile Model, string id)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Profile ReturnProfile = APILibrary.APIPut<Profile>(Model,id, "Profiles");
             return ReturnProfile;
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public Profile Delete(Profile Model, string id)
         {
             Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);

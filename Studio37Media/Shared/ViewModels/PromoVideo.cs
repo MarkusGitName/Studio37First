@@ -11,7 +11,6 @@ namespace Studio37Media.Shared.ViewModels
 
     public partial class PromoVideo
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PromoVideo()
         {
             TutorialPromoVideos = new HashSet<TutorialPromoVideo>();
@@ -23,7 +22,6 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(450)]
         public string VideoPath { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialPromoVideo> TutorialPromoVideos { get; set; }
     }
 }

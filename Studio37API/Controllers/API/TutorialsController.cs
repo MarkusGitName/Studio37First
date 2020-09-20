@@ -33,7 +33,6 @@ namespace Studio37API.Controllers.API
             {
                 return NotFound();
             }
-
             return Ok(tutorial);
         }
 

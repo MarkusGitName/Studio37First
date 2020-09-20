@@ -1,53 +1,45 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Studio37Media</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+﻿<nav class="navbar navbar-expand bg-dark navbar-dark fixed-top">
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="profile">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Profile
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="profile/Create">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Create Profile
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="FileUpload">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> file upload
+    <div class="dropdown">
+        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="oi oi-menu"></span>
+        </button>
+        <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item bg-dark text-white" href="/profile/create">new Profile</a>
+            <a class="dropdown-item bg-dark text-white" href="/Tutorial/CreateTutorial">new tutorial</a>
+            <a class="dropdown-item bg-dark text-white" href="/profile/create">Library</a>
+            <a class="dropdown-item bg-dark text-white" href="#">Subscriptions</a>
+            <a class="dropdown-item bg-dark text-white" href="#">Saved</a>
+            <a class="dropdown-item bg-dark text-white" href="#">Events</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item bg-dark text-white" href="#">Help</a>
+            <a class="dropdown-item bg-dark text-white" href="#">About</a>
+            <a class="dropdown-item bg-dark text-white" href="#">Contact Us</a>
+            <a class="dropdown-item bg-dark text-white" href="#">Advertise</a>
+        </div>
+    </div>
 
-            </NavLink>
+    <a class="navbar-brand px-3" href="/">Studio 37</a>
+
+
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <button class="btn btn-dark" type="button" href="#">
+                <span class="oi oi-magnifying-glass"></span>
+            </button>
+        </li>
+
+        <li class="nav-item dropdown">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="oi oi-person"></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="dropdownMenuButton2">
+                <a class="dropdown-item bg-dark text-white" href="/ProfilePages/Index">Profile</a>
+                <a class="dropdown-item bg-dark text-white" href="#">Notifications</a>
+                <a class="dropdown-item bg-dark text-white" href="#">Messages</a>
+                <a class="dropdown-item bg-dark text-white" href="#">Groups</a>
+                <a class="dropdown-item bg-dark text-white" href="#">Settings</a>
+            </div>
         </li>
     </ul>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+</nav>

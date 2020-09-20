@@ -9,8 +9,7 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("UserCattegory")]
-    public partial class UserCattegory
+  public partial class UserCattegory
     {
         public Guid id { get; set; }
 
@@ -22,6 +21,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual Category Category { get; set; }
 
-        public virtual Profile Profile { get; set; }
+      //  public virtual Profile Profile { get; set; }
     }
 }

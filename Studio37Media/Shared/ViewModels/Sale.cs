@@ -9,11 +9,9 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("Sale")]
     public partial class Sale
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sale()
+       public Sale()
         {
             ClassVideoSales = new HashSet<ClassVideoSale>();
             LiveShowSales = new HashSet<LiveShowSale>();
@@ -38,17 +36,14 @@ namespace Studio37Media.Shared.ViewModels
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassVideoSale> ClassVideoSales { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LiveShowSale> LiveShowSales { get; set; }
 
         public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual Profile Profile { get; set; }
+     //   public virtual Profile Profile { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialSale> TutorialSales { get; set; }
     }
 }

@@ -9,10 +9,8 @@ namespace Studio37Media.Shared.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table("TutorialCattegory")]
     public partial class TutorialCattegory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TutorialCattegory()
         {
             TutorialClasses = new HashSet<TutorialClass>();
@@ -28,7 +26,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public virtual Tutorial Tutorial { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialClass> TutorialClasses { get; set; }
+       public virtual ICollection<TutorialClass> TutorialClasses { get; set; }
     }
 }
