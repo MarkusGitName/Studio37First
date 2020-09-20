@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataAccess\**" />
+    <Content Remove="DataAccess\**" />
+    <EmbeddedResource Remove="DataAccess\**" />
+    <None Remove="DataAccess\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BlazorInputFile" Version="0.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
@@ -30,7 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAccess\" />
     <Folder Include="uploads\Logos\" />
     <Folder Include="uploads\TutorialPromoPhoto\" />
     <Folder Include="uploads\TutorialPromoVideo\" />
