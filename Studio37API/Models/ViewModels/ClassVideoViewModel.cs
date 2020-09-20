@@ -20,10 +20,26 @@ namespace Studio37API.Models.ViewModels
             Description = incomingClassVideo.Description;
             VideoThumbnail = incomingClassVideo.VideoThumbnail;
 
-            ClassRatings = incomingClassVideo.ClassRatings;
-            ClassVideoCattegories = incomingClassVideo.ClassVideoCattegories;
-            ClassVideoComments = incomingClassVideo.ClassVideoComments;
-            ClassVideoSales = incomingClassVideo.ClassVideoSales;
+            foreach (ClassRating incomingcClassRatings in incomingClassVideo.ClassRatings)
+            {
+                ClassRatings.Add(new ClassRatingViewModel(incomingcClassRatings));
+            }
+
+            foreach (ClassVideoCattegory incomingClassVideoCattegory in incomingClassVideo.ClassVideoCattegories)
+            {
+                ClassVideoCattegories.Add(new ClassVideoCattegoryViewModel(incomingClassVideoCattegory));
+            }
+
+
+            foreach (ClassVideoComment incomingClassVideoComment in incomingClassVideo.ClassVideoComments)
+            {
+                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
+            }
+
+            foreach(ClassVideoSale incomingClassVideoSale in incomingClassVideo.ClassVideoSales)
+            {
+                ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSale));
+            }
             TutorialClasses = incomingClassVideo.TutorialClasses;
         }
 
@@ -52,14 +68,14 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string VideoThumbnail { get; set; }
 
-        public virtual ICollection<ClassRating> ClassRatings { get; set; }
+        public virtual ICollection<ClassRatingViewModel> ClassRatings { get; set; }
 
-         public virtual ICollection<ClassVideoCattegory> ClassVideoCattegories { get; set; }
+         public virtual ICollection<ClassVideoCattegoryViewModel> ClassVideoCattegories { get; set; }
 
-        public virtual ICollection<ClassVideoComment> ClassVideoComments { get; set; }
+        public virtual ICollection<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
 
-        public virtual ICollection<ClassVideoSale> ClassVideoSales { get; set; }
+        public virtual ICollection<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
 
-        public virtual ICollection<TutorialClass> TutorialClasses { get; set; }
+        public virtual ICollection<TutorialClassViewModel> TutorialClasses { get; set; }
     }
 }

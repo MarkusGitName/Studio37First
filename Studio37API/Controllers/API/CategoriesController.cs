@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -21,9 +22,14 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Categories
-        public IQueryable<Category> GetCategories()
+        public List<CategoryViewModel> GetCategories()
         {
-            return db.Categories;
+            List<CategoryViewModel> ListOfCategories = new List<CategoryViewModel>();
+            foreach(Category incomingCategory in db.Categories)
+            {
+                ListOfCategories.Add(new CategoryViewModel(incomingCategory));
+            }
+            return ListOfCategories;
         }
 
         // GET: api/Categories/5
@@ -36,7 +42,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(category);
+            return Ok(new CategoryViewModel(category));
         }
 
         // PUT: api/Categories/5
@@ -101,7 +107,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = category.id }, category);
+            return CreatedAtRoute("DefaultApi", new { id = category.id }, new CategoryViewModel(category));
         }
 
         // DELETE: api/Categories/5
@@ -117,7 +123,7 @@ namespace Studio37API.Controllers.API
             db.Categories.Remove(category);
             await db.SaveChangesAsync();
 
-            return Ok(category);
+            return Ok(new CategoryViewModel(category));
         }
 
         protected override void Dispose(bool disposing)

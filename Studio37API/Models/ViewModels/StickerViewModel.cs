@@ -14,10 +14,8 @@ namespace Studio37API.Models.ViewModels
             id = incomingSticker.id;
             UserID = incomingSticker.UserID;
             Grade = incomingSticker.Grade;
-        }
-
-       public Sticker()
-        {
+   
+     
             StickerCattegories = new HashSet<StickerCattegory>();
         }
 

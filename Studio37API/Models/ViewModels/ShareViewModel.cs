@@ -17,10 +17,7 @@ namespace Studio37API.Models.ViewModels
             text = incomingShare.text;
             date = incomingShare.date;
 
-        }
-
-        public Share()
-        {
+       
             Likes = new HashSet<Like>();
         }
 

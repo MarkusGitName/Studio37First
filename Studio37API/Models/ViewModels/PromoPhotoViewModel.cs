@@ -12,11 +12,7 @@ namespace Studio37API.Models.ViewModels
         public PromoPhotoViewModel(PromoPhoto incomingPromoPhoto)
         {
             id = incomingPromoPhoto.id;
-            PhotoPath = incomingPromoPhoto.PhotoPath;
-        }
-
-        public PromoPhoto()
-        {
+      
             TutorialPromoPhotoes = new HashSet<TutorialPromoPhoto>();
         }
 

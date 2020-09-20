@@ -21,10 +21,7 @@ namespace Studio37API.Models.ViewModels
             Bio = incomingProfile.Bio;
             PhoneNumber = incomingProfile.PhoneNumber;
             Website = incomingProfile.Website;
-        }
-
-       public Profile()
-        {
+      
             ClassRatings = new HashSet<ClassRating>();
             Comments = new HashSet<Comment>();
             Events = new HashSet<Event>();

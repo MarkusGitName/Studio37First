@@ -17,10 +17,7 @@ namespace Studio37API.Models.ViewModels
             Description = incomingProfesionallsProfile.Description;
             Logo = incomingProfesionallsProfile.Logo;
             ProfesionalEmail = incomingProfesionallsProfile.ProfesionalEmail.
-        }
-
-         public ProfesionallsProfile()
-        {
+      
             LiveShows = new HashSet<LiveShow>();
             ProfesionalsDocuments = new HashSet<ProfesionalsDocument>();
             Sales = new HashSet<Sale>();

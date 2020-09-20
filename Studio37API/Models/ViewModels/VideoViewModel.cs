@@ -13,10 +13,7 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingVideo.id;
             Path = incomingVideo.Path;
-        }
-
-        public Video()
-        {
+ 
             PostVideos = new HashSet<PostVideo>();
         }
 

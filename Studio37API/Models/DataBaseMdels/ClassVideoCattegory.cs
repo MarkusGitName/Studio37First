@@ -1,6 +1,5 @@
-namespace Studio37API.Models.ViewModels
+namespace Studio37API.Models.DataBaseMdels
 {
-    using Studio37API.Models.DataBaseMdels;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -8,22 +7,17 @@ namespace Studio37API.Models.ViewModels
     using System.Data.Entity.Spatial;
 
     [Table("ClassVideoCattegory")]
-    public partial class ClassVideoCattegoryViewModel
+    public partial class ClassVideoCattegory
     {
-        public ClassVideoCattegoryViewModel(ClassVideoCattegory incomigClassVideoCattegory)
-        {
-            ClassVideoID = incomigClassVideoCattegory.ClassVideoID;
-            CattegoryID = incomigClassVideoCattegory.CattegoryID;
-            id = incomigClassVideoCattegory.id;
-        }
+       
         public Guid ClassVideoID { get; set; }
 
         public Guid CattegoryID { get; set; }
 
         public Guid id { get; set; }
 
-       // public virtual Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
-       // public virtual ClassVideo ClassVideo { get; set; }
+        public virtual ClassVideo ClassVideo { get; set; }
     }
 }

@@ -12,11 +12,8 @@ namespace Studio37API.Models.ViewModels
         public PromoVideoViewModel(PromoVideo incomingPromoVideo)
         {
             id = incomingPromoVideo.id;
-            VideoPath = incomingPromoVideo.id;
-        }
-
-       public PromoVideo()
-        {
+            VideoPath = incomingPromoVideo.VideoPath;
+      
             TutorialPromoVideos = new HashSet<TutorialPromoVideo>();
         }
 

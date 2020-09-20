@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,14 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Chats
-        public IQueryable<Chat> GetChats()
+        public List<ChatViewModel> GetChats()
         {
-            return db.Chats;
+            List<ChatViewModel> ChatyList = new List<ChatViewModel>();
+            foreach(Chat incomingChat in  db.Chats)
+            {
+                ChatyList.Add(new ChatViewModel(incomingChat));
+            }
+            return ChatyList;
         }
 
         // GET: api/Chats/5
@@ -33,7 +39,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(chat);
+            return Ok(new ChatViewModel(chat));
         }
 
         // PUT: api/Chats/5
@@ -98,7 +104,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = chat.ChatID }, chat);
+            return CreatedAtRoute("DefaultApi", new { id = chat.ChatID }, new ChatViewModel(chat));
         }
 
         // DELETE: api/Chats/5
@@ -114,7 +120,7 @@ namespace Studio37API.Controllers.API
             db.Chats.Remove(chat);
             await db.SaveChangesAsync();
 
-            return Ok(chat);
+            return Ok(new ChatViewModel(chat));
         }
 
         protected override void Dispose(bool disposing)

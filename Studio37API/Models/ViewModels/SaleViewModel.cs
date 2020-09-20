@@ -18,10 +18,7 @@ namespace Studio37API.Models.ViewModels
             Credits = incomingSale.Credits;
             Date = incomingSale.Date;
 
-        }
-
-       public Sale()
-        {
+       
             ClassVideoSales = new HashSet<ClassVideoSale>();
             LiveShowSales = new HashSet<LiveShowSale>();
             TutorialSales = new HashSet<TutorialSale>();

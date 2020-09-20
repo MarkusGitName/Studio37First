@@ -13,15 +13,12 @@ namespace Studio37API.Models.ViewModels
         public PostViewModel(Post incomingPost)
         {
             id = incomingPost.id;
-            UserId = incomingPost.UserID;
+            UserId = incomingPost.UserId;
             Caption = incomingPost.Caption;
             Text = incomingPost.Text;
             Date = incomingPost.Date;
 
-        }
-
-       public Post()
-        {
+      
             PostCattegories = new HashSet<PostCattegory>();
             PostComments = new HashSet<PostComment>();
             PostEvents = new HashSet<PostEvent>();

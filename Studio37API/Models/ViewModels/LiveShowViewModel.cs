@@ -20,10 +20,7 @@ namespace Studio37API.Models.ViewModels
             Description = incomingLiveShow.Description;
             Title = incomingLiveShow.Title;
 
-        }
-        
-        public LiveShow()
-        {
+       
             LiveShowCattegories = new HashSet<LiveShowCattegory>();
             LiveShowComments = new HashSet<LiveShowComment>();
             LiveShowSales = new HashSet<LiveShowSale>();

@@ -15,10 +15,7 @@ namespace Studio37API.Models.ViewModels
             TutorialID = incomingTutorialCattegory.TutorialID;
             CattegoryID = incomingTutorialCattegory.CattegoryID;
 
-        }
-
-        public TutorialCattegory()
-        {
+     
             TutorialClasses = new HashSet<TutorialClass>();
         }
 

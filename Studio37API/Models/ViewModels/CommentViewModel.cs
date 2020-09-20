@@ -11,6 +11,10 @@ namespace Studio37API.Models.ViewModels
     {
          public CommentViewModel(Comment incomingComments)
         {
+            foreach (ClassVideoComment incomingClassVideoComment in incomingComments.ClassVideoComments)
+            {
+                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
+            }
             ClassVideoComments = new CommentViewModel(incomingComments.);
             CommentComments = new HashSet<CommentComment>();
             CommentComments1 = new HashSet<CommentComment>();
@@ -32,27 +36,20 @@ namespace Studio37API.Models.ViewModels
 
         public DateTime Date { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CommentComment> CommentComments { get; set; }
+        public virtual ICollection<CommentCommentViewModel> CommentComments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CommentComment> CommentComments1 { get; set; }
+        public virtual ICollection<CommentCommentViewModel> CommentComments1 { get; set; }
 
        // public virtual Profile Profile { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LiveShowComment> LiveShowComments { get; set; }
+         public virtual ICollection<LiveShowCommentViewModel> LiveShowComments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostComment> PostComments { get; set; }
+        public virtual ICollection<PostCommentViewModel> PostComments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TutorialComment> TutorialComments { get; set; }
+        public virtual ICollection<TutorialCommentViewModel> TutorialComments { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<LikeViewModel> Likes { get; set; }
     }
 }
