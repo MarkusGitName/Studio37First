@@ -2,12 +2,14 @@ namespace Studio37API.Models.ViewModels
 {
     using Studio37API.Models.DataBaseMdels;
     using System;
+    using System.CodeDom;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Threading;
 
-   public partial class LikeViewModel
+    public partial class LikeViewModel
     {
         public LikeViewModel(Like incomingLike)
         {
@@ -15,15 +17,36 @@ namespace Studio37API.Models.ViewModels
             UserId = incomingLike.UserId;
             date = incomingLike.date;
 
-        }
-        public Like()
-        {
-            Comments = new HashSet<Comment>();
-            LiveShows = new HashSet<LiveShow>();
-            Photos = new HashSet<Photo>();
-            Posts = new HashSet<Post>();
-            Profiles = new HashSet<Profile>();
-            Shares = new HashSet<Share>();
+            foreach(Comment incomingComment in incomingLike.Comments)
+            {
+                Comments.Add(new CommentViewModel(incomingComment));
+            }
+
+            foreach(LiveShow incomingLiveShows in incomingLike.LiveShows)
+            {
+                LiveShows.Add(new LiveShowViewModel(incomingLiveShows));
+            }
+
+            foreach(Photo incomingPhotos in incomingLike.Photos)
+            {
+                Photos.Add(new PhotoViewModel(incomingPhotos));
+            }
+
+            foreach(Post incomingPosts in incomingLike.Posts)
+            {
+                Posts.Add(new PostViewModel(incomingPosts));
+            }
+
+            foreach(Profile incomingProfiles in incomingLike.Profiles)
+            {
+                Profiles.Add(new ProfileViewModel(incomingProfiles));
+            }
+
+            foreach(Share incomingShares in incomingLike.Shares)
+            {
+                Shares.Add(new ShareViewModel(incomingShares));
+            }
+
         }
 
         public Guid id { get; set; }
@@ -36,16 +59,16 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<CommentViewModel> Comments { get; set; }
 
-        public virtual ICollection<LiveShow> LiveShows { get; set; }
+        public virtual ICollection<LiveShowViewModel> LiveShows { get; set; }
 
-        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ICollection<PhotoViewModel> Photos { get; set; }
 
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<PostViewModel> Posts { get; set; }
 
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual ICollection<ProfileViewModel> Profiles { get; set; }
 
-        public virtual ICollection<Share> Shares { get; set; }
+        public virtual ICollection<ShareViewModel> Shares { get; set; }
     }
 }

@@ -9,11 +9,11 @@ namespace Studio37API.Models.ViewModels
 
     public partial class CategoryViewModel
     {
-        public CategoryViewModel(Category incomingTategory)
+        public CategoryViewModel(Category incomingCategory)
         {
-            id = incomingTategory.id;
-            Category1 = incomingTategory.Category1;
-            SubCategory = incomingTategory.SubCategory;
+            id = incomingCategory.id;
+            Category1 = incomingCategory.Category1;
+            SubCategory = incomingCategory.SubCategory;
         }
 
         public Guid id { get; set; }

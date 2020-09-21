@@ -7,6 +7,7 @@ namespace Studio37API.Models.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Runtime;
     using System.Text.RegularExpressions;
 
     public partial class GroupViewModel
@@ -20,13 +21,21 @@ namespace Studio37API.Models.ViewModels
             Description = incomingGroup.Description;
             DateCreated = incomingGroup.DateCreated;
 
-            EventGroups = incomingGroup.EventGroups;
-            GroupMediaLinks = incomingGroup.GroupMediaLinks;
-            Profiles = incomingGroup.Profiles;
-       
-           // EventGroups = new HashSet<EventGroup>();
-           // GoupMediaLinks = new HashSet<GoupMediaLink>();
-           // Profiles = new HashSet<Profile>();
+            foreach(EventGroup incomingEventGroups in incomingGroup.EventGroups)
+            {
+                EventGroups.Add(new EventGroupViewModel(incomingEventGroups));
+            }
+
+            foreach(GroupMediaLink incomingGroupMediaLinks in incomingGroup.GroupMediaLinks)
+            {
+                GroupMediaLinks.Add(new GroupMediaLinkViewModel(incomingGroupMediaLinks));
+            }
+
+            foreach(Profile incomingProfiles in incomingGroup.Profiles)
+            {
+                Profiles.Add(new ProfileViewModel(incomingProfiles));
+            }
+            
         }
 
         public Guid id { get; set; }
@@ -45,12 +54,12 @@ namespace Studio37API.Models.ViewModels
 
         public DateTime DateCreated { get; set; }
 
-        public virtual ICollection<EventGroup> EventGroups { get; set; }
+        public virtual ICollection<EventGroupViewModel> EventGroups { get; set; }
 
-        public virtual ICollection<GoupMediaLink> GoupMediaLinks { get; set; }
+        public virtual ICollection<GroupMediaLinkViewModel> GroupMediaLinks { get; set; }
 
         // public virtual Profile Profile { get; set; }
 
-       public virtual ICollection<Profile> Profiles { get; set; }
+       public virtual ICollection<ProfileViewModel> Profiles { get; set; }
     }
 }

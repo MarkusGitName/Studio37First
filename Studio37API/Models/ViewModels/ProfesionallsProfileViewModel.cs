@@ -17,12 +17,31 @@ namespace Studio37API.Models.ViewModels
             Description = incomingProfesionallsProfile.Description;
             Logo = incomingProfesionallsProfile.Logo;
             ProfesionalEmail = incomingProfesionallsProfile.ProfesionalEmail;
-      
-            LiveShows = new HashSet<LiveShow>();
-            ProfesionalsDocuments = new HashSet<ProfesionalsDocument>();
-            Sales = new HashSet<Sale>();
-            Stickers = new HashSet<Sticker>();
-            Tutorials = new HashSet<Tutorial>();
+
+            foreach (LiveShow incomingLiveShows in incomingProfesionallsProfile.LiveShows)
+            {
+                LiveShows.Add(new LiveShowViewModel(incomingLiveShows));
+            }
+
+            foreach (ProfesionalsDocument incomingProfesionalsDocuments in incomingProfesionallsProfile.ProfesionalsDocuments)
+            {
+                ProfesionalsDocuments.Add(new ProfesionalsDocumentViewModel(incomingProfesionalsDocuments));
+            }
+
+            foreach (Sale incomingSales in incomingProfesionallsProfile.Sales)
+            {
+                Sales.Add(new SaleViewModel(incomingSales));
+            }
+
+            foreach (Sticker incomingStickers in incomingProfesionallsProfile.Stickers)
+            {
+                Stickers.Add(new StickerViewModel(incomingStickers));
+            }
+
+            foreach (Tutorial incomingTutorials in incomingProfesionallsProfile.Tutorials)
+            {
+                Tutorials.Add(new TutorialViewModel(incomingTutorials));
+            }
         }
 
         [Key]
@@ -43,16 +62,16 @@ namespace Studio37API.Models.ViewModels
         [StringLength(350)]
         public string ProfesionalEmail { get; set; }
 
-        public virtual ICollection<LiveShow> LiveShows { get; set; }
+        public virtual ICollection<LiveShowViewModel> LiveShows { get; set; }
 
         // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<ProfesionalsDocument> ProfesionalsDocuments { get; set; }
+        public virtual ICollection<ProfesionalsDocumentViewModel> ProfesionalsDocuments { get; set; }
 
-        public virtual ICollection<Sale> Sales { get; set; }
+        public virtual ICollection<SaleViewModel> Sales { get; set; }
 
-        public virtual ICollection<Sticker> Stickers { get; set; }
+        public virtual ICollection<StickerViewModel> Stickers { get; set; }
 
-        public virtual ICollection<Tutorial> Tutorials { get; set; }
+        public virtual ICollection<TutorialViewModel> Tutorials { get; set; }
     }
 }

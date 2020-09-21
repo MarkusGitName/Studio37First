@@ -13,8 +13,12 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingPromoVideo.id;
             VideoPath = incomingPromoVideo.VideoPath;
-      
-            TutorialPromoVideos = new HashSet<TutorialPromoVideo>();
+
+            foreach(TutorialPromoVideo incomingTutorialPromoVideos in incomingPromoVideo.TutorialPromoVideos)
+            {
+                TutorialPromoVideos.Add(new TutorialPromoVideoViewModel(incomingTutorialPromoVideos));
+            }
+
         }
 
         public Guid id { get; set; }
@@ -23,6 +27,6 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string VideoPath { get; set; }
 
-        public virtual ICollection<TutorialPromoVideo> TutorialPromoVideos { get; set; }
+        public virtual ICollection<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
     }
 }

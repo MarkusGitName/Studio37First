@@ -11,19 +11,40 @@ namespace Studio37API.Models.ViewModels
     {
          public CommentViewModel(Comment incomingComments)
         {
-            foreach (ClassVideoComment incomingClassVideoComment in incomingComments.ClassVideoComments)
+            foreach (ClassVideoComment incomingClassVideoComments in incomingComments.ClassVideoComments)
             {
-                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
+                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComments));
             }
             foreach (CommentComment incomingCommentComment in incomingComments.CommentComments)
             {
                 CommentComments.Add(new CommentCommentViewModel(incomingCommentComment));
             }
-            CommentComments1 = new HashSet<CommentComment>();
-            LiveShowComments = new HashSet<LiveShowComment>();
-            PostComments = new HashSet<PostComment>();
-            TutorialComments = new HashSet<TutorialComment>();
-            Likes = new HashSet<Like>();
+
+            foreach (CommentComment incomingCommentComments1 in incomingComments.CommentComments1)
+            {
+                CommentComments1.Add(new CommentComments1ViewlModel(incomingCommentComments1));
+            }
+
+            foreach(LiveShowComment incomingLiveShowComments in incomingComments.LiveShowComments)
+            {
+                LiveShowComments.Add(new LiveShowCommentViewModel(incomingLiveShowComments));
+            }
+
+            foreach(PostComment incomingPostComments in incomingComments.PostComments)
+            {
+                PostComments.Add(new PostCommentViewModel(incomingPostComments));
+            }
+
+            foreach(TutorialComment incomingTutorialComments in incomingComments.TutorialComments)
+            {
+                TutorialComments.Add(new TutorialCommentViewModel(incomingTutorialComments));
+            }
+
+            foreach(Like incomingLikes in incomingComments.Likes)
+            {
+                Likes.Add(new LikeViewModel(incomingLikes));
+            }
+            
         }
 
         public Guid id { get; set; }
@@ -46,7 +67,7 @@ namespace Studio37API.Models.ViewModels
 
        // public virtual Profile Profile { get; set; }
 
-         public virtual ICollection<LiveShowCommentViewModel> LiveShowComments { get; set; }
+        public virtual ICollection<LiveShowCommentViewModel> LiveShowComments { get; set; }
 
         public virtual ICollection<PostCommentViewModel> PostComments { get; set; }
 

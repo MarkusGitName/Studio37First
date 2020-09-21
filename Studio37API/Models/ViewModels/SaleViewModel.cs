@@ -18,10 +18,20 @@ namespace Studio37API.Models.ViewModels
             Credits = incomingSale.Credits;
             Date = incomingSale.Date;
 
-       
-            ClassVideoSales = new HashSet<ClassVideoSale>();
-            LiveShowSales = new HashSet<LiveShowSale>();
-            TutorialSales = new HashSet<TutorialSale>();
+            foreach(ClassVideoSale incomingClassVideoSales in incomingSale.ClassVideoSales)
+            {
+                ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSales));
+            }
+
+            foreach(LiveShowSale incomingLiveShowSales in incomingSale.LiveShowSales)
+            {
+                LiveShowSales.Add(new LiveShowSaleViewModel(incomingLiveShowSales));
+            }
+
+            foreach(TutorialSale incomingTutorialSales in incomingSale.TutorialSales)
+            {
+                TutorialSales.Add(new TutorialSaleViewModel(incomingTutorialSales));
+            }
         }
 
         public Guid id { get; set; }
@@ -42,14 +52,14 @@ namespace Studio37API.Models.ViewModels
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        public virtual ICollection<ClassVideoSale> ClassVideoSales { get; set; }
+        public virtual ICollection<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
 
-        public virtual ICollection<LiveShowSale> LiveShowSales { get; set; }
+        public virtual ICollection<LiveShowSaleViewModel> LiveShowSales { get; set; }
 
-        public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
+        // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
        // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<TutorialSale> TutorialSales { get; set; }
+        public virtual ICollection<TutorialSaleViewModel> TutorialSales { get; set; }
     }
 }
