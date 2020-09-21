@@ -25,24 +25,24 @@ namespace Studio37API.Models.ViewModels
                 ClassRatings.Add(new ClassRatingViewModel(incomingcClassRatings));
             }
 
-            foreach (ClassVideoCattegory incomingClassVideoCattegory in incomingClassVideo.ClassVideoCattegories)
+            foreach (ClassVideoCattegory incomingClassVideoCattegories in incomingClassVideo.ClassVideoCattegories)
             {
-                ClassVideoCattegories.Add(new ClassVideoCattegoryViewModel(incomingClassVideoCattegory));
+                ClassVideoCattegories.Add(new ClassVideoCattegoryViewModel(incomingClassVideoCattegories));
             }
 
-            foreach (ClassVideoComment incomingClassVideoComment in incomingClassVideo.ClassVideoComments)
+            foreach (ClassVideoComment incomingClassVideoComments in incomingClassVideo.ClassVideoComments)
             {
-                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
+                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComments));
             }
 
-            foreach(ClassVideoSale incomingClassVideoSale in incomingClassVideo.ClassVideoSales)
+            foreach(ClassVideoSale incomingClassVideoSales in incomingClassVideo.ClassVideoSales)
             {
-                ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSale));
+                ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSales));
             }
 
-            foreach(TutorialClass incomingTutorialClass in incomingClassVideo.TutorialClasses)
+            foreach(TutorialClass incomingTutorialClasses in incomingClassVideo.TutorialClasses)
             {
-                TutorialClasses.Add(new TutorialClassViewModel(incomingTutorialClass));
+                TutorialClasses.Add(new TutorialClassViewModel(incomingTutorialClasses));
             }
         }
 

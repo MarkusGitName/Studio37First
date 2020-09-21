@@ -12,6 +12,8 @@ namespace Studio37API.Models.ViewModels
         public EventUserViewModel(EventUser incomingEventUser)
         {
             id = incomingEventUser.id;
+            EventID = incomingEventUser.EventID;
+            UserID = incomingEventUser.UserID;
         }
         public Guid id { get; set; }
 

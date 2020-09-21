@@ -1,4 +1,4 @@
-namespace Studio37API.Models.viewModels
+namespace Studio37API.Models.ViewModels
 {
     using Studio37API.Models.DataBaseMdels;
     using System;

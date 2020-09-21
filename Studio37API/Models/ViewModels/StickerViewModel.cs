@@ -14,9 +14,11 @@ namespace Studio37API.Models.ViewModels
             id = incomingSticker.id;
             UserID = incomingSticker.UserID;
             Grade = incomingSticker.Grade;
-   
-     
-            StickerCattegories = new HashSet<StickerCattegory>();
+
+            foreach(StickerCattegory incomingStickerCattegories in incomingSticker.StickerCattegories)
+            {
+                StickerCattegories.Add(new StickerCattegoryViewModel(incomingStickerCattegories));
+            }
         }
 
         public Guid id { get; set; }
@@ -29,6 +31,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<StickerCattegory> StickerCattegories { get; set; }
+        public virtual ICollection<StickerCattegoryViewModel> StickerCattegories { get; set; }
     }
 }

@@ -21,25 +21,96 @@ namespace Studio37API.Models.ViewModels
             Bio = incomingProfile.Bio;
             PhoneNumber = incomingProfile.PhoneNumber;
             Website = incomingProfile.Website;
-      
-            ClassRatings = new HashSet<ClassRating>();
-            Comments = new HashSet<Comment>();
-            Events = new HashSet<Event>();
-            EventUsers = new HashSet<EventUser>();
-            Groups = new HashSet<Group>();
-            Likes = new HashSet<Like>();
-            LiveShowViews = new HashSet<LiveShowView>();
-            Messages = new HashSet<Message>();
-            Payments = new HashSet<Payment>();
-            Sales = new HashSet<Sale>();
-            TutorialRatings = new HashSet<TutorialRating>();
-            UserCattegories = new HashSet<UserCattegory>();
-            UserChats = new HashSet<UserChat>();
-            UserSocialMediaLinks = new HashSet<UserSocialMediaLink>();
-            Profile1 = new HashSet<Profile>();
-            Profiles = new HashSet<Profile>();
-            Groups1 = new HashSet<Group>();
-            Likes1 = new HashSet<Like>();
+
+            foreach(ClassRating incomingClassRatings in incomingProfile.ClassRatings)
+            {
+                ClassRatings.Add(new ClassRatingViewModel(incomingClassRatings));
+            }
+
+            foreach(Comment incomingComments in incomingProfile.Comments)
+            {
+                Comments.Add(new CommentViewModel(incomingComments));
+            }
+
+            foreach(Event incomingEvents in incomingProfile.Events)
+            {
+                Events.Add(new EventViewModel(incomingEvents));
+            }
+
+            foreach(EventUser incomingEventUsers in incomingProfile.EventUsers)
+            {
+                EventUsers.Add(new EventUserViewModel(incomingEventUsers));
+            }
+
+            foreach(Group incomingGroups in incomingProfile.Groups)
+            {
+                Groups.Add(new GroupViewModel(incomingGroups));
+            }
+
+            foreach(Like incomingLikes in incomingProfile.Likes)
+            {
+                Likes.Add(new LikeViewModel(incomingLikes));
+            }
+
+            foreach(LiveShowView incomingLiveShowViews in incomingProfile.LiveShowViews)
+            {
+                LiveShowViews.Add(new LiveShowViewViewModel(incomingLiveShowViews));
+            }
+
+            foreach(Message incomingMessages in incomingProfile.Messages)
+            {
+                Messages.Add(new MessageViewModel(incomingMessages));
+            }
+
+            foreach(Payment incomingPayments in incomingProfile.Payments)
+            {
+                Payments.Add(new PaymentViewModel(incomingPayments));
+            }
+
+            foreach(Sale incomingSales in incomingProfile.Sales)
+            {
+                Sales.Add(new SaleViewModel(incomingSales));
+            }
+
+            foreach(TutorialRating incomingTutorialRatings in incomingProfile.TutorialRatings)
+            {
+                TutorialRatings.Add(new TutorialRatingViewModel(incomingTutorialRatings));
+            }
+
+            foreach(UserCattegory incomingUserCattegories in incomingProfile.UserCattegories)
+            {
+                UserCattegories.Add(new UserCattegoryViewModel(incomingUserCattegories));
+            }
+
+            foreach(UserChat incomingUserChats in incomingProfile.UserChats)
+            {
+                UserChats.Add(new UserChatViewModel(incomingUserChats));
+            }
+
+            foreach(UserSocialMediaLink incomingUserSocialMediaLinks in incomingProfile.UserSocialMediaLinks)
+            {
+                UserSocialMediaLinks.Add(new UserSocialMediaLinkViewModel(incomingUserSocialMediaLinks));
+            }
+
+            foreach(Profile incomingProfile1 in incomingProfile.Profile1)
+            {
+                Profile1.Add(new ProfileViewModel(incomingProfile1));
+            }
+
+            foreach(Profile incomingProfiles in incomingProfile.Profiles)
+            {
+                Profiles.Add(new ProfileViewModel(incomingProfiles));
+            }
+
+            foreach(Group incomingGroups1 in incomingProfile.Groups1)
+            {
+                Groups1.Add(new GroupViewModel(incomingGroups1));
+            }
+
+            foreach(Like incomingLikes1 in incomingProfile.Likes1)
+            {
+                Likes1.Add(new LikeViewModel(incomingLikes1));
+            }
         }
 
         [Key]
@@ -80,42 +151,42 @@ namespace Studio37API.Models.ViewModels
         [StringLength(50)]
         public string Website { get; set; }
 
-        public virtual ICollection<ClassRating> ClassRatings { get; set; }
+        public virtual ICollection<ClassRatingViewModel> ClassRatings { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<CommentViewModel> Comments { get; set; }
 
-        public virtual ICollection<Event> Events { get; set; }
+        public virtual ICollection<EventViewModel> Events { get; set; }
 
-        public virtual ICollection<EventUser> EventUsers { get; set; }
+        public virtual ICollection<EventUserViewModel> EventUsers { get; set; }
 
-        public virtual ICollection<Group> Groups { get; set; }
+        public virtual ICollection<GroupViewModel> Groups { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<LikeViewModel> Likes { get; set; }
 
-        public virtual ICollection<LiveShowView> LiveShowViews { get; set; }
+        public virtual ICollection<LiveShowViewViewModel> LiveShowViews { get; set; }
 
-        public virtual ICollection<Message> Messages { get; set; }
+        public virtual ICollection<MessageViewModel> Messages { get; set; }
 
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<PaymentViewModel> Payments { get; set; }
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<Sale> Sales { get; set; }
+        public virtual ICollection<SaleViewModel> Sales { get; set; }
 
-        public virtual ICollection<TutorialRating> TutorialRatings { get; set; }
+        public virtual ICollection<TutorialRatingViewModel> TutorialRatings { get; set; }
 
-        public virtual ICollection<UserCattegory> UserCattegories { get; set; }
+        public virtual ICollection<UserCattegoryViewModel> UserCattegories { get; set; }
 
-        public virtual ICollection<UserChat> UserChats { get; set; }
+        public virtual ICollection<UserChatViewModel> UserChats { get; set; }
 
-        public virtual ICollection<UserSocialMediaLink> UserSocialMediaLinks { get; set; }
+        public virtual ICollection<UserSocialMediaLinkViewModel> UserSocialMediaLinks { get; set; }
 
-        public virtual ICollection<Profile> Profile1 { get; set; }
+        public virtual ICollection<ProfileViewModel> Profile1 { get; set; }
 
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual ICollection<ProfileViewModel> Profiles { get; set; }
 
-        public virtual ICollection<Group> Groups1 { get; set; }
+        public virtual ICollection<GroupViewModel> Groups1 { get; set; }
 
-        public virtual ICollection<Like> Likes1 { get; set; }
+        public virtual ICollection<LikeViewModel> Likes1 { get; set; }
     }
 }

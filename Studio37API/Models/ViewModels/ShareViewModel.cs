@@ -17,8 +17,11 @@ namespace Studio37API.Models.ViewModels
             text = incomingShare.text;
             date = incomingShare.date;
 
-       
-            Likes = new HashSet<Like>();
+            foreach(Like incomingLikes in incomingShare.Likes)
+            {
+                Likes.Add(new LikeViewModel(incomingLikes));
+            }
+
         }
 
         public Guid id { get; set; }
@@ -37,6 +40,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Post Post { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<LikeViewModel> Likes { get; set; }
     }
 }

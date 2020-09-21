@@ -20,13 +20,36 @@ namespace Studio37API.Models.ViewModels
             Description = incomingLiveShow.Description;
             Title = incomingLiveShow.Title;
 
+            foreach(LiveShowCattegory incomingLiveShowCattegories in incomingLiveShow.LiveShowCattegories)
+            {
+                LiveShowCattegories.Add(new LiveShowCattegoryViewModel(incomingLiveShowCattegories));
+            }
+
+            foreach(LiveShowComment incomingLiveShowComments in incomingLiveShow.LiveShowComments)
+            {
+                LiveShowComments.Add(new LiveShowCommentViewModel(incomingLiveShowComments));
+            }
        
-            LiveShowCattegories = new HashSet<LiveShowCattegory>();
-            LiveShowComments = new HashSet<LiveShowComment>();
-            LiveShowSales = new HashSet<LiveShowSale>();
-            LiveShowViews = new HashSet<LiveShowView>();
-            PostLiveShows = new HashSet<PostLiveShow>();
-            Likes = new HashSet<Like>();
+            foreach(LiveShowSale incomingLiveShowSales in incomingLiveShow.LiveShowSales)
+            {
+                LiveShowSales.Add(new LiveShowSaleViewModel(incomingLiveShowSales));
+            }
+
+            foreach(LiveShowView incomingLiveShowViews in incomingLiveShow.LiveShowViews)
+            {
+                LiveShowViews.Add(new LiveShowViewViewModel(incomingLiveShowViews));
+            }
+
+            foreach(PostLiveShow incomingPostLiveShows in incomingLiveShow.PostLiveShows)
+            {
+                PostLiveShows.Add(new PostLiveShowViewModel(incomingPostLiveShows));
+            }
+
+            foreach(Like incomingLikes in incomingLiveShow.Likes)
+            {
+                Likes.Add(new LikeViewModel(incomingLikes));
+            }
+
         }
 
         public Guid id { get; set; }
@@ -52,16 +75,16 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<LiveShowCattegory> LiveShowCattegories { get; set; }
+        public virtual ICollection<LiveShowCattegoryViewModel> LiveShowCattegories { get; set; }
 
-        public virtual ICollection<LiveShowComment> LiveShowComments { get; set; }
+        public virtual ICollection<LiveShowCommentViewModel> LiveShowComments { get; set; }
 
-        public virtual ICollection<LiveShowSale> LiveShowSales { get; set; }
+        public virtual ICollection<LiveShowSaleViewModel> LiveShowSales { get; set; }
 
-        public virtual ICollection<LiveShowView> LiveShowViews { get; set; }
+        public virtual ICollection<LiveShowViewViewModel> LiveShowViews { get; set; }
 
-        public virtual ICollection<PostLiveShow> PostLiveShows { get; set; }
+        public virtual ICollection<PostLiveShowViewModel> PostLiveShows { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<LikeViewModel> Likes { get; set; }
     }
 }

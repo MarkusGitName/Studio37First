@@ -13,9 +13,17 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingPhoto.id;
             Path = incomingPhoto.Path;
+
+            foreach(PostPhoto incomingPostPhotos in incomingPhoto.PostPhotos)
+            {
+                PostPhotos.Add(new PostPhotoViewModel(incomingPostPhotos));
+            }
+
+            foreach(Like incomingLikes in incomingPhoto.Likes)
+            {
+                Likes.Add(new LikeViewModel(incomingLikes));
+            }
      
-            PostPhotos = new HashSet<PostPhoto>();
-            Likes = new HashSet<Like>();
         }
 
         public Guid id { get; set; }
@@ -24,8 +32,8 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-        public virtual ICollection<PostPhoto> PostPhotos { get; set; }
+        public virtual ICollection<PostPhotoViewModel> PostPhotos { get; set; }
 
-        public virtual ICollection<Like> Likes { get; set; }
+        public virtual ICollection<LikeViewModel> Likes { get; set; }
     }
 }
