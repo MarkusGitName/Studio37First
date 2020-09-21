@@ -13,10 +13,7 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingPhoto.id;
             Path = incomingPhoto.Path;
-        }
-
-       public Photo()
-        {
+     
             PostPhotos = new HashSet<PostPhoto>();
             Likes = new HashSet<Like>();
         }

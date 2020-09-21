@@ -8,7 +8,6 @@ namespace Studio37API.Models.ViewModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Tutorial")]
     public partial class TutorialViewModel
     {
         public TutorialViewModel(Tutorial incomingTutorial)

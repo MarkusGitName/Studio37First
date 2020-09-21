@@ -12,7 +12,7 @@ namespace Studio37API.Models.ViewModels
     {
         public PostTutorialViewModel(PostTutorial incomingPostTutorial)
         {
-            id = incomingPostTutorial,id;
+            id = incomingPostTutorial.id;
             PostID = incomingPostTutorial.PostID;
             TutorialID = incomingPostTutorial.TutorialID;
         }

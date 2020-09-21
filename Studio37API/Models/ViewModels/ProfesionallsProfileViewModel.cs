@@ -16,7 +16,7 @@ namespace Studio37API.Models.ViewModels
             YearsExperience = incomingProfesionallsProfile.YearsExperience;
             Description = incomingProfesionallsProfile.Description;
             Logo = incomingProfesionallsProfile.Logo;
-            ProfesionalEmail = incomingProfesionallsProfile.ProfesionalEmail.
+            ProfesionalEmail = incomingProfesionallsProfile.ProfesionalEmail;
       
             LiveShows = new HashSet<LiveShow>();
             ProfesionalsDocuments = new HashSet<ProfesionalsDocument>();

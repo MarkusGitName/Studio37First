@@ -13,7 +13,7 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingUserCattegory.id;
             UserID = incomingUserCattegory.UserID;
-            CattegorryID = incomingUserCattegory.CattegoryID;
+            CattegorryID = incomingUserCattegory.CattegorryID;
 
         }
 

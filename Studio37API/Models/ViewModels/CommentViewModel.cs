@@ -15,8 +15,10 @@ namespace Studio37API.Models.ViewModels
             {
                 ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
             }
-            ClassVideoComments = new CommentViewModel(incomingComments.);
-            CommentComments = new HashSet<CommentComment>();
+            foreach (CommentComment incomingCommentComment in incomingComments.CommentComments)
+            {
+                CommentComments.Add(new CommentCommentViewModel(incomingCommentComment));
+            }
             CommentComments1 = new HashSet<CommentComment>();
             LiveShowComments = new HashSet<LiveShowComment>();
             PostComments = new HashSet<PostComment>();

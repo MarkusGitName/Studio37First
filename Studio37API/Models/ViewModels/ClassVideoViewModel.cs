@@ -30,7 +30,6 @@ namespace Studio37API.Models.ViewModels
                 ClassVideoCattegories.Add(new ClassVideoCattegoryViewModel(incomingClassVideoCattegory));
             }
 
-
             foreach (ClassVideoComment incomingClassVideoComment in incomingClassVideo.ClassVideoComments)
             {
                 ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
@@ -40,7 +39,11 @@ namespace Studio37API.Models.ViewModels
             {
                 ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSale));
             }
-            TutorialClasses = incomingClassVideo.TutorialClasses;
+
+            foreach(TutorialClass incomingTutorialClass in incomingClassVideo.TutorialClasses)
+            {
+                TutorialClasses.Add(new TutorialClassViewModel(incomingTutorialClass));
+            }
         }
 
         public Guid id { get; set; }
