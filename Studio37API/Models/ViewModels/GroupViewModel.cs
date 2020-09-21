@@ -9,6 +9,7 @@ namespace Studio37API.Models.ViewModels
     using System.Data.Entity.Spatial;
     using System.Runtime;
     using System.Text.RegularExpressions;
+    using Group = DataBaseMdels.Group;
 
     public partial class GroupViewModel
     {
@@ -26,9 +27,9 @@ namespace Studio37API.Models.ViewModels
                 EventGroups.Add(new EventGroupViewModel(incomingEventGroups));
             }
 
-            foreach(GroupMediaLink incomingGroupMediaLinks in incomingGroup.GroupMediaLinks)
+            foreach(GoupMediaLink incomingGroupMediaLinks in incomingGroup.GoupMediaLinks)
             {
-                GroupMediaLinks.Add(new GroupMediaLinkViewModel(incomingGroupMediaLinks));
+                GroupMediaLinks.Add(new GoupMediaLinkViewModel(incomingGroupMediaLinks));
             }
 
             foreach(Profile incomingProfiles in incomingGroup.Profiles)
@@ -56,7 +57,7 @@ namespace Studio37API.Models.ViewModels
 
         public virtual ICollection<EventGroupViewModel> EventGroups { get; set; }
 
-        public virtual ICollection<GroupMediaLinkViewModel> GroupMediaLinks { get; set; }
+        public virtual ICollection<GoupMediaLinkViewModel> GroupMediaLinks { get; set; }
 
         // public virtual Profile Profile { get; set; }
 

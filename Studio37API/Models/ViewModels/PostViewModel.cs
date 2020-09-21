@@ -33,7 +33,7 @@ namespace Studio37API.Models.ViewModels
                 PostEvents.Add(new PostEventViewModel(incomingPostEvents));
             }
 
-            foreach(PostliveShow incomingPostLiveShows in incomingPost.PostLiveShows)
+            foreach(PostLiveShow incomingPostLiveShows in incomingPost.PostLiveShows)
             {
                 PostLiveShows.Add(new PostLiveShowViewModel(incomingPostLiveShows));
             }
@@ -58,7 +58,7 @@ namespace Studio37API.Models.ViewModels
                 Shares.Add(new ShareViewModel(incomingShares));
             }
 
-            foreach(Like incomingLikes in incomingPost.likes)
+            foreach(Like incomingLikes in incomingPost.Likes)
             {
                 Likes.Add(new LikeViewModel(incomingLikes));
             }

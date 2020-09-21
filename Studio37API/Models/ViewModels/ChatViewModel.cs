@@ -17,7 +17,7 @@ namespace Studio37API.Models.ViewModels
 
             foreach(Message incomingMsge in incomingChat.Messages)
             {
-                Messages.Add(new MessageViewModels(incomingMsge));
+                Messages.Add(new MessageViewModel(incomingMsge));
             }
             
             foreach(UserChat userChat in incomingChat.UserChats)
@@ -31,7 +31,7 @@ namespace Studio37API.Models.ViewModels
 
         public DateTime DateCreated { get; set; }
 
-        public virtual ICollection<MessageViewModels> Messages { get; set; }
+        public virtual ICollection<MessageViewModel> Messages { get; set; }
 
         public virtual ICollection<UserChatViewModel> UserChats { get; set; }
     }

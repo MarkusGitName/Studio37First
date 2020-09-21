@@ -22,7 +22,7 @@ namespace Studio37API.Models.ViewModels
 
             foreach (CommentComment incomingCommentComments1 in incomingComments.CommentComments1)
             {
-                CommentComments1.Add(new CommentComments1ViewlModel(incomingCommentComments1));
+                CommentComments1.Add(new CommentCommentViewModel(incomingCommentComments1));
             }
 
             foreach(LiveShowComment incomingLiveShowComments in incomingComments.LiveShowComments)

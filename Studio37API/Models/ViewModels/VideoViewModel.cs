@@ -9,7 +9,7 @@ namespace Studio37API.Models.ViewModels
 
     public partial class VideoViewModel
     {
-        public VideoViewModel(VideoViewModel incomingVideo)
+        public VideoViewModel(Video incomingVideo)
         {
             id = incomingVideo.id;
             Path = incomingVideo.Path;

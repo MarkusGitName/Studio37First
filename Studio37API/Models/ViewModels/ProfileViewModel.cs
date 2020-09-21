@@ -69,7 +69,7 @@ namespace Studio37API.Models.ViewModels
 
             foreach(Sale incomingSales in incomingProfile.Sales)
             {
-                Sales.Add(new SaleViewModel(incomingProfile));
+                Sales.Add(new SaleViewModel(incomingSales));
             }
 
             foreach(TutorialRating incomingTutorialRatings in incomingProfile.TutorialRatings)
@@ -102,12 +102,12 @@ namespace Studio37API.Models.ViewModels
                 Profiles.Add(new ProfileViewModel(incomingProfiles));
             }
 
-            foreach(Groups incomingGroups1 in incomingProfile.Groups1)
+            foreach(Group incomingGroups1 in incomingProfile.Groups1)
             {
                 Groups1.Add(new GroupViewModel(incomingGroups1));
             }
 
-            foreach(Likes incomingLikes1 in incomingProfile.Likes1)
+            foreach(Like incomingLikes1 in incomingProfile.Likes1)
             {
                 Likes1.Add(new LikeViewModel(incomingLikes1));
             }
