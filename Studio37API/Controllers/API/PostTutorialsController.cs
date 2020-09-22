@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PostTutorials
-        public IQueryable<PostTutorial> GetPostTutorials()
+        public List<PostTutorialViewModel> GetPostTutorials()
         {
-            return db.PostTutorials;
+            List<PostTutorialViewModel> PostTutorialList = new List<PostTutorialViewModel>;
+
+            foreach(PostTutorial incomingPostTutorial in db.PostTutorials)
+            {
+                PostTutorialList.Add(new PostTutorialViewModel(incomingPostTutorial));
+            }
+
+            return PostTutorialList;
         }
 
         // GET: api/PostTutorials/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(postTutorial);
+            return Ok(new PostTutorialViewModel(postTutorial));
         }
 
         // PUT: api/PostTutorials/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postTutorial.id }, postTutorial);
+            return CreatedAtRoute("DefaultApi", new { id = postTutorial.id }, new PostTutorialViewModel(postTutorial));
         }
 
         // DELETE: api/PostTutorials/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.PostTutorials.Remove(postTutorial);
             await db.SaveChangesAsync();
 
-            return Ok(postTutorial);
+            return Ok(new PostTutorialViewModel(postTutorial));
         }
 
         protected override void Dispose(bool disposing)

@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/TutorialRatings
-        public IQueryable<TutorialRating> GetTutorialRatings()
+        public List<TutorialRatingViewModel> GetTutorialRatings()
         {
-            return db.TutorialRatings;
+            List<TutorialRatingViewModel> TutorialRatingList = new List<TutorialRatingViewModel>;
+
+            foreach(TutorialRating incomingTutorialRating in db.TutorialRatings)
+            {
+                TutorialRatingList.Add(new TutorialRatingViewModel(incomingTutorialRating));
+            }
+
+            return TutorialRatingList;
         }
 
         // GET: api/TutorialRatings/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(tutorialRating);
+            return Ok(new TutorialRatingViewModel(tutorialRating));
         }
 
         // PUT: api/TutorialRatings/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tutorialRating.id }, tutorialRating);
+            return CreatedAtRoute("DefaultApi", new { id = tutorialRating.id }, new TutorialRatingViewModel(tutorialRating));
         }
 
         // DELETE: api/TutorialRatings/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.TutorialRatings.Remove(tutorialRating);
             await db.SaveChangesAsync();
 
-            return Ok(tutorialRating);
+            return Ok(new TutorialRatingViewModel(tutorialRating));
         }
 
         protected override void Dispose(bool disposing)

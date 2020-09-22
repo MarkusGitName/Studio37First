@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PromoVideos
-        public IQueryable<PromoVideo> GetPromoVideos()
+        public List<PromoVideoViewModel> GetPromoVideos()
         {
-            return db.PromoVideos;
+            List<PromoVideoViewModel> PromoVideoList = new List<PromoVideoViewModel>;
+
+            foreach(PromoVideo incomingPromoVideo in db.PromoVideos)
+            {
+                PromoVideoList.Add(new PromoVideoViewModel(incomingPromoVideo));
+            }
+
+            return PromoVideoList;
         }
 
         // GET: api/PromoVideos/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(promoVideo);
+            return Ok(new PromoVideoViewModel(promoVideo));
         }
 
         // PUT: api/PromoVideos/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = promoVideo.id }, promoVideo);
+            return CreatedAtRoute("DefaultApi", new { id = promoVideo.id }, new PromoVideoViewModel(promoVideo));
         }
 
         // DELETE: api/PromoVideos/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.PromoVideos.Remove(promoVideo);
             await db.SaveChangesAsync();
 
-            return Ok(promoVideo);
+            return Ok(new PromoVideoViewModel(promoVideo));
         }
 
         protected override void Dispose(bool disposing)

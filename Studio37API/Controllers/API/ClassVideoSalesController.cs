@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ClassVideoSales
-        public IQueryable<ClassVideoSale> GetClassVideoSales()
+        public List<ClassVideoSaleViewModel> GetClassVideoSales()
         {
-            return db.ClassVideoSales;
+            List<ClassVideoSaleViewModel> ClassVideoSaleList = new List<ClassVideoSaleViewModel>;
+
+            foreach(ClassVideoSale incomingClassVideoSale in db.ClassVideoSales)
+            {
+                ClassVideoSaleList.Add(new ClassVideoSaleViewModel(incomingClassVideoSale));
+            }
+
+            return ClassVideoSaleList;
         }
 
         // GET: api/ClassVideoSales/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(classVideoSale);
+            return Ok(new ClassRatingViewModel(classVideoSale));
         }
 
         // PUT: api/ClassVideoSales/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classVideoSale.id }, classVideoSale);
+            return CreatedAtRoute("DefaultApi", new { id = classVideoSale.id }, new ClassRatingViewModel(classVideoSale));
         }
 
         // DELETE: api/ClassVideoSales/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.ClassVideoSales.Remove(classVideoSale);
             await db.SaveChangesAsync();
 
-            return Ok(classVideoSale);
+            return Ok(new ClassRatingViewModel(classVideoSale));
         }
 
         protected override void Dispose(bool disposing)

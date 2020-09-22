@@ -18,9 +18,17 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/LiveShowComments
-        public IQueryable<LiveShowComment> GetLiveShowComments()
+        public List<LiveShowCommentViewModel> GetLiveShowComments()
         {
-            return db.LiveShowComments;
+            List<LiveShowCommentViewModel> LiveShowCommentList = new List<LiveShowCommentViewModel>
+
+            foreach(LiveShowComment incomingLiveShowComment in db.LiveShowComments)
+            {
+                LiveShowCommentList.Add(new LiveShowCommentViewModel(incomingLiveShowComment));
+            }
+
+
+            return LiveShowCommentList;
         }
 
         // GET: api/LiveShowComments/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(liveShowComment);
+            return Ok(new LiveShowCommentViewModel(liveShowComment));
         }
 
         // PUT: api/LiveShowComments/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = liveShowComment.id }, liveShowComment);
+            return CreatedAtRoute("DefaultApi", new { id = liveShowComment.id }, new LiveShowCommentViewModel(liveShowComment));
         }
 
         // DELETE: api/LiveShowComments/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.LiveShowComments.Remove(liveShowComment);
             await db.SaveChangesAsync();
 
-            return Ok(liveShowComment);
+            return Ok(new LiveShowCommentViewModel(liveShowComment));
         }
 
         protected override void Dispose(bool disposing)

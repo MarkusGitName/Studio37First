@@ -18,9 +18,17 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Likes
-        public IQueryable<Like> GetLikes()
+        public List<LikeViewModel> GetLikes()
         {
-            return db.Likes;
+            List<LikeViewModel> LikeList = new List<LikeViewModel>;
+
+            foreach(Like incomingLike in db.Likes)
+            {
+                LikeList.Add(new LikeViewModel(incomingLike));
+
+            }
+
+            return LikeList;
         }
 
         // GET: api/Likes/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(like);
+            return Ok(new LikeViewModel(like));
         }
 
         // PUT: api/Likes/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = like.id }, like);
+            return CreatedAtRoute("DefaultApi", new { id = like.id }, new LikeViewModel(like));
         }
 
         // DELETE: api/Likes/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Likes.Remove(like);
             await db.SaveChangesAsync();
 
-            return Ok(like);
+            return Ok(new LikeViewModel(like));
         }
 
         protected override void Dispose(bool disposing)

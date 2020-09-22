@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Payments
-        public IQueryable<Payment> GetPayments()
+        public List<PaymentViewModel> GetPayments()
         {
-            return db.Payments;
+            List<PaymentViewModel> PaymentList = new List<PaymentViewModel>;
+
+            foreach(Payment incomingPayment in db.Payments)
+            {
+                PaymentList.Add(new PaymentViewModel(incomingPayment));
+            }
+
+            return PaymentList;
         }
 
         // GET: api/Payments/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(payment);
+            return Ok(new PaymentViewModel(payment));
         }
 
         // PUT: api/Payments/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = payment.id }, payment);
+            return CreatedAtRoute("DefaultApi", new { id = payment.id }, new PaymentViewModel(payment));
         }
 
         // DELETE: api/Payments/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.Payments.Remove(payment);
             await db.SaveChangesAsync();
 
-            return Ok(payment);
+            return Ok(new PaymentViewModel(payment));
         }
 
         protected override void Dispose(bool disposing)

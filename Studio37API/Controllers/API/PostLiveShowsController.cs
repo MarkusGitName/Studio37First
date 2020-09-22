@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PostLiveShows
-        public IQueryable<PostLiveShow> GetPostLiveShows()
+        public List<PostLiveShowViewModel> GetPostLiveShows()
         {
-            return db.PostLiveShows;
+            List<PostLiveShowViewModel> PostLiveShowList = new List<PostLiveShowViewModel>;
+
+            foreach(PostLiveShow incomingPostLiveShow in db.PostLiveShows)
+            {
+                PostLiveShowList.Add(new PostLiveShowViewModel(incomingPostLiveShow));
+            }
+
+            return PostLiveShowList;
         }
 
         // GET: api/PostLiveShows/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(postLiveShow);
+            return Ok(new PostLiveShowviewModel(postLiveShow));
         }
 
         // PUT: api/PostLiveShows/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postLiveShow.id }, postLiveShow);
+            return CreatedAtRoute("DefaultApi", new { id = postLiveShow.id }, new PostLiveShowviewModel(postLiveShow));
         }
 
         // DELETE: api/PostLiveShows/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.PostLiveShows.Remove(postLiveShow);
             await db.SaveChangesAsync();
 
-            return Ok(postLiveShow);
+            return Ok(new PostLiveShowviewModel(postLiveShow));
         }
 
         protected override void Dispose(bool disposing)

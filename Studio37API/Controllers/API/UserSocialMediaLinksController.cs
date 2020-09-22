@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/UserSocialMediaLinks
-        public IQueryable<UserSocialMediaLink> GetUserSocialMediaLinks()
+        public List<UserSocialMediaLinkViewModel> GetUserSocialMediaLinks()
         {
-            return db.UserSocialMediaLinks;
+            List<UserSocialMediaLinkViewModel> UserSocialMediaLinkList = new List<UserSocialMediaLinkViewModel>;
+
+            foreach(UserSocialMediaLink incomingUserSocialMediaLink in db.UserSocialMediaLinks)
+            {
+                UserSocialMediaLinkList.Add(new UserSocialMediaLinkViewModel(incomingUserSocialMediaLink));
+            }
+
+            return UserSocialMediaLinkList;
         }
 
         // GET: api/UserSocialMediaLinks/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(userSocialMediaLink);
+            return Ok(new UserSocialMediaLinkViewModel(userSocialMediaLink));
         }
 
         // PUT: api/UserSocialMediaLinks/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = userSocialMediaLink.id }, userSocialMediaLink);
+            return CreatedAtRoute("DefaultApi", new { id = userSocialMediaLink.id }, new UserSocialMediaLinkViewModel(userSocialMediaLink));
         }
 
         // DELETE: api/UserSocialMediaLinks/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.UserSocialMediaLinks.Remove(userSocialMediaLink);
             await db.SaveChangesAsync();
 
-            return Ok(userSocialMediaLink);
+            return Ok(new UserSocialMediaLinkViewModel(userSocialMediaLink));
         }
 
         protected override void Dispose(bool disposing)

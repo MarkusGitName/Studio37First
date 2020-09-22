@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PromoPhotoes
-        public IQueryable<PromoPhoto> GetPromoPhotos()
+        public List<PromoPhotoViewModel> GetPromoPhotos()
         {
-            return db.PromoPhotos;
+            List<PromoPhotoViewModel> PromoPhotoList = new List<PromoPhotoViewModel>;
+
+            foreach(PromoPhoto incomingPromoPhoto in db.PromoPhotos)
+            {
+                PromoPhotoList.Add(new PromoPhotoViewModel(incomingPromoPhoto));
+            }
+
+            return PromoPhotoList;
         }
 
         // GET: api/PromoPhotoes/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(promoPhoto);
+            return Ok(new PromoPhotoViewModel(promoPhoto));
         }
 
         // PUT: api/PromoPhotoes/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = promoPhoto.id }, promoPhoto);
+            return CreatedAtRoute("DefaultApi", new { id = promoPhoto.id }, new PromoPhotoViewModel(promoPhoto));
         }
 
         // DELETE: api/PromoPhotoes/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.PromoPhotos.Remove(promoPhoto);
             await db.SaveChangesAsync();
 
-            return Ok(promoPhoto);
+            return Ok(new PromoPhotoViewModel(promoPhoto));
         }
 
         protected override void Dispose(bool disposing)

@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PostEvents
-        public IQueryable<PostEvent> GetPostEvents()
+        public List<PostEventViewModel> GetPostEvents()
         {
-            return db.PostEvents;
+            List<PostEventViewModel> PostEventList = new List<PostEventViewModel>;
+
+            foreach(PostEvent incomingPostEvent in db.PostEvents)
+            {
+                PostEventList.Add(new PostEventViewModel(incomingPostEvent));
+            }
+
+            return PostEventList;
         }
 
         // GET: api/PostEvents/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(postEvent);
+            return Ok(new PostEventViewModel(postEvent));
         }
 
         // PUT: api/PostEvents/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postEvent.id }, postEvent);
+            return CreatedAtRoute("DefaultApi", new { id = postEvent.id }, new PostEventViewModel(postEvent));
         }
 
         // DELETE: api/PostEvents/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.PostEvents.Remove(postEvent);
             await db.SaveChangesAsync();
 
-            return Ok(postEvent);
+            return Ok(new PostEventViewModel(postEvent));
         }
 
         protected override void Dispose(bool disposing)

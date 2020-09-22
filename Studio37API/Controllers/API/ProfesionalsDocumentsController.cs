@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ProfesionalsDocuments
-        public IQueryable<ProfesionalsDocument> GetProfesionalsDocuments()
+        public List<ProfesionalsDocumentViewModel> GetProfesionalsDocuments()
         {
-            return db.ProfesionalsDocuments;
+            List<ProfesionalsDocumentViewModel> ProfessionalsDocumentList = new List<ProfesionalsDocumentViewModel>;
+
+            foreach(ProfesionalsDocument incomingProfessionalsDocument in db.ProfesionalsDocuments)
+            {
+                ProfessionalsDocumentList.Add(new ProfesionalsDocumentViewModel(incomingProfessionalsDocument));
+            }
+
+            return ProfessionalsDocumentList;
         }
 
         // GET: api/ProfesionalsDocuments/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(profesionalsDocument);
+            return Ok(new ProfesionalsDocumentViewModel(profesionalsDocument));
         }
 
         // PUT: api/ProfesionalsDocuments/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profesionalsDocument.id }, profesionalsDocument);
+            return CreatedAtRoute("DefaultApi", new { id = profesionalsDocument.id }, new ProfesionalsDocumentViewModel(profesionalsDocument));
         }
 
         // DELETE: api/ProfesionalsDocuments/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.ProfesionalsDocuments.Remove(profesionalsDocument);
             await db.SaveChangesAsync();
 
-            return Ok(profesionalsDocument);
+            return Ok(new ProfesionalsDocumentViewModel(profesionalsDocument));
         }
 
         protected override void Dispose(bool disposing)

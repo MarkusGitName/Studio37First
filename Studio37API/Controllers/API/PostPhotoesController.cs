@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PostPhotoes
-        public IQueryable<PostPhoto> GetPostPhotos()
+        public List<PostPhotoViewModel> GetPostPhotos()
         {
-            return db.PostPhotos;
+            List<PostPhotoViewModel> PostPhotoList = new List<PostPhotoViewModel>;
+
+            foreach(PostPhoto incomingPostPhoto in db.PostPhotos)
+            {
+                PostPhotoList.Add(new PostPhotoViewModel(incomingPostPhoto));
+            }
+         
+            return PostPhotoList;
         }
 
         // GET: api/PostPhotoes/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(postPhoto);
+            return Ok(new PostPhotoViewModel(postPhoto));
         }
 
         // PUT: api/PostPhotoes/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postPhoto.id }, postPhoto);
+            return CreatedAtRoute("DefaultApi", new { id = postPhoto.id }, new PostPhotoViewModel(postPhoto));
         }
 
         // DELETE: api/PostPhotoes/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.PostPhotos.Remove(postPhoto);
             await db.SaveChangesAsync();
 
-            return Ok(postPhoto);
+            return Ok(new PostPhotoViewModel(postPhoto));
         }
 
         protected override void Dispose(bool disposing)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ClassVideos
-        public IQueryable<ClassVideo> GetClassVideos()
+        public List<ClassVideoViewModel> GetClassVideos()
         {
-            return db.ClassVideos;
+            List<ClassVideoViewModel> ClassVideoList = new List<ClassVideoViewModel>;
+
+            foreach(ClassVideo incomingClassVideo in db.ClassVideos)
+            {
+                ClassVideoList.Add(new ClassVideoViewModel(incomingClassVideo))
+            }
+
+            return ClassVideoList;
         }
 
         // GET: api/ClassVideos/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(classVideo);
+            return Ok(new ClassVideoViewModel(classVideo));
         }
 
         // PUT: api/ClassVideos/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classVideo.id }, classVideo);
+            return CreatedAtRoute("DefaultApi", new { id = classVideo.id }, new ClassVideoViewModel(classVideo));
         }
 
         // DELETE: api/ClassVideos/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.ClassVideos.Remove(classVideo);
             await db.SaveChangesAsync();
 
-            return Ok(classVideo);
+            return Ok(new ClassVideoViewModel(classVideo));
         }
 
         protected override void Dispose(bool disposing)

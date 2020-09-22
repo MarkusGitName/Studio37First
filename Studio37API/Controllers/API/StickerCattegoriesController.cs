@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/StickerCattegories
-        public IQueryable<StickerCattegory> GetStickerCattegories()
+        public List<StickerCattegoryViewModel> GetStickerCattegories()
         {
-            return db.StickerCattegories;
+            List<StickerCattegoryViewModel> StickerCategoryList = new List<StickerCattegoryViewModel>;
+
+            foreach(StickerCattegory incomingStickerCategory in db.StickerCattegories)
+            {
+                StickerCategoryList.Add(new StickerCattegoryViewModel(incomingStickerCategory));
+            }
+
+            return StickerCategoryList;
         }
 
         // GET: api/StickerCattegories/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(stickerCattegory);
+            return Ok(new StickerCattegoryViewModel(stickerCattegory));
         }
 
         // PUT: api/StickerCattegories/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = stickerCattegory.id }, stickerCattegory);
+            return CreatedAtRoute("DefaultApi", new { id = stickerCattegory.id }, new StickerCattegoryViewModel(stickerCattegory));
         }
 
         // DELETE: api/StickerCattegories/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.StickerCattegories.Remove(stickerCattegory);
             await db.SaveChangesAsync();
 
-            return Ok(stickerCattegory);
+            return Ok(new StickerCattegoryViewModel(stickerCattegory));
         }
 
         protected override void Dispose(bool disposing)

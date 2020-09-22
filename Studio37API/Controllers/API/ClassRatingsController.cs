@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,15 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ClassRatings
-        public IQueryable<ClassRating> GetClassRatings()
+        public List<ClassRatingViewModel> GetClassRatings()
         {
-            return db.ClassRatings;
+            List<ClassRatingViewModel> ClassRatingList = new List<ClassRatingViewModel>;
+
+            foreach(ClassRating incomingClassRating in db.ClassRatings)
+            {
+                ClassRatingList.Add(new ClassRatingViewModel(incomingClassRating));
+            }
+            return ClassRatingList;
         }
 
         // GET: api/ClassRatings/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(classRating);
+            return Ok(new ClassRatingViewModel(ClassRating));
         }
 
         // PUT: api/ClassRatings/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classRating.id }, classRating);
+            return CreatedAtRoute("DefaultApi", new { id = classRating.id }, new ClassRatingViewModel(ClassRating));
         }
 
         // DELETE: api/ClassRatings/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.ClassRatings.Remove(classRating);
             await db.SaveChangesAsync();
 
-            return Ok(classRating);
+            return Ok(new ClassRatingViewModel(ClassRating));
         }
 
         protected override void Dispose(bool disposing)

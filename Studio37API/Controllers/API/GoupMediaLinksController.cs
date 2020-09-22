@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,17 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/GoupMediaLinks
-        public IQueryable<GoupMediaLink> GetGoupMediaLinks()
+        public List<GoupMediaLinkViewModel> GetGoupMediaLinks()
         {
-            return db.GoupMediaLinks;
+            List<GoupMediaLinkViewModel> GoupMediaList = new List<GoupMediaLinkViewModel>;
+
+            foreach(GoupMediaLink incomingGoupMediaLink in db.GoupmediaLinks)
+            {
+                GoupMediaList.Add(new GoupMediaLinkViewModel(incomingGoupMediaLink));
+
+            }
+
+            return GoupMediaList;
         }
 
         // GET: api/GoupMediaLinks/5
@@ -33,7 +42,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(goupMediaLink);
+            return Ok(new GoupMediaLinkViewModel(goupMediaLink));
         }
 
         // PUT: api/GoupMediaLinks/5
@@ -98,7 +107,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = goupMediaLink.id }, goupMediaLink);
+            return CreatedAtRoute("DefaultApi", new { id = goupMediaLink.id }, new GoupMediaLinkViewModel(goupMediaLink));
         }
 
         // DELETE: api/GoupMediaLinks/5
@@ -114,7 +123,7 @@ namespace Studio37API.Controllers.API
             db.GoupMediaLinks.Remove(goupMediaLink);
             await db.SaveChangesAsync();
 
-            return Ok(goupMediaLink);
+            return Ok(new GoupMediaLinkViewModel(goupMediaLink));
         }
 
         protected override void Dispose(bool disposing)

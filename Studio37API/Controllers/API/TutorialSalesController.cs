@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/TutorialSales
-        public IQueryable<TutorialSale> GetTutorialSales()
+        public List<TutorialSaleViewModel> GetTutorialSales()
         {
-            return db.TutorialSales;
+            List<TutorialSaleViewModel> TutorialSaleList = new List<TutorialSaleViewModel>:
+
+            foreach(TutorialSale incomingTutorialSale in db.TutorialSales)
+            {
+                TutorialSaleList.Add(new TutorialSaleViewModel(incomingTutorialSale));
+            }
+
+            return TutorialSaleList;
         }
 
         // GET: api/TutorialSales/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(tutorialSale);
+            return Ok(new TutorialSaleViewModel(tutorialSale));
         }
 
         // PUT: api/TutorialSales/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tutorialSale.id }, tutorialSale);
+            return CreatedAtRoute("DefaultApi", new { id = tutorialSale.id }, new TutorialSaleViewModel(tutorialSale));
         }
 
         // DELETE: api/TutorialSales/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.TutorialSales.Remove(tutorialSale);
             await db.SaveChangesAsync();
 
-            return Ok(tutorialSale);
+            return Ok(new TutorialSaleViewModel(tutorialSale));
         }
 
         protected override void Dispose(bool disposing)

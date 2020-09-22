@@ -18,9 +18,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Shares
-        public IQueryable<Share> GetShares()
+        public List<ShareViewModel> GetShares()
         {
-            return db.Shares;
+            List<ShareViewModel> ShareList = new List<ShareViewModel>;
+
+            foreach(Share incomingShare in db.Shares)
+            {
+                ShareList.Add(new ShareViewModel(incomingShare));
+            }
+
+            return ShareList;
         }
 
         // GET: api/Shares/5
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(share);
+            return Ok(new ShareViewModel(share));
         }
 
         // PUT: api/Shares/5
@@ -98,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = share.id }, share);
+            return CreatedAtRoute("DefaultApi", new { id = share.id }, new ShareViewModel(share));
         }
 
         // DELETE: api/Shares/5
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.Shares.Remove(share);
             await db.SaveChangesAsync();
 
-            return Ok(share);
+            return Ok(new ShareViewModel(share));
         }
 
         protected override void Dispose(bool disposing)
