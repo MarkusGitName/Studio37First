@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PromoVideos
         public List<PromoVideoViewModel> GetPromoVideos()
         {
-            List<PromoVideoViewModel> PromoVideoList = new List<PromoVideoViewModel>;
+            List<PromoVideoViewModel> PromoVideoList = new List<PromoVideoViewModel>();
 
             foreach(PromoVideo incomingPromoVideo in db.PromoVideos)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PromoVideos/5
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> GetPromoVideo(Guid id)
         {
             PromoVideo promoVideo = await db.PromoVideos.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PromoVideos
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> PostPromoVideo(PromoVideo promoVideo)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PromoVideos/5
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> DeletePromoVideo(Guid id)
         {
             PromoVideo promoVideo = await db.PromoVideos.FindAsync(id);

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/ProfesionalsDocuments
         public List<ProfesionalsDocumentViewModel> GetProfesionalsDocuments()
         {
-            List<ProfesionalsDocumentViewModel> ProfessionalsDocumentList = new List<ProfesionalsDocumentViewModel>;
+            List<ProfesionalsDocumentViewModel> ProfessionalsDocumentList = new List<ProfesionalsDocumentViewModel>();
 
             foreach(ProfesionalsDocument incomingProfessionalsDocument in db.ProfesionalsDocuments)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ProfesionalsDocuments/5
-        [ResponseType(typeof(ProfesionalsDocument))]
+        [ResponseType(typeof(ProfesionalsDocumentViewModel))]
         public async Task<IHttpActionResult> GetProfesionalsDocument(Guid id)
         {
             ProfesionalsDocument profesionalsDocument = await db.ProfesionalsDocuments.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ProfesionalsDocuments
-        [ResponseType(typeof(ProfesionalsDocument))]
+        [ResponseType(typeof(ProfesionalsDocumentViewModel))]
         public async Task<IHttpActionResult> PostProfesionalsDocument(ProfesionalsDocument profesionalsDocument)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ProfesionalsDocuments/5
-        [ResponseType(typeof(ProfesionalsDocument))]
+        [ResponseType(typeof(ProfesionalsDocumentViewModel))]
         public async Task<IHttpActionResult> DeleteProfesionalsDocument(Guid id)
         {
             ProfesionalsDocument profesionalsDocument = await db.ProfesionalsDocuments.FindAsync(id);

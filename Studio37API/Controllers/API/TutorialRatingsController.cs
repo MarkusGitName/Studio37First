@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/TutorialRatings
         public List<TutorialRatingViewModel> GetTutorialRatings()
         {
-            List<TutorialRatingViewModel> TutorialRatingList = new List<TutorialRatingViewModel>;
+            List<TutorialRatingViewModel> TutorialRatingList = new List<TutorialRatingViewModel>();
 
             foreach(TutorialRating incomingTutorialRating in db.TutorialRatings)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialRatings/5
-        [ResponseType(typeof(TutorialRating))]
+        [ResponseType(typeof(TutorialRatingViewModel))]
         public async Task<IHttpActionResult> GetTutorialRating(Guid id)
         {
             TutorialRating tutorialRating = await db.TutorialRatings.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialRatings
-        [ResponseType(typeof(TutorialRating))]
+        [ResponseType(typeof(TutorialRatingViewModel))]
         public async Task<IHttpActionResult> PostTutorialRating(TutorialRating tutorialRating)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialRatings/5
-        [ResponseType(typeof(TutorialRating))]
+        [ResponseType(typeof(TutorialRatingViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialRating(Guid id)
         {
             TutorialRating tutorialRating = await db.TutorialRatings.FindAsync(id);

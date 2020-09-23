@@ -21,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/ClassVideos
         public List<ClassVideoViewModel> GetClassVideos()
         {
-            List<ClassVideoViewModel> ClassVideoList = new List<ClassVideoViewModel>;
+            List<ClassVideoViewModel> ClassVideoList = new List<ClassVideoViewModel>();
 
             foreach(ClassVideo incomingClassVideo in db.ClassVideos)
             {
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ClassVideos/5
-        [ResponseType(typeof(ClassVideo))]
+        [ResponseType(typeof(ClassVideoViewModel))]
         public async Task<IHttpActionResult> GetClassVideo(Guid id)
         {
             ClassVideo classVideo = await db.ClassVideos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ClassVideos
-        [ResponseType(typeof(ClassVideo))]
+        [ResponseType(typeof(ClassVideoViewModel))]
         public async Task<IHttpActionResult> PostClassVideo(ClassVideo classVideo)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ClassVideos/5
-        [ResponseType(typeof(ClassVideo))]
+        [ResponseType(typeof(ClassVideoViewModel))]
         public async Task<IHttpActionResult> DeleteClassVideo(Guid id)
         {
             ClassVideo classVideo = await db.ClassVideos.FindAsync(id);

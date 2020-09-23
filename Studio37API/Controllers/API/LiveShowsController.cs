@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/LiveShows
         public List<LiveShowViewModel> GetLiveShows()
         {
-            List<LiveShowViewModel> LiveShowList = new List<LiveShowViewModel>;
+            List<LiveShowViewModel> LiveShowList = new List<LiveShowViewModel>();
 
             foreach(LiveShow incomingLiveShow in db.Liveshows)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/LiveShows/5
-        [ResponseType(typeof(LiveShow))]
+        [ResponseType(typeof(LiveShowViewModel))]
         public async Task<IHttpActionResult> GetLiveShow(Guid id)
         {
             LiveShow liveShow = await db.LiveShows.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShows
-        [ResponseType(typeof(LiveShow))]
+        [ResponseType(typeof(LiveShowViewModel))]
         public async Task<IHttpActionResult> PostLiveShow(LiveShow liveShow)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/LiveShows/5
-        [ResponseType(typeof(LiveShow))]
+        [ResponseType(typeof(LiveShowViewModel))]
         public async Task<IHttpActionResult> DeleteLiveShow(Guid id)
         {
             LiveShow liveShow = await db.LiveShows.FindAsync(id);

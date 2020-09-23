@@ -21,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/EventUsers
         public List<EventUserViewModel> GetEventUsers()
         {
-            List<EventUserViewModel> EventUserList = new List<EventUserViewModel>;
+            List<EventUserViewModel> EventUserList = new List<EventUserViewModel>();
 
             foreach(EventUser incomingEventUser in db.EventUsers)
             {
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/EventUsers/5
-        [ResponseType(typeof(EventUser))]
+        [ResponseType(typeof(EventUserViewModel))]
         public async Task<IHttpActionResult> GetEventUser(Guid id)
         {
             EventUser eventUser = await db.EventUsers.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/EventUsers
-        [ResponseType(typeof(EventUser))]
+        [ResponseType(typeof(EventUserViewModel))]
         public async Task<IHttpActionResult> PostEventUser(EventUser eventUser)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/EventUsers/5
-        [ResponseType(typeof(EventUser))]
+        [ResponseType(typeof(EventUserViewModel))]
         public async Task<IHttpActionResult> DeleteEventUser(Guid id)
         {
             EventUser eventUser = await db.EventUsers.FindAsync(id);

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PostCattegories
         public List<PostCattegoryViewModel> GetPostCattegories()
         {
-            List<PostCattegoryViewModel> PostCattegoryList = new List<PostCattegoryViewModel>;
+            List<PostCattegoryViewModel> PostCattegoryList = new List<PostCattegoryViewModel>();
 
             foreach(PostCattegory incomingPostCattegory in db.PostCattegories)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostCattegories/5
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> GetPostCattegory(Guid id)
         {
             PostCattegory postCattegory = await db.PostCattegories.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostCattegories
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> PostPostCattegory(PostCattegory postCattegory)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostCattegories/5
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> DeletePostCattegory(Guid id)
         {
             PostCattegory postCattegory = await db.PostCattegories.FindAsync(id);

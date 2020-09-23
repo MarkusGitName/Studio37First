@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PostTutorials
         public List<PostTutorialViewModel> GetPostTutorials()
         {
-            List<PostTutorialViewModel> PostTutorialList = new List<PostTutorialViewModel>;
+            List<PostTutorialViewModel> PostTutorialList = new List<PostTutorialViewModel>();
 
             foreach(PostTutorial incomingPostTutorial in db.PostTutorials)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostTutorials/5
-        [ResponseType(typeof(PostTutorial))]
+        [ResponseType(typeof(PostTutorialViewModel))]
         public async Task<IHttpActionResult> GetPostTutorial(Guid id)
         {
             PostTutorial postTutorial = await db.PostTutorials.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostTutorials
-        [ResponseType(typeof(PostTutorial))]
+        [ResponseType(typeof(PostTutorialViewModel))]
         public async Task<IHttpActionResult> PostPostTutorial(PostTutorial postTutorial)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostTutorials/5
-        [ResponseType(typeof(PostTutorial))]
+        [ResponseType(typeof(PostTutorialViewModel))]
         public async Task<IHttpActionResult> DeletePostTutorial(Guid id)
         {
             PostTutorial postTutorial = await db.PostTutorials.FindAsync(id);

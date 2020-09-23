@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/TutorialComments
         public List<TutorialCommentViewModel> GetTutorialComments()
         {
-            List<TutorialCommentViewModel> TutorialCommentList = new List<TutorialCommentViewModel>;
+            List<TutorialCommentViewModel> TutorialCommentList = new List<TutorialCommentViewModel>();
 
             foreach(TutorialComment incomingTutorialComment in db.TutorialComments)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialComments/5
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> GetTutorialComment(Guid id)
         {
             TutorialComment tutorialComment = await db.TutorialComments.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialComments
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> PostTutorialComment(TutorialComment tutorialComment)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialComments/5
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialComment(Guid id)
         {
             TutorialComment tutorialComment = await db.TutorialComments.FindAsync(id);

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PostVideos
         public List<PostVideoViewModel> GetPostVideos()
         {
-            List<PostVideoViewModel> PostVideoList = new List<PostVideoViewModel>;
+            List<PostVideoViewModel> PostVideoList = new List<PostVideoViewModel>();
             
             foreach(PostVideo incomingPostVideo in db.PostVideos)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostVideos/5
-        [ResponseType(typeof(PostVideo))]
+        [ResponseType(typeof(PostVideoViewModel))]
         public async Task<IHttpActionResult> GetPostVideo(Guid id)
         {
             PostVideo postVideo = await db.PostVideos.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostVideos
-        [ResponseType(typeof(PostVideo))]
+        [ResponseType(typeof(PostVideoViewModel))]
         public async Task<IHttpActionResult> PostPostVideo(PostVideo postVideo)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostVideos/5
-        [ResponseType(typeof(PostVideo))]
+        [ResponseType(typeof(PostVideoViewModel))]
         public async Task<IHttpActionResult> DeletePostVideo(Guid id)
         {
             PostVideo postVideo = await db.PostVideos.FindAsync(id);

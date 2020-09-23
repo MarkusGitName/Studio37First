@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PromoPhotoes
         public List<PromoPhotoViewModel> GetPromoPhotos()
         {
-            List<PromoPhotoViewModel> PromoPhotoList = new List<PromoPhotoViewModel>;
+            List<PromoPhotoViewModel> PromoPhotoList = new List<PromoPhotoViewModel>();
 
             foreach(PromoPhoto incomingPromoPhoto in db.PromoPhotos)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PromoPhotoes/5
-        [ResponseType(typeof(PromoPhoto))]
+        [ResponseType(typeof(PromoPhotoViewModel))]
         public async Task<IHttpActionResult> GetPromoPhoto(Guid id)
         {
             PromoPhoto promoPhoto = await db.PromoPhotos.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PromoPhotoes
-        [ResponseType(typeof(PromoPhoto))]
+        [ResponseType(typeof(PromoPhotoViewModel))]
         public async Task<IHttpActionResult> PostPromoPhoto(PromoPhoto promoPhoto)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PromoPhotoes/5
-        [ResponseType(typeof(PromoPhoto))]
+        [ResponseType(typeof(PromoPhotoViewModel))]
         public async Task<IHttpActionResult> DeletePromoPhoto(Guid id)
         {
             PromoPhoto promoPhoto = await db.PromoPhotos.FindAsync(id);

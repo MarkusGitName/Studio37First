@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Messages
         public List<MessageViewModel> GetMessages()
         {
-            List<MessageViewModel> MessageList = new List<MessageViewModel>;
+            List<MessageViewModel> MessageList = new List<MessageViewModel>();
 
             foreach(Message incomingMessage in db.Messages)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Messages/5
-        [ResponseType(typeof(Message))]
+        [ResponseType(typeof(MessageViewModel))]
         public async Task<IHttpActionResult> GetMessage(Guid id)
         {
             Message message = await db.Messages.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Messages
-        [ResponseType(typeof(Message))]
+        [ResponseType(typeof(MessageViewModel))]
         public async Task<IHttpActionResult> PostMessage(Message message)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Messages/5
-        [ResponseType(typeof(Message))]
+        [ResponseType(typeof(MessageViewModel))]
         public async Task<IHttpActionResult> DeleteMessage(Guid id)
         {
             Message message = await db.Messages.FindAsync(id);

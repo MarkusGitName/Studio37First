@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Videos
         public List<VideoViewModel> GetVideos()
         {
-            List<VideoviewModel> VideoList = new List<VideoviewModel>;
+            List<VideoviewModel> VideoList = new List<VideoviewModel>();
 
             foreach(Video incomingVideo in db.UserSocialMediaLinks)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Videos/5
-        [ResponseType(typeof(Video))]
+        [ResponseType(typeof(VideoViewModel))]
         public async Task<IHttpActionResult> GetVideo(Guid id)
         {
             Video video = await db.Videos.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Videos
-        [ResponseType(typeof(Video))]
+        [ResponseType(typeof(VideoViewModel))]
         public async Task<IHttpActionResult> PostVideo(Video video)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Videos/5
-        [ResponseType(typeof(Video))]
+        [ResponseType(typeof(VideoViewModel))]
         public async Task<IHttpActionResult> DeleteVideo(Guid id)
         {
             Video video = await db.Videos.FindAsync(id);

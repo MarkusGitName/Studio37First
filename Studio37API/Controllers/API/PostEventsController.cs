@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PostEvents
         public List<PostEventViewModel> GetPostEvents()
         {
-            List<PostEventViewModel> PostEventList = new List<PostEventViewModel>;
+            List<PostEventViewModel> PostEventList = new List<PostEventViewModel>();
 
             foreach(PostEvent incomingPostEvent in db.PostEvents)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostEvents/5
-        [ResponseType(typeof(PostEvent))]
+        [ResponseType(typeof(PostEventViewModel))]
         public async Task<IHttpActionResult> GetPostEvent(Guid id)
         {
             PostEvent postEvent = await db.PostEvents.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostEvents
-        [ResponseType(typeof(PostEvent))]
+        [ResponseType(typeof(PostEventViewModel))]
         public async Task<IHttpActionResult> PostPostEvent(PostEvent postEvent)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostEvents/5
-        [ResponseType(typeof(PostEvent))]
+        [ResponseType(typeof(PostEventViewModel))]
         public async Task<IHttpActionResult> DeletePostEvent(Guid id)
         {
             PostEvent postEvent = await db.PostEvents.FindAsync(id);

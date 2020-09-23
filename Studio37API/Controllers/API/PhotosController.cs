@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Photos
         public List<PhotoViewModel> GetPhotos()
         {
-            List<PhotoViewModel> PhotoList = new List<PhotoViewModel>;
+            List<PhotoViewModel> PhotoList = new List<PhotoViewModel>();
 
             foreach(Photo incomingPhoto in db.Photos)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Photos/5
-        [ResponseType(typeof(Photo))]
+        [ResponseType(typeof(PhotoViewModel))]
         public async Task<IHttpActionResult> GetPhoto(Guid id)
         {
             Photo photo = await db.Photos.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Photos
-        [ResponseType(typeof(Photo))]
+        [ResponseType(typeof(PhotoViewModel))]
         public async Task<IHttpActionResult> PostPhoto(Photo photo)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Photos/5
-        [ResponseType(typeof(Photo))]
+        [ResponseType(typeof(PhotoViewModel))]
         public async Task<IHttpActionResult> DeletePhoto(Guid id)
         {
             Photo photo = await db.Photos.FindAsync(id);

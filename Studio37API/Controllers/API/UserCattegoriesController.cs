@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/UserCattegories
         public List<UserCattegoryViewModel> GetUserCattegories()
         {
-            List<UserCattegoryViewModel> UserCategoryList = new List<UserCattegoryViewModel>;
+            List<UserCattegoryViewModel> UserCategoryList = new List<UserCattegoryViewModel>();
 
             foreach(UserCattegory incomingUserCattegory in db.UserCattegories)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/UserCattegories/5
-        [ResponseType(typeof(UserCattegory))]
+        [ResponseType(typeof(UserCattegoryViewModel))]
         public async Task<IHttpActionResult> GetUserCattegory(Guid id)
         {
             UserCattegory userCattegory = await db.UserCattegories.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/UserCattegories
-        [ResponseType(typeof(UserCattegory))]
+        [ResponseType(typeof(UserCattegoryViewModel))]
         public async Task<IHttpActionResult> PostUserCattegory(UserCattegory userCattegory)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/UserCattegories/5
-        [ResponseType(typeof(UserCattegory))]
+        [ResponseType(typeof(UserCattegoryViewModel))]
         public async Task<IHttpActionResult> DeleteUserCattegory(Guid id)
         {
             UserCattegory userCattegory = await db.UserCattegories.FindAsync(id);

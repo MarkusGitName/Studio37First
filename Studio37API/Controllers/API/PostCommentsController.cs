@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/PostComments
         public List<PostCommentViewModel> GetPostComments()
         {
-            List<PostCommentViewModel> PostCommentList = new List<PostCommentViewModel>;
+            List<PostCommentViewModel> PostCommentList = new List<PostCommentViewModel>();
 
             foreach(PostComment incomingPostComment in db.PostComments)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostComments/5
-        [ResponseType(typeof(PostComment))]
+        [ResponseType(typeof(PostCommentViewModel))]
         public async Task<IHttpActionResult> GetPostComment(Guid id)
         {
             PostComment postComment = await db.PostComments.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostComments
-        [ResponseType(typeof(PostComment))]
+        [ResponseType(typeof(PostCommentViewModel))]
         public async Task<IHttpActionResult> PostPostComment(PostComment postComment)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostComments/5
-        [ResponseType(typeof(PostComment))]
+        [ResponseType(typeof(PostCommentViewModel))]
         public async Task<IHttpActionResult> DeletePostComment(Guid id)
         {
             PostComment postComment = await db.PostComments.FindAsync(id);

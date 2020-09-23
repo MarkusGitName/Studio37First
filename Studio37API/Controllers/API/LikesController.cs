@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Likes
         public List<LikeViewModel> GetLikes()
         {
-            List<LikeViewModel> LikeList = new List<LikeViewModel>;
+            List<LikeViewModel> LikeList = new List<LikeViewModel>();
 
             foreach(Like incomingLike in db.Likes)
             {
@@ -32,7 +33,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Likes/5
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> GetLike(Guid id)
         {
             Like like = await db.Likes.FindAsync(id);
@@ -80,7 +81,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Likes
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> PostLike(Like like)
         {
             if (!ModelState.IsValid)
@@ -110,7 +111,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Likes/5
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> DeleteLike(Guid id)
         {
             Like like = await db.Likes.FindAsync(id);

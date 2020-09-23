@@ -21,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/ClassVideoCattegories
         public List<ClassVideoCattegoryViewModel> GetClassVideoCattegories()
         {
-            List<ClassVideoCattegoryViewModel> ClassVideoCattegoryList = new List<ClassVideoCattegoryViewModel>;
+            List<ClassVideoCattegoryViewModel> ClassVideoCattegoryList = new List<ClassVideoCattegoryViewModel>();
 
             foreach(ClassVideoCattegory incomingClassVideoCattegory in db.ClassVideoCattegories)
             {
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ClassVideoCattegories/5
-        [ResponseType(typeof(ClassVideoCattegory))]
+        [ResponseType(typeof(ClassVideoCattegoryViewModel))]
         public async Task<IHttpActionResult> GetClassVideoCattegory(Guid id)
         {
             ClassVideoCattegory classVideoCattegory = await db.ClassVideoCattegories.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ClassVideoCattegories
-        [ResponseType(typeof(ClassVideoCattegory))]
+        [ResponseType(typeof(ClassVideoCattegoryViewModel))]
         public async Task<IHttpActionResult> PostClassVideoCattegory(ClassVideoCattegory classVideoCattegory)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ClassVideoCattegories/5
-        [ResponseType(typeof(ClassVideoCattegory))]
+        [ResponseType(typeof(ClassVideoCattegoryViewModel))]
         public async Task<IHttpActionResult> DeleteClassVideoCattegory(Guid id)
         {
             ClassVideoCattegory classVideoCattegory = await db.ClassVideoCattegories.FindAsync(id);

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/TutorialClasses
         public List<TutorialClassViewModel> GetTutorialClasses()
         {
-            List<TutorialClassViewModel> TutorialClassList = new List<TutorialClassViewModel>:
+            List<TutorialClassViewModel> TutorialClassList = new List<TutorialClassViewModel>():
 
             foreach(TutorialClass incomingTutoriaClass in db.TutorialClasses)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialClasses/5
-        [ResponseType(typeof(TutorialClass))]
+        [ResponseType(typeof(TutorialClassViewModel))]
         public async Task<IHttpActionResult> GetTutorialClass(Guid id)
         {
             TutorialClass tutorialClass = await db.TutorialClasses.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialClasses
-        [ResponseType(typeof(TutorialClass))]
+        [ResponseType(typeof(TutorialClassViewModel))]
         public async Task<IHttpActionResult> PostTutorialClass(TutorialClass tutorialClass)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialClasses/5
-        [ResponseType(typeof(TutorialClass))]
+        [ResponseType(typeof(TutorialClassViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialClass(Guid id)
         {
             TutorialClass tutorialClass = await db.TutorialClasses.FindAsync(id);

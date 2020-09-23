@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Sales
         public List<SaleViewModel> GetSales()
         {
-            List<SaleViewModel> SaleList = new List<SaleViewModel>;
+            List<SaleViewModel> SaleList = new List<SaleViewModel>();
 
             foreach(Sale incomingSale in db.Sales)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Sales/5
-        [ResponseType(typeof(Sale))]
+        [ResponseType(typeof(SaleViewModel))]
         public async Task<IHttpActionResult> GetSale(Guid id)
         {
             Sale sale = await db.Sales.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Sales
-        [ResponseType(typeof(Sale))]
+        [ResponseType(typeof(SaleViewModel))]
         public async Task<IHttpActionResult> PostSale(Sale sale)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Sales/5
-        [ResponseType(typeof(Sale))]
+        [ResponseType(typeof(SaleViewModel))]
         public async Task<IHttpActionResult> DeleteSale(Guid id)
         {
             Sale sale = await db.Sales.FindAsync(id);

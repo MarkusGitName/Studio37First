@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Tutorials
         public List<TutorialViewModel> GetTutorials()
         {
-            List<TutorialViewModel> tutorialList = new List<TutorialViewModel>;
+            List<TutorialViewModel> tutorialList = new List<TutorialViewModel>();
 
             foreach(Tutorial incomingTutorial in db.tutorials)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Tutorials/5
-        [ResponseType(typeof(Tutorial))]
+        [ResponseType(typeof(TutorialViewModel))]
         public async Task<IHttpActionResult> GetTutorial(Guid id)
         {
             Tutorial tutorial = await db.Tutorials.FindAsync(id);
@@ -78,7 +79,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Tutorials
-        [ResponseType(typeof(Tutorial))]
+        [ResponseType(typeof(TutorialViewModel))]
         public async Task<IHttpActionResult> PostTutorial(Tutorial tutorial)
         {
             if (!ModelState.IsValid)
@@ -108,7 +109,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Tutorials/5
-        [ResponseType(typeof(Tutorial))]
+        [ResponseType(typeof(TutorialViewModel))]
         public async Task<IHttpActionResult> DeleteTutorial(Guid id)
         {
             Tutorial tutorial = await db.Tutorials.FindAsync(id);

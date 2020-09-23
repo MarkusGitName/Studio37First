@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Posts
         public List<PostViewModel> GetPosts()
         {
-            List<PostViewModel> PostList = new List<PostViewModel>;
+            List<PostViewModel> PostList = new List<PostViewModel>();
 
             foreach(Post incomingPost in db.Posts)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Posts/5
-        [ResponseType(typeof(Post))]
+        [ResponseType(typeof(PostViewModel))]
         public async Task<IHttpActionResult> GetPost(Guid id)
         {
             Post post = await db.Posts.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Posts
-        [ResponseType(typeof(Post))]
+        [ResponseType(typeof(PostViewModel))]
         public async Task<IHttpActionResult> PostPost(Post post)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Posts/5
-        [ResponseType(typeof(Post))]
+        [ResponseType(typeof(PostViewModel))]
         public async Task<IHttpActionResult> DeletePost(Guid id)
         {
             Post post = await db.Posts.FindAsync(id);

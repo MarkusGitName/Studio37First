@@ -21,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Events
         public List<EventViewModel> GetEvents()
         {
-            List<EventViewModel> EventList = new List<EventViewModel>;
+            List<EventViewModel> EventList = new List<EventViewModel>();
 
             foreach(Event incomingEvent in db.Events)
             {
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Events/5
-        [ResponseType(typeof(Event))]
+        [ResponseType(typeof(EventViewModel))]
         public async Task<IHttpActionResult> GetEvent(Guid id)
         {
             Event @event = await db.Events.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Events
-        [ResponseType(typeof(Event))]
+        [ResponseType(typeof(EventViewModel))]
         public async Task<IHttpActionResult> PostEvent(Event @event)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Events/5
-        [ResponseType(typeof(Event))]
+        [ResponseType(typeof(EventViewModel))]
         public async Task<IHttpActionResult> DeleteEvent(Guid id)
         {
             Event @event = await db.Events.FindAsync(id);

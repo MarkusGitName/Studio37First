@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/LiveShowSales
         public List<LiveShowSaleViewModel> GetLiveShowSales()
         {
-            List<LiveShowSaleViewModel> LiveShowSaleList = new List<LiveShowSaleViewModel>;
+            List<LiveShowSaleViewModel> LiveShowSaleList = new List<LiveShowSaleViewModel>();
 
             foreach(LiveShowView incomingLiveShowView in db.LiveShowSales)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/LiveShowSales/5
-        [ResponseType(typeof(LiveShowSale))]
+        [ResponseType(typeof(LiveShowSaleViewModel))]
         public async Task<IHttpActionResult> GetLiveShowSale(Guid id)
         {
             LiveShowSale liveShowSale = await db.LiveShowSales.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShowSales
-        [ResponseType(typeof(LiveShowSale))]
+        [ResponseType(typeof(LiveShowSaleViewModel))]
         public async Task<IHttpActionResult> PostLiveShowSale(LiveShowSale liveShowSale)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/LiveShowSales/5
-        [ResponseType(typeof(LiveShowSale))]
+        [ResponseType(typeof(LiveShowSaleViewModel))]
         public async Task<IHttpActionResult> DeleteLiveShowSale(Guid id)
         {
             LiveShowSale liveShowSale = await db.LiveShowSales.FindAsync(id);

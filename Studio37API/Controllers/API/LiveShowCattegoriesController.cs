@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/LiveShowCattegories
         public List<LiveShowCattegoryViewModel> GetLiveShowCattegories()
         {
-            List<LiveShowCattegoryViewModel> LiveShowCattegoryList = new List<LiveShowCattegoryViewModel>;
+            List<LiveShowCattegoryViewModel> LiveShowCattegoryList = new List<LiveShowCattegoryViewModel>();
 
             foreach(LiveShowCattegory incomingLiveShowCattegory in db.LiveShowCattegories)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/LiveShowCattegories/5
-        [ResponseType(typeof(LiveShowCattegory))]
+        [ResponseType(typeof(LiveShowCattegoryViewModel))]
         public async Task<IHttpActionResult> GetLiveShowCattegory(Guid id)
         {
             LiveShowCattegory liveShowCattegory = await db.LiveShowCattegories.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShowCattegories
-        [ResponseType(typeof(LiveShowCattegory))]
+        [ResponseType(typeof(LiveShowCattegoryViewModel))]
         public async Task<IHttpActionResult> PostLiveShowCattegory(LiveShowCattegory liveShowCattegory)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/LiveShowCattegories/5
-        [ResponseType(typeof(LiveShowCattegory))]
+        [ResponseType(typeof(LiveShowCattegoryViewModel))]
         public async Task<IHttpActionResult> DeleteLiveShowCattegory(Guid id)
         {
             LiveShowCattegory liveShowCattegory = await db.LiveShowCattegories.FindAsync(id);

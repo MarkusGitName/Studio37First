@@ -21,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Groups
         public List<GroupViewModel> GetGroups()
         {
-            List<GroupViewModel> GroupList = new List<GroupViewModel>;
+            List<GroupViewModel> GroupList = new List<GroupViewModel>();
 
             foreach(Group incomingGroup in db.Groups)
             {
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Groups/5
-        [ResponseType(typeof(Group))]
+        [ResponseType(typeof(GroupViewModel))]
         public async Task<IHttpActionResult> GetGroup(Guid id)
         {
             Group group = await db.Groups.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Groups
-        [ResponseType(typeof(Group))]
+        [ResponseType(typeof(GroupViewModel))]
         public async Task<IHttpActionResult> PostGroup(Group group)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Groups/5
-        [ResponseType(typeof(Group))]
+        [ResponseType(typeof(GroupViewModel))]
         public async Task<IHttpActionResult> DeleteGroup(Guid id)
         {
             Group group = await db.Groups.FindAsync(id);

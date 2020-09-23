@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/TutorialSales
         public List<TutorialSaleViewModel> GetTutorialSales()
         {
-            List<TutorialSaleViewModel> TutorialSaleList = new List<TutorialSaleViewModel>:
+            List<TutorialSaleViewModel> TutorialSaleList = new List<TutorialSaleViewModel>():
 
             foreach(TutorialSale incomingTutorialSale in db.TutorialSales)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialSales/5
-        [ResponseType(typeof(TutorialSale))]
+        [ResponseType(typeof(TutorialSaleViewModel))]
         public async Task<IHttpActionResult> GetTutorialSale(Guid id)
         {
             TutorialSale tutorialSale = await db.TutorialSales.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialSales
-        [ResponseType(typeof(TutorialSale))]
+        [ResponseType(typeof(TutorialSaleViewModel))]
         public async Task<IHttpActionResult> PostTutorialSale(TutorialSale tutorialSale)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialSales/5
-        [ResponseType(typeof(TutorialSale))]
+        [ResponseType(typeof(TutorialSaleViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialSale(Guid id)
         {
             TutorialSale tutorialSale = await db.TutorialSales.FindAsync(id);

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/TutorialPromoPhotoes
         public List<TutorialPromoPhotoViewModel> GetTutorialPromoPhotoes()
         {
-            List<TutorialPromoPhotoViewModel> TutorialPromoPhotoList = new List<TutorialPromoPhotoViewModel>;
+            List<TutorialPromoPhotoViewModel> TutorialPromoPhotoList = new List<TutorialPromoPhotoViewModel>();
 
             foreach(TutorialPromoPhoto incomingTutorialPromoPhoto in db.TutorialComments)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialPromoPhotoes/5
-        [ResponseType(typeof(TutorialPromoPhoto))]
+        [ResponseType(typeof(TutorialPromoPhotoViewModel))]
         public async Task<IHttpActionResult> GetTutorialPromoPhoto(Guid id)
         {
             TutorialPromoPhoto tutorialPromoPhoto = await db.TutorialPromoPhotoes.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialPromoPhotoes
-        [ResponseType(typeof(TutorialPromoPhoto))]
+        [ResponseType(typeof(TutorialPromoPhotoViewModel))]
         public async Task<IHttpActionResult> PostTutorialPromoPhoto(TutorialPromoPhoto tutorialPromoPhoto)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialPromoPhotoes/5
-        [ResponseType(typeof(TutorialPromoPhoto))]
+        [ResponseType(typeof(TutorialPromoPhotoViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialPromoPhoto(Guid id)
         {
             TutorialPromoPhoto tutorialPromoPhoto = await db.TutorialPromoPhotoes.FindAsync(id);

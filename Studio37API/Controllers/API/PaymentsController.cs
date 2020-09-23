@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Payments
         public List<PaymentViewModel> GetPayments()
         {
-            List<PaymentViewModel> PaymentList = new List<PaymentViewModel>;
+            List<PaymentViewModel> PaymentList = new List<PaymentViewModel>();
 
             foreach(Payment incomingPayment in db.Payments)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Payments/5
-        [ResponseType(typeof(Payment))]
+        [ResponseType(typeof(PaymentViewModel))]
         public async Task<IHttpActionResult> GetPayment(Guid id)
         {
             Payment payment = await db.Payments.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Payments
-        [ResponseType(typeof(Payment))]
+        [ResponseType(typeof(PaymentViewModel))]
         public async Task<IHttpActionResult> PostPayment(Payment payment)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Payments/5
-        [ResponseType(typeof(Payment))]
+        [ResponseType(typeof(PaymentViewModel))]
         public async Task<IHttpActionResult> DeletePayment(Guid id)
         {
             Payment payment = await db.Payments.FindAsync(id);

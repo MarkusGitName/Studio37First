@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -20,7 +21,7 @@ namespace Studio37API.Controllers.API
         // GET: api/Stickers
         public List<StickerViewModel> GetStickers()
         {
-            List<StickerViewModel> StickerList = new List<StickerViewModel>;
+            List<StickerViewModel> StickerList = new List<StickerViewModel>();
 
             foreach(Sticker incomingSticker in db.Stickers)
             {
@@ -31,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Stickers/5
-        [ResponseType(typeof(Sticker))]
+        [ResponseType(typeof(StickerViewModel))]
         public async Task<IHttpActionResult> GetSticker(Guid id)
         {
             Sticker sticker = await db.Stickers.FindAsync(id);
@@ -79,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Stickers
-        [ResponseType(typeof(Sticker))]
+        [ResponseType(typeof(StickerViewModel))]
         public async Task<IHttpActionResult> PostSticker(Sticker sticker)
         {
             if (!ModelState.IsValid)
@@ -109,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Stickers/5
-        [ResponseType(typeof(Sticker))]
+        [ResponseType(typeof(StickerViewModel))]
         public async Task<IHttpActionResult> DeleteSticker(Guid id)
         {
             Sticker sticker = await db.Stickers.FindAsync(id);
