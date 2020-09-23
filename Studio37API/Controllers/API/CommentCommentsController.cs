@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/CommentComments
-        public IQueryable<CommentComment> GetCommentComments()
+        public List<CommentCommentViewModel> GetCommentComments()
         {
-            return db.CommentComments;
+            List<CommentCommentViewModel> CommentCommentList = new List<CommentCommentViewModel>();
+
+            foreach(CommentComment incomingCommentComment in db.CommentComments)
+            {
+                CommentCommentList.Add(new CommentCommentViewModel(incomingCommentComment));
+            }
+
+            return CommentCommentList;
         }
 
         // GET: api/CommentComments/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(commentComment);
+            return Ok(new CommentCommentViewModel(commentComment));
         }
 
         // PUT: api/CommentComments/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = commentComment.id }, commentComment);
+            return CreatedAtRoute("DefaultApi", new { id = commentComment.id }, new CommentCommentViewModel(commentComment));
         }
 
         // DELETE: api/CommentComments/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.CommentComments.Remove(commentComment);
             await db.SaveChangesAsync();
 
-            return Ok(commentComment);
+            return Ok(new CommentCommentViewModel(commentComment));
         }
 
         protected override void Dispose(bool disposing)

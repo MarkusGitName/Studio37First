@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ClassVideoComments
-        public IQueryable<ClassVideoComment> GetClassVideoComments()
+        public List<ClassVideoCommentViewModel> GetClassVideoComments()
         {
-            return db.ClassVideoComments;
+            List<ClassVideoCommentViewModel> ClassVideoCommentList = new List<ClassVideoCommentViewModel>();
+
+            foreach(ClassVideoComment incomingClassVideoComment in db.ClassVideoComments)
+            {
+                ClassVideoCommentList.Add(new ClassVideoCommentViewModel(incomingClassVideoComment));
+            }
+
+            return ClassVideoCommentList;
         }
 
         // GET: api/ClassVideoComments/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(classVideoComment);
+            return Ok(new ClassVideoCommentViewModel(classVideoComment));
         }
 
         // PUT: api/ClassVideoComments/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classVideoComment.id }, classVideoComment);
+            return CreatedAtRoute("DefaultApi", new { id = classVideoComment.id }, new ClassVideoCommentViewModel(classVideoComment));
         }
 
         // DELETE: api/ClassVideoComments/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.ClassVideoComments.Remove(classVideoComment);
             await db.SaveChangesAsync();
 
-            return Ok(classVideoComment);
+            return Ok(new ClassVideoCommentViewModel(classVideoComment));
         }
 
         protected override void Dispose(bool disposing)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Sales
-        public IQueryable<Sale> GetSales()
+        public List<SaleViewModel> GetSales()
         {
-            return db.Sales;
+            List<SaleViewModel> SaleList = new List<SaleViewModel>();
+
+            foreach(Sale incomingSale in db.Sales)
+            {
+                SaleList.Add(new SaleViewModel(incomingSale));
+            }
+
+            return SaleList;
         }
 
         // GET: api/Sales/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(sale);
+            return Ok(new SaleViewModel(sale));
         }
 
         // PUT: api/Sales/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = sale.id }, sale);
+            return CreatedAtRoute("DefaultApi", new { id = sale.id }, new SaleViewModel(sale));
         }
 
         // DELETE: api/Sales/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Sales.Remove(sale);
             await db.SaveChangesAsync();
 
-            return Ok(sale);
+            return Ok(new SaleViewModel(sale));
         }
 
         protected override void Dispose(bool disposing)

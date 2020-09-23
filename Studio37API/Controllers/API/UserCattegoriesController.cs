@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/UserCattegories
-        public IQueryable<UserCattegory> GetUserCattegories()
+        public List<UserCattegoryViewModel> GetUserCattegories()
         {
-            return db.UserCattegories;
+            List<UserCattegoryViewModel> UserCategoryList = new List<UserCattegoryViewModel>();
+
+            foreach(UserCattegory incomingUserCattegory in db.UserCattegories)
+            {
+                UserCategoryList.Add(new UserCattegoryViewModel(incomingUserCattegory));
+            }
+
+            return UserCategoryList;
         }
 
         // GET: api/UserCattegories/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(userCattegory);
+            return Ok(new UserCattegoryViewModel(userCattegory));
         }
 
         // PUT: api/UserCattegories/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = userCattegory.id }, userCattegory);
+            return CreatedAtRoute("DefaultApi", new { id = userCattegory.id }, new UserCattegoryViewModel(userCattegory));
         }
 
         // DELETE: api/UserCattegories/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.UserCattegories.Remove(userCattegory);
             await db.SaveChangesAsync();
 
-            return Ok(userCattegory);
+            return Ok(new UserCattegoryViewModel(userCattegory));
         }
 
         protected override void Dispose(bool disposing)

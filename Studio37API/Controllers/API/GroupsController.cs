@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Groups
-        public IQueryable<Group> GetGroups()
+        public List<GroupViewModel> GetGroups()
         {
-            return db.Groups;
+            List<GroupViewModel> GroupList = new List<GroupViewModel>();
+
+            foreach(Group incomingGroup in db.Groups)
+            {
+                GroupList.Add(new GroupViewModel(incomingGroup));
+            }
+
+            return GroupList;
         }
 
         // GET: api/Groups/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(group);
+            return Ok(new GroupViewModel(group));
         }
 
         // PUT: api/Groups/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = group.id }, group);
+            return CreatedAtRoute("DefaultApi", new { id = group.id }, new GroupViewModel(group));
         }
 
         // DELETE: api/Groups/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Groups.Remove(group);
             await db.SaveChangesAsync();
 
-            return Ok(group);
+            return Ok(new GroupViewModel(group));
         }
 
         protected override void Dispose(bool disposing)

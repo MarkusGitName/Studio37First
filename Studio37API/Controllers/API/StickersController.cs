@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Stickers
-        public IQueryable<Sticker> GetStickers()
+        public List<StickerViewModel> GetStickers()
         {
-            return db.Stickers;
+            List<StickerViewModel> StickerList = new List<StickerViewModel>();
+
+            foreach(Sticker incomingSticker in db.Stickers)
+            {
+                StickerList.Add(new StickerViewModel(incomingSticker));
+            }
+
+            return StickerList;
         }
 
         // GET: api/Stickers/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(sticker);
+            return Ok(new StickerViewModel(sticker));
         }
 
         // PUT: api/Stickers/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = sticker.id }, sticker);
+            return CreatedAtRoute("DefaultApi", new { id = sticker.id }, new StickerViewModel(sticker));
         }
 
         // DELETE: api/Stickers/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Stickers.Remove(sticker);
             await db.SaveChangesAsync();
 
-            return Ok(sticker);
+            return Ok(new StickerViewModel(sticker));
         }
 
         protected override void Dispose(bool disposing)

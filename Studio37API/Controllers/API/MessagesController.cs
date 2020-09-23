@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Messages
-        public IQueryable<Message> GetMessages()
+        public List<MessageViewModel> GetMessages()
         {
-            return db.Messages;
+            List<MessageViewModel> MessageList = new List<MessageViewModel>();
+
+            foreach(Message incomingMessage in db.Messages)
+            {
+                MessageList.Add(new MessageViewModel(incomingMessage));
+            }
+
+            return MessageList;
         }
 
         // GET: api/Messages/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(message);
+            return Ok(new MessageViewModel(message));
         }
 
         // PUT: api/Messages/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = message.MessageID }, message);
+            return CreatedAtRoute("DefaultApi", new { id = message.MessageID }, new MessageViewModel(message));
         }
 
         // DELETE: api/Messages/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Messages.Remove(message);
             await db.SaveChangesAsync();
 
-            return Ok(message);
+            return Ok(new MessageViewModel(message));
         }
 
         protected override void Dispose(bool disposing)

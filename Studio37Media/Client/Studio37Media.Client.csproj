@@ -34,15 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\ClassVideeoComponents\" />
     <Folder Include="Components\EventsComponents\" />
     <Folder Include="Components\GroupComponents\" />
-    <Folder Include="Components\CattegoryComponents\" />
-    <Folder Include="Components\ChatComponents\" />
     <Folder Include="Components\LikeComponents\" />
     <Folder Include="Components\LiveShowComponents\" />
     <Folder Include="Components\MessageComponents\" />
-    <Folder Include="Components\CommentComponent\" />
     <Folder Include="Components\PostComponents\" />
     <Folder Include="Components\VideoComponents\" />
     <Folder Include="Components\PhootoComponents\" />

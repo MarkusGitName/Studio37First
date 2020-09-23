@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/EventUsers
-        public IQueryable<EventUser> GetEventUsers()
+        public List<EventUserViewModel> GetEventUsers()
         {
-            return db.EventUsers;
+            List<EventUserViewModel> EventUserList = new List<EventUserViewModel>();
+
+            foreach(EventUser incomingEventUser in db.EventUsers)
+            {
+                EventUserList.Add(new EventUserViewModel(incomingEventUser));
+            }
+
+            return EventUserList;
         }
 
         // GET: api/EventUsers/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(eventUser);
+            return Ok(new EventUserViewModel(eventUser));
         }
 
         // PUT: api/EventUsers/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = eventUser.id }, eventUser);
+            return CreatedAtRoute("DefaultApi", new { id = eventUser.id }, new EventUserViewModel(eventUser));
         }
 
         // DELETE: api/EventUsers/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.EventUsers.Remove(eventUser);
             await db.SaveChangesAsync();
 
-            return Ok(eventUser);
+            return Ok(new EventUserViewModel(eventUser));
         }
 
         protected override void Dispose(bool disposing)

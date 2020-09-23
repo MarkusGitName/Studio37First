@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Profiles
-        public IQueryable<Profile> GetProfiles()
+        public List<ProfileViewModel> GetProfiles()
         {
-            return db.Profiles;
+            List<ProfileViewModel> ProfileList = new List<ProfileViewModel>();
+
+            foreach(Profile incomingProfile in db.Profiles)
+            {
+                ProfileList.Add(new ProfileViewModel(incomingProfile));
+            }
+
+            return ProfileList;
         }
 
         // GET: api/Profiles/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(profile);
+            return Ok(new ProfileViewModel(profile));
         }
 
         // PUT: api/Profiles/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profile.UserID }, profile);
+            return CreatedAtRoute("DefaultApi", new { id = profile.UserID }, new ProfileViewModel(profile));
         }
 
         // DELETE: api/Profiles/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Profiles.Remove(profile);
             await db.SaveChangesAsync();
 
-            return Ok(profile);
+            return Ok(new ProfileViewModel(profile));
         }
 
         protected override void Dispose(bool disposing)
