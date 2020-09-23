@@ -31,7 +31,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ClassRatings/5
-        [ResponseType(typeof(ClassRating))]
+        [ResponseType(typeof(ClassRatingViewModel))]
         public async Task<IHttpActionResult> GetClassRating(Guid id)
         {
             ClassRating classRating = await db.ClassRatings.FindAsync(id);
@@ -79,7 +79,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ClassRatings
-        [ResponseType(typeof(ClassRating))]
+        [ResponseType(typeof(ClassRatingViewModel))]
         public async Task<IHttpActionResult> PostClassRating(ClassRating classRating)
         {
             if (!ModelState.IsValid)
@@ -109,7 +109,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ClassRatings/5
-        [ResponseType(typeof(ClassRating))]
+        [ResponseType(typeof(ClassRatingViewModel))]
         public async Task<IHttpActionResult> DeleteClassRating(Guid id)
         {
             ClassRating classRating = await db.ClassRatings.FindAsync(id);

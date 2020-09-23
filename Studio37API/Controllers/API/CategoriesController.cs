@@ -33,7 +33,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Categories/5
-        [ResponseType(typeof(Category))]
+        [ResponseType(typeof(CategoryViewModel))]
         public async Task<IHttpActionResult> GetCategory(Guid id)
         {
             Category category = await db.Categories.FindAsync(id);
@@ -81,7 +81,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Categories
-        [ResponseType(typeof(Category))]
+        [ResponseType(typeof(CategoryViewModel))]
         public async Task<IHttpActionResult> PostCategory(Category category)
         {
             if (!ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Categories/5
-        [ResponseType(typeof(Category))]
+        [ResponseType(typeof(CategoryViewModel))]
         public async Task<IHttpActionResult> DeleteCategory(Guid id)
         {
             Category category = await db.Categories.FindAsync(id);

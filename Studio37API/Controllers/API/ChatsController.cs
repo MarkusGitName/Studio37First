@@ -30,7 +30,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Chats/5
-        [ResponseType(typeof(Chat))]
+        [ResponseType(typeof(ChatViewModel))]
         public async Task<IHttpActionResult> GetChat(Guid id)
         {
             Chat chat = await db.Chats.FindAsync(id);
@@ -78,7 +78,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Chats
-        [ResponseType(typeof(Chat))]
+        [ResponseType(typeof(ChatViewModel))]
         public async Task<IHttpActionResult> PostChat(Chat chat)
         {
             if (!ModelState.IsValid)
@@ -108,7 +108,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Chats/5
-        [ResponseType(typeof(Chat))]
+        [ResponseType(typeof(ChatViewModel))]
         public async Task<IHttpActionResult> DeleteChat(Guid id)
         {
             Chat chat = await db.Chats.FindAsync(id);
