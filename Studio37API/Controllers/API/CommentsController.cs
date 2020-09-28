@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
-using Studio37API.Models.DataBaseModels;
 using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
@@ -33,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Comments/5
-        [ResponseType(typeof(CommentViewModel))]
+        [ResponseType(typeof(Comment))]
         public async Task<IHttpActionResult> GetComment(Guid id)
         {
             Comment comment = await db.Comments.FindAsync(id);
@@ -81,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Comments
-        [ResponseType(typeof(CommentViewModel))]
+        [ResponseType(typeof(Comment))]
         public async Task<IHttpActionResult> PostComment(Comment comment)
         {
             if (!ModelState.IsValid)
@@ -111,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Comments/5
-        [ResponseType(typeof(CommentViewModel))]
+        [ResponseType(typeof(Comment))]
         public async Task<IHttpActionResult> DeleteComment(Guid id)
         {
             Comment comment = await db.Comments.FindAsync(id);

@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostLiveShows/5
-        [ResponseType(typeof(PostLiveShowViewModel))]
+        [ResponseType(typeof(PostLiveShow))]
         public async Task<IHttpActionResult> GetPostLiveShow(Guid id)
         {
             PostLiveShow postLiveShow = await db.PostLiveShows.FindAsync(id);
@@ -41,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(new PostLiveShowviewModel(postLiveShow));
+            return Ok(new PostLiveShowViewModel(postLiveShow));
         }
 
         // PUT: api/PostLiveShows/5
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostLiveShows
-        [ResponseType(typeof(PostLiveShowViewModel))]
+        [ResponseType(typeof(PostLiveShow))]
         public async Task<IHttpActionResult> PostPostLiveShow(PostLiveShow postLiveShow)
         {
             if (!ModelState.IsValid)
@@ -106,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postLiveShow.id }, new PostLiveShowviewModel(postLiveShow));
+            return CreatedAtRoute("DefaultApi", new { id = postLiveShow.id }, new PostLiveShowViewModel(postLiveShow));
         }
 
         // DELETE: api/PostLiveShows/5
-        [ResponseType(typeof(PostLiveShowViewModel))]
+        [ResponseType(typeof(PostLiveShow))]
         public async Task<IHttpActionResult> DeletePostLiveShow(Guid id)
         {
             PostLiveShow postLiveShow = await db.PostLiveShows.FindAsync(id);
@@ -122,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.PostLiveShows.Remove(postLiveShow);
             await db.SaveChangesAsync();
 
-            return Ok(new PostLiveShowviewModel(postLiveShow));
+            return Ok(new PostLiveShowViewModel(postLiveShow));
         }
 
         protected override void Dispose(bool disposing)

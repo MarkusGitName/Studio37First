@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostComments/5
-        [ResponseType(typeof(PostCommentViewModel))]
+        [ResponseType(typeof(PostComment))]
         public async Task<IHttpActionResult> GetPostComment(Guid id)
         {
             PostComment postComment = await db.PostComments.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostComments
-        [ResponseType(typeof(PostCommentViewModel))]
+        [ResponseType(typeof(PostComment))]
         public async Task<IHttpActionResult> PostPostComment(PostComment postComment)
         {
             if (!ModelState.IsValid)
@@ -106,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postComment.id }, (new PostCommentViewModel(postComment));
+            return CreatedAtRoute("DefaultApi", new { id = postComment.id }, (new PostCommentViewModel(postComment)));
         }
 
         // DELETE: api/PostComments/5
-        [ResponseType(typeof(PostCommentViewModel))]
+        [ResponseType(typeof(PostComment))]
         public async Task<IHttpActionResult> DeletePostComment(Guid id)
         {
             PostComment postComment = await db.PostComments.FindAsync(id);
@@ -122,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.PostComments.Remove(postComment);
             await db.SaveChangesAsync();
 
-            return Ok((new PostCommentViewModel(postComment));
+            return Ok(new PostCommentViewModel(postComment));
         }
 
         protected override void Dispose(bool disposing)

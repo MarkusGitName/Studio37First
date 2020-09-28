@@ -23,7 +23,7 @@ namespace Studio37API.Controllers.API
         {
             List<TutorialPromoPhotoViewModel> TutorialPromoPhotoList = new List<TutorialPromoPhotoViewModel>();
 
-            foreach(TutorialPromoPhoto incomingTutorialPromoPhoto in db.TutorialComments)
+            foreach(TutorialPromoPhoto incomingTutorialPromoPhoto in db.TutorialPromoPhotoes)
             {
                 TutorialPromoPhotoList.Add(new TutorialPromoPhotoViewModel(incomingTutorialPromoPhoto));
             }
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialPromoPhotoes/5
-        [ResponseType(typeof(TutorialPromoPhotoViewModel))]
+        [ResponseType(typeof(TutorialPromoPhoto))]
         public async Task<IHttpActionResult> GetTutorialPromoPhoto(Guid id)
         {
             TutorialPromoPhoto tutorialPromoPhoto = await db.TutorialPromoPhotoes.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialPromoPhotoes
-        [ResponseType(typeof(TutorialPromoPhotoViewModel))]
+        [ResponseType(typeof(TutorialPromoPhoto))]
         public async Task<IHttpActionResult> PostTutorialPromoPhoto(TutorialPromoPhoto tutorialPromoPhoto)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialPromoPhotoes/5
-        [ResponseType(typeof(TutorialPromoPhotoViewModel))]
+        [ResponseType(typeof(TutorialPromoPhoto))]
         public async Task<IHttpActionResult> DeleteTutorialPromoPhoto(Guid id)
         {
             TutorialPromoPhoto tutorialPromoPhoto = await db.TutorialPromoPhotoes.FindAsync(id);

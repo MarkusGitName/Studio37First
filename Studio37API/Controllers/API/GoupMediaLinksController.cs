@@ -21,19 +21,19 @@ namespace Studio37API.Controllers.API
         // GET: api/GoupMediaLinks
         public List<GoupMediaLinkViewModel> GetGoupMediaLinks()
         {
-            List<GoupMediaLinkViewModel> GoupMediaList = new List<GoupMediaLinkViewModel>();
+            List<GoupMediaLinkViewModel> GoupMediaLinkList = new List<GoupMediaLinkViewModel>();
 
-            foreach(GoupMediaLink incomingGoupMediaLink in db.GoupmediaLinks)
+            foreach(GoupMediaLink incomingGoupMediaLink in db.GoupMediaLinks)
             {
-                GoupMediaList.Add(new GoupMediaLinkViewModel(incomingGoupMediaLink));
+                GoupMediaLinkList.Add(new GoupMediaLinkViewModel(incomingGoupMediaLink));
 
             }
 
-            return GoupMediaList;
+            return GoupMediaLinkList;
         }
 
         // GET: api/GoupMediaLinks/5
-        [ResponseType(typeof(GoupMediaLinkViewModel))]
+        [ResponseType(typeof(GoupMediaLink))]
         public async Task<IHttpActionResult> GetGoupMediaLink(Guid id)
         {
             GoupMediaLink goupMediaLink = await db.GoupMediaLinks.FindAsync(id);
@@ -81,7 +81,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/GoupMediaLinks
-        [ResponseType(typeof(GoupMediaLinkViewModel))]
+        [ResponseType(typeof(GoupMediaLink))]
         public async Task<IHttpActionResult> PostGoupMediaLink(GoupMediaLink goupMediaLink)
         {
             if (!ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/GoupMediaLinks/5
-        [ResponseType(typeof(GoupMediaLinkViewModel))]
+        [ResponseType(typeof(GoupMediaLink))]
         public async Task<IHttpActionResult> DeleteGoupMediaLink(Guid id)
         {
             GoupMediaLink goupMediaLink = await db.GoupMediaLinks.FindAsync(id);

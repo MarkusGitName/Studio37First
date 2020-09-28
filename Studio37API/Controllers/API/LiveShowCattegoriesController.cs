@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/LiveShowCattegories/5
-        [ResponseType(typeof(LiveShowCattegoryViewModel))]
+        [ResponseType(typeof(LiveShowCattegory))]
         public async Task<IHttpActionResult> GetLiveShowCattegory(Guid id)
         {
             LiveShowCattegory liveShowCattegory = await db.LiveShowCattegories.FindAsync(id);
@@ -41,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(new LiveShowViewModel(liveShowCattegory));
+            return Ok(new LiveShowCattegoryViewModel(liveShowCattegory));
         }
 
         // PUT: api/LiveShowCattegories/5
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShowCattegories
-        [ResponseType(typeof(LiveShowCattegoryViewModel))]
+        [ResponseType(typeof(LiveShowCattegory))]
         public async Task<IHttpActionResult> PostLiveShowCattegory(LiveShowCattegory liveShowCattegory)
         {
             if (!ModelState.IsValid)
@@ -106,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = liveShowCattegory.id }, new LiveShowViewModel(liveShowCattegory));
+            return CreatedAtRoute("DefaultApi", new { id = liveShowCattegory.id }, new LiveShowCattegoryViewModel(liveShowCattegory));
         }
 
         // DELETE: api/LiveShowCattegories/5
-        [ResponseType(typeof(LiveShowCattegoryViewModel))]
+        [ResponseType(typeof(LiveShowCattegory))]
         public async Task<IHttpActionResult> DeleteLiveShowCattegory(Guid id)
         {
             LiveShowCattegory liveShowCattegory = await db.LiveShowCattegories.FindAsync(id);
@@ -122,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.LiveShowCattegories.Remove(liveShowCattegory);
             await db.SaveChangesAsync();
 
-            return Ok(new LiveShowViewModel(liveShowCattegory));
+            return Ok(new LiveShowCattegoryViewModel(liveShowCattegory));
         }
 
         protected override void Dispose(bool disposing)

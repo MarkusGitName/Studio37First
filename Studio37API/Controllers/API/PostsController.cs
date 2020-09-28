@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Posts/5
-        [ResponseType(typeof(PostViewModel))]
+        [ResponseType(typeof(Post))]
         public async Task<IHttpActionResult> GetPost(Guid id)
         {
             Post post = await db.Posts.FindAsync(id);
@@ -41,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(new PostViewList(post));
+            return Ok(new PostViewModel(post));
         }
 
         // PUT: api/Posts/5
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Posts
-        [ResponseType(typeof(PostViewModel))]
+        [ResponseType(typeof(Post))]
         public async Task<IHttpActionResult> PostPost(Post post)
         {
             if (!ModelState.IsValid)
@@ -106,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = post.id }, new PostViewList(post));
+            return CreatedAtRoute("DefaultApi", new { id = post.id }, new PostViewModel(post));
         }
 
         // DELETE: api/Posts/5
-        [ResponseType(typeof(PostViewModel))]
+        [ResponseType(typeof(Post))]
         public async Task<IHttpActionResult> DeletePost(Guid id)
         {
             Post post = await db.Posts.FindAsync(id);
@@ -122,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Posts.Remove(post);
             await db.SaveChangesAsync();
 
-            return Ok(new PostViewList(post));
+            return Ok(new PostViewModel(post));
         }
 
         protected override void Dispose(bool disposing)

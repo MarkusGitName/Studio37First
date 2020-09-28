@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ClassVideoSales/5
-        [ResponseType(typeof(ClassVideoSaleViewModel))]
+        [ResponseType(typeof(ClassVideoSale))]
         public async Task<IHttpActionResult> GetClassVideoSale(Guid id)
         {
             ClassVideoSale classVideoSale = await db.ClassVideoSales.FindAsync(id);
@@ -41,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(new ClassRatingViewModel(classVideoSale));
+            return Ok(new ClassVideoSaleViewModel(classVideoSale));
         }
 
         // PUT: api/ClassVideoSales/5
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ClassVideoSales
-        [ResponseType(typeof(ClassVideoSaleViewModel))]
+        [ResponseType(typeof(ClassVideoSale))]
         public async Task<IHttpActionResult> PostClassVideoSale(ClassVideoSale classVideoSale)
         {
             if (!ModelState.IsValid)
@@ -106,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classVideoSale.id }, new ClassRatingViewModel(classVideoSale));
+            return CreatedAtRoute("DefaultApi", new { id = classVideoSale.id }, new ClassVideoSaleViewModel(classVideoSale));
         }
 
         // DELETE: api/ClassVideoSales/5
-        [ResponseType(typeof(ClassVideoSaleViewModel))]
+        [ResponseType(typeof(ClassVideoSale))]
         public async Task<IHttpActionResult> DeleteClassVideoSale(Guid id)
         {
             ClassVideoSale classVideoSale = await db.ClassVideoSales.FindAsync(id);
@@ -122,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.ClassVideoSales.Remove(classVideoSale);
             await db.SaveChangesAsync();
 
-            return Ok(new ClassRatingViewModel(classVideoSale));
+            return Ok(new ClassVideoSaleViewModel(classVideoSale));
         }
 
         protected override void Dispose(bool disposing)

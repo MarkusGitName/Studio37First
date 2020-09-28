@@ -21,18 +21,18 @@ namespace Studio37API.Controllers.API
         // GET: api/Videos
         public List<VideoViewModel> GetVideos()
         {
-            List<VideoviewModel> VideoList = new List<VideoviewModel>();
+            List<VideoViewModel> VideoList = new List<VideoViewModel>();
 
-            foreach(Video incomingVideo in db.UserSocialMediaLinks)
+            foreach(Video incomingVideo in db.Videos)
             {
-                VideoList.Add(new VideoviewModel(incomingVideo));
+                VideoList.Add(new VideoViewModel(incomingVideo));
             }
 
             return VideoList;
         }
 
         // GET: api/Videos/5
-        [ResponseType(typeof(VideoViewModel))]
+        [ResponseType(typeof(Video))]
         public async Task<IHttpActionResult> GetVideo(Guid id)
         {
             Video video = await db.Videos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Videos
-        [ResponseType(typeof(VideoViewModel))]
+        [ResponseType(typeof(Video))]
         public async Task<IHttpActionResult> PostVideo(Video video)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Videos/5
-        [ResponseType(typeof(VideoViewModel))]
+        [ResponseType(typeof(Video))]
         public async Task<IHttpActionResult> DeleteVideo(Guid id)
         {
             Video video = await db.Videos.FindAsync(id);

@@ -23,7 +23,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // GET: api/Profesional
-        [HttpGet("{apiname}", Name = "GetProfesionals")]
+        [HttpGet(Name = "GetProfesionals")]
         public IEnumerable<ProfesionallsProfile> Get()
         {
             IEnumerable<ProfesionallsProfile> profiles = APILibrary.APIGetALL<IEnumerable<ProfesionallsProfile>>("ProfesionallsProfiles");
@@ -31,10 +31,14 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // GET: api/Profesional/5
-        [HttpGet("{apiname}/{id}", Name = "GetProfesionalById")]
+        [HttpGet("{apiname}/{id}", Name = "GetProfesionalById/")]
         public ProfesionallsProfile Get(string id)
         {
-            //Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (id == "0")
+            {
+               id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            }
+            
             ProfesionallsProfile profiles = APILibrary.APIGet<ProfesionallsProfile>(id, "ProfesionallsProfiles");
             return profiles;
         }
@@ -58,10 +62,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{apiname}/{id}", Name = "DeleteProfesional")]
+        [HttpDelete("{apiname}", Name = "DeleteProfesional")]
         public void Delete()
         {
-
             string id = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ProfesionallsProfile ReturnProfile = APILibrary.APIDelete<ProfesionallsProfile>(id, "ProfesionallsProfiles");
             

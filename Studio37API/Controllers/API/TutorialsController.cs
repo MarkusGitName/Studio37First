@@ -23,7 +23,7 @@ namespace Studio37API.Controllers.API
         {
             List<TutorialViewModel> tutorialList = new List<TutorialViewModel>();
 
-            foreach(Tutorial incomingTutorial in db.tutorials)
+            foreach(Tutorial incomingTutorial in db.Tutorials)
             {
                 tutorialList.Add(new TutorialViewModel(incomingTutorial));
             }
@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Tutorials/5
-        [ResponseType(typeof(TutorialViewModel))]
+        [ResponseType(typeof(Tutorial))]
         public async Task<IHttpActionResult> GetTutorial(Guid id)
         {
             Tutorial tutorial = await db.Tutorials.FindAsync(id);
@@ -79,7 +79,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Tutorials
-        [ResponseType(typeof(TutorialViewModel))]
+        [ResponseType(typeof(Tutorial))]
         public async Task<IHttpActionResult> PostTutorial(Tutorial tutorial)
         {
             if (!ModelState.IsValid)
@@ -109,7 +109,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Tutorials/5
-        [ResponseType(typeof(TutorialViewModel))]
+        [ResponseType(typeof(Tutorial))]
         public async Task<IHttpActionResult> DeleteTutorial(Guid id)
         {
             Tutorial tutorial = await db.Tutorials.FindAsync(id);

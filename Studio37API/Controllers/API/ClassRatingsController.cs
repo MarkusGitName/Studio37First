@@ -40,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(new ClassRatingViewModel(ClassRating));
+            return Ok(new ClassRatingViewModel(classRating));
         }
 
         // PUT: api/ClassRatings/5
@@ -105,7 +105,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classRating.id }, new ClassRatingViewModel(ClassRating));
+            return CreatedAtRoute("DefaultApi", new { id = classRating.id }, new ClassRatingViewModel(classRating));
         }
 
         // DELETE: api/ClassRatings/5
@@ -121,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.ClassRatings.Remove(classRating);
             await db.SaveChangesAsync();
 
-            return Ok(new ClassRatingViewModel(ClassRating));
+            return Ok(new ClassRatingViewModel(classRating));
         }
 
         protected override void Dispose(bool disposing)
