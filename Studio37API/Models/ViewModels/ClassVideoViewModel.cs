@@ -20,30 +20,40 @@ namespace Studio37API.Models.ViewModels
             Description = incomingClassVideo.Description;
             VideoThumbnail = incomingClassVideo.VideoThumbnail;
 
+            List<ClassRatingViewModel> newClassRating = new List<ClassRatingViewModel>();
             foreach (ClassRating incomingcClassRatings in incomingClassVideo.ClassRatings)
             {
-                ClassRatings.Add(new ClassRatingViewModel(incomingcClassRatings));
+                newClassRating.Add(new ClassRatingViewModel(incomingcClassRatings));
             }
+            ClassRatings = newClassRating;
 
+            List<ClassVideoCattegoryViewModel> newClassVideoCattegory = new List<ClassVideoCattegoryViewModel>();
             foreach (ClassVideoCattegory incomingClassVideoCattegories in incomingClassVideo.ClassVideoCattegories)
             {
-                ClassVideoCattegories.Add(new ClassVideoCattegoryViewModel(incomingClassVideoCattegories));
+                newClassVideoCattegory.Add(new ClassVideoCattegoryViewModel(incomingClassVideoCattegories));
             }
+            ClassVideoCattegories = newClassVideoCattegory;
 
+            List<ClassVideoCommentViewModel> newClassVideoCattegoryViewModel = new List<ClassVideoCommentViewModel>();
             foreach (ClassVideoComment incomingClassVideoComments in incomingClassVideo.ClassVideoComments)
             {
-                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComments));
+                newClassVideoCattegoryViewModel.Add(new ClassVideoCommentViewModel(incomingClassVideoComments));
             }
+            ClassVideoComments = newClassVideoCattegoryViewModel;
 
-            foreach(ClassVideoSale incomingClassVideoSales in incomingClassVideo.ClassVideoSales)
+            List<ClassVideoSaleViewModel> newClassVideoSale = new List<ClassVideoSaleViewModel>();
+            foreach (ClassVideoSale incomingClassVideoSales in incomingClassVideo.ClassVideoSales)
             {
-                ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSales));
+                newClassVideoSale.Add(new ClassVideoSaleViewModel(incomingClassVideoSales));
             }
+            ClassVideoSales = newClassVideoSale;
 
-            foreach(TutorialClass incomingTutorialClasses in incomingClassVideo.TutorialClasses)
+            List<TutorialClassViewModel> newTutorialClass = new List<TutorialClassViewModel>();
+            foreach (TutorialClass incomingTutorialClasses in incomingClassVideo.TutorialClasses)
             {
-                TutorialClasses.Add(new TutorialClassViewModel(incomingTutorialClasses));
+                newTutorialClass.Add(new TutorialClassViewModel(incomingTutorialClasses));
             }
+            TutorialClasses = newTutorialClass;
         }
 
         public Guid id { get; set; }
@@ -71,14 +81,14 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string VideoThumbnail { get; set; }
 
-        public virtual ICollection<ClassRatingViewModel> ClassRatings { get; set; }
+        public virtual List<ClassRatingViewModel> ClassRatings { get; set; }
 
-         public virtual ICollection<ClassVideoCattegoryViewModel> ClassVideoCattegories { get; set; }
+         public virtual List<ClassVideoCattegoryViewModel> ClassVideoCattegories { get; set; }
 
-        public virtual ICollection<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
+        public virtual List<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
 
-        public virtual ICollection<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
+        public virtual List<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
 
-        public virtual ICollection<TutorialClassViewModel> TutorialClasses { get; set; }
+        public virtual List<TutorialClassViewModel> TutorialClasses { get; set; }
     }
 }

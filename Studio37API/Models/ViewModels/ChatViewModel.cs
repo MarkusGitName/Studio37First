@@ -15,24 +15,28 @@ namespace Studio37API.Models.ViewModels
             ChatID = incomingChat.ChatID;
             DateCreated = incomingChat.DateCreated;
 
-            foreach(Message incomingMsge in incomingChat.Messages)
+
+            List<MessageViewModel> newMessageViewModel = new List<MessageViewModel>();
+            foreach (Message incomingMsge in incomingChat.Messages)
             {
                 Messages.Add(new MessageViewModel(incomingMsge));
             }
-            
-            foreach(UserChat userChat in incomingChat.UserChats)
-            {
-                UserChats.Add(new UserChatViewModel(userChat));
-            }
+            Messages = newMessageViewModel;
 
+            List < UserChatViewModel > newUserChatViewModel = new List<UserChatViewModel>();
+            foreach (UserChat userChat in incomingChat.UserChats)
+            {
+                newUserChatViewModel.Add(new UserChatViewModel(userChat));
+            }
+            UserChats = newUserChatViewModel;
         }
 
         public Guid ChatID { get; set; }
 
         public DateTime DateCreated { get; set; }
 
-        public virtual ICollection<MessageViewModel> Messages { get; set; }
+        public virtual List<MessageViewModel> Messages { get; set; }
 
-        public virtual ICollection<UserChatViewModel> UserChats { get; set; }
+        public virtual List<UserChatViewModel> UserChats { get; set; }
     }
 }

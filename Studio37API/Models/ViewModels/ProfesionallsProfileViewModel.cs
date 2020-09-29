@@ -62,16 +62,16 @@ namespace Studio37API.Models.ViewModels
         [StringLength(350)]
         public string ProfesionalEmail { get; set; }
 
-        public virtual ICollection<LiveShowViewModel> LiveShows { get; set; }
+        public virtual List<LiveShowViewModel> LiveShows { get; set; }
 
         // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<ProfesionalsDocumentViewModel> ProfesionalsDocuments { get; set; }
+        public virtual List<ProfesionalsDocumentViewModel> ProfesionalsDocuments { get; set; }
 
-        public virtual ICollection<SaleViewModel> Sales { get; set; }
+        public virtual List<SaleViewModel> Sales { get; set; }
 
-        public virtual ICollection<StickerViewModel> Stickers { get; set; }
+        public virtual List<StickerViewModel> Stickers { get; set; }
 
-        public virtual ICollection<TutorialViewModel> Tutorials { get; set; }
+        public virtual List<TutorialViewModel> Tutorials { get; set; }
     }
 }

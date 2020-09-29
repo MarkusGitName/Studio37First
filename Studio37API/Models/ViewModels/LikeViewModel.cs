@@ -59,16 +59,16 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<CommentViewModel> Comments { get; set; }
+        public virtual List<CommentViewModel> Comments { get; set; }
 
-        public virtual ICollection<LiveShowViewModel> LiveShows { get; set; }
+        public virtual List<LiveShowViewModel> LiveShows { get; set; }
 
-        public virtual ICollection<PhotoViewModel> Photos { get; set; }
+        public virtual List<PhotoViewModel> Photos { get; set; }
 
-        public virtual ICollection<PostViewModel> Posts { get; set; }
+        public virtual List<PostViewModel> Posts { get; set; }
 
-        public virtual ICollection<ProfileViewModel> Profiles { get; set; }
+        public virtual List<ProfileViewModel> Profiles { get; set; }
 
-        public virtual ICollection<ShareViewModel> Shares { get; set; }
+        public virtual List<ShareViewModel> Shares { get; set; }
     }
 }

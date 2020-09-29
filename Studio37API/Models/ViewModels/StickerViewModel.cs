@@ -31,6 +31,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<StickerCattegoryViewModel> StickerCattegories { get; set; }
+        public virtual List<StickerCattegoryViewModel> StickerCattegories { get; set; }
     }
 }

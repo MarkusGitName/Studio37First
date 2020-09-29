@@ -25,6 +25,6 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string PhotoPath { get; set; }
 
-        public virtual ICollection<TutorialPromoPhotoViewModel> TutorialPromoPhotoes { get; set; }
+        public virtual List<TutorialPromoPhotoViewModel> TutorialPromoPhotoes { get; set; }
     }
 }

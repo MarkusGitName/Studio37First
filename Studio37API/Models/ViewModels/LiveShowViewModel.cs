@@ -75,16 +75,16 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<LiveShowCattegoryViewModel> LiveShowCattegories { get; set; }
+        public virtual List<LiveShowCattegoryViewModel> LiveShowCattegories { get; set; }
 
-        public virtual ICollection<LiveShowCommentViewModel> LiveShowComments { get; set; }
+        public virtual List<LiveShowCommentViewModel> LiveShowComments { get; set; }
 
-        public virtual ICollection<LiveShowSaleViewModel> LiveShowSales { get; set; }
+        public virtual List<LiveShowSaleViewModel> LiveShowSales { get; set; }
 
-        public virtual ICollection<LiveShowViewViewModel> LiveShowViews { get; set; }
+        public virtual List<LiveShowViewViewModel> LiveShowViews { get; set; }
 
-        public virtual ICollection<PostLiveShowViewModel> PostLiveShows { get; set; }
+        public virtual List<PostLiveShowViewModel> PostLiveShows { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
     }
 }

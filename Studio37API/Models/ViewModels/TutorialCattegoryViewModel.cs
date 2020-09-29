@@ -31,6 +31,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Tutorial Tutorial { get; set; }
 
-        public virtual ICollection<TutorialClassViewModel> TutorialClasses { get; set; }
+        public virtual List<TutorialClassViewModel> TutorialClasses { get; set; }
     }
 }

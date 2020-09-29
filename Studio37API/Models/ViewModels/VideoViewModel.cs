@@ -26,6 +26,6 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-        public virtual ICollection<PostVideoViewModel> PostVideos { get; set; }
+        public virtual List<PostVideoViewModel> PostVideos { get; set; }
     }
 }

@@ -40,6 +40,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Post Post { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
     }
 }

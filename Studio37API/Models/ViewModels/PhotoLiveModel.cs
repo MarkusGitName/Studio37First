@@ -32,8 +32,8 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-        public virtual ICollection<PostPhotoViewModel> PostPhotos { get; set; }
+        public virtual List<PostPhotoViewModel> PostPhotos { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
     }
 }

@@ -55,12 +55,12 @@ namespace Studio37API.Models.ViewModels
 
         public DateTime DateCreated { get; set; }
 
-        public virtual ICollection<EventGroupViewModel> EventGroups { get; set; }
+        public virtual List<EventGroupViewModel> EventGroups { get; set; }
 
-        public virtual ICollection<GoupMediaLinkViewModel> GroupMediaLinks { get; set; }
+        public virtual List<GoupMediaLinkViewModel> GroupMediaLinks { get; set; }
 
         // public virtual Profile Profile { get; set; }
 
-       public virtual ICollection<ProfileViewModel> Profiles { get; set; }
+       public virtual List<ProfileViewModel> Profiles { get; set; }
     }
 }

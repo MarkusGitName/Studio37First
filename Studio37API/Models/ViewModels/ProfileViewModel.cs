@@ -22,92 +22,119 @@ namespace Studio37API.Models.ViewModels
             PhoneNumber = incomingProfile.PhoneNumber;
             Website = incomingProfile.Website;
 
-            foreach(ClassRating incomingClassRatings in incomingProfile.ClassRatings)
-            {
-                ClassRatings.Add(new ClassRatingViewModel(incomingClassRatings));
-            }
 
-            foreach(Comment incomingComments in incomingProfile.Comments)
+            List<ClassRatingViewModel> newClassRatingViewModel = new List<ClassRatingViewModel>();
+            foreach (ClassRating incomingClassRatings in incomingProfile.ClassRatings)
             {
-                Comments.Add(new CommentViewModel(incomingComments));
+                newClassRatingViewModel.Add(new ClassRatingViewModel(incomingClassRatings));
             }
+            ClassRatings = newClassRatingViewModel;
 
-            foreach(Event incomingEvents in incomingProfile.Events)
+
+            List<CommentViewModel> newCommentViewModel = new List<CommentViewModel>();
+            foreach (Comment incomingComments in incomingProfile.Comments)
             {
-                Events.Add(new EventViewModel(incomingEvents));
+                newCommentViewModel.Add(new CommentViewModel(incomingComments));
             }
+            Comments = newCommentViewModel;
 
-            foreach(EventUser incomingEventUsers in incomingProfile.EventUsers)
+
+            List<EventViewModel> newEventViewModel = new List<EventViewModel>();
+            foreach (Event incomingEvents in incomingProfile.Events)
             {
-                EventUsers.Add(new EventUserViewModel(incomingEventUsers));
+                newEventViewModel.Add(new EventViewModel(incomingEvents));
             }
+            Events = newEventViewModel;
 
-            foreach(Group incomingGroups in incomingProfile.Groups)
+            List<EventUserViewModel> newEventUserViewModel = new List<EventUserViewModel>();
+            foreach (EventUser incomingEventUsers in incomingProfile.EventUsers)
             {
-                Groups.Add(new GroupViewModel(incomingGroups));
+                newEventUserViewModel.Add(new EventUserViewModel(incomingEventUsers));
             }
+            EventUsers = newEventUserViewModel;
 
-            foreach(Like incomingLikes in incomingProfile.Likes)
+
+            List<GroupViewModel> newGroupViewModel = new List<GroupViewModel>();
+            foreach (Group incomingGroups in incomingProfile.Groups)
+            {
+                newGroupViewModel.Add(new GroupViewModel(incomingGroups));
+            }Groups = newGroupViewModel;
+
+            List < LikeViewModel > newLikeViewModel = new List<LikeViewModel>();
+            foreach (Like incomingLikes in incomingProfile.Likes)
             {
                 Likes.Add(new LikeViewModel(incomingLikes));
             }
 
-            foreach(LiveShowView incomingLiveShowViews in incomingProfile.LiveShowViews)
+            List < LiveShowViewViewModel> newLiveShowViewViewModel = new List<LiveShowViewViewModel>();
+            foreach (LiveShowView incomingLiveShowViews in incomingProfile.LiveShowViews)
             {
                 LiveShowViews.Add(new LiveShowViewViewModel(incomingLiveShowViews));
             }
 
-            foreach(Message incomingMessages in incomingProfile.Messages)
+            List < MessageViewModel > newMessageViewModel = new List<MessageViewModel>();
+            foreach (Message incomingMessages in incomingProfile.Messages)
             {
                 Messages.Add(new MessageViewModel(incomingMessages));
             }
 
-            foreach(Payment incomingPayments in incomingProfile.Payments)
+            List < PaymentViewModel> newPaymentViewModel = new List<PaymentViewModel>();
+            foreach (Payment incomingPayments in incomingProfile.Payments)
             {
                 Payments.Add(new PaymentViewModel(incomingPayments));
             }
 
-            foreach(Sale incomingSales in incomingProfile.Sales)
+            List < SaleViewModel > newSaleViewModel = new List<SaleViewModel>();
+            foreach (Sale incomingSales in incomingProfile.Sales)
             {
                 Sales.Add(new SaleViewModel(incomingSales));
             }
 
-            foreach(TutorialRating incomingTutorialRatings in incomingProfile.TutorialRatings)
+            List < TutorialRatingViewModel > newTutorialRatingViewModel = new List<TutorialRatingViewModel>();
+            foreach (TutorialRating incomingTutorialRatings in incomingProfile.TutorialRatings)
             {
                 TutorialRatings.Add(new TutorialRatingViewModel(incomingTutorialRatings));
             }
 
+            List<UserCattegoryViewModel> newUserCattegoryViewModel = new List<UserCattegoryViewModel>();
             foreach(UserCattegory incomingUserCattegories in incomingProfile.UserCattegories)
             {
-                UserCattegories.Add(new UserCattegoryViewModel(incomingUserCattegories));
+                newUserCattegoryViewModel.Add(new UserCattegoryViewModel(incomingUserCattegories));
             }
+            UserCattegories= newUserCattegoryViewModel;
 
-            foreach(UserChat incomingUserChats in incomingProfile.UserChats)
+            List < UserChatViewModel> newUserChatViewModel = new List<UserChatViewModel>();
+            foreach (UserChat incomingUserChats in incomingProfile.UserChats)
             {
                 UserChats.Add(new UserChatViewModel(incomingUserChats));
             }
 
-            foreach(UserSocialMediaLink incomingUserSocialMediaLinks in incomingProfile.UserSocialMediaLinks)
+            List < UserSocialMediaLinkViewModel> newUserSocialMediaLinkViewModel = new List<UserSocialMediaLinkViewModel>();
+            foreach (UserSocialMediaLink incomingUserSocialMediaLinks in incomingProfile.UserSocialMediaLinks)
             {
                 UserSocialMediaLinks.Add(new UserSocialMediaLinkViewModel(incomingUserSocialMediaLinks));
             }
 
-            foreach(Profile incomingProfile1 in incomingProfile.Profile1)
+            List < ProfileViewModel> newProfileViewModel = new List<ProfileViewModel>();
+            foreach (Profile incomingProfile1 in incomingProfile.Profile1)
             {
                 Profile1.Add(new ProfileViewModel(incomingProfile1));
             }
 
-            foreach(Profile incomingProfiles in incomingProfile.Profiles)
+            List < ProfileViewModel > newProfilesViewModel = new List<ProfileViewModel>();
+            foreach (Profile incomingProfiles in incomingProfile.Profiles)
             {
                 Profiles.Add(new ProfileViewModel(incomingProfiles));
             }
 
-            foreach(Group incomingGroups1 in incomingProfile.Groups1)
+            List < GroupViewModel > newGroup1ViewModel = new List<GroupViewModel>();
+            foreach (Group incomingGroups1 in incomingProfile.Groups1)
             {
                 Groups1.Add(new GroupViewModel(incomingGroups1));
             }
 
-            foreach(Like incomingLikes1 in incomingProfile.Likes1)
+            List < LikeViewModel > newLike1ViewModel = new List<LikeViewModel>();
+            foreach (Like incomingLikes1 in incomingProfile.Likes1)
             {
                 Likes1.Add(new LikeViewModel(incomingLikes1));
             }
@@ -151,42 +178,42 @@ namespace Studio37API.Models.ViewModels
         [StringLength(50)]
         public string Website { get; set; }
 
-        public virtual ICollection<ClassRatingViewModel> ClassRatings { get; set; }
+        public virtual List<ClassRatingViewModel> ClassRatings { get; set; }
 
-        public virtual ICollection<CommentViewModel> Comments { get; set; }
+        public virtual List<CommentViewModel> Comments { get; set; }
 
-        public virtual ICollection<EventViewModel> Events { get; set; }
+        public virtual List<EventViewModel> Events { get; set; }
 
-        public virtual ICollection<EventUserViewModel> EventUsers { get; set; }
+        public virtual List<EventUserViewModel> EventUsers { get; set; }
 
-        public virtual ICollection<GroupViewModel> Groups { get; set; }
+        public virtual List<GroupViewModel> Groups { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
 
-        public virtual ICollection<LiveShowViewViewModel> LiveShowViews { get; set; }
+        public virtual List<LiveShowViewViewModel> LiveShowViews { get; set; }
 
-        public virtual ICollection<MessageViewModel> Messages { get; set; }
+        public virtual List<MessageViewModel> Messages { get; set; }
 
-        public virtual ICollection<PaymentViewModel> Payments { get; set; }
+        public virtual List<PaymentViewModel> Payments { get; set; }
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<SaleViewModel> Sales { get; set; }
+        public virtual List<SaleViewModel> Sales { get; set; }
 
-        public virtual ICollection<TutorialRatingViewModel> TutorialRatings { get; set; }
+        public virtual List<TutorialRatingViewModel> TutorialRatings { get; set; }
 
-        public virtual ICollection<UserCattegoryViewModel> UserCattegories { get; set; }
+        public virtual List<UserCattegoryViewModel> UserCattegories { get; set; }
 
-        public virtual ICollection<UserChatViewModel> UserChats { get; set; }
+        public virtual List<UserChatViewModel> UserChats { get; set; }
 
-        public virtual ICollection<UserSocialMediaLinkViewModel> UserSocialMediaLinks { get; set; }
+        public virtual List<UserSocialMediaLinkViewModel> UserSocialMediaLinks { get; set; }
 
-        public virtual ICollection<ProfileViewModel> Profile1 { get; set; }
+        public virtual List<ProfileViewModel> Profile1 { get; set; }
 
-        public virtual ICollection<ProfileViewModel> Profiles { get; set; }
+        public virtual List<ProfileViewModel> Profiles { get; set; }
 
-        public virtual ICollection<GroupViewModel> Groups1 { get; set; }
+        public virtual List<GroupViewModel> Groups1 { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes1 { get; set; }
+        public virtual List<LikeViewModel> Likes1 { get; set; }
     }
 }

@@ -52,14 +52,14 @@ namespace Studio37API.Models.ViewModels
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        public virtual ICollection<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
+        public virtual List<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
 
-        public virtual ICollection<LiveShowSaleViewModel> LiveShowSales { get; set; }
+        public virtual List<LiveShowSaleViewModel> LiveShowSales { get; set; }
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
        // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<TutorialSaleViewModel> TutorialSales { get; set; }
+        public virtual List<TutorialSaleViewModel> TutorialSales { get; set; }
     }
 }
