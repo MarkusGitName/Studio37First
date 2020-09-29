@@ -78,20 +78,20 @@ namespace Studio37API.Models.ViewModels
 
         public int PriceCredits { get; set; }
 
-        public virtual ICollection<PostTutorialViewModel> PostTutorials { get; set; }
+        public virtual List<PostTutorialViewModel> PostTutorials { get; set; }
 
        // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<TutorialCattegoryViewModel> TutorialCattegories { get; set; }
+        public virtual List<TutorialCattegoryViewModel> TutorialCattegories { get; set; }
 
-         public virtual ICollection<TutorialCommentViewModel> TutorialComments { get; set; }
+         public virtual List<TutorialCommentViewModel> TutorialComments { get; set; }
 
-        public virtual ICollection<TutorialPromoPhotoViewModel> TutorialPromoPhotoes { get; set; }
+        public virtual List<TutorialPromoPhotoViewModel> TutorialPromoPhotoes { get; set; }
 
-        public virtual ICollection<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
+        public virtual List<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
 
-        public virtual ICollection<TutorialRatingViewModel> TutorialRatings { get; set; }
+        public virtual List<TutorialRatingViewModel> TutorialRatings { get; set; }
 
-         public virtual ICollection<TutorialSaleViewModel> TutorialSales { get; set; }
+         public virtual List<TutorialSaleViewModel> TutorialSales { get; set; }
     }
 }

@@ -81,22 +81,22 @@ namespace Studio37API.Models.ViewModels
 
         public DateTime Date { get; set; }
 
-        public virtual ICollection<PostCattegoryViewModel> PostCattegories { get; set; }
+        public virtual List<PostCattegoryViewModel> PostCattegories { get; set; }
 
-        public virtual ICollection<PostCommentViewModel> PostComments { get; set; }
+        public virtual List<PostCommentViewModel> PostComments { get; set; }
 
-        public virtual ICollection<PostEventViewModel> PostEvents { get; set; }
+        public virtual List<PostEventViewModel> PostEvents { get; set; }
 
-        public virtual ICollection<PostLiveShowViewModel> PostLiveShows { get; set; }
+        public virtual List<PostLiveShowViewModel> PostLiveShows { get; set; }
 
-        public virtual ICollection<PostPhotoViewModel> PostPhotos { get; set; }
+        public virtual List<PostPhotoViewModel> PostPhotos { get; set; }
 
-         public virtual ICollection<PostTutorialViewModel> PostTutorials { get; set; }
+         public virtual List<PostTutorialViewModel> PostTutorials { get; set; }
 
-        public virtual ICollection<PostVideoViewModel> PostVideos { get; set; }
+        public virtual List<PostVideoViewModel> PostVideos { get; set; }
 
-        public virtual ICollection<ShareViewModel> Shares { get; set; }
+        public virtual List<ShareViewModel> Shares { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
     }
 }
