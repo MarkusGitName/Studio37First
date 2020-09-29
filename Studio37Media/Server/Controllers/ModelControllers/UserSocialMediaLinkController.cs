@@ -11,13 +11,14 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatController : ControllerBase
+    public class UserSocialMediaLinkController : ControllerBase
     {
-        [HttpPost("{apiname}", Name = "NewChat")]
-        public Chat Post(Chat Model)
+        [HttpPost("{apiname}", Name = "NewUserSocialMediaLink")]
+        public UserSocialMediaLink Post(UserSocialMediaLink Model)
         {
-            Chat ReturnChat = APILibrary.APIPost<Chat>(Model, "Chats");
-            return ReturnChat;
+            UserSocialMediaLink ReturnUserSocialMediaLink = APILibrary.APIPost<UserSocialMediaLink>(Model, "UserSocialMediaLinks");
+            return ReturnUserSocialMediaLink;
         }
+
     }
 }

@@ -11,13 +11,14 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatController : ControllerBase
+    public class StickerController : ControllerBase
     {
-        [HttpPost("{apiname}", Name = "NewChat")]
-        public Chat Post(Chat Model)
+        [HttpPost("{apiname}", Name = "NewSticker")]
+        public Sticker Post(Sticker Model)
         {
-            Chat ReturnChat = APILibrary.APIPost<Chat>(Model, "Chats");
-            return ReturnChat;
+            Sticker ReturnSticker = APILibrary.APIPost<Sticker>(Model, "Stickers");
+            return ReturnSticker;
         }
+
     }
 }

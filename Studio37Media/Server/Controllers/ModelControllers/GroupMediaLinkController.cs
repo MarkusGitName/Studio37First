@@ -11,13 +11,14 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatController : ControllerBase
+    public class GroupMediaLinkController : ControllerBase
     {
-        [HttpPost("{apiname}", Name = "NewChat")]
-        public Chat Post(Chat Model)
+        [HttpPost("{apiname}", Name = "NewGroupMediaLink")]
+        public GroupMediaLink Post(GroupMediaLink Model)
         {
-            Chat ReturnChat = APILibrary.APIPost<Chat>(Model, "Chats");
-            return ReturnChat;
+            GroupMediaLink ReturnGroupMediaLink = APILibrary.APIPost<GroupMediaLink>(Model, "GoupMediaLinks");
+            return ReturnGroupMediaLink;
         }
+
     }
 }

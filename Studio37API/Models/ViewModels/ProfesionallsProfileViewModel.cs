@@ -18,30 +18,40 @@ namespace Studio37API.Models.ViewModels
             Logo = incomingProfesionallsProfile.Logo;
             ProfesionalEmail = incomingProfesionallsProfile.ProfesionalEmail;
 
+            List<LiveShowViewModel> newLiveShowViewModel = new List<LiveShowViewModel>();
             foreach (LiveShow incomingLiveShows in incomingProfesionallsProfile.LiveShows)
             {
                 LiveShows.Add(new LiveShowViewModel(incomingLiveShows));
             }
+            LiveShows = newLiveShowViewModel;
 
+            List<ProfesionalsDocumentViewModel> newProfesionalsDocumentViewModel = new List<ProfesionalsDocumentViewModel>();
             foreach (ProfesionalsDocument incomingProfesionalsDocuments in incomingProfesionallsProfile.ProfesionalsDocuments)
             {
                 ProfesionalsDocuments.Add(new ProfesionalsDocumentViewModel(incomingProfesionalsDocuments));
             }
+            ProfesionalsDocuments = newProfesionalsDocumentViewModel;
 
+            List<SaleViewModel> newSaleViewModel = new List<SaleViewModel>();
             foreach (Sale incomingSales in incomingProfesionallsProfile.Sales)
             {
                 Sales.Add(new SaleViewModel(incomingSales));
             }
+            Sales = newSaleViewModel;
 
+            List<StickerViewModel> newStickerViewModel = new List<StickerViewModel>();
             foreach (Sticker incomingStickers in incomingProfesionallsProfile.Stickers)
             {
                 Stickers.Add(new StickerViewModel(incomingStickers));
             }
+            Stickers = newStickerViewModel;
 
+            List<TutorialViewModel> newTutorialViewModel = new List<TutorialViewModel>();
             foreach (Tutorial incomingTutorials in incomingProfesionallsProfile.Tutorials)
             {
                 Tutorials.Add(new TutorialViewModel(incomingTutorials));
             }
+            Tutorials = newTutorialViewModel;
         }
 
         [Key]

@@ -11,13 +11,14 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatController : ControllerBase
+    public class TutorialSaleController : ControllerBase
     {
-        [HttpPost("{apiname}", Name = "NewChat")]
-        public Chat Post(Chat Model)
+        [HttpPost("{apiname}", Name = "NewTutorialSale")]
+        public TutorialSale Post(TutorialSale Model)
         {
-            Chat ReturnChat = APILibrary.APIPost<Chat>(Model, "Chats");
-            return ReturnChat;
+            TutorialSale ReturnTutorialSale = APILibrary.APIPost<TutorialSale>(Model, "TutorialSales");
+            return ReturnTutorialSale;
         }
+
     }
 }

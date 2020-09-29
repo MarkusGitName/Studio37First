@@ -15,10 +15,12 @@ namespace Studio37API.Models.ViewModels
             UserID = incomingSticker.UserID;
             Grade = incomingSticker.Grade;
 
-            foreach(StickerCattegory incomingStickerCattegories in incomingSticker.StickerCattegories)
+            List<StickerCattegoryViewModel> newStickerCategoryViewModel = new List<StickerCattegoryViewModel>(); 
+            foreach (StickerCattegory incomingStickerCattegories in incomingSticker.StickerCattegories)
             {
                 StickerCattegories.Add(new StickerCattegoryViewModel(incomingStickerCattegories));
             }
+            StickerCattegories = newStickerCategoryViewModel;
         }
 
         public Guid id { get; set; }

@@ -11,13 +11,14 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatController : ControllerBase
+    public class UserCategoryController : ControllerBase
     {
-        [HttpPost("{apiname}", Name = "NewChat")]
-        public Chat Post(Chat Model)
+        [HttpPost("{apiname}", Name = "NewUserCategory")]
+        public UserCategory Post(UserCategory Model)
         {
-            Chat ReturnChat = APILibrary.APIPost<Chat>(Model, "Chats");
-            return ReturnChat;
+            UserCategory ReturnUserCategory = APILibrary.APIPost<UserCategory>(Model, "UserCattegories");
+            return ReturnUserCategory;
         }
+
     }
 }

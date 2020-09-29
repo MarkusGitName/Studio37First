@@ -22,21 +22,27 @@ namespace Studio37API.Models.ViewModels
             Description = incomingGroup.Description;
             DateCreated = incomingGroup.DateCreated;
 
-            foreach(EventGroup incomingEventGroups in incomingGroup.EventGroups)
+            List<EventGroupViewModel> newEventGroupViewModel = new List<EventGroupViewModel>();
+            foreach (EventGroup incomingEventGroups in incomingGroup.EventGroups)
             {
                 EventGroups.Add(new EventGroupViewModel(incomingEventGroups));
             }
+            EventGroups = newEventGroupViewModel;
 
-            foreach(GoupMediaLink incomingGroupMediaLinks in incomingGroup.GoupMediaLinks)
+            List<GoupMediaLinkViewModel> newGoupMediaLinkViewModel = new List<GoupMediaLinkViewModel>();
+            foreach (GoupMediaLink incomingGroupMediaLinks in incomingGroup.GoupMediaLinks)
             {
                 GroupMediaLinks.Add(new GoupMediaLinkViewModel(incomingGroupMediaLinks));
             }
+            GoupMediaLinks = newGoupMediaLinkViewModel;
 
-            foreach(Profile incomingProfiles in incomingGroup.Profiles)
+            List<ProfileViewModel> newProfileViewModel = new List<ProfileViewModel>();
+            foreach (Profile incomingProfiles in incomingGroup.Profiles)
             {
                 Profiles.Add(new ProfileViewModel(incomingProfiles));
             }
-            
+            Profiles = newProfileViewModel;
+
         }
 
         public Guid id { get; set; }

@@ -16,8 +16,8 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         [HttpPost("{apiname}", Name = "NewCategory")]
         public Category Post(Category Model)
         {
-            Category ReturnProfile = APILibrary.APIPost<Category>(Model, "Categories");
-            return ReturnProfile;
+            Category ReturnCategory = APILibrary.APIPost<Category>(Model, "Categories");
+            return ReturnCategory;
         }
 
     }
