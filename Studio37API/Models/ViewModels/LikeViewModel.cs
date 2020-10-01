@@ -50,7 +50,7 @@ namespace Studio37API.Models.ViewModels
             {
                 Profiles.Add(new ProfileViewModel(incomingProfiles));
             }
-            Profles = newProfileViewModel;
+            Profiles = newProfileViewModel;
 
             List<ShareViewModel> newShareViewModel = new List<ShareViewModel>();
             foreach (Share incomingShares in incomingLike.Shares)

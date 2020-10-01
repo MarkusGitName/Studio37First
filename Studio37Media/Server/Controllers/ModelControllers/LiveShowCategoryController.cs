@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class LiveShowCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewLiveShowCategory")]
-        public LiveShowCategory Post(LiveShowCategory Model)
+        public LiveShowCattegory Post(LiveShowCattegory Model)
         {
-            LiveShowCategory ReturnLiveShowCategory = APILibrary.APIPost<LiveShowCategory>(Model, "LiveShowCattegories");
+            LiveShowCattegory ReturnLiveShowCategory = APILibrary.APIPost<LiveShowCattegory>(Model, "LiveShowCattegories");
             return ReturnLiveShowCategory;
         }
 

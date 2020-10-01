@@ -11,7 +11,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LiveShowCategoryController : ControllerBase
+    public class LiveShowCommentController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewLiveShowComment")]
         public LiveShowComment Post(LiveShowComment Model)
@@ -19,6 +19,8 @@ namespace Studio37Media.Server.Controllers.ModelControllers
             LiveShowComment ReturnLiveShowComment = APILibrary.APIPost<LiveShowComment>(Model, "LiveShowComments");
             return ReturnLiveShowComment;
         }
+
+        
 
     }
 }

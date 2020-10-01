@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class UserCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewUserCategory")]
-        public UserCategory Post(UserCategory Model)
+        public UserCattegory Post(UserCattegory Model)
         {
-            UserCategory ReturnUserCategory = APILibrary.APIPost<UserCategory>(Model, "UserCattegories");
+            UserCattegory ReturnUserCategory = APILibrary.APIPost<UserCattegory>(Model, "UserCattegories");
             return ReturnUserCategory;
         }
 

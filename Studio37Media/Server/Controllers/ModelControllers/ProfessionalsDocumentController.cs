@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class ProfessionalDocumentController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewProfessionalDocument")]
-        public ProfessionalDocument Post(ProfessionalDocument Model)
+        public ProfesionalsDocument Post(ProfesionalsDocument Model)
         {
-            ProfessionalDocument ReturnProfessionalDocument = APILibrary.APIPost<ProfessionalDocument>(Model, "ProfesionalsDocuments");
+            ProfesionalsDocument ReturnProfessionalDocument = APILibrary.APIPost<ProfesionalsDocument>(Model, "ProfesionalsDocuments");
             return ReturnProfessionalDocument;
         }
 

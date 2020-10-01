@@ -34,7 +34,7 @@ namespace Studio37API.Models.ViewModels
             {
                 GroupMediaLinks.Add(new GoupMediaLinkViewModel(incomingGroupMediaLinks));
             }
-            GoupMediaLinks = newGoupMediaLinkViewModel;
+            GroupMediaLinks = newGoupMediaLinkViewModel;
 
             List<ProfileViewModel> newProfileViewModel = new List<ProfileViewModel>();
             foreach (Profile incomingProfiles in incomingGroup.Profiles)

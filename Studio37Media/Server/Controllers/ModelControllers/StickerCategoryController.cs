@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class StickerCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewStickerCategory")]
-        public StickerCategory Post(StickerCategory Model)
+        public StickerCattegory Post(StickerCattegory Model)
         {
-            StickerCategory ReturnStickerCategory = APILibrary.APIPost<StickerCategory>(Model, "StickerCattegories");
+            StickerCattegory ReturnStickerCategory = APILibrary.APIPost<StickerCattegory>(Model, "StickerCattegories");
             return ReturnStickerCategory;
         }
 

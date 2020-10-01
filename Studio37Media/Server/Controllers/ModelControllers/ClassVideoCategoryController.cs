@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class ClassVideoCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewClassVideoCategory")]
-        public ClassVideoCategory Post(ClassVideoCategory Model)
+        public ClassVideoCattegory Post(ClassVideoCattegory Model)
         {
-            ClassVideoCategory ReturnClassVideoCategory = APILibrary.APIPost<ClassVideoCategory>(Model, "ClassVideoCattegories");
+            ClassVideoCattegory ReturnClassVideoCategory = APILibrary.APIPost<ClassVideoCattegory>(Model, "ClassVideoCattegories");
             return ReturnClassVideoCategory;
         }
     }

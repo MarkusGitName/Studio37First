@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class TutorialCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewTutorialCategory")]
-        public TutorialCategory Post(TutorialCategory Model)
+        public TutorialCattegory Post(TutorialCattegory Model)
         {
-            TutorialCategory ReturnTutorialCategory = APILibrary.APIPost<TutorialCategory>(Model, "TutorialCattegories");
+            TutorialCattegory ReturnTutorialCategory = APILibrary.APIPost<TutorialCattegory>(Model, "TutorialCattegories");
             return ReturnTutorialCategory;
         }
 

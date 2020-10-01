@@ -9,9 +9,9 @@ using Studio37Media.Shared.ViewModels;
 
 namespace Studio37Media.Server.Controllers.ModelControllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    [Route("[controller]")]
+    public class CattegoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewCategory")]
         public Category Post(Category Model)
@@ -20,5 +20,10 @@ namespace Studio37Media.Server.Controllers.ModelControllers
             return ReturnCategory;
         }
 
+
+      
+
     }
+
+
 }

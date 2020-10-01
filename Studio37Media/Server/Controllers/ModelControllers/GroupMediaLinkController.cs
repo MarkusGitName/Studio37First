@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class GroupMediaLinkController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewGroupMediaLink")]
-        public GroupMediaLink Post(GroupMediaLink Model)
+        public GoupMediaLink Post(GoupMediaLink Model)
         {
-            GroupMediaLink ReturnGroupMediaLink = APILibrary.APIPost<GroupMediaLink>(Model, "GoupMediaLinks");
+            GoupMediaLink ReturnGroupMediaLink = APILibrary.APIPost<GoupMediaLink>(Model, "GoupMediaLinks");
             return ReturnGroupMediaLink;
         }
 

@@ -24,7 +24,7 @@ namespace Studio37Media.Server.Controllers.FileController
         }
 
 
-        [HttpPost]
+        [HttpPost(Name = "FileUpload")]
         public async Task Post()
         {
             if (HttpContext.Request.Form.Files.Any())

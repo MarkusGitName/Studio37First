@@ -14,9 +14,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class ProfessionalProfileController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewProfessionalProfile")]
-        public ProfessionalProfile Post(ProfessionalProfile Model)
+        public ProfesionallsProfile Post(ProfesionallsProfile Model)
         {
-            ProfessionalProfile ReturnProfessionalProfile = APILibrary.APIPost<ProfessionalProfile>(Model, "ProfesionallsProfiles");
+            ProfesionallsProfile ReturnProfessionalProfile = APILibrary.APIPost<ProfesionallsProfile>(Model, "ProfesionallsProfiles");
             return ReturnProfessionalProfile;
         }
 

@@ -12,9 +12,9 @@ namespace Studio37Media.Server.Controllers.ModelControllers
     public class PostCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewPostCategory")]
-        public PostCategory Post(Post Model)
+        public PostCattegory Post(Post Model)
         {
-            PostCategory ReturnPostCategory = APILibrary.APIPost<PostCategory>(Model, "PostCattegories");
+            PostCattegory ReturnPostCategory = APILibrary.APIPost<PostCattegory>(Model, "PostCattegories");
             return ReturnPostCategory;
         }
 

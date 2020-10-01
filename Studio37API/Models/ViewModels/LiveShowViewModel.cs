@@ -46,7 +46,7 @@ namespace Studio37API.Models.ViewModels
             {
                 LiveShowViews.Add(new LiveShowViewViewModel(incomingLiveShowViews));
             }
-            LiveShowSales = newLiveShowViewViewModel;
+            LiveShowViews = newLiveShowViewViewModel;
 
             List<PostLiveShowViewModel> newPostLiveShowViewModel = new List<PostLiveShowViewModel>();
             foreach (PostLiveShow incomingPostLiveShows in incomingLiveShow.PostLiveShows)
