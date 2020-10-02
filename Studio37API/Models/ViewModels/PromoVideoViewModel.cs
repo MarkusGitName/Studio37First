@@ -14,10 +14,12 @@ namespace Studio37API.Models.ViewModels
             id = incomingPromoVideo.id;
             VideoPath = incomingPromoVideo.VideoPath;
 
-            foreach(TutorialPromoVideo incomingTutorialPromoVideos in incomingPromoVideo.TutorialPromoVideos)
+            List<TutorialPromoVideoViewModel> newTutorialPromoVideoViewModel = new List<TutorialPromoVideoViewModel>();
+            foreach (TutorialPromoVideo incomingTutorialPromoVideos in incomingPromoVideo.TutorialPromoVideos)
             {
                 TutorialPromoVideos.Add(new TutorialPromoVideoViewModel(incomingTutorialPromoVideos));
             }
+            TutorialPromoVideos = newTutorialPromoVideoViewModel;
 
         }
 
@@ -27,6 +29,6 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string VideoPath { get; set; }
 
-        public virtual ICollection<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
+        public virtual List<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
     }
 }

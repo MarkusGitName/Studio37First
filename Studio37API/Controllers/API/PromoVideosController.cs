@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PromoVideos
-        public IQueryable<PromoVideo> GetPromoVideos()
+        public List<PromoVideoViewModel> GetPromoVideos()
         {
-            return db.PromoVideos;
+            List<PromoVideoViewModel> PromoVideoList = new List<PromoVideoViewModel>();
+
+            foreach(PromoVideo incomingPromoVideo in db.PromoVideos)
+            {
+                PromoVideoList.Add(new PromoVideoViewModel(incomingPromoVideo));
+            }
+
+            return PromoVideoList;
         }
 
         // GET: api/PromoVideos/5
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> GetPromoVideo(Guid id)
         {
             PromoVideo promoVideo = await db.PromoVideos.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(promoVideo);
+            return Ok(new PromoVideoViewModel(promoVideo));
         }
 
         // PUT: api/PromoVideos/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PromoVideos
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> PostPromoVideo(PromoVideo promoVideo)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = promoVideo.id }, promoVideo);
+            return CreatedAtRoute("DefaultApi", new { id = promoVideo.id }, new PromoVideoViewModel(promoVideo));
         }
 
         // DELETE: api/PromoVideos/5
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> DeletePromoVideo(Guid id)
         {
             PromoVideo promoVideo = await db.PromoVideos.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.PromoVideos.Remove(promoVideo);
             await db.SaveChangesAsync();
 
-            return Ok(promoVideo);
+            return Ok(new PromoVideoViewModel(promoVideo));
         }
 
         protected override void Dispose(bool disposing)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PostPhotoes
-        public IQueryable<PostPhoto> GetPostPhotos()
+        public List<PostPhotoViewModel> GetPostPhotos()
         {
-            return db.PostPhotos;
+            List<PostPhotoViewModel> PostPhotoList = new List<PostPhotoViewModel>();
+
+            foreach(PostPhoto incomingPostPhoto in db.PostPhotos)
+            {
+                PostPhotoList.Add(new PostPhotoViewModel(incomingPostPhoto));
+            }
+         
+            return PostPhotoList;
         }
 
         // GET: api/PostPhotoes/5
-        [ResponseType(typeof(PostPhoto))]
+        [ResponseType(typeof(PostPhotoViewModel))]
         public async Task<IHttpActionResult> GetPostPhoto(Guid id)
         {
             PostPhoto postPhoto = await db.PostPhotos.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(postPhoto);
+            return Ok(new PostPhotoViewModel(postPhoto));
         }
 
         // PUT: api/PostPhotoes/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostPhotoes
-        [ResponseType(typeof(PostPhoto))]
+        [ResponseType(typeof(PostPhotoViewModel))]
         public async Task<IHttpActionResult> PostPostPhoto(PostPhoto postPhoto)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postPhoto.id }, postPhoto);
+            return CreatedAtRoute("DefaultApi", new { id = postPhoto.id }, new PostPhotoViewModel(postPhoto));
         }
 
         // DELETE: api/PostPhotoes/5
-        [ResponseType(typeof(PostPhoto))]
+        [ResponseType(typeof(PostPhotoViewModel))]
         public async Task<IHttpActionResult> DeletePostPhoto(Guid id)
         {
             PostPhoto postPhoto = await db.PostPhotos.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.PostPhotos.Remove(postPhoto);
             await db.SaveChangesAsync();
 
-            return Ok(postPhoto);
+            return Ok(new PostPhotoViewModel(postPhoto));
         }
 
         protected override void Dispose(bool disposing)

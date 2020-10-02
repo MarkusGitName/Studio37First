@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,21 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Likes
-        public IQueryable<Like> GetLikes()
+        public List<LikeViewModel> GetLikes()
         {
-            return db.Likes;
+            List<LikeViewModel> LikeList = new List<LikeViewModel>();
+
+            foreach(Like incomingLike in db.Likes)
+            {
+                LikeList.Add(new LikeViewModel(incomingLike));
+
+            }
+
+            return LikeList;
         }
 
         // GET: api/Likes/5
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> GetLike(Guid id)
         {
             Like like = await db.Likes.FindAsync(id);
@@ -33,7 +42,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(like);
+            return Ok(new LikeViewModel(like));
         }
 
         // PUT: api/Likes/5
@@ -72,7 +81,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Likes
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> PostLike(Like like)
         {
             if (!ModelState.IsValid)
@@ -98,11 +107,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = like.id }, like);
+            return CreatedAtRoute("DefaultApi", new { id = like.id }, new LikeViewModel(like));
         }
 
         // DELETE: api/Likes/5
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> DeleteLike(Guid id)
         {
             Like like = await db.Likes.FindAsync(id);
@@ -114,7 +123,7 @@ namespace Studio37API.Controllers.API
             db.Likes.Remove(like);
             await db.SaveChangesAsync();
 
-            return Ok(like);
+            return Ok(new LikeViewModel(like));
         }
 
         protected override void Dispose(bool disposing)

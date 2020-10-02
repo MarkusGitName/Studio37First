@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/TutorialClasses
-        public IQueryable<TutorialClass> GetTutorialClasses()
+        public List<TutorialClassViewModel> GetTutorialClasses()
         {
-            return db.TutorialClasses;
+            List<TutorialClassViewModel> TutorialClassList = new List<TutorialClassViewModel>();
+
+            foreach(TutorialClass incomingTutoriaClass in db.TutorialClasses)
+            {
+                TutorialClassList.Add(new TutorialClassViewModel(incomingTutoriaClass));
+            }
+
+            return TutorialClassList;
         }
 
         // GET: api/TutorialClasses/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(tutorialClass);
+            return Ok(new TutorialClassViewModel(tutorialClass));
         }
 
         // PUT: api/TutorialClasses/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tutorialClass.id }, tutorialClass);
+            return CreatedAtRoute("DefaultApi", new { id = tutorialClass.id }, new TutorialClassViewModel(tutorialClass));
         }
 
         // DELETE: api/TutorialClasses/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.TutorialClasses.Remove(tutorialClass);
             await db.SaveChangesAsync();
 
-            return Ok(tutorialClass);
+            return Ok(new TutorialClassViewModel(tutorialClass));
         }
 
         protected override void Dispose(bool disposing)

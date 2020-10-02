@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/EventGroups
-        public IQueryable<EventGroup> GetEventGroups()
+        public List<EventGroupViewModel> GetEventGroups()
         {
-            return db.EventGroups;
+            List<EventGroupViewModel> EventGroupList = new List<EventGroupViewModel>();
+
+            foreach(EventGroup incomingEventGroup in db.EventGroups)
+            {
+                EventGroupList.Add(new EventGroupViewModel(incomingEventGroup));
+            }
+
+            return EventGroupList;
         }
 
         // GET: api/EventGroups/5
-        [ResponseType(typeof(EventGroup))]
+        [ResponseType(typeof(EventGroupViewModel))]
         public async Task<IHttpActionResult> GetEventGroup(Guid id)
         {
             EventGroup eventGroup = await db.EventGroups.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(eventGroup);
+            return Ok(new EventGroupViewModel(eventGroup));
         }
 
         // PUT: api/EventGroups/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/EventGroups
-        [ResponseType(typeof(EventGroup))]
+        [ResponseType(typeof(EventGroupViewModel))]
         public async Task<IHttpActionResult> PostEventGroup(EventGroup eventGroup)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = eventGroup.id }, eventGroup);
+            return CreatedAtRoute("DefaultApi", new { id = eventGroup.id }, new EventGroupViewModel(eventGroup));
         }
 
         // DELETE: api/EventGroups/5
-        [ResponseType(typeof(EventGroup))]
+        [ResponseType(typeof(EventGroupViewModel))]
         public async Task<IHttpActionResult> DeleteEventGroup(Guid id)
         {
             EventGroup eventGroup = await db.EventGroups.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.EventGroups.Remove(eventGroup);
             await db.SaveChangesAsync();
 
-            return Ok(eventGroup);
+            return Ok(new EventGroupViewModel(eventGroup));
         }
 
         protected override void Dispose(bool disposing)

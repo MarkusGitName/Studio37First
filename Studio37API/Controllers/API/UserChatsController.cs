@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/UserChats
-        public IQueryable<UserChat> GetUserChats()
+        public List<UserChatViewModel> GetUserChats()
         {
-            return db.UserChats;
+            List<UserChatViewModel> UserChatList = new List<UserChatViewModel>();
+
+            foreach(UserChat incomingUserChat in db.UserChats)
+            {
+                UserChatList.Add(new UserChatViewModel(incomingUserChat));
+            }
+
+            return UserChatList;
         }
 
         // GET: api/UserChats/5
-        [ResponseType(typeof(UserChat))]
+        [ResponseType(typeof(UserChatViewModel))]
         public async Task<IHttpActionResult> GetUserChat(Guid id)
         {
             UserChat userChat = await db.UserChats.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(userChat);
+            return Ok(new UserChatViewModel(userChat));
         }
 
         // PUT: api/UserChats/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/UserChats
-        [ResponseType(typeof(UserChat))]
+        [ResponseType(typeof(UserChatViewModel))]
         public async Task<IHttpActionResult> PostUserChat(UserChat userChat)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = userChat.id }, userChat);
+            return CreatedAtRoute("DefaultApi", new { id = userChat.id }, new UserChatViewModel(userChat));
         }
 
         // DELETE: api/UserChats/5
-        [ResponseType(typeof(UserChat))]
+        [ResponseType(typeof(UserChatViewModel))]
         public async Task<IHttpActionResult> DeleteUserChat(Guid id)
         {
             UserChat userChat = await db.UserChats.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.UserChats.Remove(userChat);
             await db.SaveChangesAsync();
 
-            return Ok(userChat);
+            return Ok(new UserChatViewModel(userChat));
         }
 
         protected override void Dispose(bool disposing)

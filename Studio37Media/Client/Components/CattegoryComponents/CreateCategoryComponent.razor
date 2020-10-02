@@ -1,0 +1,55 @@
+﻿
+@using Studio37Media.Shared.ViewModels
+
+
+
+@inject HttpClient Http
+@try
+{<EditForm Model="@newCategory" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">category</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="First Name"
+                           @bind-Value="newCategory.Category1" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">sup category</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newCategory.SubCategory" />
+            </div>
+        </div>
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+    </EditForm>
+    @code {
+        Category newCategory = new Category();
+
+
+
+        //This runs on form submit
+        async void HandleFormSubmit()
+        {
+            Console.WriteLine("Runs--------------------------------------------");
+            newCategory.id = Guid.NewGuid();
+            //post to profile controller
+            await Http.PostAsJsonAsync<Category>("Cattegory/NewCategory", newCategory);
+            //await Http.GetFromJsonAsync<Profile>("Profile");
+
+        }
+
+
+    }
+}
+catch
+{
+    <div>Not Working</div>
+
+
+}
+
+

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/LiveShowViews
-        public IQueryable<LiveShowView> GetLiveShowViews()
+        public List<LiveShowViewViewModel> GetLiveShowViews()
         {
-            return db.LiveShowViews;
+            List<LiveShowViewViewModel> LiveShowViewList = new List<LiveShowViewViewModel>();
+
+            foreach(LiveShowView incomingLiveShowView in db.LiveShowViews)
+            {
+                LiveShowViewList.Add(new LiveShowViewViewModel(incomingLiveShowView));
+            }
+
+            return LiveShowViewList;
         }
 
         // GET: api/LiveShowViews/5
-        [ResponseType(typeof(LiveShowView))]
+        [ResponseType(typeof(LiveShowViewViewModel))]
         public async Task<IHttpActionResult> GetLiveShowView(Guid id)
         {
             LiveShowView liveShowView = await db.LiveShowViews.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(liveShowView);
+            return Ok(new LiveShowViewViewModel(liveShowView));
         }
 
         // PUT: api/LiveShowViews/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShowViews
-        [ResponseType(typeof(LiveShowView))]
+        [ResponseType(typeof(LiveShowViewViewModel))]
         public async Task<IHttpActionResult> PostLiveShowView(LiveShowView liveShowView)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = liveShowView.id }, liveShowView);
+            return CreatedAtRoute("DefaultApi", new { id = liveShowView.id }, new LiveShowViewViewModel(liveShowView));
         }
 
         // DELETE: api/LiveShowViews/5
-        [ResponseType(typeof(LiveShowView))]
+        [ResponseType(typeof(LiveShowViewViewModel))]
         public async Task<IHttpActionResult> DeleteLiveShowView(Guid id)
         {
             LiveShowView liveShowView = await db.LiveShowViews.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.LiveShowViews.Remove(liveShowView);
             await db.SaveChangesAsync();
 
-            return Ok(liveShowView);
+            return Ok(new LiveShowViewViewModel(liveShowView));
         }
 
         protected override void Dispose(bool disposing)

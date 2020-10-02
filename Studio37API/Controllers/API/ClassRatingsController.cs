@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,19 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ClassRatings
-        public IQueryable<ClassRating> GetClassRatings()
+        public List<ClassRatingViewModel> GetClassRatings()
         {
-            return db.ClassRatings;
+            List<ClassRatingViewModel> ClassRatingList = new List<ClassRatingViewModel>();
+
+            foreach(ClassRating incomingClassRating in db.ClassRatings)
+            {
+                ClassRatingList.Add(new ClassRatingViewModel(incomingClassRating));
+            }
+            return ClassRatingList;
         }
 
         // GET: api/ClassRatings/5
-        [ResponseType(typeof(ClassRating))]
+        [ResponseType(typeof(ClassRatingViewModel))]
         public async Task<IHttpActionResult> GetClassRating(Guid id)
         {
             ClassRating classRating = await db.ClassRatings.FindAsync(id);
@@ -33,7 +40,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(classRating);
+            return Ok(new ClassRatingViewModel(classRating));
         }
 
         // PUT: api/ClassRatings/5
@@ -72,7 +79,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ClassRatings
-        [ResponseType(typeof(ClassRating))]
+        [ResponseType(typeof(ClassRatingViewModel))]
         public async Task<IHttpActionResult> PostClassRating(ClassRating classRating)
         {
             if (!ModelState.IsValid)
@@ -98,11 +105,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = classRating.id }, classRating);
+            return CreatedAtRoute("DefaultApi", new { id = classRating.id }, new ClassRatingViewModel(classRating));
         }
 
         // DELETE: api/ClassRatings/5
-        [ResponseType(typeof(ClassRating))]
+        [ResponseType(typeof(ClassRatingViewModel))]
         public async Task<IHttpActionResult> DeleteClassRating(Guid id)
         {
             ClassRating classRating = await db.ClassRatings.FindAsync(id);
@@ -114,7 +121,7 @@ namespace Studio37API.Controllers.API
             db.ClassRatings.Remove(classRating);
             await db.SaveChangesAsync();
 
-            return Ok(classRating);
+            return Ok(new ClassRatingViewModel(classRating));
         }
 
         protected override void Dispose(bool disposing)

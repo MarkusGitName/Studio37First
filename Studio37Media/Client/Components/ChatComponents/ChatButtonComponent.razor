@@ -1,0 +1,21 @@
+﻿@using Studio37Media.Shared.ViewModels
+
+
+@inject HttpClient Http
+<h3>ChatButtonComponent</h3>
+
+@code {
+    Chat newChat = new Chat();
+
+    //This code runs on component load
+    protected override async Task OnInitializedAsync()
+    {
+        newChat.ChatID = Guid.NewGuid();
+        newChat.DateCreated = DateTime.Now;
+
+
+        //post to profile controller
+        await Http.PostAsJsonAsync<Chat>("chat/NewChat", newChat);
+    }
+
+}

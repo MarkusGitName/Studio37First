@@ -24,13 +24,12 @@ namespace Studio37Media.Shared.ViewModels
 
         public Guid id { get; set; }
 
-        [Column("Category")]
         [Required]
-        [StringLength(150)]
+        [StringLength(150,MinimumLength =1)]
         public string Category1 { get; set; }
 
         [Required]
-        [StringLength(150)]
+        [StringLength(150, MinimumLength = 1)]
         public string SubCategory { get; set; }
 
 

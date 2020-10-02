@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/TutorialComments
-        public IQueryable<TutorialComment> GetTutorialComments()
+        public List<TutorialCommentViewModel> GetTutorialComments()
         {
-            return db.TutorialComments;
+            List<TutorialCommentViewModel> TutorialCommentList = new List<TutorialCommentViewModel>();
+
+            foreach(TutorialComment incomingTutorialComment in db.TutorialComments)
+            {
+                TutorialCommentList.Add(new TutorialCommentViewModel(incomingTutorialComment));
+            }
+
+            return TutorialCommentList;
         }
 
         // GET: api/TutorialComments/5
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> GetTutorialComment(Guid id)
         {
             TutorialComment tutorialComment = await db.TutorialComments.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(tutorialComment);
+            return Ok(new TutorialCommentViewModel(tutorialComment));
         }
 
         // PUT: api/TutorialComments/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialComments
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> PostTutorialComment(TutorialComment tutorialComment)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tutorialComment.id }, tutorialComment);
+            return CreatedAtRoute("DefaultApi", new { id = tutorialComment.id }, new TutorialCommentViewModel(tutorialComment));
         }
 
         // DELETE: api/TutorialComments/5
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialComment(Guid id)
         {
             TutorialComment tutorialComment = await db.TutorialComments.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.TutorialComments.Remove(tutorialComment);
             await db.SaveChangesAsync();
 
-            return Ok(tutorialComment);
+            return Ok(new TutorialCommentViewModel(tutorialComment));
         }
 
         protected override void Dispose(bool disposing)

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Comments
-        public IQueryable<Comment> GetComments()
+        public List<CommentViewModel> GetComments()
         {
-            return db.Comments;
+            List<CommentViewModel> CommentList = new List<CommentViewModel>();
+
+            foreach(Comment incomingComment in db.Comments)
+            {
+                CommentList.Add(new CommentViewModel(incomingComment));
+            }
+
+            return CommentList;
         }
 
         // GET: api/Comments/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(comment);
+            return Ok(new CommentViewModel(comment));
         }
 
         // PUT: api/Comments/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = comment.id }, comment);
+            return CreatedAtRoute("DefaultApi", new { id = comment.id },new CommentViewModel(comment));
         }
 
         // DELETE: api/Comments/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Comments.Remove(comment);
             await db.SaveChangesAsync();
 
-            return Ok(comment);
+            return Ok(new CommentViewModel(comment));
         }
 
         protected override void Dispose(bool disposing)

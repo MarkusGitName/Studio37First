@@ -17,10 +17,12 @@ namespace Studio37API.Models.ViewModels
             text = incomingShare.text;
             date = incomingShare.date;
 
-            foreach(Like incomingLikes in incomingShare.likes)
+            List<LikeViewModel> newLikeViewModel = new List<LikeViewModel>();
+            foreach (Like incomingLikes in incomingShare.Likes)
             {
                 Likes.Add(new LikeViewModel(incomingLikes));
             }
+            Likes = newLikeViewModel;
 
         }
 
@@ -40,6 +42,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Post Post { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
     }
 }

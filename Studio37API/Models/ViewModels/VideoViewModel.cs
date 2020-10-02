@@ -9,15 +9,17 @@ namespace Studio37API.Models.ViewModels
 
     public partial class VideoViewModel
     {
-        public VideoViewModel(VideoViewModel incomingVideo)
+        public VideoViewModel(Video incomingVideo)
         {
             id = incomingVideo.id;
             Path = incomingVideo.Path;
 
-            foreach(PostVideo incomingPostVideos in incomingVideo.PostVideos)
+            List<PostVideoViewModel> newPostVideoViewModel = new List<PostVideoViewModel>();
+            foreach (PostVideo incomingPostVideos in incomingVideo.PostVideos)
             {
                 PostVideos.Add(new PostVideoViewModel(incomingPostVideos));
             }
+            PostVideos = newPostVideoViewModel;
         }
 
         public Guid id { get; set; }
@@ -26,6 +28,6 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string Path { get; set; }
 
-        public virtual ICollection<PostVideoViewModel> PostVideos { get; set; }
+        public virtual List<PostVideoViewModel> PostVideos { get; set; }
     }
 }

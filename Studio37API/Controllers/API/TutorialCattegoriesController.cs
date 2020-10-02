@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/TutorialCattegories
-        public IQueryable<TutorialCattegory> GetTutorialCattegories()
+        public List<TutorialCattegoryViewModel> GetTutorialCattegories()
         {
-            return db.TutorialCattegories;
+            List<TutorialCattegoryViewModel> TutorialCategoryList = new List<TutorialCattegoryViewModel>();
+
+            foreach(TutorialCattegory incomingTutorialCategory in db.TutorialCattegories)
+            {
+                TutorialCategoryList.Add(new TutorialCattegoryViewModel(incomingTutorialCategory));
+            }
+
+            return TutorialCategoryList;
         }
 
         // GET: api/TutorialCattegories/5
-        [ResponseType(typeof(TutorialCattegory))]
+        [ResponseType(typeof(TutorialCattegoryViewModel))]
         public async Task<IHttpActionResult> GetTutorialCattegory(Guid id)
         {
             TutorialCattegory tutorialCattegory = await db.TutorialCattegories.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(tutorialCattegory);
+            return Ok(new TutorialCattegoryViewModel(tutorialCattegory));
         }
 
         // PUT: api/TutorialCattegories/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialCattegories
-        [ResponseType(typeof(TutorialCattegory))]
+        [ResponseType(typeof(TutorialCattegoryViewModel))]
         public async Task<IHttpActionResult> PostTutorialCattegory(TutorialCattegory tutorialCattegory)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tutorialCattegory.id }, tutorialCattegory);
+            return CreatedAtRoute("DefaultApi", new { id = tutorialCattegory.id }, new TutorialCattegoryViewModel(tutorialCattegory));
         }
 
         // DELETE: api/TutorialCattegories/5
-        [ResponseType(typeof(TutorialCattegory))]
+        [ResponseType(typeof(TutorialCattegoryViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialCattegory(Guid id)
         {
             TutorialCattegory tutorialCattegory = await db.TutorialCattegories.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.TutorialCattegories.Remove(tutorialCattegory);
             await db.SaveChangesAsync();
 
-            return Ok(tutorialCattegory);
+            return Ok(new TutorialCattegoryViewModel(tutorialCattegory));
         }
 
         protected override void Dispose(bool disposing)

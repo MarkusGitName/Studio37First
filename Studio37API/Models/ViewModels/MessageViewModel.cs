@@ -7,9 +7,9 @@ namespace Studio37API.Models.ViewModels
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class MessageViewModels
+    public partial class MessageViewModel
     {
-        public MessageViewModels(Message incomingMessage)
+        public MessageViewModel(Message incomingMessage)
         {
             MessageID = incomingMessage.MessageID;
             Msge = incomingMessage.Msge;

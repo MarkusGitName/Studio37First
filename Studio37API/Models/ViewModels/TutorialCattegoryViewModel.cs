@@ -15,10 +15,12 @@ namespace Studio37API.Models.ViewModels
             TutorialID = incomingTutorialCattegory.TutorialID;
             CattegoryID = incomingTutorialCattegory.CattegoryID;
 
-            foreach(TutorialClass incomingTutorialClasses in incomingTutorialCattegory.TutorialClasses)
+            List<TutorialClassViewModel> newTutorialClassViewModel = new List<TutorialClassViewModel>();
+            foreach (TutorialClass incomingTutorialClasses in incomingTutorialCattegory.TutorialClasses)
             {
                 TutorialClasses.Add(new TutorialClassViewModel(incomingTutorialClasses));
             }
+            TutorialClasses = newTutorialClassViewModel;
         }
 
         public Guid id { get; set; }
@@ -31,6 +33,6 @@ namespace Studio37API.Models.ViewModels
 
         // public virtual Tutorial Tutorial { get; set; }
 
-        public virtual ICollection<TutorialClassViewModel> TutorialClasses { get; set; }
+        public virtual List<TutorialClassViewModel> TutorialClasses { get; set; }
     }
 }

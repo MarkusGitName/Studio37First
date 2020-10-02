@@ -18,20 +18,26 @@ namespace Studio37API.Models.ViewModels
             Credits = incomingSale.Credits;
             Date = incomingSale.Date;
 
-            foreach(ClassVideoSale incomingClassVideoSales in incomingSale.ClassVideoSales)
+            List<ClassVideoSaleViewModel> newClassVideoSaleViewModel = new List<ClassVideoSaleViewModel>();
+            foreach (ClassVideoSale incomingClassVideoSales in incomingSale.ClassVideoSales)
             {
                 ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSales));
             }
+            ClassVideoSales = newClassVideoSaleViewModel;
 
-            foreach(LiveShowSale incomingLiveShowSales in incomingSale.LiveShowSales)
+            List<LiveShowSaleViewModel> newLiveShowSaleViewModel = new List<LiveShowSaleViewModel>();
+            foreach (LiveShowSale incomingLiveShowSales in incomingSale.LiveShowSales)
             {
                 LiveShowSales.Add(new LiveShowSaleViewModel(incomingLiveShowSales));
             }
+            LiveShowSales = newLiveShowSaleViewModel;
 
-            foreach(TutorialSale incomingTutorialSales in incomingSale.TutorialSales)
+            List<TutorialSaleViewModel> newTutorialSaleViewModel = new List<TutorialSaleViewModel>();
+            foreach (TutorialSale incomingTutorialSales in incomingSale.TutorialSales)
             {
                 TutorialSales.Add(new TutorialSaleViewModel(incomingTutorialSales));
             }
+            TutorialSales = newTutorialSaleViewModel;
         }
 
         public Guid id { get; set; }
@@ -52,14 +58,14 @@ namespace Studio37API.Models.ViewModels
         [Column(TypeName = "date")]
         public DateTime Date { get; set; }
 
-        public virtual ICollection<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
+        public virtual List<ClassVideoSaleViewModel> ClassVideoSales { get; set; }
 
-        public virtual ICollection<LiveShowSaleViewModel> LiveShowSales { get; set; }
+        public virtual List<LiveShowSaleViewModel> LiveShowSales { get; set; }
 
         // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
        // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<TutorialSaleViewModel> TutorialSales { get; set; }
+        public virtual List<TutorialSaleViewModel> TutorialSales { get; set; }
     }
 }

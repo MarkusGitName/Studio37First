@@ -9,7 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Studio37Media.Server.Controllers.FileController
+namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Authorize]
     [ApiController]
@@ -17,9 +17,9 @@ namespace Studio37Media.Server.Controllers.FileController
     public class TutorialController : ControllerBase
     {
 
-        private readonly ILogger<ProfileController> logger;
+        private readonly ILogger<TutorialController> logger;
 
-        public TutorialController(ILogger<ProfileController> logger)
+        public TutorialController(ILogger<TutorialController> logger)
         {
             this.logger = logger;
         }

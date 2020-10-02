@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/ProfesionallsProfiles
-        public IQueryable<ProfesionallsProfile> GetProfesionallsProfiles()
+        public List<ProfesionallsProfileViewModel> GetProfesionallsProfiles()
         {
-            return db.ProfesionallsProfiles;
+            List<ProfesionallsProfileViewModel> ProfessionalProfileList = new List<ProfesionallsProfileViewModel>();
+
+            foreach(ProfesionallsProfile incomingProfessionalProfile in db.ProfesionallsProfiles)
+            {
+                ProfessionalProfileList.Add(new ProfesionallsProfileViewModel(incomingProfessionalProfile));
+            }
+
+            return ProfessionalProfileList;
         }
 
         // GET: api/ProfesionallsProfiles/5
-        [ResponseType(typeof(ProfesionallsProfile))]
+        [ResponseType(typeof(ProfesionallsProfileViewModel))]
         public async Task<IHttpActionResult> GetProfesionallsProfile(string id)
         {
             ProfesionallsProfile profesionallsProfile = await db.ProfesionallsProfiles.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(profesionallsProfile);
+            return Ok(new ProfesionallsProfileViewModel(profesionallsProfile));
         }
 
         // PUT: api/ProfesionallsProfiles/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ProfesionallsProfiles
-        [ResponseType(typeof(ProfesionallsProfile))]
+        [ResponseType(typeof(ProfesionallsProfileViewModel))]
         public async Task<IHttpActionResult> PostProfesionallsProfile(ProfesionallsProfile profesionallsProfile)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = profesionallsProfile.UserID }, profesionallsProfile);
+            return CreatedAtRoute("DefaultApi", new { id = profesionallsProfile.UserID }, new ProfesionallsProfileViewModel(profesionallsProfile));
         }
 
         // DELETE: api/ProfesionallsProfiles/5
-        [ResponseType(typeof(ProfesionallsProfile))]
+        [ResponseType(typeof(ProfesionallsProfileViewModel))]
         public async Task<IHttpActionResult> DeleteProfesionallsProfile(string id)
         {
             ProfesionallsProfile profesionallsProfile = await db.ProfesionallsProfiles.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.ProfesionallsProfiles.Remove(profesionallsProfile);
             await db.SaveChangesAsync();
 
-            return Ok(profesionallsProfile);
+            return Ok(new ProfesionallsProfileViewModel(profesionallsProfile));
         }
 
         protected override void Dispose(bool disposing)

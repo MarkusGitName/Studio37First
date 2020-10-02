@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Shares
-        public IQueryable<Share> GetShares()
+        public List<ShareViewModel> GetShares()
         {
-            return db.Shares;
+            List<ShareViewModel> ShareList = new List<ShareViewModel>();
+
+            foreach(Share incomingShare in db.Shares)
+            {
+                ShareList.Add(new ShareViewModel(incomingShare));
+            }
+
+            return ShareList;
         }
 
         // GET: api/Shares/5
-        [ResponseType(typeof(Share))]
+        [ResponseType(typeof(ShareViewModel))]
         public async Task<IHttpActionResult> GetShare(Guid id)
         {
             Share share = await db.Shares.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(share);
+            return Ok(new ShareViewModel(share));
         }
 
         // PUT: api/Shares/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Shares
-        [ResponseType(typeof(Share))]
+        [ResponseType(typeof(ShareViewModel))]
         public async Task<IHttpActionResult> PostShare(Share share)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = share.id }, share);
+            return CreatedAtRoute("DefaultApi", new { id = share.id }, new ShareViewModel(share));
         }
 
         // DELETE: api/Shares/5
-        [ResponseType(typeof(Share))]
+        [ResponseType(typeof(ShareViewModel))]
         public async Task<IHttpActionResult> DeleteShare(Guid id)
         {
             Share share = await db.Shares.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Shares.Remove(share);
             await db.SaveChangesAsync();
 
-            return Ok(share);
+            return Ok(new ShareViewModel(share));
         }
 
         protected override void Dispose(bool disposing)

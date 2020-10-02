@@ -20,40 +20,54 @@ namespace Studio37API.Models.ViewModels
             PriceCredits = incomingTutorial.PriceCredits;
             PriceCredits = incomingTutorial.PriceCredits;
 
+            List<PostTutorialViewModel> newPostTutorialViewModel = new List<PostTutorialViewModel>();
             foreach(PostTutorial incomingPostTutorials in incomingTutorial.PostTutorials)
             {
                 PostTutorials.Add(new PostTutorialViewModel(incomingPostTutorials));
             }
+            PostTutorials = newPostTutorialViewModel;
 
+            List<TutorialCattegoryViewModel> newTutorialcategoryViewModel = new List<TutorialCattegoryViewModel>();
             foreach(TutorialCattegory incomingTutorialCattegories in incomingTutorial.TutorialCattegories)
             {
                 TutorialCattegories.Add(new TutorialCattegoryViewModel(incomingTutorialCattegories));
             }
+            TutorialCattegories = newTutorialcategoryViewModel;
 
+            List<TutorialCommentViewModel> newTutorialCommentViewModel = new List<TutorialCommentViewModel>();
             foreach(TutorialComment incomingTutorialComments in incomingTutorial.TutorialComments)
             {
                 TutorialComments.Add(new TutorialCommentViewModel(incomingTutorialComments));
             }
+            TutorialComments = newTutorialCommentViewModel;
 
+            List<TutorialPromoPhotoViewModel> newTutorialPromoPhotoViewModel = new List<TutorialPromoPhotoViewModel>();
             foreach(TutorialPromoPhoto incomingTutorialPromoPhotoes in incomingTutorial.TutorialPromoPhotoes)
             {
                 TutorialPromoPhotoes.Add(new TutorialPromoPhotoViewModel(incomingTutorialPromoPhotoes));
             }
+            TutorialPromoPhotoes = newTutorialPromoPhotoViewModel;
 
+            List<TutorialPromoVideoViewModel> newTutorialPromoVideoViewModel = new List<TutorialPromoVideoViewModel>();
             foreach(TutorialPromoVideo incomingTutorialPromoVideos in incomingTutorial.TutorialPromoVideos)
             {
                 TutorialPromoVideos.Add(new TutorialPromoVideoViewModel(incomingTutorialPromoVideos));
             }
+            TutorialPromoVideos = newTutorialPromoVideoViewModel;
 
+            List<TutorialRatingViewModel> newTutorialRatingViewModel = new List<TutorialRatingViewModel>();
             foreach(TutorialRating incomingTutorialRatings in incomingTutorial.TutorialRatings)
             {
                 TutorialRatings.Add(new TutorialRatingViewModel(incomingTutorialRatings));
             }
+            TutorialRatings = newTutorialRatingViewModel;
 
+            List<TutorialSaleViewModel> newTutorialSaleViewModel = new List<TutorialSaleViewModel>();
             foreach(TutorialSale incomingTutorialSales in incomingTutorial.TutorialSales)
             {
                 TutorialSales.Add(new TutorialSaleViewModel(incomingTutorialSales));
             }
+            TutorialSales = newTutorialSaleViewModel;
 
         }
 
@@ -78,20 +92,20 @@ namespace Studio37API.Models.ViewModels
 
         public int PriceCredits { get; set; }
 
-        public virtual ICollection<PostTutorialViewModel> PostTutorials { get; set; }
+        public virtual List<PostTutorialViewModel> PostTutorials { get; set; }
 
        // public virtual ProfesionallsProfile ProfesionallsProfile { get; set; }
 
-        public virtual ICollection<TutorialCattegoryViewModel> TutorialCattegories { get; set; }
+        public virtual List<TutorialCattegoryViewModel> TutorialCattegories { get; set; }
 
-         public virtual ICollection<TutorialCommentViewModel> TutorialComments { get; set; }
+         public virtual List<TutorialCommentViewModel> TutorialComments { get; set; }
 
-        public virtual ICollection<TutorialPromoPhotoViewModel> TutorialPromoPhotoes { get; set; }
+        public virtual List<TutorialPromoPhotoViewModel> TutorialPromoPhotoes { get; set; }
 
-        public virtual ICollection<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
+        public virtual List<TutorialPromoVideoViewModel> TutorialPromoVideos { get; set; }
 
-        public virtual ICollection<TutorialRatingViewModel> TutorialRatings { get; set; }
+        public virtual List<TutorialRatingViewModel> TutorialRatings { get; set; }
 
-         public virtual ICollection<TutorialSaleViewModel> TutorialSales { get; set; }
+         public virtual List<TutorialSaleViewModel> TutorialSales { get; set; }
     }
 }

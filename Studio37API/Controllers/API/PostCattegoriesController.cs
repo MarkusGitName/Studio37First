@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/PostCattegories
-        public IQueryable<PostCattegory> GetPostCattegories()
+        public List<PostCattegoryViewModel> GetPostCattegories()
         {
-            return db.PostCattegories;
+            List<PostCattegoryViewModel> PostCattegoryList = new List<PostCattegoryViewModel>();
+
+            foreach(PostCattegory incomingPostCattegory in db.PostCattegories)
+            {
+                PostCattegoryList.Add(new PostCattegoryViewModel(incomingPostCattegory));
+            }
+
+            return PostCattegoryList;
         }
 
         // GET: api/PostCattegories/5
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> GetPostCattegory(Guid id)
         {
             PostCattegory postCattegory = await db.PostCattegories.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(postCattegory);
+            return Ok(new PostCattegoryViewModel(postCattegory));
         }
 
         // PUT: api/PostCattegories/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostCattegories
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> PostPostCattegory(PostCattegory postCattegory)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = postCattegory.id }, postCattegory);
+            return CreatedAtRoute("DefaultApi", new { id = postCattegory.id }, new PostCattegoryViewModel(postCattegory));
         }
 
         // DELETE: api/PostCattegories/5
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> DeletePostCattegory(Guid id)
         {
             PostCattegory postCattegory = await db.PostCattegories.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.PostCattegories.Remove(postCattegory);
             await db.SaveChangesAsync();
 
-            return Ok(postCattegory);
+            return Ok(new PostCattegoryViewModel(postCattegory));
         }
 
         protected override void Dispose(bool disposing)

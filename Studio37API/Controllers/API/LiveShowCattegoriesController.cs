@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,9 +19,16 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/LiveShowCattegories
-        public IQueryable<LiveShowCattegory> GetLiveShowCattegories()
+        public List<LiveShowCattegoryViewModel> GetLiveShowCattegories()
         {
-            return db.LiveShowCattegories;
+            List<LiveShowCattegoryViewModel> LiveShowCattegoryList = new List<LiveShowCattegoryViewModel>();
+
+            foreach(LiveShowCattegory incomingLiveShowCattegory in db.LiveShowCattegories)
+            {
+                LiveShowCattegoryList.Add(new LiveShowCattegoryViewModel(incomingLiveShowCattegory));
+            }
+
+            return LiveShowCattegoryList;
         }
 
         // GET: api/LiveShowCattegories/5
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(liveShowCattegory);
+            return Ok(new LiveShowCattegoryViewModel(liveShowCattegory));
         }
 
         // PUT: api/LiveShowCattegories/5
@@ -98,7 +106,7 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = liveShowCattegory.id }, liveShowCattegory);
+            return CreatedAtRoute("DefaultApi", new { id = liveShowCattegory.id }, new LiveShowCattegoryViewModel(liveShowCattegory));
         }
 
         // DELETE: api/LiveShowCattegories/5
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.LiveShowCattegories.Remove(liveShowCattegory);
             await db.SaveChangesAsync();
 
-            return Ok(liveShowCattegory);
+            return Ok(new LiveShowCattegoryViewModel(liveShowCattegory));
         }
 
         protected override void Dispose(bool disposing)

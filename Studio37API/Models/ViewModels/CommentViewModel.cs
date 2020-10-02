@@ -11,40 +11,54 @@ namespace Studio37API.Models.ViewModels
     {
          public CommentViewModel(Comment incomingComments)
         {
+            List < ClassVideoCommentViewModel > newClassVideoCommentViewModel = new List<ClassVideoCommentViewModel>();
             foreach (ClassVideoComment incomingClassVideoComments in incomingComments.ClassVideoComments)
             {
-                ClassVideoComments.Add(new ClassVideoCommentViewModel(incomingClassVideoComments));
+                newClassVideoCommentViewModel.Add(new ClassVideoCommentViewModel(incomingClassVideoComments));
             }
+            ClassVideoComments = newClassVideoCommentViewModel;
+
+            List< CommentCommentViewModel > newCommentCommentViewModel = new List<CommentCommentViewModel>();
             foreach (CommentComment incomingCommentComment in incomingComments.CommentComments)
             {
-                CommentComments.Add(new CommentCommentViewModel(incomingCommentComment));
+                newCommentCommentViewModel.Add(new CommentCommentViewModel(incomingCommentComment));
             }
+            CommentComments = newCommentCommentViewModel;
 
+            List < CommentCommentViewModel > newCommentComment1ViewModel = new List<CommentCommentViewModel>();
             foreach (CommentComment incomingCommentComments1 in incomingComments.CommentComments1)
             {
-                CommentComments1.Add(new CommentComments1ViewlModel(incomingCommentComments1));
+                newCommentComment1ViewModel.Add(new CommentCommentViewModel(incomingCommentComments1));
             }
+            CommentComments1 = newCommentComment1ViewModel;
 
-            foreach(LiveShowComment incomingLiveShowComments in incomingComments.LiveShowComments)
+            List < LiveShowCommentViewModel > newLiveShowCommentViewModel = new List<LiveShowCommentViewModel>();
+            foreach (LiveShowComment incomingLiveShowComments in incomingComments.LiveShowComments)
             {
                 LiveShowComments.Add(new LiveShowCommentViewModel(incomingLiveShowComments));
             }
+            LiveShowComments = newLiveShowCommentViewModel;
 
-            foreach(PostComment incomingPostComments in incomingComments.PostComments)
+            List < PostCommentViewModel > newPostCommentViewModel = new List<PostCommentViewModel>();
+            foreach (PostComment incomingPostComments in incomingComments.PostComments)
             {
-                PostComments.Add(new PostCommentViewModel(incomingPostComments));
+                newPostCommentViewModel.Add(new PostCommentViewModel(incomingPostComments));
             }
+            PostComments = newPostCommentViewModel;
 
-            foreach(TutorialComment incomingTutorialComments in incomingComments.TutorialComments)
+            List < TutorialCommentViewModel > newTutorialComment = new List<TutorialCommentViewModel>();
+            foreach (TutorialComment incomingTutorialComments in incomingComments.TutorialComments)
             {
-                TutorialComments.Add(new TutorialCommentViewModel(incomingTutorialComments));
+                newTutorialComment.Add(new TutorialCommentViewModel(incomingTutorialComments));
             }
+            TutorialComments = newTutorialComment;
 
-            foreach(Like incomingLikes in incomingComments.Likes)
+            List < LikeViewModel > newLikeViewModel = new List<LikeViewModel>();
+            foreach (Like incomingLikes in incomingComments.Likes)
             {
-                Likes.Add(new LikeViewModel(incomingLikes));
+                newLikeViewModel.Add(new LikeViewModel(incomingLikes));
             }
-            
+            Likes = newLikeViewModel;
         }
 
         public Guid id { get; set; }
@@ -59,20 +73,20 @@ namespace Studio37API.Models.ViewModels
 
         public DateTime Date { get; set; }
 
-        public virtual ICollection<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
+        public virtual List<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
 
-        public virtual ICollection<CommentCommentViewModel> CommentComments { get; set; }
+        public virtual List<CommentCommentViewModel> CommentComments { get; set; }
 
-        public virtual ICollection<CommentCommentViewModel> CommentComments1 { get; set; }
+        public virtual List<CommentCommentViewModel> CommentComments1 { get; set; }
 
        // public virtual Profile Profile { get; set; }
 
-        public virtual ICollection<LiveShowCommentViewModel> LiveShowComments { get; set; }
+        public virtual List<LiveShowCommentViewModel> LiveShowComments { get; set; }
 
-        public virtual ICollection<PostCommentViewModel> PostComments { get; set; }
+        public virtual List<PostCommentViewModel> PostComments { get; set; }
 
-        public virtual ICollection<TutorialCommentViewModel> TutorialComments { get; set; }
+        public virtual List<TutorialCommentViewModel> TutorialComments { get; set; }
 
-        public virtual ICollection<LikeViewModel> Likes { get; set; }
+        public virtual List<LikeViewModel> Likes { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Studio37API.Models.DataBaseMdels;
+using Studio37API.Models.ViewModels;
 
 namespace Studio37API.Controllers.API
 {
@@ -18,13 +19,20 @@ namespace Studio37API.Controllers.API
         private DataBaseModels db = new DataBaseModels();
 
         // GET: api/Payments
-        public IQueryable<Payment> GetPayments()
+        public List<PaymentViewModel> GetPayments()
         {
-            return db.Payments;
+            List<PaymentViewModel> PaymentList = new List<PaymentViewModel>();
+
+            foreach(Payment incomingPayment in db.Payments)
+            {
+                PaymentList.Add(new PaymentViewModel(incomingPayment));
+            }
+
+            return PaymentList;
         }
 
         // GET: api/Payments/5
-        [ResponseType(typeof(Payment))]
+        [ResponseType(typeof(PaymentViewModel))]
         public async Task<IHttpActionResult> GetPayment(Guid id)
         {
             Payment payment = await db.Payments.FindAsync(id);
@@ -33,7 +41,7 @@ namespace Studio37API.Controllers.API
                 return NotFound();
             }
 
-            return Ok(payment);
+            return Ok(new PaymentViewModel(payment));
         }
 
         // PUT: api/Payments/5
@@ -72,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Payments
-        [ResponseType(typeof(Payment))]
+        [ResponseType(typeof(PaymentViewModel))]
         public async Task<IHttpActionResult> PostPayment(Payment payment)
         {
             if (!ModelState.IsValid)
@@ -98,11 +106,11 @@ namespace Studio37API.Controllers.API
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = payment.id }, payment);
+            return CreatedAtRoute("DefaultApi", new { id = payment.id }, new PaymentViewModel(payment));
         }
 
         // DELETE: api/Payments/5
-        [ResponseType(typeof(Payment))]
+        [ResponseType(typeof(PaymentViewModel))]
         public async Task<IHttpActionResult> DeletePayment(Guid id)
         {
             Payment payment = await db.Payments.FindAsync(id);
@@ -114,7 +122,7 @@ namespace Studio37API.Controllers.API
             db.Payments.Remove(payment);
             await db.SaveChangesAsync();
 
-            return Ok(payment);
+            return Ok(new PaymentViewModel(payment));
         }
 
         protected override void Dispose(bool disposing)
