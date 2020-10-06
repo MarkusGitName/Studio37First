@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "Studio37Media.Client.dll": "sha256-XfpPTe8C3HmxUcAO9Cp85mXukFlXEDpNKKG2fKKjJJE=",
+      "Studio37Media.Client.dll": "sha256-reQYdUDjjnNIUDq3cPDBxy+X8nztF+CcjN4ViZm+O9k=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -68,7 +68,7 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "Studio37Media.Client.pdb": "sha256-fwwzMCjxSRD9bfsBy5ijL4PqDBxrhI\/C59+MrxRuT5E=",
+      "Studio37Media.Client.pdb": "sha256-AYGydB\/vuR2EB0mIzJbJYcjyVwMWngY1pOW0gHwoz88=",
       "Studio37Media.Shared.pdb": "sha256-hfstrF0CIP6kpMUsdIkFcfKgHTyrESuXhCIPaUCu0Mc="
     },
     "runtime": {

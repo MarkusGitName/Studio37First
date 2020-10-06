@@ -1,5 +1,128 @@
-﻿<h3>CreateClassVideoComponent</h3>
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+    <EditForm Model="@newClassVideo" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">Title</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="VideoTitle"
+                           @bind-Value="newClassVideo.Title" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">Description</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="VideoTitle"
+                           @bind-Value="newClassVideo.Description" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">Credits</label>
+            <div class="col-sm-5">
+                <InputNumber id="f" class="form-control" placeholder="Credits"
+                             @bind-Value="newClassVideo.PriceCredits" />
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Add Video</label>
+            <div class="col-sm-5">
+                <InputFile OnChange="VideoSelection" />
+            </div>
+            <p>@VideoUploudStats</p>
+        </div>
+        <div class="form-group row">
+            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Thumbnail</label>
+            <div class="col-sm-5">
+                <InputFile OnChange="ThumbnailSelection" />
+            </div>
+            <p>@ThumbnailUploudStats</p>
+        </div>
+
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+    </EditForm>
 
 @code {
 
-}
+    string VideoUploudStats;
+    string ThumbnailUploudStats;
+
+    ClassVideo newClassVideo = new ClassVideo();
+
+
+    // file contents declaration
+    MultipartFormDataContent classVideoContent = new MultipartFormDataContent();
+    MultipartFormDataContent ThumbnailContent = new MultipartFormDataContent();
+
+    //This runs on form submit
+    async void HandleFormSubmit()
+    {
+        
+            // upload photos
+            await Http.PostAsync("FileUpload", classVideoContent);
+            await Http.PostAsync("FileUpload", classVideoContent);
+
+        Console.WriteLine("Runs--------------------------------------------");
+        newClassVideo.DateAdded = DateTime.Now;
+        await Http.PostAsJsonAsync<ClassVideo>("ClassVideo/NewClassVideo", newClassVideo);
+    }
+
+
+
+    // This runs on profile Photo file selection
+    async Task VideoSelection(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            // Just load into .NET memory to show it can be done
+            // Alternatively it could be saved to disk, or parsed in memory, or similar
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+
+            VideoUploudStats = $"Finished loading {file.Size} bytes from {file.Name}";
+
+            classVideoContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/ClassVideos", file.Name }
+                };
+
+            newClassVideo.VideoPath = "/uploads/ClassVideos/" + file.Name;
+
+        }
+
+    }
+    // This runs on profile Photo file selection
+    async Task ThumbnailSelection(IFileListEntry[] files)
+    {
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            // Just load into .NET memory to show it can be done
+            // Alternatively it could be saved to disk, or parsed in memory, or similar
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+
+            ThumbnailUploudStats = $"Finished loading {file.Size} bytes from {file.Name}";
+
+            ThumbnailContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/Thumbnails", file.Name }
+                };
+
+            newClassVideo.VideoThumbnail = "/uploads/Thumbnails/" + file.Name;
+
+        }
+
+    }
+ }

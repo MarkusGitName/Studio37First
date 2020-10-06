@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\XfpPTe8C3HmxUcAO9Cp85mXukFlXEDpNKKG2fKKjJJE=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\reQYdUDjjnNIUDq3cPDBxy_X8nztF_CcjN4ViZm_O9k=.hash",
       "Source": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Client.dll.br"
     },
@@ -301,7 +301,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\fwwzMCjxSRD9bfsBy5ijL4PqDBxrhI-C59_MrxRuT5E=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\AYGydB-vuR2EB0mIzJbJYcjyVwMWngY1pOW0gHwoz88=.hash",
       "Source": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Client.pdb.br"
     },
@@ -331,12 +331,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\wP2I4L7q1dotk8my1M7P78Bxsw_8eLLNjyqQ-IbWEX4=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\4evUi1_74SBTv6d_4b9kQ4Egngc_Jvfvt0BXp0UD-Xk=.hash",
       "Source": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.br"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\VfuZ8BGFcFahsp8tdLSD_XMs34QryxC5QPdAQGhNwLQ=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\lzS8netkU-PQ5zM8Wq6MR0tOZFICApxhMDwsqu0vBLI=.hash",
       "Source": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\service-worker-assets.js",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\service-worker-assets.js.br"
     }

@@ -468,9 +468,10 @@ D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug
 D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\CommentComponent\ListOfCommentsComponent.razor.g.cs
 D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\TutorialComponents\TutorialDisplayComponent.razor.g.cs
 D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\TutorialComponents\TutorialDisplayComponent.razor.g.cs
-D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\XfpPTe8C3HmxUcAO9Cp85mXukFlXEDpNKKG2fKKjJJE=.hash
 D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\tJ6dGOlyj7yrmJTh_27Bof2jDu_UF997f0OyqkrLe0A=.hash
-D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\fwwzMCjxSRD9bfsBy5ijL4PqDBxrhI-C59_MrxRuT5E=.hash
 D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\hfstrF0CIP6kpMUsdIkFcfKgHTyrESuXhCIPaUCu0Mc=.hash
-D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\wP2I4L7q1dotk8my1M7P78Bxsw_8eLLNjyqQ-IbWEX4=.hash
-D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\VfuZ8BGFcFahsp8tdLSD_XMs34QryxC5QPdAQGhNwLQ=.hash
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\7L4OrCOzGZV0WKbyV1sEmdZAs0NOU7iA6dHPUHTpdBM=.hash
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\reQYdUDjjnNIUDq3cPDBxy_X8nztF_CcjN4ViZm_O9k=.hash
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\AYGydB-vuR2EB0mIzJbJYcjyVwMWngY1pOW0gHwoz88=.hash
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\4evUi1_74SBTv6d_4b9kQ4Egngc_Jvfvt0BXp0UD-Xk=.hash
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\lzS8netkU-PQ5zM8Wq6MR0tOZFICApxhMDwsqu0vBLI=.hash
