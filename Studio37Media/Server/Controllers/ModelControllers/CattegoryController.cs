@@ -9,21 +9,22 @@ using Studio37Media.Shared.ViewModels;
 
 namespace Studio37Media.Server.Controllers.ModelControllers
 {
-    [ApiController]
     [Route("[controller]")]
+    [ApiController]
     public class CattegoryController : ControllerBase
     {
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Model"></param>
+        /// <returns></returns>
         [HttpPost("{apiname}", Name = "NewCategory")]
         public Category Post(Category Model)
         {
-            Category ReturnCategory = APILibrary.APIPost<Category>(Model, "Categories");
-            return ReturnCategory;
+            //Model.UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Category ReturnCattegory = APILibrary.APIPost<Category>(Model, "Categories");
+            return ReturnCattegory;
         }
-
-
-      
-
     }
-
-
 }

@@ -1,16 +1,12 @@
 ﻿@page "/Tutorial/CreateTutorial"
 
-
 @using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using Studio37Media.Shared.ViewModels
 
-
 @using System.IO
 @using BlazorInputFile
 @using System.IO.MemoryMappedFiles
-
-
 
 @attribute [Authorize]
 @inject HttpClient client
@@ -80,75 +76,107 @@
     </EditForm>
 
     @code {
-        IFileListEntry[] ProfilePhoto;
-        IFileListEntry[] WallPhoto;
-
+        //Decleration of lists that display files upload status. To be removed or adjusted for users
         List<string> ListOfPromoVideosStat = new List<string>();
         List<string> ListOfPromoPhotosStats = new List<string>();
 
+        // decleration of stats added to status lists
         string PromoVideoStats;
         string PromoPhotoStats;
 
+        //decleration of new Tutorial object
         Tutorial newTutorial = new Tutorial();
 
+        // List Declerations to be added to the new tutorial object
+        List<TutorialPromoPhoto> ListOfTutorialPromoPhotos = new List<TutorialPromoPhoto>();
+        List<TutorialPromoVideo> ListOfTutorialPromoVideos = new List<TutorialPromoVideo>();
+
+        //decleration of actual files to be uploaded
         MultipartFormDataContent TutorialPromoVideoContent = new MultipartFormDataContent();
         MultipartFormDataContent TutorialPromoPhotoContent = new MultipartFormDataContent();
 
  
-
+        // runs on pagte load
         protected override async Task OnInitializedAsync()
         {
             newTutorial.id = Guid.NewGuid();
         }
 
+        // runs on form submit
         async void HandleFormSubmit()
         {
-            await Http.PostAsJsonAsync<Tutorial>("Tutorial", newTutorial);
+            
+           //debuging
+           Console.WriteLine("Videos added");
+            //Add Videos
+            newTutorial.TutorialPromoVideos = ListOfTutorialPromoVideos;
+            
+            Console.WriteLine("Videos added");
+            //Fhotos Added
+            newTutorial.TutorialPromoPhotoes = ListOfTutorialPromoPhotos;
+
+            // post to TutorialController
+            await Http.PostAsJsonAsync<Tutorial>("Tutorial/PostTutorial", newTutorial);
 
         }
 
-
+        // runs on video file sellection
         async Task PromoVideoSelection(IFileListEntry[] files)
         {
+            //incoming file
             var file = files.FirstOrDefault();
             if (file != null)
             {
-                // Just load into .NET memory to show it can be done
-                // Alternatively it could be saved to disk, or parsed in memory, or similar
                 var ms = new MemoryStream();
                 await file.Data.CopyToAsync(ms);
-
-                PromoVideoStats = $"Finished loading {file.Size} bytes from {file.Name}";
-                ListOfPromoVideosStat.Add(PromoVideoStats);
 
                 TutorialPromoVideoContent = new MultipartFormDataContent {
                     { new ByteArrayContent(ms.GetBuffer()), "uploads/TutorialPromoVideo", file.Name }
                 };
                 
-
-                TutorialPromoVideo promoVid = new TutorialPromoVideo();
-                promoVid.PromoVideo.VideoPath = "/uploads/TutorialPromoVideo/" + file.Name;
-                promoVid.PromoVideo.id =Guid.NewGuid();
-                promoVid.id = Guid.NewGuid();
-
-                newTutorial.TutorialPromoVideos.Add(promoVid);
+                //post call to fileUploadConstructer (endpoint)
                 await client.PostAsync("FileUpload", TutorialPromoVideoContent);
+                
+                //display file upload stats
+                PromoVideoStats = $"Finished loading {file.Size} bytes from {file.Name}";
+                ListOfPromoVideosStat.Add(PromoVideoStats);
+
+                //debugging
+                Console.WriteLine("file upload complete");
+
+                //decleration of new TutorialPromoVideo
+                TutorialPromoVideo newTutorialPromoVideo = new TutorialPromoVideo();
+                
+                //setting new ID
+                newTutorialPromoVideo.id = Guid.NewGuid();
+
+                //decleratio of new promovideo
+                PromoVideo newPromoVideo = new PromoVideo();
+                newPromoVideo.id = Guid.NewGuid();
+                newPromoVideo.VideoPath = "/uploads/TutorialPromoVideo/" + file.Name;
+
+                
+                //setting promovdeo value
+                newTutorialPromoVideo.PromoVideo = newPromoVideo;
 
 
+                // add new TutorialPromoVideo to Glabal List
+                ListOfTutorialPromoVideos.Add(newTutorialPromoVideo);
+
+                //debuging
+                Console.WriteLine("photo added to list- "+ newTutorialPromoVideo);
             }
 
         }
 
+        
+        // runs on Photo file sellection
         async Task PromoPhotoSellection(IFileListEntry[] files)
         {
             var file = files.FirstOrDefault();
-            PromoPhotoStats = $"Finished loading {file.Size} bytes from {file.Name}";
-            ListOfPromoPhotosStats.Add(PromoPhotoStats);
 
             if (file != null)
             {
-                // Just load into .NET memory to show it can be done
-                // Alternatively it could be saved to disk, or parsed in memory, or similar
                 var ms = new MemoryStream();
                 await file.Data.CopyToAsync(ms);
 
@@ -156,17 +184,36 @@
                     { new ByteArrayContent(ms.GetBuffer()), "uploads/TutorialPromoPhoto", file.Name }
                 };
 
-                await client.PostAsync("FileUpload", TutorialPromoPhotoContent);
-
-                TutorialPromoPhoto promoPhoto = new TutorialPromoPhoto();
-                promoPhoto.PromoPhoto.PhotoPath = "/uploads/TutorialPromoPhoto/" + file.Name;
-                promoPhoto.PromoPhoto.id = Guid.NewGuid();
-                promoPhoto.id =Guid.NewGuid();
-
-
-                newTutorial.TutorialPromoPhotoes.Add(promoPhoto);
                 
+                //post call to fileUploadConstructer (endpoint)
                 await client.PostAsync("FileUpload", TutorialPromoPhotoContent);
+
+                
+                //display file upload stats
+                PromoPhotoStats = $"Finished loading {file.Size} bytes from {file.Name}";
+                ListOfPromoPhotosStats.Add(PromoPhotoStats);
+
+
+                //decleration of new TutorialPromoPhoto
+                TutorialPromoPhoto newTutorialPromoPhoto = new TutorialPromoPhoto();
+
+                //set id value
+                newTutorialPromoPhoto.id =Guid.NewGuid();
+                
+                //decleratio of new newTutorialPromoPhoto
+                PromoPhoto newPromoPhoto = new PromoPhoto();
+                newPromoPhoto.id = Guid.NewGuid();
+                newPromoPhoto.PhotoPath = "/uploads/TutorialPromoPhoto/" + file.Name;
+
+                //Setitng new newTutorialPromoPhoto
+                newTutorialPromoPhoto.PromoPhoto = newPromoPhoto;
+
+
+                // add newTutorialPromoPhoto to glabal list
+                ListOfTutorialPromoPhotos.Add(newTutorialPromoPhoto);
+                
+                //debugging
+                Console.WriteLine("photo added to list- "+ newTutorialPromoPhoto);
             }
 
         }

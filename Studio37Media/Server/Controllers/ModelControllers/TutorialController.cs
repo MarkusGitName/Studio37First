@@ -27,7 +27,6 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         [HttpGet("{apiname}", Name = "GetTutorials")]
         public IEnumerable<Tutorial> Get()
         {
-
             IEnumerable<Tutorial> tutorials = APILibrary.APIGetALL<IEnumerable<Tutorial>>("Tutorials");
             return tutorials;
         }
@@ -40,10 +39,11 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         [HttpPost("{apiname}", Name = "PostTutorial")]
-        public void Post(Tutorial Model)
+        public Tutorial Post(Tutorial Model)
         {
+            Model.DateCreated = DateTime.Now;
             Model.ProfesionalID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            APILibrary.APIPost<Tutorial>(Model, "tutorials");
+            return APILibrary.APIPost<Tutorial>(Model, "Tutorials");
             
         }
         [HttpPut("{apiname}/{id}", Name = "PutTutorial")]

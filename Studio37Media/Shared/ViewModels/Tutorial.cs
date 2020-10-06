@@ -17,8 +17,8 @@ namespace Studio37Media.Shared.ViewModels
             PostTutorials = new HashSet<PostTutorial>();
             TutorialCattegories = new HashSet<TutorialCattegory>();
             TutorialComments = new HashSet<TutorialComment>();
-            TutorialPromoPhotoes = new List<TutorialPromoPhoto>();
-            TutorialPromoVideos = new List<TutorialPromoVideo>();
+            TutorialPromoPhotoes = new HashSet<TutorialPromoPhoto>();
+            TutorialPromoVideos = new HashSet<TutorialPromoVideo>();
             TutorialRatings = new HashSet<TutorialRating>();
             TutorialSales = new HashSet<TutorialSale>();
         }
@@ -51,9 +51,9 @@ namespace Studio37Media.Shared.ViewModels
 
        public virtual ICollection<TutorialComment> TutorialComments { get; set; }
 
-        public virtual List<TutorialPromoPhoto> TutorialPromoPhotoes { get; set; }
+        public virtual ICollection<TutorialPromoPhoto> TutorialPromoPhotoes { get; set; }
 
-        public virtual List<TutorialPromoVideo> TutorialPromoVideos { get; set; }
+        public virtual ICollection<TutorialPromoVideo> TutorialPromoVideos { get; set; }
 
          public virtual ICollection<TutorialRating> TutorialRatings { get; set; }
 

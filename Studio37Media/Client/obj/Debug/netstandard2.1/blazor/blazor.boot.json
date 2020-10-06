@@ -6,7 +6,7 @@
   "linkerEnabled": false,
   "resources": {
     "assembly": {
-      "Studio37Media.Client.dll": "sha256-tsL\/dIheboZzuvkinkB59MtdtOf5Ixw\/7aLHsX5x1Ck=",
+      "Studio37Media.Client.dll": "sha256-XfpPTe8C3HmxUcAO9Cp85mXukFlXEDpNKKG2fKKjJJE=",
       "System.Text.Json.dll": "sha256-HQeN+ZfHAERO+uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=",
       "System.Runtime.CompilerServices.Unsafe.dll": "sha256-kL\/omZDwqByAi+lPdMeDmr3XjHcn4RVb+LmZ4mut1Yc=",
       "mscorlib.dll": "sha256-BaZPMj95+YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=",
@@ -50,7 +50,7 @@
       "Microsoft.AspNetCore.Components.dll": "sha256-PEg9ghiKSWBTX0jq8pFDvv2Yvw92Y8W0ELtWrSE4fhA=",
       "BlazorInputFile.dll": "sha256-C0KrMmLQQE68cd1+FNwIOW89nNGbOH48hRxQAoSBaaA=",
       "Microsoft.JSInterop.dll": "sha256-LqwA2Rpm96Ualk0IhLZar87kfRCyKHzHTeTt2jYhm7M=",
-      "Studio37Media.Shared.dll": "sha256-jUyBnQ+OWII0k\/XBPl43vlKXFamHa2Cuq\/+FQ53Mbfw=",
+      "Studio37Media.Shared.dll": "sha256-tJ6dGOlyj7yrmJTh+27Bof2jDu+UF997f0OyqkrLe0A=",
       "Newtonsoft.Json.dll": "sha256-mRd6TL4DYldo1ko9czkjEDcoiPdMPrJxz3dekwV6OOY=",
       "Microsoft.AspNetCore.Authorization.dll": "sha256-4NUQ26HmvXRi8smc0jz9940OUECDLQnoMWQLrMLe0ok=",
       "Microsoft.AspNetCore.Metadata.dll": "sha256-825GQI5nG1C1WqLD1SNKSpjzLCNbH2\/KChgjBL0SSXI=",
@@ -68,8 +68,8 @@
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-czNf3btAeBW\/vvID5LAfgcsNZ+GM3ssVuPaMflcg0rs="
     },
     "pdb": {
-      "Studio37Media.Client.pdb": "sha256-2JxVNBsqtwxCO7gWfOlCGO3L8sJ0xhN6zuPPK3t5+yc=",
-      "Studio37Media.Shared.pdb": "sha256-HHrWLRUhS1M7sG2RBxsf5U9Widpv7MeJSJcTc49M8JA="
+      "Studio37Media.Client.pdb": "sha256-fwwzMCjxSRD9bfsBy5ijL4PqDBxrhI\/C59+MrxRuT5E=",
+      "Studio37Media.Shared.pdb": "sha256-hfstrF0CIP6kpMUsdIkFcfKgHTyrESuXhCIPaUCu0Mc="
     },
     "runtime": {
       "dotnet.3.2.0.js": "sha256-mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=",

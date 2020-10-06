@@ -1,0 +1,33 @@
+﻿@page "/Tutorial/TutorialDisplay"
+
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+@attribute [Authorize]
+@inject HttpClient client
+
+@foreach (Tutorial tut in tutorialList)
+{
+    <div>
+        @tut.Title
+        @tut.ProfesionalID
+        @tut.PriceRand.ToString()
+    </div>
+}
+<h3>TutorialDisplayComponent</h3>
+
+@code {
+    List<Tutorial> tutorialList = new List<Tutorial>();
+
+    // runs on pagte load
+    protected override async Task OnInitializedAsync()
+    {
+
+        tutorialList = await client.GetFromJsonAsync<List<Tutorial>>("Tutorial/GetTutorials");
+    }
+}

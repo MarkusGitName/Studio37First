@@ -1,0 +1,16 @@
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\Media.Client.csprojAssemblyReference.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\Media.Client.AssemblyInfoInputs.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\Media.Client.AssemblyInfo.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\Media.Client.csproj.CoreCompileInputs.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\Media.Client.RazorComponent.input.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\App.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Pages\Authentication.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Pages\Counter.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Pages\FetchData.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Shared\LoginDisplay.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Shared\NavMenu.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Shared\RedirectToLogin.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\_Imports.razor.g.cs

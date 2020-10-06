@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialSales
-        [ResponseType(typeof(TutorialSale))]
+        [ResponseType(typeof(TutorialSaleViewModel))]
         public async Task<IHttpActionResult> PostTutorialSale(TutorialSale tutorialSale)
         {
             if (!ModelState.IsValid)
