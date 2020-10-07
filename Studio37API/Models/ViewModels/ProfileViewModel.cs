@@ -58,43 +58,50 @@ namespace Studio37API.Models.ViewModels
             foreach (Group incomingGroups in incomingProfile.Groups)
             {
                 newGroupViewModel.Add(new GroupViewModel(incomingGroups));
-            }Groups = newGroupViewModel;
+            }
+            Groups = newGroupViewModel;
 
             List < LikeViewModel > newLikeViewModel = new List<LikeViewModel>();
             foreach (Like incomingLikes in incomingProfile.Likes)
             {
                 Likes.Add(new LikeViewModel(incomingLikes));
             }
+            Likes = newLikeViewModel;
 
             List < LiveShowViewViewModel> newLiveShowViewViewModel = new List<LiveShowViewViewModel>();
             foreach (LiveShowView incomingLiveShowViews in incomingProfile.LiveShowViews)
             {
                 LiveShowViews.Add(new LiveShowViewViewModel(incomingLiveShowViews));
             }
+            LiveShowViews = newLiveShowViewViewModel;
 
             List < MessageViewModel > newMessageViewModel = new List<MessageViewModel>();
             foreach (Message incomingMessages in incomingProfile.Messages)
             {
                 Messages.Add(new MessageViewModel(incomingMessages));
             }
+            Messages = newMessageViewModel;
 
             List < PaymentViewModel> newPaymentViewModel = new List<PaymentViewModel>();
             foreach (Payment incomingPayments in incomingProfile.Payments)
             {
                 Payments.Add(new PaymentViewModel(incomingPayments));
             }
+            Payments = newPaymentViewModel;
 
             List < SaleViewModel > newSaleViewModel = new List<SaleViewModel>();
             foreach (Sale incomingSales in incomingProfile.Sales)
             {
                 Sales.Add(new SaleViewModel(incomingSales));
             }
+            Sales = newSaleViewModel;
 
             List < TutorialRatingViewModel > newTutorialRatingViewModel = new List<TutorialRatingViewModel>();
             foreach (TutorialRating incomingTutorialRatings in incomingProfile.TutorialRatings)
             {
                 TutorialRatings.Add(new TutorialRatingViewModel(incomingTutorialRatings));
             }
+            TutorialRatings = newTutorialRatingViewModel;
 
             List<UserCattegoryViewModel> newUserCattegoryViewModel = new List<UserCattegoryViewModel>();
             foreach(UserCattegory incomingUserCattegories in incomingProfile.UserCattegories)
@@ -108,36 +115,42 @@ namespace Studio37API.Models.ViewModels
             {
                 UserChats.Add(new UserChatViewModel(incomingUserChats));
             }
+            UserChats = newUserChatViewModel;
 
             List < UserSocialMediaLinkViewModel> newUserSocialMediaLinkViewModel = new List<UserSocialMediaLinkViewModel>();
             foreach (UserSocialMediaLink incomingUserSocialMediaLinks in incomingProfile.UserSocialMediaLinks)
             {
                 UserSocialMediaLinks.Add(new UserSocialMediaLinkViewModel(incomingUserSocialMediaLinks));
             }
+            UserSocialMediaLinks = newUserSocialMediaLinkViewModel;
 
             List < ProfileViewModel> newProfileViewModel = new List<ProfileViewModel>();
             foreach (Profile incomingProfile1 in incomingProfile.Profile1)
             {
                 Profile1.Add(new ProfileViewModel(incomingProfile1));
             }
+            Profile1 = newProfileViewModel;
 
             List < ProfileViewModel > newProfilesViewModel = new List<ProfileViewModel>();
             foreach (Profile incomingProfiles in incomingProfile.Profiles)
             {
                 Profiles.Add(new ProfileViewModel(incomingProfiles));
             }
+            Profiles = newProfilesViewModel;
 
             List < GroupViewModel > newGroup1ViewModel = new List<GroupViewModel>();
             foreach (Group incomingGroups1 in incomingProfile.Groups1)
             {
                 Groups1.Add(new GroupViewModel(incomingGroups1));
             }
+            Groups1 = newGroup1ViewModel;
 
             List < LikeViewModel > newLike1ViewModel = new List<LikeViewModel>();
             foreach (Like incomingLikes1 in incomingProfile.Likes1)
             {
                 Likes1.Add(new LikeViewModel(incomingLikes1));
             }
+            Likes1 = newLike1ViewModel;
         }
 
         [Key]

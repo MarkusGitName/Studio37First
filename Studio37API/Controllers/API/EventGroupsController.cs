@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/EventGroups/5
-        [ResponseType(typeof(EventGroup))]
+        [ResponseType(typeof(EventGroupViewModel))]
         public async Task<IHttpActionResult> GetEventGroup(Guid id)
         {
             EventGroup eventGroup = await db.EventGroups.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/EventGroups
-        [ResponseType(typeof(EventGroup))]
+        [ResponseType(typeof(EventGroupViewModel))]
         public async Task<IHttpActionResult> PostEventGroup(EventGroup eventGroup)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/EventGroups/5
-        [ResponseType(typeof(EventGroup))]
+        [ResponseType(typeof(EventGroupViewModel))]
         public async Task<IHttpActionResult> DeleteEventGroup(Guid id)
         {
             EventGroup eventGroup = await db.EventGroups.FindAsync(id);

@@ -94,7 +94,7 @@ namespace Studio37Media.Shared
                 if (ex.Status == WebExceptionStatus.ProtocolError)
                 {
                     response = (HttpWebResponse)ex.Response;
-                    throw new Exception(ResponseString = "Some error occured: " + response.StatusCode.ToString());
+                    throw new Exception(ResponseString = "Some error occured: " + response.StatusCode.ToString()+ex.Status.ToString());
 
                 }
                 else

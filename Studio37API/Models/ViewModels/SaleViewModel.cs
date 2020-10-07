@@ -18,20 +18,26 @@ namespace Studio37API.Models.ViewModels
             Credits = incomingSale.Credits;
             Date = incomingSale.Date;
 
-            foreach(ClassVideoSale incomingClassVideoSales in incomingSale.ClassVideoSales)
+            List<ClassVideoSaleViewModel> newClassVideoSaleViewModel = new List<ClassVideoSaleViewModel>();
+            foreach (ClassVideoSale incomingClassVideoSales in incomingSale.ClassVideoSales)
             {
                 ClassVideoSales.Add(new ClassVideoSaleViewModel(incomingClassVideoSales));
             }
+            ClassVideoSales = newClassVideoSaleViewModel;
 
-            foreach(LiveShowSale incomingLiveShowSales in incomingSale.LiveShowSales)
+            List<LiveShowSaleViewModel> newLiveShowSaleViewModel = new List<LiveShowSaleViewModel>();
+            foreach (LiveShowSale incomingLiveShowSales in incomingSale.LiveShowSales)
             {
                 LiveShowSales.Add(new LiveShowSaleViewModel(incomingLiveShowSales));
             }
+            LiveShowSales = newLiveShowSaleViewModel;
 
-            foreach(TutorialSale incomingTutorialSales in incomingSale.TutorialSales)
+            List<TutorialSaleViewModel> newTutorialSaleViewModel = new List<TutorialSaleViewModel>();
+            foreach (TutorialSale incomingTutorialSales in incomingSale.TutorialSales)
             {
                 TutorialSales.Add(new TutorialSaleViewModel(incomingTutorialSales));
             }
+            TutorialSales = newTutorialSaleViewModel;
         }
 
         public Guid id { get; set; }

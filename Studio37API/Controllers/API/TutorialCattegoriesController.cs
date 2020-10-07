@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialCattegories/5
-        [ResponseType(typeof(TutorialCattegory))]
+        [ResponseType(typeof(TutorialCattegoryViewModel))]
         public async Task<IHttpActionResult> GetTutorialCattegory(Guid id)
         {
             TutorialCattegory tutorialCattegory = await db.TutorialCattegories.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialCattegories
-        [ResponseType(typeof(TutorialCattegory))]
+        [ResponseType(typeof(TutorialCattegoryViewModel))]
         public async Task<IHttpActionResult> PostTutorialCattegory(TutorialCattegory tutorialCattegory)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialCattegories/5
-        [ResponseType(typeof(TutorialCattegory))]
+        [ResponseType(typeof(TutorialCattegoryViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialCattegory(Guid id)
         {
             TutorialCattegory tutorialCattegory = await db.TutorialCattegories.FindAsync(id);

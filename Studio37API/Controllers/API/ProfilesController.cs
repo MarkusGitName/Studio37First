@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Profiles/5
-        [ResponseType(typeof(Profile))]
+        [ResponseType(typeof(ProfileViewModel))]
         public async Task<IHttpActionResult> GetProfile(string id)
         {
             Profile profile = await db.Profiles.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Profiles
-        [ResponseType(typeof(Profile))]
+        [ResponseType(typeof(ProfileViewModel))]
         public async Task<IHttpActionResult> PostProfile(Profile profile)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Profiles/5
-        [ResponseType(typeof(Profile))]
+        [ResponseType(typeof(ProfileViewModel))]
         public async Task<IHttpActionResult> DeleteProfile(string id)
         {
             Profile profile = await db.Profiles.FindAsync(id);

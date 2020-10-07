@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostCattegories
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> PostPostCattegory(PostCattegory postCattegory)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostCattegories/5
-        [ResponseType(typeof(PostCattegory))]
+        [ResponseType(typeof(PostCattegoryViewModel))]
         public async Task<IHttpActionResult> DeletePostCattegory(Guid id)
         {
             PostCattegory postCattegory = await db.PostCattegories.FindAsync(id);

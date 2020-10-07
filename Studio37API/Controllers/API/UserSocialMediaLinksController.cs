@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/UserSocialMediaLinks/5
-        [ResponseType(typeof(UserSocialMediaLink))]
+        [ResponseType(typeof(UserSocialMediaLinkViewModel))]
         public async Task<IHttpActionResult> GetUserSocialMediaLink(Guid id)
         {
             UserSocialMediaLink userSocialMediaLink = await db.UserSocialMediaLinks.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/UserSocialMediaLinks
-        [ResponseType(typeof(UserSocialMediaLink))]
+        [ResponseType(typeof(UserSocialMediaLinkViewModel))]
         public async Task<IHttpActionResult> PostUserSocialMediaLink(UserSocialMediaLink userSocialMediaLink)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/UserSocialMediaLinks/5
-        [ResponseType(typeof(UserSocialMediaLink))]
+        [ResponseType(typeof(UserSocialMediaLinkViewModel))]
         public async Task<IHttpActionResult> DeleteUserSocialMediaLink(Guid id)
         {
             UserSocialMediaLink userSocialMediaLink = await db.UserSocialMediaLinks.FindAsync(id);

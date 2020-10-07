@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostEvents/5
-        [ResponseType(typeof(PostEvent))]
+        [ResponseType(typeof(PostEventViewModel))]
         public async Task<IHttpActionResult> GetPostEvent(Guid id)
         {
             PostEvent postEvent = await db.PostEvents.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostEvents
-        [ResponseType(typeof(PostEvent))]
+        [ResponseType(typeof(PostEventViewModel))]
         public async Task<IHttpActionResult> PostPostEvent(PostEvent postEvent)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostEvents/5
-        [ResponseType(typeof(PostEvent))]
+        [ResponseType(typeof(PostEventViewModel))]
         public async Task<IHttpActionResult> DeletePostEvent(Guid id)
         {
             PostEvent postEvent = await db.PostEvents.FindAsync(id);

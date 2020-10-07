@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialRatings/5
-        [ResponseType(typeof(TutorialRating))]
+        [ResponseType(typeof(TutorialRatingViewModel))]
         public async Task<IHttpActionResult> GetTutorialRating(Guid id)
         {
             TutorialRating tutorialRating = await db.TutorialRatings.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialRatings
-        [ResponseType(typeof(TutorialRating))]
+        [ResponseType(typeof(TutorialRatingViewModel))]
         public async Task<IHttpActionResult> PostTutorialRating(TutorialRating tutorialRating)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialRatings/5
-        [ResponseType(typeof(TutorialRating))]
+        [ResponseType(typeof(TutorialRatingViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialRating(Guid id)
         {
             TutorialRating tutorialRating = await db.TutorialRatings.FindAsync(id);

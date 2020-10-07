@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Messages/5
-        [ResponseType(typeof(Message))]
+        [ResponseType(typeof(MessageViewModel))]
         public async Task<IHttpActionResult> GetMessage(Guid id)
         {
             Message message = await db.Messages.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Messages
-        [ResponseType(typeof(Message))]
+        [ResponseType(typeof(MessageViewModel))]
         public async Task<IHttpActionResult> PostMessage(Message message)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Messages/5
-        [ResponseType(typeof(Message))]
+        [ResponseType(typeof(MessageViewModel))]
         public async Task<IHttpActionResult> DeleteMessage(Guid id)
         {
             Message message = await db.Messages.FindAsync(id);

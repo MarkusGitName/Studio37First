@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/StickerCattegories/5
-        [ResponseType(typeof(StickerCattegory))]
+        [ResponseType(typeof(StickerCattegoryViewModel))]
         public async Task<IHttpActionResult> GetStickerCattegory(Guid id)
         {
             StickerCattegory stickerCattegory = await db.StickerCattegories.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/StickerCattegories
-        [ResponseType(typeof(StickerCattegory))]
+        [ResponseType(typeof(StickerCattegoryViewModel))]
         public async Task<IHttpActionResult> PostStickerCattegory(StickerCattegory stickerCattegory)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/StickerCattegories/5
-        [ResponseType(typeof(StickerCattegory))]
+        [ResponseType(typeof(StickerCattegoryViewModel))]
         public async Task<IHttpActionResult> DeleteStickerCattegory(Guid id)
         {
             StickerCattegory stickerCattegory = await db.StickerCattegories.FindAsync(id);

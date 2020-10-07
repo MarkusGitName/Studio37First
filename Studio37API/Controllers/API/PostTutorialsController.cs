@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostTutorials/5
-        [ResponseType(typeof(PostTutorial))]
+        [ResponseType(typeof(PostTutorialViewModel))]
         public async Task<IHttpActionResult> GetPostTutorial(Guid id)
         {
             PostTutorial postTutorial = await db.PostTutorials.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostTutorials
-        [ResponseType(typeof(PostTutorial))]
+        [ResponseType(typeof(PostTutorialViewModel))]
         public async Task<IHttpActionResult> PostPostTutorial(PostTutorial postTutorial)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostTutorials/5
-        [ResponseType(typeof(PostTutorial))]
+        [ResponseType(typeof(PostTutorialViewModel))]
         public async Task<IHttpActionResult> DeletePostTutorial(Guid id)
         {
             PostTutorial postTutorial = await db.PostTutorials.FindAsync(id);

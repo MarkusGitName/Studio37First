@@ -17,35 +17,47 @@ namespace Studio37API.Models.ViewModels
             UserId = incomingLike.UserId;
             date = incomingLike.date;
 
-            foreach(Comment incomingComment in incomingLike.Comments)
+            List<CommentViewModel> newCommentViewModel = new List<CommentViewModel>();
+            foreach (Comment incomingComment in incomingLike.Comments)
             {
                 Comments.Add(new CommentViewModel(incomingComment));
             }
+            Comments = newCommentViewModel;
 
-            foreach(LiveShow incomingLiveShows in incomingLike.LiveShows)
+            List<LiveShowViewModel> newLiveShowViewModel = new List<LiveShowViewModel>();
+            foreach (LiveShow incomingLiveShows in incomingLike.LiveShows)
             {
                 LiveShows.Add(new LiveShowViewModel(incomingLiveShows));
             }
+            LiveShows = newLiveShowViewModel;
 
-            foreach(Photo incomingPhotos in incomingLike.Photos)
+            List<PhotoViewModel> newPhotoViewModel = new List<PhotoViewModel>();
+            foreach (Photo incomingPhotos in incomingLike.Photos)
             {
                 Photos.Add(new PhotoViewModel(incomingPhotos));
             }
+            Photos = newPhotoViewModel;
 
-            foreach(Post incomingPosts in incomingLike.Posts)
+            List<PostViewModel> newPostViewModel = new List<PostViewModel>();
+            foreach (Post incomingPosts in incomingLike.Posts)
             {
                 Posts.Add(new PostViewModel(incomingPosts));
             }
+            Posts = newPostViewModel;
 
-            foreach(Profile incomingProfiles in incomingLike.Profiles)
+            List<ProfileViewModel> newProfileViewModel = new List<ProfileViewModel>();
+            foreach (Profile incomingProfiles in incomingLike.Profiles)
             {
                 Profiles.Add(new ProfileViewModel(incomingProfiles));
             }
+            Profiles = newProfileViewModel;
 
-            foreach(Share incomingShares in incomingLike.Shares)
+            List<ShareViewModel> newShareViewModel = new List<ShareViewModel>();
+            foreach (Share incomingShares in incomingLike.Shares)
             {
                 Shares.Add(new ShareViewModel(incomingShares));
             }
+            Shares = newShareViewModel;
 
         }
 

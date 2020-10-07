@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PostVideos/5
-        [ResponseType(typeof(PostVideo))]
+        [ResponseType(typeof(PostVideoViewModel))]
         public async Task<IHttpActionResult> GetPostVideo(Guid id)
         {
             PostVideo postVideo = await db.PostVideos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PostVideos
-        [ResponseType(typeof(PostVideo))]
+        [ResponseType(typeof(PostVideoViewModel))]
         public async Task<IHttpActionResult> PostPostVideo(PostVideo postVideo)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PostVideos/5
-        [ResponseType(typeof(PostVideo))]
+        [ResponseType(typeof(PostVideoViewModel))]
         public async Task<IHttpActionResult> DeletePostVideo(Guid id)
         {
             PostVideo postVideo = await db.PostVideos.FindAsync(id);

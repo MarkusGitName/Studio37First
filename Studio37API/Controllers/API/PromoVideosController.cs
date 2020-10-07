@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PromoVideos/5
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> GetPromoVideo(Guid id)
         {
             PromoVideo promoVideo = await db.PromoVideos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PromoVideos
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> PostPromoVideo(PromoVideo promoVideo)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PromoVideos/5
-        [ResponseType(typeof(PromoVideo))]
+        [ResponseType(typeof(PromoVideoViewModel))]
         public async Task<IHttpActionResult> DeletePromoVideo(Guid id)
         {
             PromoVideo promoVideo = await db.PromoVideos.FindAsync(id);

@@ -16,8 +16,8 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         [HttpPost("{apiname}", Name = "NewChat")]
         public Chat Post(Chat Model)
         {
-            Chat ReturnProfile = APILibrary.APIPost<Chat>(Model, "Chats");
-            return ReturnProfile;
+            Chat ReturnChat = APILibrary.APIPost<Chat>(Model, "Chats");
+            return ReturnChat;
         }
     }
 }

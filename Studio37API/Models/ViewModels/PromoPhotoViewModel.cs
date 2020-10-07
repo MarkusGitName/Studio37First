@@ -13,10 +13,12 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingPromoPhoto.id;
 
-            foreach(TutorialPromoPhoto incomingTutorialPromoPhotoes in incomingPromoPhoto.TutorialPromoPhotoes)
+            List<TutorialPromoPhotoViewModel> newTutorialPromoPhotoViewModel = new List<TutorialPromoPhotoViewModel>();
+            foreach (TutorialPromoPhoto incomingTutorialPromoPhotoes in incomingPromoPhoto.TutorialPromoPhotoes)
             {
                 TutorialPromoPhotoes.Add(new TutorialPromoPhotoViewModel(incomingTutorialPromoPhotoes));
             }
+            TutorialPromoPhotoes = newTutorialPromoPhotoViewModel;
         }
 
         public Guid id { get; set; }

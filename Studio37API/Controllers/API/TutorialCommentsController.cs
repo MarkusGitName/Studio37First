@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/TutorialComments/5
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> GetTutorialComment(Guid id)
         {
             TutorialComment tutorialComment = await db.TutorialComments.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/TutorialComments
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> PostTutorialComment(TutorialComment tutorialComment)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/TutorialComments/5
-        [ResponseType(typeof(TutorialComment))]
+        [ResponseType(typeof(TutorialCommentViewModel))]
         public async Task<IHttpActionResult> DeleteTutorialComment(Guid id)
         {
             TutorialComment tutorialComment = await db.TutorialComments.FindAsync(id);

@@ -20,35 +20,47 @@ namespace Studio37API.Models.ViewModels
             Description = incomingLiveShow.Description;
             Title = incomingLiveShow.Title;
 
-            foreach(LiveShowCattegory incomingLiveShowCattegories in incomingLiveShow.LiveShowCattegories)
+            List<LiveShowCattegoryViewModel> newLiveShowCattegoryViewModel = new List<LiveShowCattegoryViewModel>();
+            foreach (LiveShowCattegory incomingLiveShowCattegories in incomingLiveShow.LiveShowCattegories)
             {
                 LiveShowCattegories.Add(new LiveShowCattegoryViewModel(incomingLiveShowCattegories));
             }
+            LiveShowCattegories = newLiveShowCattegoryViewModel;
 
-            foreach(LiveShowComment incomingLiveShowComments in incomingLiveShow.LiveShowComments)
+            List<LiveShowCommentViewModel> newLiveShowCommentViewModel = new List<LiveShowCommentViewModel>();
+            foreach (LiveShowComment incomingLiveShowComments in incomingLiveShow.LiveShowComments)
             {
                 LiveShowComments.Add(new LiveShowCommentViewModel(incomingLiveShowComments));
             }
-       
-            foreach(LiveShowSale incomingLiveShowSales in incomingLiveShow.LiveShowSales)
+            LiveShowComments = newLiveShowCommentViewModel;
+
+            List<LiveShowSaleViewModel> newLiveShowSaleViewModel = new List<LiveShowSaleViewModel>();
+            foreach (LiveShowSale incomingLiveShowSales in incomingLiveShow.LiveShowSales)
             {
                 LiveShowSales.Add(new LiveShowSaleViewModel(incomingLiveShowSales));
             }
+            LiveShowSales = newLiveShowSaleViewModel;
 
-            foreach(LiveShowView incomingLiveShowViews in incomingLiveShow.LiveShowViews)
+            List<LiveShowViewViewModel> newLiveShowViewViewModel = new List<LiveShowViewViewModel>();
+            foreach (LiveShowView incomingLiveShowViews in incomingLiveShow.LiveShowViews)
             {
                 LiveShowViews.Add(new LiveShowViewViewModel(incomingLiveShowViews));
             }
+            LiveShowViews = newLiveShowViewViewModel;
 
-            foreach(PostLiveShow incomingPostLiveShows in incomingLiveShow.PostLiveShows)
+            List<PostLiveShowViewModel> newPostLiveShowViewModel = new List<PostLiveShowViewModel>();
+            foreach (PostLiveShow incomingPostLiveShows in incomingLiveShow.PostLiveShows)
             {
                 PostLiveShows.Add(new PostLiveShowViewModel(incomingPostLiveShows));
             }
+            PostLiveShows = newPostLiveShowViewModel;
 
-            foreach(Like incomingLikes in incomingLiveShow.Likes)
+            List<LikeViewModel> newLikeViewModel = new List<LikeViewModel>();
+            foreach (Like incomingLikes in incomingLiveShow.Likes)
             {
                 Likes.Add(new LikeViewModel(incomingLikes));
             }
+            Likes = newLikeViewModel;
 
         }
 

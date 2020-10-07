@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ProfesionallsProfiles/5
-        [ResponseType(typeof(ProfesionallsProfile))]
+        [ResponseType(typeof(ProfesionallsProfileViewModel))]
         public async Task<IHttpActionResult> GetProfesionallsProfile(string id)
         {
             ProfesionallsProfile profesionallsProfile = await db.ProfesionallsProfiles.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ProfesionallsProfiles
-        [ResponseType(typeof(ProfesionallsProfile))]
+        [ResponseType(typeof(ProfesionallsProfileViewModel))]
         public async Task<IHttpActionResult> PostProfesionallsProfile(ProfesionallsProfile profesionallsProfile)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ProfesionallsProfiles/5
-        [ResponseType(typeof(ProfesionallsProfile))]
+        [ResponseType(typeof(ProfesionallsProfileViewModel))]
         public async Task<IHttpActionResult> DeleteProfesionallsProfile(string id)
         {
             ProfesionallsProfile profesionallsProfile = await db.ProfesionallsProfiles.FindAsync(id);

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Studio37Media.Server.Controllers.FileController
+namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Authorize]
     [ApiController]
@@ -17,9 +17,9 @@ namespace Studio37Media.Server.Controllers.FileController
     public class TutorialController : ControllerBase
     {
 
-        private readonly ILogger<ProfileController> logger;
+        private readonly ILogger<TutorialController> logger;
 
-        public TutorialController(ILogger<ProfileController> logger)
+        public TutorialController(ILogger<TutorialController> logger)
         {
             this.logger = logger;
         }
@@ -27,7 +27,6 @@ namespace Studio37Media.Server.Controllers.FileController
         [HttpGet("{apiname}", Name = "GetTutorials")]
         public IEnumerable<Tutorial> Get()
         {
-
             IEnumerable<Tutorial> tutorials = APILibrary.APIGetALL<IEnumerable<Tutorial>>("Tutorials");
             return tutorials;
         }
@@ -40,10 +39,11 @@ namespace Studio37Media.Server.Controllers.FileController
         }
 
         [HttpPost("{apiname}", Name = "PostTutorial")]
-        public void Post(Tutorial Model)
+        public Tutorial Post(Tutorial Model)
         {
+            Model.DateCreated = DateTime.Now;
             Model.ProfesionalID = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            APILibrary.APIPost<Tutorial>(Model, "tutorials");
+            return APILibrary.APIPost<Tutorial>(Model, "Tutorials");
             
         }
         [HttpPut("{apiname}/{id}", Name = "PutTutorial")]

@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/LiveShowViews/5
-        [ResponseType(typeof(LiveShowView))]
+        [ResponseType(typeof(LiveShowViewViewModel))]
         public async Task<IHttpActionResult> GetLiveShowView(Guid id)
         {
             LiveShowView liveShowView = await db.LiveShowViews.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShowViews
-        [ResponseType(typeof(LiveShowView))]
+        [ResponseType(typeof(LiveShowViewViewModel))]
         public async Task<IHttpActionResult> PostLiveShowView(LiveShowView liveShowView)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/LiveShowViews/5
-        [ResponseType(typeof(LiveShowView))]
+        [ResponseType(typeof(LiveShowViewViewModel))]
         public async Task<IHttpActionResult> DeleteLiveShowView(Guid id)
         {
             LiveShowView liveShowView = await db.LiveShowViews.FindAsync(id);

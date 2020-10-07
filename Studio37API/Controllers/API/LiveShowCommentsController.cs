@@ -33,7 +33,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/LiveShowComments/5
-        [ResponseType(typeof(LiveShowComment))]
+        [ResponseType(typeof(LiveShowCommentViewModel))]
         public async Task<IHttpActionResult> GetLiveShowComment(Guid id)
         {
             LiveShowComment liveShowComment = await db.LiveShowComments.FindAsync(id);
@@ -81,7 +81,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/LiveShowComments
-        [ResponseType(typeof(LiveShowComment))]
+        [ResponseType(typeof(LiveShowCommentViewModel))]
         public async Task<IHttpActionResult> PostLiveShowComment(LiveShowComment liveShowComment)
         {
             if (!ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/LiveShowComments/5
-        [ResponseType(typeof(LiveShowComment))]
+        [ResponseType(typeof(LiveShowCommentViewModel))]
         public async Task<IHttpActionResult> DeleteLiveShowComment(Guid id)
         {
             LiveShowComment liveShowComment = await db.LiveShowComments.FindAsync(id);

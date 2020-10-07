@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Photos/5
-        [ResponseType(typeof(Photo))]
+        [ResponseType(typeof(PhotoViewModel))]
         public async Task<IHttpActionResult> GetPhoto(Guid id)
         {
             Photo photo = await db.Photos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Photos
-        [ResponseType(typeof(Photo))]
+        [ResponseType(typeof(PhotoViewModel))]
         public async Task<IHttpActionResult> PostPhoto(Photo photo)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Photos/5
-        [ResponseType(typeof(Photo))]
+        [ResponseType(typeof(PhotoViewModel))]
         public async Task<IHttpActionResult> DeletePhoto(Guid id)
         {
             Photo photo = await db.Photos.FindAsync(id);

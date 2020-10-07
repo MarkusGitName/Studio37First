@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ProfesionalsDocuments/5
-        [ResponseType(typeof(ProfesionalsDocument))]
+        [ResponseType(typeof(ProfesionalsDocumentViewModel))]
         public async Task<IHttpActionResult> GetProfesionalsDocument(Guid id)
         {
             ProfesionalsDocument profesionalsDocument = await db.ProfesionalsDocuments.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ProfesionalsDocuments
-        [ResponseType(typeof(ProfesionalsDocument))]
+        [ResponseType(typeof(ProfesionalsDocumentViewModel))]
         public async Task<IHttpActionResult> PostProfesionalsDocument(ProfesionalsDocument profesionalsDocument)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ProfesionalsDocuments/5
-        [ResponseType(typeof(ProfesionalsDocument))]
+        [ResponseType(typeof(ProfesionalsDocumentViewModel))]
         public async Task<IHttpActionResult> DeleteProfesionalsDocument(Guid id)
         {
             ProfesionalsDocument profesionalsDocument = await db.ProfesionalsDocuments.FindAsync(id);

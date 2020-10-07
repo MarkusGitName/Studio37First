@@ -14,15 +14,19 @@ namespace Studio37API.Models.ViewModels
             id = incomingPhoto.id;
             Path = incomingPhoto.Path;
 
-            foreach(PostPhoto incomingPostPhotos in incomingPhoto.PostPhotos)
+            List<PostPhotoViewModel> newPostPhotoViewModel = new List<PostPhotoViewModel>();
+            foreach (PostPhoto incomingPostPhotos in incomingPhoto.PostPhotos)
             {
                 PostPhotos.Add(new PostPhotoViewModel(incomingPostPhotos));
             }
+            PostPhotos = newPostPhotoViewModel;
 
-            foreach(Like incomingLikes in incomingPhoto.Likes)
+            List<LikeViewModel> newLikeViewModel = new List<LikeViewModel>();
+            foreach (Like incomingLikes in incomingPhoto.Likes)
             {
                 Likes.Add(new LikeViewModel(incomingLikes));
             }
+            Likes = newLikeViewModel;
      
         }
 

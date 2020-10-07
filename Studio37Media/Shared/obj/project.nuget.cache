@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "IFnFF/asgujhI4ZMmvSTS/xTd9UNaPHUHTjxyETlc+zwdLU5g0D/jAST0J2M7hoYViMLjrI6/oZacgY8yLooXQ==",
+  "success": true,
+  "projectFilePath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

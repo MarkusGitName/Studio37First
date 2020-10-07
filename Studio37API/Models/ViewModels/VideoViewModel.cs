@@ -14,10 +14,12 @@ namespace Studio37API.Models.ViewModels
             id = incomingVideo.id;
             Path = incomingVideo.Path;
 
-            foreach(PostVideo incomingPostVideos in incomingVideo.PostVideos)
+            List<PostVideoViewModel> newPostVideoViewModel = new List<PostVideoViewModel>();
+            foreach (PostVideo incomingPostVideos in incomingVideo.PostVideos)
             {
                 PostVideos.Add(new PostVideoViewModel(incomingPostVideos));
             }
+            PostVideos = newPostVideoViewModel;
         }
 
         public Guid id { get; set; }

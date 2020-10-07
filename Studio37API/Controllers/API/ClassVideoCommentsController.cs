@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/ClassVideoComments/5
-        [ResponseType(typeof(ClassVideoComment))]
+        [ResponseType(typeof(ClassVideoCommentViewModel))]
         public async Task<IHttpActionResult> GetClassVideoComment(Guid id)
         {
             ClassVideoComment classVideoComment = await db.ClassVideoComments.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/ClassVideoComments
-        [ResponseType(typeof(ClassVideoComment))]
+        [ResponseType(typeof(ClassVideoCommentViewModel))]
         public async Task<IHttpActionResult> PostClassVideoComment(ClassVideoComment classVideoComment)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/ClassVideoComments/5
-        [ResponseType(typeof(ClassVideoComment))]
+        [ResponseType(typeof(ClassVideoCommentViewModel))]
         public async Task<IHttpActionResult> DeleteClassVideoComment(Guid id)
         {
             ClassVideoComment classVideoComment = await db.ClassVideoComments.FindAsync(id);

@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/UserChats/5
-        [ResponseType(typeof(UserChat))]
+        [ResponseType(typeof(UserChatViewModel))]
         public async Task<IHttpActionResult> GetUserChat(Guid id)
         {
             UserChat userChat = await db.UserChats.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/UserChats
-        [ResponseType(typeof(UserChat))]
+        [ResponseType(typeof(UserChatViewModel))]
         public async Task<IHttpActionResult> PostUserChat(UserChat userChat)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/UserChats/5
-        [ResponseType(typeof(UserChat))]
+        [ResponseType(typeof(UserChatViewModel))]
         public async Task<IHttpActionResult> DeleteUserChat(Guid id)
         {
             UserChat userChat = await db.UserChats.FindAsync(id);

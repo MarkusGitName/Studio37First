@@ -1,0 +1,15 @@
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\obj\Debug\netstandard2.1\Studio37Media.Shared.csprojAssemblyReference.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\obj\Debug\netstandard2.1\Studio37Media.Shared.AssemblyInfoInputs.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\obj\Debug\netstandard2.1\Studio37Media.Shared.AssemblyInfo.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\Studio37Media.Shared.deps.json
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\Studio37Media.Shared.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\Studio37Media.Shared.pdb
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\System.ComponentModel.DataAnnotations.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\System.Configuration.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\System.Security.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\System.ComponentModel.DataAnnotations.xml
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\System.Configuration.xml
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\bin\Debug\netstandard2.1\System.Security.xml
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\obj\Debug\netstandard2.1\Studio37Media.Shared.csproj.CopyComplete
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\obj\Debug\netstandard2.1\Studio37Media.Shared.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Studio37Media\Shared\obj\Debug\netstandard2.1\Studio37Media.Shared.pdb

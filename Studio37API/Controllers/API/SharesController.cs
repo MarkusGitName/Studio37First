@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Shares/5
-        [ResponseType(typeof(Share))]
+        [ResponseType(typeof(ShareViewModel))]
         public async Task<IHttpActionResult> GetShare(Guid id)
         {
             Share share = await db.Shares.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Shares
-        [ResponseType(typeof(Share))]
+        [ResponseType(typeof(ShareViewModel))]
         public async Task<IHttpActionResult> PostShare(Share share)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Shares/5
-        [ResponseType(typeof(Share))]
+        [ResponseType(typeof(ShareViewModel))]
         public async Task<IHttpActionResult> DeleteShare(Guid id)
         {
             Share share = await db.Shares.FindAsync(id);

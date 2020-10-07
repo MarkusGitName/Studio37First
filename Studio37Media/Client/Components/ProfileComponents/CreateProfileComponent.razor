@@ -320,7 +320,7 @@
             await Http.PostAsync("FileUpload", WallPhotoContent);
 
             //post to profile controller
-            await Http.PostAsJsonAsync<Profile>("Profile", newProfile);
+            await Http.PostAsJsonAsync<Profile>("Profile/PostProfile", newProfile);
         }
 
 

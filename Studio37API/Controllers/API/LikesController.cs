@@ -33,7 +33,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/Likes/5
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> GetLike(Guid id)
         {
             Like like = await db.Likes.FindAsync(id);
@@ -81,7 +81,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/Likes
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> PostLike(Like like)
         {
             if (!ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/Likes/5
-        [ResponseType(typeof(Like))]
+        [ResponseType(typeof(LikeViewModel))]
         public async Task<IHttpActionResult> DeleteLike(Guid id)
         {
             Like like = await db.Likes.FindAsync(id);

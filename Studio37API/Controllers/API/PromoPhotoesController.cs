@@ -32,7 +32,7 @@ namespace Studio37API.Controllers.API
         }
 
         // GET: api/PromoPhotoes/5
-        [ResponseType(typeof(PromoPhoto))]
+        [ResponseType(typeof(PromoPhotoViewModel))]
         public async Task<IHttpActionResult> GetPromoPhoto(Guid id)
         {
             PromoPhoto promoPhoto = await db.PromoPhotos.FindAsync(id);
@@ -80,7 +80,7 @@ namespace Studio37API.Controllers.API
         }
 
         // POST: api/PromoPhotoes
-        [ResponseType(typeof(PromoPhoto))]
+        [ResponseType(typeof(PromoPhotoViewModel))]
         public async Task<IHttpActionResult> PostPromoPhoto(PromoPhoto promoPhoto)
         {
             if (!ModelState.IsValid)
@@ -110,7 +110,7 @@ namespace Studio37API.Controllers.API
         }
 
         // DELETE: api/PromoPhotoes/5
-        [ResponseType(typeof(PromoPhoto))]
+        [ResponseType(typeof(PromoPhotoViewModel))]
         public async Task<IHttpActionResult> DeletePromoPhoto(Guid id)
         {
             PromoPhoto promoPhoto = await db.PromoPhotos.FindAsync(id);

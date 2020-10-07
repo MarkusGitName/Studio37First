@@ -1,0 +1,9 @@
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\bin\Debug\netstandard2.1\Media.Shared.deps.json
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\bin\Debug\netstandard2.1\Media.Shared.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\bin\Debug\netstandard2.1\Media.Shared.pdb
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\obj\Debug\netstandard2.1\Media.Shared.csprojAssemblyReference.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\obj\Debug\netstandard2.1\Media.Shared.AssemblyInfoInputs.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\obj\Debug\netstandard2.1\Media.Shared.AssemblyInfo.cs
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\obj\Debug\netstandard2.1\Media.Shared.csproj.CoreCompileInputs.cache
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\obj\Debug\netstandard2.1\Media.Shared.dll
+D:\AuctionProp\AuctionPortal\Studio37FirstCurrent\Media\Shared\obj\Debug\netstandard2.1\Media.Shared.pdb
