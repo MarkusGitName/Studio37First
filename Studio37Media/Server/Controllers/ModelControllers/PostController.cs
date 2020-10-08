@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +15,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         [HttpPost("{apiname}", Name = "NewPost")]
         public Post Post(Post Model)
         {
+            Model.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Post ReturnPost = APILibrary.APIPost<Post>(Model, "Posts");
             return ReturnPost;
         }
