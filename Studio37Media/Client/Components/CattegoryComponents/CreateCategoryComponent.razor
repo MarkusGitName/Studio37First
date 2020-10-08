@@ -1,5 +1,4 @@
-﻿
-@using Microsoft.AspNetCore.Authorization
+﻿@using Microsoft.AspNetCore.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using Studio37Media.Shared.ViewModels
 
@@ -36,12 +35,12 @@
     Category newCategory = new Category();
 
 
-    
-        //This code runs on component load
-        protected override async Task OnInitializedAsync()
-        {
+
+    //This code runs on component load
+    protected override async Task OnInitializedAsync()
+    {
         Console.WriteLine("Runs--------------------------------------------");
-        }
+    }
     //This runs on form submit
     async void HandleFormSubmit()
     {
@@ -55,6 +54,3 @@
 
 
 }
-
-
-

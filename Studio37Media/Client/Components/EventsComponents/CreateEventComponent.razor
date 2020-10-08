@@ -1,0 +1,132 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+
+    <EditForm Model="@newEvent" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">Event</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="First Name"
+                           @bind-Value="newEvent.EventName" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">sup category</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newEvent.EventDescription" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">Pick date</label>
+            <div class="col-sm-5">
+                <InputDate id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newEvent.EventDate" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Profile Photo</label>
+            <div class="col-sm-5">
+                <InputFile OnChange="ThumbnailSelection" />
+            </div>
+            <p>@ThumbnailStatsStats</p>
+        </div>
+
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+    </EditForm>
+
+ @code {
+    Event newEvent = new Event();
+
+     string ThumbnailStatsStats;
+
+
+     
+        // file contents declaration
+        MultipartFormDataContent ThumbnailContent = new MultipartFormDataContent();
+
+     async void HandleFormSubmit()
+     {
+         
+            // upload photos
+            await Http.PostAsync("FileUpload", ThumbnailContent);
+         
+            await Http.PostAsJsonAsync<Event>("Event/NewEvent", newEvent);
+     }
+
+             // This runs on profile Photo file selection
+        async Task ThumbnailSelection(IFileListEntry[] files)
+        {
+            var file = files.FirstOrDefault();
+            if (file != null)
+            {
+                // Just load into .NET memory to show it can be done
+                // Alternatively it could be saved to disk, or parsed in memory, or similar
+                var ms = new MemoryStream();
+                await file.Data.CopyToAsync(ms);
+
+                ThumbnailStatsStats = $"Finished loading {file.Size} bytes from {file.Name}";
+
+                ThumbnailContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/EventThumbnail", file.Name }
+                };
+
+                newEvent.EventThumbnail = "/uploads/EventThumbnail/" + file.Name;
+
+            }
+
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

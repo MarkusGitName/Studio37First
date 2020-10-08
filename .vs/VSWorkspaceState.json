@@ -1,13 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Media\\Client",
     "\\Media\\Server",
-    "\\Studio37API\\Models",
+    "\\Studio37Media",
+    "\\Studio37Media\\Client",
+    "\\Studio37Media\\Client\\Components",
     "\\Studio37Media\\Server",
-    "\\Studio37Media\\Server\\Controllers",
-    "\\Studio37Media\\Server\\Controllers\\ModelControllers",
     "\\Studio37Media\\Server\\uploads"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\Studio37Media",
   "PreviewInSolutionExplorer": false
 }

@@ -34,13 +34,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\EventsComponents\" />
     <Folder Include="Components\GroupComponents\" />
     <Folder Include="Components\LikeComponents\" />
     <Folder Include="Components\LiveShowComponents\" />
     <Folder Include="Components\MessageComponents\" />
     <Folder Include="Components\NewFolder\" />
-    <Folder Include="Components\PostComponents\" />
     <Folder Include="Components\VideoComponents\" />
     <Folder Include="Components\PhootoComponents\" />
     <Folder Include="Components\PaymentComponents\" />
