@@ -26,5 +26,16 @@ namespace Studio37Media.Server.Controllers.ModelControllers
             Category ReturnCattegory = APILibrary.APIPost<Category>(Model, "Categories");
             return ReturnCattegory;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("{apiname}", Name = "GetCategory")]
+        public IEnumerable<Category> Get()
+        {
+            IEnumerable<Category> category = APILibrary.APIGetALL<IEnumerable<Category>>("Categories");
+            return category;
+        }
     }
 }

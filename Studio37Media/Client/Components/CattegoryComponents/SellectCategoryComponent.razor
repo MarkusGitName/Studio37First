@@ -1,5 +1,57 @@
-﻿<h3>SellectCategoryComponent</h3>
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
 
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+@inject HttpClient Http
+    <EditForm Model="@newPostCattegory" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label">category</label>
+            <div class="col-sm-5">
+                <InputSelect id="Category" class="form-control"
+                             @bind-Value="sellectedCategory">
+                    @foreach (Category cataegory in CategoryList)
+                    {
+                    <option>@cataegory</option>
+                    }
+                    </InputSelect>
+            </div>
+        </div>
+
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+    </EditForm>
 @code {
+    List<Category> CategoryList = new List<Category>();
+
+
+    //This code runs on component load
+    protected override async Task OnInitializedAsync()
+    {
+        CategoryList = await Http.GetFromJsonAsync<List<Category>>("Cattegory/NewCategory");
+    }
+
+    [Parameter]
+    public Guid postId { get; set; }
+    PostCattegory newPostCattegory = new PostCattegory();
+    Category sellectedCategory = new Category();
+
+    //This runs on form submit
+    async void HandleFormSubmit() {
+
+        newPostCattegory.PostID = postId;
+        newPostCattegory.CategoryID = sellectedCategory.id.ToString();
+
+        
+        await Http.PostAsJsonAsync<PostCattegory>("Cattegory/NewPostCategory", newPostCattegory);
+
+
+    }
 
 }
