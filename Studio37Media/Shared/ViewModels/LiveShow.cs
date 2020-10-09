@@ -23,7 +23,6 @@ namespace Studio37Media.Shared.ViewModels
 
         public Guid id { get; set; }
 
-        [Required]
         [StringLength(450)]
         public string UserID { get; set; }
 

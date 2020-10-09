@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+
+    <EditForm Model="@newLiveShow" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">Title</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newLiveShow.Title" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">Description</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newLiveShow.Description" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">Start Time</label>
+            <div class="col-sm-5">
+                <InputDate id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newLiveShow.StartTime" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">End Time</label>
+            <div class="col-sm-5">
+                <InputDate id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newLiveShow.EndTime" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">End Time</label>
+            <div class="col-sm-5">
+                <InputNumber id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newLiveShow.PriceCredits" />
+            </div>
+        </div>
+   
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+
+    </EditForm>
+
+@code {
+    LiveShow newLiveShow = new LiveShow();
+
+    //This runs on form submit
+    async void HandleFormSubmit()
+    {
+        newLiveShow.id = Guid.NewGuid();
+
+        
+        await Http.PostAsJsonAsync<LiveShow>("LiveShow/NewLiveShow", newLiveShow);
+    }
+}

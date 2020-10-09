@@ -58,11 +58,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+      "projectUniqueName": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
       "projectName": "Studio37Media.Shared",
-      "projectPath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+      "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\obj\\",
+      "outputPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

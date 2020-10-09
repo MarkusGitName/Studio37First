@@ -49,46 +49,47 @@
     </EditForm>
 
  @code {
-    Event newEvent = new Event();
+     Event newEvent = new Event();
 
      string ThumbnailStatsStats;
 
 
-     
-        // file contents declaration
-        MultipartFormDataContent ThumbnailContent = new MultipartFormDataContent();
+
+     // file contents declaration
+     MultipartFormDataContent ThumbnailContent = new MultipartFormDataContent();
 
      async void HandleFormSubmit()
      {
-         
-            // upload photos
-            await Http.PostAsync("FileUpload", ThumbnailContent);
-         
-            await Http.PostAsJsonAsync<Event>("Event/NewEvent", newEvent);
+
+         // upload photos
+         await Http.PostAsync("FileUpload", ThumbnailContent);
+
+         newEvent.id = Guid.NewGuid();
+         await Http.PostAsJsonAsync<Event>("Event/NewEvent", newEvent);
      }
 
-             // This runs on profile Photo file selection
-        async Task ThumbnailSelection(IFileListEntry[] files)
-        {
-            var file = files.FirstOrDefault();
-            if (file != null)
-            {
-                // Just load into .NET memory to show it can be done
-                // Alternatively it could be saved to disk, or parsed in memory, or similar
-                var ms = new MemoryStream();
-                await file.Data.CopyToAsync(ms);
+     // This runs on profile Photo file selection
+     async Task ThumbnailSelection(IFileListEntry[] files)
+     {
+         var file = files.FirstOrDefault();
+         if (file != null)
+         {
+             // Just load into .NET memory to show it can be done
+             // Alternatively it could be saved to disk, or parsed in memory, or similar
+             var ms = new MemoryStream();
+             await file.Data.CopyToAsync(ms);
 
-                ThumbnailStatsStats = $"Finished loading {file.Size} bytes from {file.Name}";
+             ThumbnailStatsStats = $"Finished loading {file.Size} bytes from {file.Name}";
 
-                ThumbnailContent = new MultipartFormDataContent {
+             ThumbnailContent = new MultipartFormDataContent {
                     { new ByteArrayContent(ms.GetBuffer()), "uploads/EventThumbnail", file.Name }
                 };
 
-                newEvent.EventThumbnail = "/uploads/EventThumbnail/" + file.Name;
+             newEvent.EventThumbnail = "/uploads/EventThumbnail/" + file.Name;
 
-            }
+         }
 
-        }
+     }
 }
 
 

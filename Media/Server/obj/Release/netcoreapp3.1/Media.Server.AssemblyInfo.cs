@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("Media.Server-048407CD-E706-4159-B5D8-322AF43CFECC")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("Media.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]

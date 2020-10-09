@@ -1,5 +1,189 @@
-﻿<h3>CreatePostComponent</h3>
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
 
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+
+    <EditForm Model="@newPost" OnValidSubmit="@HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">Write something</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newPost.Text" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="f" class="col-sm-1 col-form-label"></label>
+            <label for="f" class="col-sm-1 col-form-label">Caption</label>
+            <div class="col-sm-5">
+                <InputText id="f" class="form-control" placeholder="Last Name"
+                           @bind-Value="newPost.Caption" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Profile Photo</label>
+            <div class="col-sm-5">
+                <InputFile OnChange="PostPhotoSelection" />
+            </div>
+            <p>@PostPhotoStats</p>
+        </div>
+        <div class="form-group row">
+            <label for="ProfileVideo" class="col-sm-1 col-form-label">Profile Video</label>
+            <div class="col-sm-5">
+                <InputFile OnChange="PostVideoSelection" />
+            </div>
+            <p>@PostVideoStats</p>
+        </div>
+
+        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+    </EditForm>
 @code {
 
+    //Decleration of lists that display files upload status. To be removed or adjusted for users
+    List<string> ListOfPostVideosStats = new List<string>();
+    List<string> ListOfPostPhotosStats = new List<string>();
+
+    // decleration of stats added to status lists
+    string PostPhotoStats;
+    string PostVideoStats;
+
+
+    //decleration of new Tutorial object
+    Post newPost = new Post();
+
+    // List Declerations to be added to the new tutorial object
+    List<PostPhoto> ListOfPostPhotos = new List<PostPhoto>();
+    List<PostVideo> ListOfPostVideos = new List<PostVideo>();
+
+    //decleration of actual files to be uploaded
+    MultipartFormDataContent PostPhotoContent = new MultipartFormDataContent();
+    MultipartFormDataContent PostVideoContent = new MultipartFormDataContent();
+
+
+    //This runs on form submit
+    async void HandleFormSubmit()
+    {
+        
+            
+           //debuging
+           Console.WriteLine("Videos added");
+            //Add Videos
+            newPost.PostVideos = ListOfPostVideos;
+            
+            Console.WriteLine("Videos added");
+            //Fhotos Added
+            newPost.PostPhotos = ListOfPostPhotos;
+
+            // post to TutorialController
+            await Http.PostAsJsonAsync<Post>("Post/NewPost", newPost);
+    }
+
+
+    // runs on video file sellection
+    async Task PostPhotoSelection(IFileListEntry[] files)
+    {
+        //incoming file
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+
+            PostPhotoContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/PostPhotos", file.Name }
+                };
+
+            //post call to fileUploadConstructer (endpoint)
+            await Http.PostAsync("FileUpload", PostPhotoContent);
+
+            //display file upload stats
+            PostPhotoStats = $"Finished loading {file.Size} bytes from {file.Name}";
+            ListOfPostVideosStats.Add(PostPhotoStats);
+
+            //debugging
+            Console.WriteLine("file upload complete");
+
+            //decleration of new Post
+            PostPhoto newPostPhoto = new PostPhoto();
+
+            //setting new ID
+            newPostPhoto.id = Guid.NewGuid();
+
+            //decleratio of new Post
+            Photo newPhoto = new Photo();
+            newPhoto.id = Guid.NewGuid();
+            newPhoto.Path = "/uploads/PostPhotos/" + file.Name;
+
+
+            //setting Photo value
+            newPostPhoto.Photo = newPhoto;
+
+
+            // add new TutorialPost to Glabal List
+            ListOfPostPhotos.Add(newPostPhoto);
+
+            //debuging
+            Console.WriteLine("photo added to list- " + newPostPhoto);
+        }
+    }
+
+    // runs on video file sellection
+    async Task PostVideoSelection(IFileListEntry[] files)
+    {
+        //incoming file
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+
+            PostVideoContent = new MultipartFormDataContent {
+                    { new ByteArrayContent(ms.GetBuffer()), "uploads/PostVideo", file.Name }
+                };
+
+            //post call to fileUploadConstructer (endpoint)
+            await Http.PostAsync("FileUpload", PostVideoContent);
+
+            //display file upload stats
+            PostVideoStats = $"Finished loading {file.Size} bytes from {file.Name}";
+            ListOfPostVideosStats.Add(PostVideoStats);
+
+            //debugging
+            Console.WriteLine("file upload complete");
+
+            //decleration of new Post
+            PostVideo newPostVideo = new PostVideo();
+
+            //setting new ID
+            newPostVideo.id = Guid.NewGuid();
+
+            //decleratio of new Post
+            Video newVideo = new Video();
+            newVideo.id = Guid.NewGuid();
+            newVideo.Path = "/uploads/PostVideo/" + file.Name;
+
+
+            //setting Video value
+            newPostVideo.Video = newVideo;
+
+
+            // add new PostVide to Glabal List
+            ListOfPostVideos.Add(newPostVideo);
+
+            //debuging
+            Console.WriteLine("Video added to list- " + newPostVideo);
+        }
+    }
+
 }
+

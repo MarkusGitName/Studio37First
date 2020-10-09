@@ -2025,11 +2025,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+      "projectUniqueName": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj",
       "projectName": "Studio37Media.Client",
-      "projectPath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+      "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Client\\obj\\",
+      "outputPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -2049,8 +2049,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
-              "projectPath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\Studio37Media.Shared.csproj"
+            "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
+              "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj"
             }
           }
         }
