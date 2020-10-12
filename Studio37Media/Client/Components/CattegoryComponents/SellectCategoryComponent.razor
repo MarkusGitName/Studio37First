@@ -16,6 +16,12 @@ Sellect PostCategory component
    <EditForm Model="@categoryId" OnValidSubmit="@HandleFormSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
+       @foreach (Category category in CategoryList) 
+       { 
+           <div>@category.Category1   </div>
+           <div>@category.SubCategory   </div>
+           <button onclick=""></button>
+       }
 
         <div class="form-group row">
             <label for="f" class="col-sm-1 col-form-label">category</label>

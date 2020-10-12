@@ -1,5 +1,93 @@
-﻿<h3>CreateNewCommentComponent</h3>
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+<div>create comment component</div>
+<EditForm Model="@newComment" OnValidSubmit="@HandleFormSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group row">
+        <label for="f" class="col-sm-1 col-form-label">text</label>
+        <div class="col-sm-5">
+            <InputText id="f" class="form-control" placeholder="First Name"
+                       @bind-Value="newComment.text" />
+        </div>
+    </div>
+
+    <button class="class=" btn btn-primary"" type="submit">Sent</button>
+</EditForm>
 
 @code {
+    Comment newComment = new Comment();
 
+    [Parameter]
+    public Guid commentId { get; set; }
+    [Parameter]
+    public Guid ObjectId { get; set; }
+    [Parameter]
+    public string ObjectType { get; set; }
+    //This runs on form submit
+    async void HandleFormSubmit()
+    {
+        //post to profile controller
+        await Http.PostAsJsonAsync<Comment>("Comment/NewComment", newComment);
+
+
+        if (ObjectType == "ClassVideo")
+        {
+            ClassVideoComment newClassVideoComment = new ClassVideoComment();
+            newClassVideoComment.ClassVideoID = ObjectId;
+            newClassVideoComment.CommentID = commentId;
+            
+            await Http.PostAsJsonAsync<ClassVideoComment>("ClassVideoComment/NewClassVideoComment", newClassVideoComment);
+
+        }   
+        if (ObjectType == "Comment")
+        {
+             CommentComment newCommentComment = new CommentComment();
+            newCommentComment.oldComment = ObjectId;
+            newCommentComment.newComment = commentId;
+
+            
+            await Http.PostAsJsonAsync<CommentComment>("CommentComment/NewCommentComment", newCommentComment);
+        }   
+        if (ObjectType == "LiveShow")
+        {
+            
+            LiveShowComment newLiveShowComment = new LiveShowComment();
+            newLiveShowComment.LiveShowID = ObjectId;
+            newLiveShowComment.CommentID = commentId;
+            
+            await Http.PostAsJsonAsync<LiveShowComment>("LiveShowComment/NewLiveShowComment", newLiveShowComment);
+        }  
+        if (ObjectType == "Post")
+        {
+             PostComment newPostComment = new PostComment();
+            newPostComment.PostID = ObjectId;
+            newPostComment.CommentID = commentId;
+            
+            await Http.PostAsJsonAsync<PostComment>("PostComment/NewPostComment", newPostComment);
+        }  
+        if (ObjectType == "Tutorial")
+        {
+             TutorialComment newTutorialComment = new TutorialComment();
+            newTutorialComment.TutorialID = ObjectId;
+            newTutorialComment.CommentID = commentId;
+
+            
+            await Http.PostAsJsonAsync<TutorialComment>("TutorialComment/NewTutorialComment", newTutorialComment);
+        }
+
+        //await Http.GetFromJsonAsync<Profile>("Profile");
+
+    }
 }
