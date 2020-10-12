@@ -1,14 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Media\\Client",
-    "\\Media\\Server",
     "\\Studio37Media",
     "\\Studio37Media\\Client",
     "\\Studio37Media\\Client\\Components",
+    "\\Studio37Media\\Client\\Components\\EventsComponents",
     "\\Studio37Media\\Server",
     "\\Studio37Media\\Server\\uploads"
   ],
-  "SelectedNode": "\\Studio37Media",
+  "SelectedNode": "\\Studio37Media\\Client\\Components\\EventsComponents\\CreateEventComponent.razor",
   "PreviewInSolutionExplorer": false
 }

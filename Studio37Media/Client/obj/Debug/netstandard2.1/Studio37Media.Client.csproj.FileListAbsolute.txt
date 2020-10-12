@@ -752,8 +752,6 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\_Impo
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.RazorTargetAssemblyInfo.cache
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.csproj.CopyComplete
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\unlinked.output
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\1T811ROWSRwtT_8MU8bmhNPedssGUiJ2oiCxaaGdaPA=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\IHOlIV0olVDLulLZ0wfDJTCdDwsVugqP6tI4oyBUa00=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\HQeN_ZfHAERO_uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\kL-omZDwqByAi_lPdMeDmr3XjHcn4RVb_LmZ4mut1Yc=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\BaZPMj95_YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=.hash
@@ -797,7 +795,6 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\L
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\m7Q_cF5-ji3OMfdGlCuE8pQ-iM_kxNHLq-IEWVvIaOg=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\tmnkCmP9OzLUkpQ3LP7PRosi7gt5pyfEZCM6aqAokFI=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\LIfCYwg_PHltTK4z3EnbSkA7m2cn8JS4jHVthdKrDF8=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\faIF6vGTD6bPCiP_mXxjNPMhe3EHM-1x6vwpgkMNhSQ=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\mRd6TL4DYldo1ko9czkjEDcoiPdMPrJxz3dekwV6OOY=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\4NUQ26HmvXRi8smc0jz9940OUECDLQnoMWQLrMLe0ok=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\825GQI5nG1C1WqLD1SNKSpjzLCNbH2-KChgjBL0SSXI=.hash
@@ -813,14 +810,11 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\t
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\r8LuqDQgcB-c3E48xHqsAY1eRZB1ZtuqZF6nlufn7kg=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\DrtNiKIMjfSOdamH5Bs5zHmjFADgNiwrY5tRgTm6XuI=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\czNf3btAeBW-vvID5LAfgcsNZ_GM3ssVuPaMflcg0rs=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\_7QKY1WTesUrI_FfJ0wO_MAJHyA3YlcMGthqlRFlgtE=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\zrcT8Mmk4NIWL4BXDTFMJ62GsEu22I_94klELu5YLJE=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\3S0qzYaBEKOBXarzVLNzNAFXlwJr6nI3lFlYUpQTPH8=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\UC-3Rm1NkdNdlIrzYARo_dO-HDlS5mhPxo0IQv7kma8=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\SPHS1EAPAcMFN4TEIUYl3FWtoCQTsNJch0XVGgok1eE=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\blazor.boot.json
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\XCthez7a3YEaV6kqVr3WsHh4gsm7QS8Z9HMpgKe9p1U=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\compressed\service-worker-assets.js.gz
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\Studio37Media.Client.dll.gz
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\System.Text.Json.dll.gz
@@ -963,4 +957,10 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Med
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.pdb
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\LkIpLlAYJnmayC6x77CwIKYrlWlcopVkqJIrCQXlCxc=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\EsYglGIIC8oz_PuCtYurMEzuEaQIVj5OUIvLBjAGzmk=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\YOShX8POxmhB0JDCvGjupf8ktcC71m5clsi0bjB-6G4=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\ptrCfMx-h8kfsUAbbdTU1E7PBcWbv-OCKv9Y3KQKXzY=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\EBiEmyY22OEDnWPthqQP2MsRXhP8rr4-5tz1X3T1NQc=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\KssTBbruZDa2tRmru-KHGNYj27MBRdKLvXsiqRBcr7k=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\PYYwjSrD78AJygCeI-xn_kX9PRtyyyTxXbDFLOUwNGE=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\18DVrTiZfz-X9h62FkAgpBI5vfK6aWYLASswwRMgn8Y=.hash

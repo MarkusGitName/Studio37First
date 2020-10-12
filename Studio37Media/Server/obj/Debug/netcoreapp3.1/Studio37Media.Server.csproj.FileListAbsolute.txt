@@ -710,8 +710,6 @@ D:\WorkingVersionsRepo\Studio37Media\Server\bin\Debug\netcoreapp3.1\Studio37Medi
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.csprojAssemblyReference.cache
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.AssemblyInfoInputs.cache
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.AssemblyInfo.cs
-D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.MvcApplicationPartsAssemblyInfo.cs
-D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.MvcApplicationPartsAssemblyInfo.cache
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.RazorAssemblyInfo.cache
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.RazorAssemblyInfo.cs
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.TagHelpers.input.cache
@@ -730,3 +728,5 @@ D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\staticwebass
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.dll
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.pdb
 D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.genruntimeconfig.cache
+D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.MvcApplicationPartsAssemblyInfo.cs
+D:\WorkingVersionsRepo\Studio37Media\Server\obj\Debug\netcoreapp3.1\Studio37Media.Server.MvcApplicationPartsAssemblyInfo.cache

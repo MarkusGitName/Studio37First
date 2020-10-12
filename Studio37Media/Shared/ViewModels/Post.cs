@@ -14,6 +14,8 @@ namespace Studio37Media.Shared.ViewModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Post()
         {
+
+            PostClassVideos = new HashSet<PostClassVideo>();
             PostCattegories = new HashSet<PostCattegory>();
             PostComments = new HashSet<PostComment>();
             PostEvents = new HashSet<PostEvent>();
@@ -41,6 +43,8 @@ namespace Studio37Media.Shared.ViewModels
         public DateTime Date { get; set; }
 
         public virtual ICollection<PostCattegory> PostCattegories { get; set; }
+
+        public virtual ICollection<PostClassVideo> PostClassVideos { get; set; }
 
         public virtual ICollection<PostComment> PostComments { get; set; }
 

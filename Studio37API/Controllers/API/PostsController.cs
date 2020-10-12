@@ -94,7 +94,7 @@ namespace Studio37API.Controllers.API
             {
                 await db.SaveChangesAsync();
             }
-            catch (DbUpdateException)
+            catch (DbUpdateException ex)
             {
                 if (PostExists(post.id))
                 {

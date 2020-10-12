@@ -44,7 +44,7 @@
             </div>
             <p>@PostVideoStats</p>
         </div>
-
+        <Studio37Media.Client.Components.CattegoryComponents.SellectCategoryComponent ObjectID="newPost.id" ObjectType="Post"/>
         <button class="class=" btn btn-primary"" type="submit">Submit</button>
     </EditForm>
 @code {
@@ -69,23 +69,32 @@
     MultipartFormDataContent PostPhotoContent = new MultipartFormDataContent();
     MultipartFormDataContent PostVideoContent = new MultipartFormDataContent();
 
+    //This code runs on component load
+    protected override async Task OnInitializedAsync()
+    {
+        newPost.id = Guid.NewGuid();
+        
+
+   
+        Console.WriteLine("createPost component Load Started");
+    
+    }
 
     //This runs on form submit
     async void HandleFormSubmit()
     {
-        
-            
-           //debuging
-           Console.WriteLine("Videos added");
-            //Add Videos
-            newPost.PostVideos = ListOfPostVideos;
-            
-            Console.WriteLine("Videos added");
-            //Fhotos Added
-            newPost.PostPhotos = ListOfPostPhotos;
+        //debuging
+        Console.WriteLine("Videos added");
+        //Add Videos
+        newPost.PostVideos = ListOfPostVideos;
 
-            // post to TutorialController
-            await Http.PostAsJsonAsync<Post>("Post/NewPost", newPost);
+        Console.WriteLine("Videos added");
+        //Fhotos Added
+        newPost.PostPhotos = ListOfPostPhotos;
+
+        // post to TutorialController
+        newPost.Date = DateTime.Now;
+        await Http.PostAsJsonAsync<Post>("Post/NewPost", newPost);
     }
 
 

@@ -24,7 +24,7 @@ namespace Studio37API.Models.ViewModels
 
         [Required]
         [StringLength(125)]
-        public string CategoryID { get; set; }
+        public Guid CategoryID { get; set; }
 
         // public virtual Category Category { get; set; }
 

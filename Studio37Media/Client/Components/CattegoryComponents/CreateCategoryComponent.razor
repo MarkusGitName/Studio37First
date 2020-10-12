@@ -10,6 +10,10 @@
 
 @attribute [Authorize]
 @inject HttpClient Http
+<div>
+    Create category Component
+</div>
+
 <EditForm Model="@newCategory" OnValidSubmit="@HandleFormSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -39,7 +43,7 @@
     //This code runs on component load
     protected override async Task OnInitializedAsync()
     {
-        Console.WriteLine("Runs--------------------------------------------");
+        Console.WriteLine("Runs-----------------");
     }
     //This runs on form submit
     async void HandleFormSubmit()

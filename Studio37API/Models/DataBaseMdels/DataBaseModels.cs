@@ -37,6 +37,7 @@ namespace Studio37API.Models.DataBaseMdels
         public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<PostCattegory> PostCattegories { get; set; }
+        public virtual DbSet<PostClassVideo> PostClassVideos { get; set; }
         public virtual DbSet<PostComment> PostComments { get; set; }
         public virtual DbSet<PostEvent> PostEvents { get; set; }
         public virtual DbSet<PostLiveShow> PostLiveShows { get; set; }
@@ -91,7 +92,6 @@ namespace Studio37API.Models.DataBaseMdels
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.PostCattegories)
                 .WithRequired(e => e.Category)
-                .HasForeignKey(e => e.PostID)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Category>()
@@ -158,6 +158,11 @@ namespace Studio37API.Models.DataBaseMdels
 
             modelBuilder.Entity<ClassVideo>()
                 .HasMany(e => e.ClassVideoSales)
+                .WithRequired(e => e.ClassVideo)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ClassVideo>()
+                .HasMany(e => e.PostClassVideos)
                 .WithRequired(e => e.ClassVideo)
                 .WillCascadeOnDelete(false);
 
@@ -334,6 +339,11 @@ namespace Studio37API.Models.DataBaseMdels
 
             modelBuilder.Entity<Post>()
                 .HasMany(e => e.PostCattegories)
+                .WithRequired(e => e.Post)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Post>()
+                .HasMany(e => e.PostClassVideos)
                 .WithRequired(e => e.Post)
                 .WillCascadeOnDelete(false);
 

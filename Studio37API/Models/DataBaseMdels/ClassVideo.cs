@@ -16,6 +16,7 @@ namespace Studio37API.Models.DataBaseMdels
             ClassVideoCattegories = new HashSet<ClassVideoCattegory>();
             ClassVideoComments = new HashSet<ClassVideoComment>();
             ClassVideoSales = new HashSet<ClassVideoSale>();
+            PostClassVideos = new HashSet<PostClassVideo>();
             TutorialClasses = new HashSet<TutorialClass>();
         }
 
@@ -55,6 +56,9 @@ namespace Studio37API.Models.DataBaseMdels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClassVideoSale> ClassVideoSales { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostClassVideo> PostClassVideos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TutorialClass> TutorialClasses { get; set; }
