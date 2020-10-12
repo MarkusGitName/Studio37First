@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IFnFF/asgujhI4ZMmvSTS/xTd9UNaPHUHTjxyETlc+zwdLU5g0D/jAST0J2M7hoYViMLjrI6/oZacgY8yLooXQ==",
+  "dgSpecHash": "SPBkSoIUN3AGDNZDGgMQAkk2FjIN4Zq2de6tbeCZkc4KQMUbFI0uEoEvGcxjkv+iwrpxrCmgD3MHTCjIQbKvug==",
   "success": true,
-  "projectFilePath": "D:\\AuctionProp\\AuctionPortal\\Studio37FirstCurrent\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Kayla\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }
