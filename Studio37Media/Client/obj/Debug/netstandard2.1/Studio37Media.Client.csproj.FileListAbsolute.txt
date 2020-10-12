@@ -1238,8 +1238,6 @@ C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netst
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.RazorTargetAssemblyInfo.cache
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.csproj.CopyComplete
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\unlinked.output
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\LkIpLlAYJnmayC6x77CwIKYrlWlcopVkqJIrCQXlCxc=.hash
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\wH-iG9zvbD1jIaRnEZCLCk6AeucwbEJWJrumXamlQIg=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\HQeN_ZfHAERO_uW0fP0J9J3WV1hQ3vUIOWbqGSYBPp8=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\kL-omZDwqByAi_lPdMeDmr3XjHcn4RVb_LmZ4mut1Yc=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\BaZPMj95_YNe3G4ckTGD6szZFwZeA2MOHn91zTGKDeU=.hash
@@ -1299,14 +1297,12 @@ C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netst
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\r8LuqDQgcB-c3E48xHqsAY1eRZB1ZtuqZF6nlufn7kg=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\DrtNiKIMjfSOdamH5Bs5zHmjFADgNiwrY5tRgTm6XuI=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\czNf3btAeBW-vvID5LAfgcsNZ_GM3ssVuPaMflcg0rs=.hash
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\QI0Ym_6Jf5tkeYvvveQUdftaECT8-Da2iKgD6IloXqA=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\Na9FAVDcjtbYMtOiet7hvr_Fm9l1S8JAPJGFXbhniwo=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\mPoqx7XczFHBWk3gRNn0hc9ekG1OvkKY4XiKRY5Mj5U=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\3S0qzYaBEKOBXarzVLNzNAFXlwJr6nI3lFlYUpQTPH8=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\UC-3Rm1NkdNdlIrzYARo_dO-HDlS5mhPxo0IQv7kma8=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\SPHS1EAPAcMFN4TEIUYl3FWtoCQTsNJch0XVGgok1eE=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\blazor.boot.json
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\y3g4GpPg4aQbJH2vzYcYLQBGcrj521CGJw_RJ2rVxng=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\compressed\service-worker-assets.js.gz
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\Studio37Media.Client.dll.gz
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\compressed\_framework\_bin\System.Text.Json.dll.gz
@@ -1449,4 +1445,8 @@ C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netst
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.pdb
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\18wYTqwu_nVlQOGU67lvpBtG-zbZUopj-QTt9G42Ghg=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\jZyv3YbnEeOMvMPlaQFzdNOcEUgog729wxBkVaMssXM=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\ajsmYXSmY_UsM-DvmeZ94RmBg-mSHWSe1ARvzzmnUAg=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\7tDLilvTSQ4hMlbOGG2xDA75-M7mWwalEgNdZjDbMDw=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\HBraYKb0-grXyapJJDQK5dc6MXzXpfXMXNMdo1le5QM=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\-Y2kIS4alohSeQCBprCnZ3mExuigDm6P4STIPO02k_0=.hash

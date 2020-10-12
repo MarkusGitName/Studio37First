@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\wH-iG9zvbD1jIaRnEZCLCk6AeucwbEJWJrumXamlQIg=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\ajsmYXSmY_UsM-DvmeZ94RmBg-mSHWSe1ARvzzmnUAg=.hash",
       "Source": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Client.dll.gz"
     },
@@ -301,7 +301,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\QI0Ym_6Jf5tkeYvvveQUdftaECT8-Da2iKgD6IloXqA=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\7tDLilvTSQ4hMlbOGG2xDA75-M7mWwalEgNdZjDbMDw=.hash",
       "Source": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Client.pdb.gz"
     },
@@ -331,12 +331,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\y3g4GpPg4aQbJH2vzYcYLQBGcrj521CGJw_RJ2rVxng=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\HBraYKb0-grXyapJJDQK5dc6MXzXpfXMXNMdo1le5QM=.hash",
       "Source": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\18wYTqwu_nVlQOGU67lvpBtG-zbZUopj-QTt9G42Ghg=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\-Y2kIS4alohSeQCBprCnZ3mExuigDm6P4STIPO02k_0=.hash",
       "Source": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\service-worker-assets.js",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\service-worker-assets.js.gz"
     }

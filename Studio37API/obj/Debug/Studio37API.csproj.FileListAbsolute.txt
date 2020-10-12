@@ -260,8 +260,8 @@ C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\bin\ko\System.Spatial.re
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\bin\ru\System.Spatial.resources.dll
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\obj\Debug\Studio37API.csprojAssemblyReference.cache
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\obj\Debug\Studio37API.csproj.CoreCompileInputs.cache
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\obj\Debug\Studio37API.csproj.CopyComplete
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\obj\Debug\Studio37API.dll
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\obj\Debug\Studio37API.pdb
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37API\obj\Debug\Studio37API.csprojAssemblyReference.cache
