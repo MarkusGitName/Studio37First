@@ -37,14 +37,22 @@
                         Upload Thumbnail...
                     </label>
                 </div>*@
-                <div class="form-control my-2" placeholder="Video">
+            <div>
+                <label class="col-2 col-form-label">Select Video</label>
+                <div class="btn btn-light" placeholder="Video">
                     <InputFile OnChange="VideoSelection" />
                 </div>
-                <div class="form-control my-2" placeholder="Video">
+            </div>
+          
+            <div>
+                <label class="col-form-label col-2">Select Thumbnail</label>
+                <div class="btn btn-light" placeholder="Video">
                     <InputFile OnChange="ThumbnailSelection" />
                 </div>
             </div>
-            <button type="submit" class="btn btn-light btn-block">Save Changes</button>
+                
+            </div>
+            <button type="submit" class="btn btn-light btn-block my-2">Save Changes</button>
         </div>
 
         @*//the uploaded video should be linked to this but i havent figured that out*@

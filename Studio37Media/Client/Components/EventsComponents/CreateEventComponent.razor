@@ -16,36 +16,36 @@
         <ValidationSummary />
 
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label">Event</label>
+            <label for="Event" class="col-sm-1 col-form-label">Event</label>
             <div class="col-sm-5">
-                <InputText id="f" class="form-control" placeholder="First Name"
+                <InputText id="f" class="form-control" placeholder="Event Name"
                            @bind-Value="newEvent.EventName" />
             </div>
         </div>
 
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label">sup category</label>
+            <label for="EventDescription" class="col-sm-1 col-form-label">Event Description</label>
             <div class="col-sm-5">
-                <InputText id="f" class="form-control" placeholder="Last Name"
+                <InputText id="EventDescription" class="form-control" placeholder="Event Description"
                            @bind-Value="newEvent.EventDescription" />
             </div>
         </div>
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label">Pick date</label>
+            <label for="EventDate" class="col-sm-1 col-form-label">Event Date</label>
             <div class="col-sm-5">
-                <InputDate id="f" class="form-control" placeholder="Last Name"
+                <InputDate id="f" class="form-control" placeholder="Event Date"
                            @bind-Value="newEvent.EventDate" />
             </div>
         </div>
         <div class="form-group row">
-            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Profile Photo</label>
+            <label for="EventImage" class="col-sm-1 col-form-label">Event Image</label>
             <div class="col-sm-5">
                 <InputFile OnChange="ThumbnailSelection" />
             </div>
             <p>@ThumbnailStatsStats</p>
         </div>
 
-        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+        <button class="btn btn-light" type="submit">Submit</button>
     </EditForm>
 
  @code {

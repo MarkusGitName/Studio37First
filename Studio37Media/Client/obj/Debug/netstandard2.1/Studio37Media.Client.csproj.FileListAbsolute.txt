@@ -1445,8 +1445,8 @@ C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netst
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.pdb
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\jZyv3YbnEeOMvMPlaQFzdNOcEUgog729wxBkVaMssXM=.hash
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\ajsmYXSmY_UsM-DvmeZ94RmBg-mSHWSe1ARvzzmnUAg=.hash
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\7tDLilvTSQ4hMlbOGG2xDA75-M7mWwalEgNdZjDbMDw=.hash
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\HBraYKb0-grXyapJJDQK5dc6MXzXpfXMXNMdo1le5QM=.hash
-C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\-Y2kIS4alohSeQCBprCnZ3mExuigDm6P4STIPO02k_0=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\wKJEwNhaVfQjX_nnMRWFkC1ZQwyTi56mxqmqSvbpc0w=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\iTbbAKTeg3JWmxxSxy155DY1xEOSDDgeL4B_Uq7UC-Y=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\EhQsr_Hd85pDANnPf62w6BkTGi_FHfPBbhicuiqT2tM=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\WhrbCahblzMX9_ksc7SO7PXBKimeYZlB4XGPdALWFjI=.hash
+C:\Users\Kayla\Source\Repos\Studio37First_3\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\UWklivG3fa24z697bqr5O5SytuxBX4pcuZ8xsWuiWR0=.hash

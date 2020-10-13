@@ -15,47 +15,42 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">Title</label>
+            <label for="LiveShowTitle" class="col-sm-1 col-form-label">Live Show Title</label>
             <div class="col-sm-5">
-                <InputText id="f" class="form-control" placeholder="Last Name"
+                <InputText id="LiveShowTitle" class="form-control" placeholder="Title"
                            @bind-Value="newLiveShow.Title" />
             </div>
         </div>
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">Description</label>
+            <label for="LiveShowDescription" class="col-sm-1 col-form-label">Description</label>
             <div class="col-sm-5">
-                <InputText id="f" class="form-control" placeholder="Last Name"
+                <InputText id="LiveShowDescription" class="form-control" placeholder="Description"
                            @bind-Value="newLiveShow.Description" />
             </div>
         </div>
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">Start Time</label>
+            <label for="LiveShowStartTime" class="col-sm-1 col-form-label">Start Time</label>
             <div class="col-sm-5">
-                <InputDate id="f" class="form-control" placeholder="Last Name"
+                <InputDate id="LiveShowStartTime" class="form-control" placeholder="Start Time"
                            @bind-Value="newLiveShow.StartTime" />
             </div>
         </div>
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">End Time</label>
+            <label for="LiveShowEndTime" class="col-sm-1 col-form-label">End Time</label>
             <div class="col-sm-5">
-                <InputDate id="f" class="form-control" placeholder="Last Name"
+                <InputDate id="LiveShowEndTime" class="form-control" placeholder="End Time"
                            @bind-Value="newLiveShow.EndTime" />
             </div>
         </div>
         <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">End Time</label>
+            <label for="LiveShowCredits" class="col-sm-1 col-form-label">credits</label>
             <div class="col-sm-5">
-                <InputNumber id="f" class="form-control" placeholder="Last Name"
+                <InputNumber id="LiveShowCredits" class="form-control" placeholder="Credits"
                            @bind-Value="newLiveShow.PriceCredits" />
             </div>
         </div>
    
-        <button class="class=" btn btn-primary"" type="submit">Submit</button>
+        <button class="btn btn-light" type="submit">Submit</button>
 
     </EditForm>
 
