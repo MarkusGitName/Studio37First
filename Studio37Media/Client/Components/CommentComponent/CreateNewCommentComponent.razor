@@ -30,14 +30,13 @@
     Comment newComment = new Comment();
 
     [Parameter]
-    public Guid commentId { get; set; }
-    [Parameter]
     public Guid ObjectId { get; set; }
     [Parameter]
     public string ObjectType { get; set; }
     //This runs on form submit
     async void HandleFormSubmit()
     {
+        newComment.id = Guid.NewGuid();
         //post to profile controller
         await Http.PostAsJsonAsync<Comment>("Comment/NewComment", newComment);
 
@@ -46,44 +45,44 @@
         {
             ClassVideoComment newClassVideoComment = new ClassVideoComment();
             newClassVideoComment.ClassVideoID = ObjectId;
-            newClassVideoComment.CommentID = commentId;
-            
+            newClassVideoComment.CommentID = newComment.id;
+
             await Http.PostAsJsonAsync<ClassVideoComment>("ClassVideoComment/NewClassVideoComment", newClassVideoComment);
 
-        }   
+        }
         if (ObjectType == "Comment")
         {
-             CommentComment newCommentComment = new CommentComment();
+            CommentComment newCommentComment = new CommentComment();
             newCommentComment.oldComment = ObjectId;
-            newCommentComment.newComment = commentId;
+            newCommentComment.newComment = newComment.id;
 
-            
+
             await Http.PostAsJsonAsync<CommentComment>("CommentComment/NewCommentComment", newCommentComment);
-        }   
+        }
         if (ObjectType == "LiveShow")
         {
-            
+
             LiveShowComment newLiveShowComment = new LiveShowComment();
             newLiveShowComment.LiveShowID = ObjectId;
-            newLiveShowComment.CommentID = commentId;
-            
+            newLiveShowComment.CommentID = newComment.id;
+
             await Http.PostAsJsonAsync<LiveShowComment>("LiveShowComment/NewLiveShowComment", newLiveShowComment);
-        }  
+        }
         if (ObjectType == "Post")
         {
-             PostComment newPostComment = new PostComment();
+            PostComment newPostComment = new PostComment();
             newPostComment.PostID = ObjectId;
-            newPostComment.CommentID = commentId;
-            
+            newPostComment.CommentID = newComment.id;
+
             await Http.PostAsJsonAsync<PostComment>("PostComment/NewPostComment", newPostComment);
-        }  
+        }
         if (ObjectType == "Tutorial")
         {
-             TutorialComment newTutorialComment = new TutorialComment();
+            TutorialComment newTutorialComment = new TutorialComment();
             newTutorialComment.TutorialID = ObjectId;
-            newTutorialComment.CommentID = commentId;
+            newTutorialComment.CommentID = newComment.id;
 
-            
+
             await Http.PostAsJsonAsync<TutorialComment>("TutorialComment/NewTutorialComment", newTutorialComment);
         }
 
