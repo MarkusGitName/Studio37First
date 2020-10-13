@@ -5,14 +5,30 @@
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @using Studio37Media.Shared.ViewModels
 
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+
 @inject HttpClient Http
 
 
-
 <div>
-    <Studio37Media.Client.Components.PostComponents.CreatePostComponent/>
+    <Studio37Media.Client.Components.CattegoryComponents.CreateCategoryComponent />
+    <div height="50px" />
+    <Create
+
+    <Studio37Media.Client.Components.EventsComponents.CreateEventComponent />
 </div>
 
+
+@*display for users without profile*@
+@if (CurrentUser == null)
+{
+    <button href="/profile/create">Please Create a profile for the full Studio 37 experience</button>
+}
 
 @if (posts == null)
 {
@@ -29,6 +45,9 @@ else
 
 
 @code{
+    Profile CurrentUser = new Profile();
+    ProfesionallsProfile CurrentProfesional = new ProfesionallsProfile();
+
     List<Post> posts = new List<Post>();
 
 
@@ -36,7 +55,32 @@ else
     {
         try
         {
-          //  posts = await Http.GetFromJsonAsync<List<Post>>("Post");
+
+            //Load Current Users Profile
+            CurrentUser = await Http.GetFromJsonAsync<Profile>("Profile/GetProfiles");
+
+
+        }
+        catch
+        {
+            CurrentUser = null;
+        }
+        try
+        {
+
+            //Load Current Users profesional Profile
+            CurrentProfesional = await Http.GetFromJsonAsync<ProfesionallsProfile>("Profile/GetProfiles");
+
+
+        }
+        catch
+        {
+            CurrentProfesional = null;
+        }
+
+        try
+        {
+            //  posts = await Http.GetFromJsonAsync<List<Post>>("Post");
 
         }
         catch (AccessTokenNotAvailableException exception)
