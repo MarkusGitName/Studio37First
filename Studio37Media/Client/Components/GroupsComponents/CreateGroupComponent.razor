@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+
+<EditForm Model="@newGroup" OnValidSubmit="@HandleFormSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group row">
+        <label for="GroupName" class="col-sm-1 col-form-label">Group Name</label>
+        <div class="col-sm-5">
+            <InputText id="GroupName" class="form-control" placeholder="Group Name"
+                       @bind-Value="newGroup.Name" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="GroupDescription" class="col-sm-1 col-form-label">Group Description</label>
+        <div class="col-sm-5">
+            <InputText id="GroupDescription" class="form-control" placeholder="Group Description"
+                       @bind-Value="newGroup.Description" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="DateCreated" class="col-sm-1 col-form-label">Date Created</label>
+        <div class="col-sm-5">
+            <InputDate id="DateCreated" class="form-control" placeholder="Date Created"
+                       @bind-Value="newGroup.DateCreated" />
+        </div>
+    </div>
+
+    <button class="btn btn-light" type="submit">Submit</button>
+</EditForm>
+
+@*need to be able to add users to the group*@
+
+
+@code {
+    Group newGroup = new Group();
+
+
+    async void HandleFormSubmit()
+    {
+
+        // upload photos
+        //await Http.PostAsync("FileUpload", ThumbnailContent);
+
+        newGroup.id = Guid.NewGuid();
+        await Http.PostAsJsonAsync<Group>("Group/NewGroup", newGroup);
+    }
+}

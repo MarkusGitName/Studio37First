@@ -7,9 +7,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Components\GroupComponents\**" />
+    <Compile Remove="Components\LikeComponents\**" />
+    <Compile Remove="Components\MessageComponents\**" />
+    <Compile Remove="Components\NewFolder\**" />
+    <Compile Remove="Components\PaymentComponents\**" />
+    <Compile Remove="Components\PhootoComponents\**" />
     <Compile Remove="uploads\**" />
+    <Content Remove="Components\GroupComponents\**" />
+    <Content Remove="Components\LikeComponents\**" />
+    <Content Remove="Components\MessageComponents\**" />
+    <Content Remove="Components\NewFolder\**" />
+    <Content Remove="Components\PaymentComponents\**" />
+    <Content Remove="Components\PhootoComponents\**" />
     <Content Remove="uploads\**" />
+    <EmbeddedResource Remove="Components\GroupComponents\**" />
+    <EmbeddedResource Remove="Components\LikeComponents\**" />
+    <EmbeddedResource Remove="Components\MessageComponents\**" />
+    <EmbeddedResource Remove="Components\NewFolder\**" />
+    <EmbeddedResource Remove="Components\PaymentComponents\**" />
+    <EmbeddedResource Remove="Components\PhootoComponents\**" />
     <EmbeddedResource Remove="uploads\**" />
+    <None Remove="Components\GroupComponents\**" />
+    <None Remove="Components\LikeComponents\**" />
+    <None Remove="Components\MessageComponents\**" />
+    <None Remove="Components\NewFolder\**" />
+    <None Remove="Components\PaymentComponents\**" />
+    <None Remove="Components\PhootoComponents\**" />
     <None Remove="uploads\**" />
   </ItemGroup>
 
@@ -34,14 +58,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\GroupComponents\" />
-    <Folder Include="Components\LikeComponents\" />
     <Folder Include="Components\LiveShowComponents\" />
-    <Folder Include="Components\MessageComponents\" />
-    <Folder Include="Components\NewFolder\" />
     <Folder Include="Components\VideoComponents\" />
-    <Folder Include="Components\PhootoComponents\" />
-    <Folder Include="Components\PaymentComponents\" />
   </ItemGroup>
 
 </Project>
