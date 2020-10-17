@@ -71,7 +71,7 @@
     async void HandleFormSubmit()
     {
         await Http.PostAsync("FileUpload", LogoContex);
-        await Http.PostAsJsonAsync<ProfesionallsProfile>("ProfesionalProfile", newProfesionalprofile);
+        await Http.PostAsJsonAsync<ProfesionallsProfile>("ProfesionalProfile/GetProfesionalById/0", newProfesionalprofile);
   
 
 
