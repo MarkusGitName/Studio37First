@@ -16,11 +16,7 @@
 
 
 <div>
-    <Studio37Media.Client.Components.CattegoryComponents.CreateCategoryComponent />
-    <div height="50px" />
-    <Create
-
-    <Studio37Media.Client.Components.EventsComponents.CreateEventComponent />
+    <Studio37Media.Client.Components.ClassVideoComponents.CreateClassVideoComponent />
 </div>
 
 
@@ -29,19 +25,46 @@
 {
     <button href="/profile/create">Please Create a profile for the full Studio 37 experience</button>
 }
-
-@if (posts == null)
-{
-
-    <p><em>Loading...</em></p>
-}
 else
 {
-    foreach (Post post in posts)
+    <hi href="/profile/create">Welcome @CurrentUser.FirstName</hi>
+
+
+    @*Use this "if" staement to display something to profesional only*@
+    @if (CurrentProfesional != null)
+    {
+        
+    }
+
+    @if (posts == null)
     {
 
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        foreach (Post post in posts)
+        {
+            <div class="container col-3">
+                <div class="card my-2">
+                    <div class="embed-responsive mx-0 my-0 embed-responsive-16by9">
+                    </div>
+                    <div>
+                    </div>
+                    <div class="card-footer">
+                        <small><p class="text-muted">@post.Caption</p></small>
+                        <p>@post.Text</p>
+                        <small><p class="text-muted">@post.Caption</p></small>
+                        <p></p>
+                    </div>
+
+                </div>
+
+            </div>
+        }
     }
 }
+
 
 
 @code{
@@ -55,37 +78,47 @@ else
     {
         try
         {
+            Console.WriteLine("Starts Try{}");
 
             //Load Current Users Profile
-            CurrentUser = await Http.GetFromJsonAsync<Profile>("Profile/GetProfiles");
+            CurrentUser = await Http.GetFromJsonAsync<Profile>("Profile/GetProfileById/0");
+            
 
-
+            
+            Console.WriteLine("Successfull");
+            
         }
-        catch
+        catch(Exception ex)
         {
             CurrentUser = null;
+            Console.WriteLine("exception-----------"+ex.Message);
         }
         try
         {
-
+            
+            Console.WriteLine("Starts Try{}");
             //Load Current Users profesional Profile
-            CurrentProfesional = await Http.GetFromJsonAsync<ProfesionallsProfile>("Profile/GetProfiles");
-
+            CurrentProfesional = await Http.GetFromJsonAsync<ProfesionallsProfile>("ProfessionalProfile/GetProfessionalProfileById/0");
+            
+            Console.WriteLine("Successfull");
 
         }
-        catch
+        catch(Exception ex)
         {
             CurrentProfesional = null;
+            
+            Console.WriteLine("exception-----------"+ex.Message);
         }
 
         try
         {
-            //  posts = await Http.GetFromJsonAsync<List<Post>>("Post");
+            posts = await Http.GetFromJsonAsync<List<Post>>("Post/GetPosts");
 
         }
-        catch (AccessTokenNotAvailableException exception)
+        catch (Exception ex)
         {
-            exception.Redirect();
+            
+            Console.WriteLine("exception-----------"+ex.Message);
         }
     }
 }

@@ -692,7 +692,6 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclar
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\CommentComponent\ListOfCommentsComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\CreateNewLiveShowComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\EventsComponents\CreateEventComponent.razor.g.cs
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\FetchData.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\Index.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\LiveShowComponents\CreateNewLiveShowComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\PostComponents\CreatePostComponent.razor.g.cs
@@ -730,7 +729,6 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Compo
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\CommentComponent\ListOfCommentsComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\CreateNewLiveShowComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\EventsComponents\CreateEventComponent.razor.g.cs
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\FetchData.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\Index.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\LiveShowComponents\CreateNewLiveShowComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\PostComponents\CreatePostComponent.razor.g.cs
@@ -957,9 +955,10 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Med
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.pdb
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\EsYglGIIC8oz_PuCtYurMEzuEaQIVj5OUIvLBjAGzmk=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\YOShX8POxmhB0JDCvGjupf8ktcC71m5clsi0bjB-6G4=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\EBiEmyY22OEDnWPthqQP2MsRXhP8rr4-5tz1X3T1NQc=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\KssTBbruZDa2tRmru-KHGNYj27MBRdKLvXsiqRBcr7k=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\PYYwjSrD78AJygCeI-xn_kX9PRtyyyTxXbDFLOUwNGE=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\18DVrTiZfz-X9h62FkAgpBI5vfK6aWYLASswwRMgn8Y=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\YcqovQGpaaJ5ycGOeyvn0SzMKuhLRdJy0qxUcu7f5eE=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\O4KM51rUG-DzCt7h28oxjx6hgg98wksQhYfbW2bbhWo=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\J0dGyoZro0iX9nFyVRuij2QDPSkb7ULtynS7BZeRVV0=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\dzzBzvRt1zjYyhVEUTuJEOgq9uZ_XtObeDuS9eWmz9k=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\UKt1U_na9Ja8OzxkbctOEleqnKjvU1rfLOuIXzkR354=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\GDgLMwdnFKOyGsrPXcmEHcSteR0aZOZ1rdJtNjIlHfQ=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\3X2OfE9qZLIqiwpE2qAE61QwEKtGpZ2BeEFBo-TQm0I=.hash
