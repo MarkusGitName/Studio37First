@@ -44,7 +44,7 @@ else
     {
         try
         {
-            profiles = await Http.GetFromJsonAsync<Profile[]>("WeatherForecast");
+            profiles = await Http.GetFromJsonAsync<Profile[]>("");
             //await Http.PostAsJsonAsync(); 
             //<Profile>("Profile");
         }
