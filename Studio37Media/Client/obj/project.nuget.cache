@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TuzQ4bIpw89mfD2LW/Ep6TbxIZ2fjxEH2PTdLfnhsrDTo7kN6NbUfFUpusftnNA0UiLRSa1eg61kDnH3vpa7RA==",
+  "dgSpecHash": "A2/4qyUPPlu5MoMCJn7loQunS79bphpXLl1RNJ+iVAErnUJ/awCOizA2WYmjOCTgcBezMVm4z4zq/INodkvbxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First4\\Studio37Media\\Client\\Studio37Media.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kayla\\.nuget\\packages\\blazor.extensions.storage\\1.0.0\\blazor.extensions.storage.1.0.0.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\blazorinputfile\\0.2.0\\blazorinputfile.0.2.0.nupkg.sha512",

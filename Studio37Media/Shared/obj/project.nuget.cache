@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SPBkSoIUN3AGDNZDGgMQAkk2FjIN4Zq2de6tbeCZkc4KQMUbFI0uEoEvGcxjkv+iwrpxrCmgD3MHTCjIQbKvug==",
+  "dgSpecHash": "C2RNbq/wxH0kf/gEgiYwLO5IXBWLR9O9aACnJfHk5LMthoArvQwwqKXzgYTz+yIaw/GhIokrI2m0l95Eymt4iA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First4\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kayla\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],

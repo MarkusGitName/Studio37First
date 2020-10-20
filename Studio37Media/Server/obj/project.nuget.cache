@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QR2xowEtCLCOiYAVYXkyjQ7BGOwYEM3PA0/G68YSxFtauRpYcVBIbsaGesg+jxllVuPpqk/SVf3/wjYq8wwakg==",
+  "dgSpecHash": "iNf5zP+tgn1jrKGoqqKzlduzMEvfMkHVEINrxKYnQqjB8sKplGiJRSCI/r6NpmJZFY1xASO+JPFKPw0APGxeMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_3\\Studio37Media\\Server\\Studio37Media.Server.csproj",
+  "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First4\\Studio37Media\\Server\\Studio37Media.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kayla\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\blazor.extensions.storage\\1.0.0\\blazor.extensions.storage.1.0.0.nupkg.sha512",
