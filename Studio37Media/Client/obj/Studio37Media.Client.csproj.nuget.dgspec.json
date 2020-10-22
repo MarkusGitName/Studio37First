@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj": {}
+    "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\Studio37Media.Client.csproj": {}
   },
   "projects": {
-    "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj": {
+    "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\Studio37Media.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+        "projectUniqueName": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\Studio37Media.Client.csproj",
         "projectName": "Studio37Media.Client",
-        "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+        "packagesPath": "C:\\Users\\Kayla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Kayla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -31,8 +27,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
-                "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj"
+              "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
+                "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj"
               }
             }
           }
@@ -100,26 +96,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
+    "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
         "projectName": "Studio37Media.Shared",
-        "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\obj\\",
+        "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+        "packagesPath": "C:\\Users\\Kayla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Kayla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.1"
@@ -162,7 +154,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

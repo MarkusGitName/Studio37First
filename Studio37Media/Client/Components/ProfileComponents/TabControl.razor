@@ -1,10 +1,10 @@
 ﻿
 <CascadingValue Value="this">
-    <div class="btn-group" role="group">
+    <div class="btn-group btn-block btn-light my-2" role="group">
         @foreach (TabPage tabPage in Pages)
         {
             <button type="button"
-                    class="btn @GetButtonClass(tabPage)"
+                    class="btn @GetButtonClass(tabPage) font-weight-bold text-muted"
                     @onclick=@( () => ActivatePage(tabPage) )>
                 @tabPage.Text
             </button>
@@ -29,7 +29,7 @@
 
     string GetButtonClass(TabPage page)
     {
-      return page == ActivePage ? "btn-primary" : "btn-secondary";
+      return page == ActivePage ? "btn-outline-secondary" : "btn-light";
     }
     void ActivatePage(TabPage page)
     {
