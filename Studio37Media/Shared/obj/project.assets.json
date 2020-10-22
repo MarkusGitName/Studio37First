@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First4\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+      "projectUniqueName": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
       "projectName": "Studio37Media.Shared",
-      "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First4\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
+      "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj",
       "packagesPath": "C:\\Users\\Kayla\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First4\\Studio37Media\\Shared\\obj\\",
+      "outputPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kayla\\AppData\\Roaming\\NuGet\\NuGet.Config",
