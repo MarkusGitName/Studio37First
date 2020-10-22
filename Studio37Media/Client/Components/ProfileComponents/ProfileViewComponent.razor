@@ -7,21 +7,37 @@
 <!-- Header info -->
 <div class="container-fluid my-4">
     <div class="row">
-        <div class="clearfix col-4">
-            <img src="300px-Leonardo_DiCaprio_Laughing.jpg" class="img-fluid rounded-circle px-4 float-right" alt="Haha">
-        </div>
-        <div class="col-4">
-            <div class="row">
-                <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">followers</a></h2>
-                <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">following</a></h2>
+        @if (profile == null)
+        {
+            <p>
+                Loading...
+            </p>
+        }
+        else
+        {
+
+            <div class="clearfix col-4">
+                @try
+                {
+                    <img src="@profile.ProfilePhoto" class="img-fluid rounded-circle px-4 float-right" alt="Haha">
+                }
+                catch { }
             </div>
-            <h4 class="pl-5">name</h4>
-            <h6 class="pl-5">Description</h6>
-            <h6 class="pl-5">website link</h6>
-        </div>
-        <div class="clearfix col-4">
-            <button class="btn btn-outline-secondary mx-5 my-5 w-25" href="#">Edit Profile</button>
-        </div>
+            <div class="col-4">
+                <div class="row">
+                    <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">followers</a>@profile.Profiles.Count</h2>
+                    <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">following</a>@profile.Profile1.Count</h2>
+                </div>
+                <h4 class="pl-5">@profile.FirstName ,@profile.LastName</h4>
+                <h6 class="pl-5">@profile.Bio.</h6>
+                <h6 class="pl-5">@profile.Website</h6>
+
+            </div>
+            <div class="clearfix col-4">
+                <button class="btn btn-outline-secondary mx-5 my-5 w-25" href="#">Edit Profile</button>
+            </div>
+        }
+
     </div>
 </div>
 
@@ -48,7 +64,7 @@
 
 
 @code {
-    private Profile[] profiles;
+    private Profile profile;
 
     public string view = "TimeLine";
 
@@ -57,7 +73,7 @@
     {
         try
         {
-            //profiles = await Http.GetFromJsonAsync<Profile[]>("");
+            profile = await Http.GetFromJsonAsync<Profile>("Profile/GetProfileById/0");
             //await Http.PostAsJsonAsync();
             //<Profile>("Profile");
         }

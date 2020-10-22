@@ -2019,20 +2019,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kayla\\.nuget\\packages\\": {}
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+      "projectUniqueName": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj",
       "projectName": "Studio37Media.Client",
-      "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\Studio37Media.Client.csproj",
-      "packagesPath": "C:\\Users\\Kayla\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Client\\obj\\",
+      "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\Studio37Media.Client.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Kayla\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netstandard2.1"
@@ -2044,8 +2049,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
-              "projectPath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Shared\\Studio37Media.Shared.csproj"
+            "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj": {
+              "projectPath": "D:\\WorkingVersionsRepo\\Studio37Media\\Shared\\Studio37Media.Shared.csproj"
             }
           }
         }
@@ -2113,7 +2118,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
