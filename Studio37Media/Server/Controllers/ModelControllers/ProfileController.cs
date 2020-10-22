@@ -39,7 +39,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         /// <returns></returns>
         [HttpGet("{apiname}/{id}", Name = "GetProfileById")]
         public Profile Get(string id)
-        {
+       {
             if(id == "0")
             {
                  id = User.FindFirstValue(ClaimTypes.NameIdentifier);
