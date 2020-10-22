@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -8,7 +9,7 @@ using Studio37Media.Shared.ViewModels;
 
 namespace Studio37Media.Server.Controllers.ModelControllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class PostController : ControllerBase
     {
@@ -18,6 +19,13 @@ namespace Studio37Media.Server.Controllers.ModelControllers
             Model.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             Post ReturnPost = APILibrary.APIPost<Post>(Model, "Posts");
             return ReturnPost;
+        }
+       [HttpGet("{apiname}", Name = "GetPosts")]
+        public List<Post> Get()
+
+        {
+            List<Post> ReturnPosts = APILibrary.APIGetALL<List<Post>>("Posts");
+            return ReturnPosts;
         }
 
     }

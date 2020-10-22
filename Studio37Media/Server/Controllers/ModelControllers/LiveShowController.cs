@@ -10,7 +10,7 @@ using Studio37Media.Shared.ViewModels;
 
 namespace Studio37Media.Server.Controllers.ModelControllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class LiveShowController : ControllerBase
     {

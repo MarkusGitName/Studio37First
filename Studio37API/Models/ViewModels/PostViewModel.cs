@@ -18,51 +18,73 @@ namespace Studio37API.Models.ViewModels
             Text = incomingPost.Text;
             Date = incomingPost.Date;
 
-            foreach(PostCattegory incomingPostCattegories in incomingPost.PostCattegories)
+            List<PostCattegoryViewModel> newPostCattegoryViewModelList = new List<PostCattegoryViewModel>();
+            foreach (PostCattegory incomingPostCattegories in incomingPost.PostCattegories)
             {
-                PostCattegories.Add(new PostCattegoryViewModel(incomingPostCattegories));
+                newPostCattegoryViewModelList.Add(new PostCattegoryViewModel(incomingPostCattegories));
             }
+            PostCattegories = newPostCattegoryViewModelList;
 
-            foreach(PostComment incomingPostComments in incomingPost.PostComments)
+            List<PostCommentViewModel> newPostCommentViewModelList = new List<PostCommentViewModel>();
+            foreach (PostComment incomingPostComments in incomingPost.PostComments)
             {
-                PostComments.Add(new PostCommentViewModel(incomingPostComments));
+                newPostCommentViewModelList.Add(new PostCommentViewModel(incomingPostComments));
             }
+            PostComments = newPostCommentViewModelList;
 
-            foreach(PostEvent incomingPostEvents in incomingPost.PostEvents)
+
+            List<PostEventViewModel> newPostEventViewModelList = new List<PostEventViewModel>();
+            foreach (PostEvent incomingPostEvents in incomingPost.PostEvents)
             {
-                PostEvents.Add(new PostEventViewModel(incomingPostEvents));
+                newPostEventViewModelList.Add(new PostEventViewModel(incomingPostEvents));
             }
+            PostEvents = newPostEventViewModelList;
 
-            foreach(PostLiveShow incomingPostLiveShows in incomingPost.PostLiveShows)
+
+            List<PostLiveShowViewModel> newPostLiveShowList = new List<PostLiveShowViewModel>();
+            foreach (PostLiveShow incomingPostLiveShows in incomingPost.PostLiveShows)
             {
-                PostLiveShows.Add(new PostLiveShowViewModel(incomingPostLiveShows));
-            }
+                newPostLiveShowList.Add(new PostLiveShowViewModel(incomingPostLiveShows));
+            }PostLiveShows = newPostLiveShowList;
 
-            foreach(PostPhoto incomingPostPhotos in incomingPost.PostPhotos)
+
+
+            List<PostPhotoViewModel> newPostPhotoViewModelList = new List<PostPhotoViewModel>();
+            foreach (PostPhoto incomingPostPhotos in incomingPost.PostPhotos)
             {
-                PostPhotos.Add(new PostPhotoViewModel(incomingPostPhotos));
+                newPostPhotoViewModelList.Add(new PostPhotoViewModel(incomingPostPhotos));
             }
+            PostPhotos = newPostPhotoViewModelList;
 
-            foreach(PostTutorial incomingPostTutorials in incomingPost.PostTutorials)
+            List<PostTutorialViewModel> newPostTutorialViewModelList = new List<PostTutorialViewModel>();
+            foreach (PostTutorial incomingPostTutorials in incomingPost.PostTutorials)
             {
-                PostTutorials.Add(new PostTutorialViewModel(incomingPostTutorials));
+                newPostTutorialViewModelList.Add(new PostTutorialViewModel(incomingPostTutorials));
             }
+            PostTutorials = newPostTutorialViewModelList;
 
-            foreach(PostVideo incomingPostVideos in incomingPost.PostVideos)
+            List<PostVideoViewModel> newPostVideoViewModelList = new List<PostVideoViewModel>();
+            foreach (PostVideo incomingPostVideos in incomingPost.PostVideos)
             {
-                PostVideos.Add(new PostVideoViewModel(incomingPostVideos));
+                newPostVideoViewModelList.Add(new PostVideoViewModel(incomingPostVideos));
             }
+            PostVideos = newPostVideoViewModelList;
 
-            foreach(Share  incomingShares in incomingPost.Shares)
+
+            List<ShareViewModel> newShareViewModelList = new List<ShareViewModel>();
+            foreach (Share  incomingShares in incomingPost.Shares)
             {
-                Shares.Add(new ShareViewModel(incomingShares));
+                newShareViewModelList.Add(new ShareViewModel(incomingShares));
             }
+            Shares = newShareViewModelList;
 
-            foreach(Like incomingLikes in incomingPost.Likes)
+
+            List<LikeViewModel> newLikeViewModellList = new List<LikeViewModel>();
+            foreach (Like incomingLikes in incomingPost.Likes)
             {
-                Likes.Add(new LikeViewModel(incomingLikes));
+                newLikeViewModellList.Add(new LikeViewModel(incomingLikes));
             }
-
+            Likes = newLikeViewModellList;
         }
 
         public Guid id { get; set; }

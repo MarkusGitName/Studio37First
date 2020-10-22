@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/xXi0oDYb4KirzisbstsAA1+IRfzq4+69DVb8ZSES376QGYN9zAOGxEPVQgU/EBy0m1k/A3lJMPn/a688QJOhg==",
+  "dgSpecHash": "/cehvGUKhxh9QlmNkI7rotM2eGrKEBgGjd/Ek+lEPWr0YcKAjdXzMJWDabYfSaY1uLudm6UFSqYHU89BlItiUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kayla\\Source\\Repos\\Studio37First_5\\Studio37Media\\Server\\Studio37Media.Server.csproj",
   "expectedPackageFiles": [
@@ -94,6 +94,7 @@
     "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.9.10\\microsoft.visualstudio.azure.containers.tools.targets.1.9.10.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.4\\microsoft.visualstudio.web.codegeneration.3.1.4.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.4\\microsoft.visualstudio.web.codegeneration.contracts.3.1.4.nupkg.sha512",
     "C:\\Users\\Kayla\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.4\\microsoft.visualstudio.web.codegeneration.core.3.1.4.nupkg.sha512",

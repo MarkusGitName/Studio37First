@@ -13,6 +13,7 @@ namespace Studio37API.Models.DataBaseMdels
         public Post()
         {
             PostCattegories = new HashSet<PostCattegory>();
+            PostClassVideos = new HashSet<PostClassVideo>();
             PostComments = new HashSet<PostComment>();
             PostEvents = new HashSet<PostEvent>();
             PostLiveShows = new HashSet<PostLiveShow>();
@@ -41,6 +42,9 @@ namespace Studio37API.Models.DataBaseMdels
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostCattegory> PostCattegories { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PostClassVideo> PostClassVideos { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PostComment> PostComments { get; set; }

@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Authorize]
-    [ApiController]
     [Route("[controller]")]
-    public class ProfileController : ControllerBase
+    [ApiController]
+    public class ProfileController :  ControllerBase
     {
 
         private readonly ILogger<ProfileController> logger;
@@ -39,11 +39,16 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         /// <returns></returns>
         [HttpGet("{apiname}/{id}", Name = "GetProfileById")]
         public Profile Get(string id)
-        {
-
+       {
+            if(id == "0")
+            {
+                 id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            }
             Profile profiles = APILibrary.APIGet<Profile>(id,"Profiles");
             return profiles;
         }
+       
+
         /// <summary>
         /// 
         /// </summary>

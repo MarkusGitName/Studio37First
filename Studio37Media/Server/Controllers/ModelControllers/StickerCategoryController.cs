@@ -11,7 +11,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StickerCategoryController : ControllerBase
+    public class NewUserCategoryController : ControllerBase
     {
         [HttpPost("{apiname}", Name = "NewStickerCategory")]
         public StickerCattegory Post(StickerCattegory Model)

@@ -8,18 +8,31 @@
 @using System.IO.MemoryMappedFiles
 
 @inject HttpClient Http
-    <EditForm Model="@newPostCattegory" OnValidSubmit="@HandleFormSubmit">
+
+<div>
+Sellect PostCategory component
+</div> 
+
+   <EditForm Model="@categoryId" OnValidSubmit="@HandleFormSubmit">
         <DataAnnotationsValidator />
         <ValidationSummary />
+       @foreach (Category category in CategoryList) 
+       { 
+           <div>@category.Category1   </div>
+           <div>@category.SubCategory   </div>
+           <button onclick=""></button>
+       }
 
         <div class="form-group row">
             <label for="f" class="col-sm-1 col-form-label">category</label>
             <div class="col-sm-5">
                 <InputSelect id="Category" class="form-control"
-                             @bind-Value="sellectedCategory">
+                             @bind-Value="categoryId">
                     @foreach (Category cataegory in CategoryList)
                     {
-                    <option>@cataegory</option>
+                        <h4>@cataegory.Category1  @cataegory.SubCategory</h4>
+                   
+                        <option>@cataegory.id</option>
                     }
                     </InputSelect>
             </div>
@@ -34,23 +47,70 @@
     //This code runs on component load
     protected override async Task OnInitializedAsync()
     {
-        CategoryList = await Http.GetFromJsonAsync<List<Category>>("Cattegory/NewCategory");
+        Console.WriteLine("component Load Started");
+        CategoryList = await Http.GetFromJsonAsync<List<Category>>("Cattegory/GetCategory");
     }
 
     [Parameter]
-    public Guid postId { get; set; }
-    PostCattegory newPostCattegory = new PostCattegory();
-    Category sellectedCategory = new Category();
+    public Guid ObjectID { get; set; }
+    [Parameter]
+    public string ObjectType { get; set; }
+
+    Guid categoryId;
+
 
     //This runs on form submit
-    async void HandleFormSubmit() {
+    async void HandleFormSubmit()
+    {
+        if (ObjectType == "Post")
+        {
 
-        newPostCattegory.PostID = postId;
-        newPostCattegory.CategoryID = sellectedCategory.id.ToString();
+            PostCattegory newPostCattegory = new PostCattegory();
+            newPostCattegory.CategoryID = categoryId;
+            newPostCattegory.PostID = ObjectID;
+            await Http.PostAsJsonAsync<PostCattegory>("PostCattegory/NewPostCategory", newPostCattegory);
+        }
 
-        
-        await Http.PostAsJsonAsync<PostCattegory>("Cattegory/NewPostCategory", newPostCattegory);
+        if (ObjectType == "ClassVideo")
+        {
+            ClassVideoCattegory newClassVideoCattegory = new ClassVideoCattegory();
+            newClassVideoCattegory.CattegoryID = categoryId;
+            newClassVideoCattegory.ClassVideoID = ObjectID;
+            await Http.PostAsJsonAsync<ClassVideoCattegory>("ClassVideoCattegory/NewClassVideoCategory", newClassVideoCattegory);
+        }
 
+        if (ObjectType == "LiveShow")
+        {
+            LiveShowCattegory newLiveShowCattegory = new LiveShowCattegory();
+            newLiveShowCattegory.CattegoryID = categoryId;
+            newLiveShowCattegory.LiveShowID = ObjectID;
+            await Http.PostAsJsonAsync<LiveShowCattegory>("LiveShowCattegory/NewLiveShowCategory", newLiveShowCattegory);
+        }
+
+        if (ObjectType == "Sticker")
+        {
+            StickerCattegory newStickerCattegory = new StickerCattegory();
+            newStickerCattegory.CategoryID = categoryId;
+            newStickerCattegory.StickeID = ObjectID;
+            await Http.PostAsJsonAsync<StickerCattegory>("NewUserCategory/NewStickerCategory", newStickerCattegory);
+        }
+
+        if (ObjectType == "Tutorial")
+        {
+            TutorialCattegory newTutorialCattegory = new TutorialCattegory();
+            newTutorialCattegory.CattegoryID = categoryId;
+            newTutorialCattegory.TutorialID = ObjectID;
+            await Http.PostAsJsonAsync<TutorialCattegory>("TutorialCategory/NewTutorialCategory", newTutorialCattegory);
+        }
+
+        if (ObjectType == "User")
+        {
+
+            UserCattegory newUserCattegory = new UserCattegory();
+            newUserCattegory.CattegorryID = categoryId;
+            newUserCattegory.UserID = ObjectID.ToString();
+            await Http.PostAsJsonAsync<UserCattegory>("UserCategory/NewUserCategory", newUserCattegory);
+        }
 
     }
 

@@ -54,6 +54,13 @@ namespace Studio37API.Models.ViewModels
                 newTutorialClass.Add(new TutorialClassViewModel(incomingTutorialClasses));
             }
             TutorialClasses = newTutorialClass;
+            
+            List<PostClassVideo> newPostClassVideo = new List<PostClassVideo>();
+            foreach (TutorialClass incomingTutorialClasses in incomingClassVideo.TutorialClasses)
+            {
+                newTutorialClass.Add(new TutorialClassViewModel(incomingTutorialClasses));
+            }
+            TutorialClasses = newTutorialClass;
         }
 
         public Guid id { get; set; }
@@ -83,8 +90,11 @@ namespace Studio37API.Models.ViewModels
 
         public virtual List<ClassRatingViewModel> ClassRatings { get; set; }
 
-         public virtual List<ClassVideoCattegoryViewModel> ClassVideoCattegories { get; set; }
+        public virtual List<ClassVideoCattegoryViewModel> ClassVideoCattegories { get; set; }
 
+
+        public virtual List<PostClassVideo> PostClassVideo { get; set; }
+        
         public virtual List<ClassVideoCommentViewModel> ClassVideoComments { get; set; }
 
         public virtual List<ClassVideoSaleViewModel> ClassVideoSales { get; set; }

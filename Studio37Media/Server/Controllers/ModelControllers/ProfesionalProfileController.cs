@@ -31,7 +31,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
         }
 
         // GET: api/Profesional/5
-        [HttpGet("{apiname}/{id}", Name = "GetProfesionalById/")]
+        [HttpGet("{apiname}/{id}", Name = "GetProfesionalById")]
         public ProfesionallsProfile Get(string id)
         {
             if (id == "0")

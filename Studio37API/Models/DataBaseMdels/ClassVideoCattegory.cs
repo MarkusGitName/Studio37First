@@ -9,7 +9,6 @@ namespace Studio37API.Models.DataBaseMdels
     [Table("ClassVideoCattegory")]
     public partial class ClassVideoCattegory
     {
-       
         public Guid ClassVideoID { get; set; }
 
         public Guid CattegoryID { get; set; }
