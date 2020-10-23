@@ -955,8 +955,6 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Med
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Studio37Media.Client.pdb
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\serviceworkers\wwwroot\service-worker.js
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\blazor\service-worker-assets.js
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\YcqovQGpaaJ5ycGOeyvn0SzMKuhLRdJy0qxUcu7f5eE=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\O4KM51rUG-DzCt7h28oxjx6hgg98wksQhYfbW2bbhWo=.hash
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\ProfileComponents\ConsistentProfileElementsComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\ProfileComponents\ProfileTimelineComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\ProfileComponents\ProfileTutorialsComponent.razor.g.cs
@@ -969,11 +967,6 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclar
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\ProfileComponents\TabPage.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\ProfileComponents\TabControl.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\ProfileComponents\TabPage.razor.g.cs
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\KgxvWfNuLyYWsj86Shc5lgiAroyya3pveKw6ORsQGYA=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\8ZOW8aEks5QGWk-u3f1BYlzDSfttt91YtxuKaBYwm_o=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\jTKK-y7T1Oa3Z-dXxBGH3LsMZc4dwXd8-xbX-5H-f-I=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\pgXrMAnnsQ6g1Q_ZBFKkixnovsI4cfE4HRDADXPpxaY=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\t1KO07UGCk6ztfmH4nAohaBj_dAg6qF140RDwBEnpVw=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\bin\Debug\netstandard2.1\Properties\launchSettings.json
 C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\bin\Debug\netstandard2.1\Studio37Media.Client.StaticWebAssets.xml
 C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\bin\Debug\netstandard2.1\Studio37Media.Client.dll
@@ -1470,3 +1463,10 @@ C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\obj\Debug\netst
 C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\c2wIcFcDYoktPlTRShCCJgjWkmEOQShlbrI5YQIsaRs=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\ONYgTi8TXHWson9Dr51LQ5ccwnAIeFsHUDdpOhlRWRc=.hash
 C:\Users\Kayla\Source\Repos\Studio37First_5\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\C_FqHX0jiujyohmKqIk2wg_qZ4rgafLSLsxyy9Vdp40=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\YcqovQGpaaJ5ycGOeyvn0SzMKuhLRdJy0qxUcu7f5eE=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\O4KM51rUG-DzCt7h28oxjx6hgg98wksQhYfbW2bbhWo=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\FZrKgjBF2oT7iyawGRqEoe9avBqgZQ7PQLHwsh9sSjA=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\b6dp_wH1mxCD1YfqVKideq-7jkcfUdG7xRsfyC7QXMA=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\wqcsIt6z3y416CHR9RHIdU5coGBktItB3ADeqOT5MlE=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\9s5YrbVb9soffnj94IQ9xKwakVEHpVPd3q2P_l8h7LY=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\60fyq917ZmPfAZpwrjAl1-nXuOhwON6xr29r008X5iE=.hash

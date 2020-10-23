@@ -16,10 +16,21 @@
                     <h4 class="modal-title">Create a Post</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+
                 <div class="modal-body">
-                    <button type="button" class="btn btn-info w-25 mx-3" data-toggle="modal" data-target="#textPostModal">Text Post</button>
+                    <div class="modal-header border-0">
+                        <h4 class="modal-title">Text Post</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="textPost" placeholder="Write post..."></textarea>
+                        </div>
+                    </div>
                     <button type="button" class="btn btn-success w-25 mx-3" data-toggle="modal" data-target="#photoPostModal">Picture</button>
                     <button tupe="button" class="btn btn-warning w-25 mx-3" data-toggle="modal" data-target="#videoPostModal">Video Clip</button>
+
+                    <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
                 </div>
             </div>
 
