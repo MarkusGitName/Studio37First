@@ -73,7 +73,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-b6dp+wH1mxCD1YfqVKideq\/7jkcfUdG7xRsfyC7QXMA=",
+      "hash": "sha256-Udb9kHOAYuVO3GCwAFEhdQJ3erSmLc4Tk\/KAhbnSrJY=",
       "url": "_framework\/_bin\/Studio37Media.Client.dll"
     },
     {
@@ -249,7 +249,7 @@
       "url": "_framework\/_bin\/System.ComponentModel.DataAnnotations.dll"
     },
     {
-      "hash": "sha256-YcqovQGpaaJ5ycGOeyvn0SzMKuhLRdJy0qxUcu7f5eE=",
+      "hash": "sha256-NLuX\/HYiKZrxjEC8ltVUtYtVhzxESJxmmOBvjPsaSWo=",
       "url": "_framework\/_bin\/Studio37Media.Shared.dll"
     },
     {
@@ -313,11 +313,11 @@
       "url": "_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll"
     },
     {
-      "hash": "sha256-wqcsIt6z3y416CHR9RHIdU5coGBktItB3ADeqOT5MlE=",
+      "hash": "sha256-7yC8UyLo0HADwUe9qkfdFlB1mce1B5+2n5Z+ZoghKvU=",
       "url": "_framework\/_bin\/Studio37Media.Client.pdb"
     },
     {
-      "hash": "sha256-O4KM51rUG\/DzCt7h28oxjx6hgg98wksQhYfbW2bbhWo=",
+      "hash": "sha256-JDp8gAJqFqA8GPRi1\/YskzaB7MjBUauYfgw1K0VwusI=",
       "url": "_framework\/_bin\/Studio37Media.Shared.pdb"
     },
     {
@@ -337,9 +337,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-9s5YrbVb9soffnj94IQ9xKwakVEHpVPd3q2P+l8h7LY=",
+      "hash": "sha256-QYhip+6B2i+hLDWyrJ+55N1Y8C9GOGj2+Tqf7GtuIn8=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "k51\/xQMu"
+  "version": "J168akWl"
 };

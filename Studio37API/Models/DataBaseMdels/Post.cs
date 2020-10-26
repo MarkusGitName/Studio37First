@@ -30,10 +30,6 @@ namespace Studio37API.Models.DataBaseMdels
         [StringLength(450)]
         public string UserId { get; set; }
 
-        [Required]
-        [StringLength(450)]
-        public string Caption { get; set; }
-
         [Column(TypeName = "text")]
         [Required]
         public string Text { get; set; }

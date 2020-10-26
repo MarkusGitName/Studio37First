@@ -15,6 +15,7 @@ namespace Studio37API.Models.DataBaseMdels
 
         public Guid VideoID { get; set; }
 
+
         public virtual Post Post { get; set; }
 
         public virtual Video Video { get; set; }

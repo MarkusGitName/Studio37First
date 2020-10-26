@@ -10,43 +10,82 @@
 
 @attribute [Authorize]
 @inject HttpClient Http
+<!--Create post Modal & Open Modal button-->
+<div calss="conatiner my-4">
+    <button class="btn btn-block font-weight-bold text-muted" data-toggle="modal" data-target="#selectPostType">
+        <span class="oi oi-plus"></span>
+        New Post
+    </button>
+</div>
 
-    <EditForm Model="@newPost" OnValidSubmit="@HandleFormSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-        <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">Write something</label>
-            <div class="col-sm-5">
-                <InputText id="f" class="form-control" placeholder="Last Name"
-                           @bind-Value="newPost.Text" />
+
+<EditForm Model="@newPost" OnValidSubmit="@HandleFormSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="modal" id="selectPostType">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title">Create a Post</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                  
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="textPost" placeholder="Write post..."></textarea>
+                            <InputTextArea id="textPost" rows="5" class="form-control" placeholder="Write post..."
+                                           @bind-Value="newPost.Text" />
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-success w-25 mx-3" data-toggle="modal" data-target="#photoPostModal" onclick="NewPhotoGuid">Picture</button>
+                    <button tupe="button" class="btn btn-warning w-25 mx-3" data-toggle="modal" data-target="#videoPostModal">Video Clip</button>
+
+                    <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+                </div>
+
+                <Studio37Media.Client.Components.CattegoryComponents.SellectCategoryComponent ObjectID="newPost.id" ObjectType="Post" />
+            </div>
+
+        </div>
+    </div>
+</EditForm>
+
+
+<Studio37Media.Client.Components.PhotoComponents.CreateNewPhotoComponent PhotoId="PhotoId"/>
+
+    <div class="modal" id="videoPostModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title">Video Clip</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="custom-file my-2" id="customFile2" lang="es">
+                            <input type="file" class="custom-file-input" id="videoPost" aria-describedby="fileHelp">
+                            <div class="col-sm-5">
+                                <InputFile OnChange="PostVideoSelection" />
+                            </div>
+                            <p>@PostVideoStats</p>
+                            <label class="custom-file-label" for="videoPost">
+                                Select file...
+                            </label>
+                        </div>
+                        <InputTextArea class="form-control my-2" rows="5" id="caption" placeholder="caption"></InputTextArea>
+                    </div>
+                    <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+                </div>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="f" class="col-sm-1 col-form-label"></label>
-            <label for="f" class="col-sm-1 col-form-label">Caption</label>
-            <div class="col-sm-5">
-                <InputText id="f" class="form-control" placeholder="Last Name"
-                           @bind-Value="newPost.Caption" />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="ProfilePhoto" class="col-sm-1 col-form-label">Profile Photo</label>
-            <div class="col-sm-5">
-                <InputFile OnChange="PostPhotoSelection" />
-            </div>
-            <p>@PostPhotoStats</p>
-        </div>
-        <div class="form-group row">
-            <label for="ProfileVideo" class="col-sm-1 col-form-label">Profile Video</label>
-            <div class="col-sm-5">
-                <InputFile OnChange="PostVideoSelection" />
-            </div>
-            <p>@PostVideoStats</p>
-        </div>
-        <Studio37Media.Client.Components.CattegoryComponents.SellectCategoryComponent ObjectID="newPost.id" ObjectType="Post"/>
-        <button class="class=" btn btn-primary"" type="submit">Submit</button>
-    </EditForm>
+    </div>
+
+
+    <button class="class=" btn btn-primary"" type="submit">Submit</button>
+
 @code {
 
     //Decleration of lists that display files upload status. To be removed or adjusted for users
@@ -69,15 +108,14 @@
     MultipartFormDataContent PostPhotoContent = new MultipartFormDataContent();
     MultipartFormDataContent PostVideoContent = new MultipartFormDataContent();
 
+    Guid PhotoId = new Guid();
+
     //This code runs on component load
     protected override async Task OnInitializedAsync()
     {
         newPost.id = Guid.NewGuid();
-        
-
-   
         Console.WriteLine("createPost component Load Started");
-    
+
     }
 
     //This runs on form submit
@@ -97,6 +135,11 @@
         await Http.PostAsJsonAsync<Post>("Post/NewPost", newPost);
     }
 
+
+    async void NewPhotoGuid()
+    {
+        PhotoId = Guid.NewGuid();
+    }
 
     // runs on video file sellection
     async Task PostPhotoSelection(IFileListEntry[] files)

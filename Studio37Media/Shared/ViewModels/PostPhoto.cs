@@ -17,6 +17,8 @@ namespace Studio37Media.Shared.ViewModels
 
         public Guid PhotoID { get; set; }
 
+        public string Caption { get; set; }
+
         public virtual Photo Photo { get; set; }
 
         public virtual Post Post { get; set; }

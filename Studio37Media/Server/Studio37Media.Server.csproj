@@ -42,6 +42,7 @@
   <ItemGroup>
     <Folder Include="uploads\Logos\" />
     <Folder Include="uploads\EventThumbnail\" />
+    <Folder Include="uploads\Photos\" />
     <Folder Include="uploads\PostPhotos\" />
     <Folder Include="uploads\PostVideo\" />
     <Folder Include="uploads\TutorialPromoVideo\" />

@@ -375,7 +375,7 @@
     <Compile Include="Models\ViewModels\LiveShowViewViewModel.cs" />
     <Compile Include="Models\ViewModels\MessageViewModel.cs" />
     <Compile Include="Models\ViewModels\PaymentViewModel.cs" />
-    <Compile Include="Models\ViewModels\PhotoLiveModel.cs" />
+    <Compile Include="Models\ViewModels\PhotoViewModel.cs" />
     <Compile Include="Models\ViewModels\PostCattegoryViewModel.cs" />
     <Compile Include="Models\ViewModels\PostClassVideoViewModel.cs" />
     <Compile Include="Models\ViewModels\PostCommentViewModel.cs" />
