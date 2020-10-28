@@ -42,7 +42,6 @@
     <Folder Include="Components\LikeComponents\" />
     <Folder Include="Components\LiveShowComponents\" />
     <Folder Include="Components\MessageComponents\" />
-    <Folder Include="Components\VideoComponents\" />
     <Folder Include="Components\PaymentComponents\" />
   </ItemGroup>
 

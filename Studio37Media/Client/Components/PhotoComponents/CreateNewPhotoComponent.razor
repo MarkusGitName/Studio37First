@@ -10,7 +10,7 @@
 
 @attribute [Authorize]
 @inject HttpClient Http
-<EditForm Model="@newPhoto" OnValidSubmit="@HandleFormSubmit">
+<EditForm Model="@newPhoto" OnValidSubmit="@HandlePhotoFormSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
     <div class="modal" id="photoPostModal">
@@ -29,13 +29,9 @@
                                 @PhotoUploadStats
                             </label>
                         </div>
-                        <InputTextArea class="form-control my-2" rows="5" id="caption" placeholder="caption"/>
+                        <InputTextArea  @bind-Value="newPhoto.Caption" class="form-control my-2" rows="5" id="caption" placeholder="caption"/>
                     </div>
-                    <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
-                    <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
-
-                    <button class="class=" btn btn-primary"" type="submit">Submit</button>
-                    <button class="class=" btn btn-primary"" type="submit">Submit</button>
+                    <button type="submit" class="btn btn-light btn-block" btn btn-primary"" >Upload</button>
                 </div>
             </div>
         </div>
@@ -43,8 +39,9 @@
 </EditForm>
 
 @code {
+
     [Parameter]
-    public Guid PhotoId { get; set;}
+    public EventCallback<Photo> ReturnPhoto { get; set; }
 
     string PhotoUploadStats = "Select file...";
 
@@ -54,23 +51,26 @@
     Photo newPhoto = new Photo();
 
     //This runs on form submit
-    async void HandleFormSubmit()
+    async void HandlePhotoFormSubmit()
     {
         Console.WriteLine("form handle started");
-        newPhoto.id = PhotoId;
-        
+        newPhoto.id = Guid.NewGuid();
+
         //post call to fileUploadConstructer (endpoint)
         await Http.PostAsync("FileUpload", PhotoContent);
-        await Http.PostAsJsonAsync<Photo>("Photo/NewPhoto", newPhoto);
-        
+       // await Http.PostAsJsonAsync<Photo>("Photo/NewPhoto", newPhoto);
+
         Console.WriteLine("form handle ran");
+
+
+       await ReturnPhoto.InvokeAsync(newPhoto);
     }
- 
+
 
     // This runs on profile Photo file selection
     async Task PhotoSelection(IFileListEntry[] files)
     {
-        
+
         Console.WriteLine("file selection started");
         var file = files.FirstOrDefault();
         if (file != null)
@@ -87,7 +87,7 @@
             };
 
             newPhoto.Path = "/uploads/PostPhotos/" + file.Name;
-            
+
 
         }
 

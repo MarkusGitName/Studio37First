@@ -1,7 +1,7 @@
 {
   "FilesToCompress": [
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\Udb9kHOAYuVO3GCwAFEhdQJ3erSmLc4Tk-KAhbnSrJY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\swDNdKSARkj7jHHAnqnWcyZdHVg2BSc_OitJBW2cNsI=.hash",
       "Source": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Client.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Client.dll.gz"
     },
@@ -221,7 +221,7 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/System.ComponentModel.DataAnnotations.dll.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\NLuX-HYiKZrxjEC8ltVUtYtVhzxESJxmmOBvjPsaSWo=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\yZNAxuvjAupj_ye76QPnY2QEys25ox0ENRrcUD5Hxxg=.hash",
       "Source": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Shared.dll",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Shared.dll.gz"
     },
@@ -301,12 +301,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Microsoft.JSInterop.WebAssembly.dll.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\7yC8UyLo0HADwUe9qkfdFlB1mce1B5_2n5Z_ZoghKvU=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\Mj4mRdrpc-E1S6Gsogf77JbtupV3X2aYTQm8gJHjuPs=.hash",
       "Source": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Client.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Client.pdb.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\JDp8gAJqFqA8GPRi1-YskzaB7MjBUauYfgw1K0VwusI=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\-hnVpWds83fFCAqwkM39CjoG9n7bNcXPhZ0cAzi0i0k=.hash",
       "Source": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\unlinked\\Studio37Media.Shared.pdb",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/_bin\/Studio37Media.Shared.pdb.gz"
     },
@@ -331,12 +331,12 @@
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.webassembly.js.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\QYhip_6B2i_hLDWyrJ_55N1Y8C9GOGj2_Tqf7GtuIn8=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\yPC40xMup2mzjliNFkwcpvQuDTiEp-hEMEekYy3QEio=.hash",
       "Source": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\blazor.boot.json",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\_framework\/blazor.boot.json.gz"
     },
     {
-      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\jy7p-ydX9omXcXgQKoESwDH-441nKUSgVi1xgXQpEQY=.hash",
+      "InputSource": "obj\\Debug\\netstandard2.1\\integrity\\EpjZRY4PuiUq7C8amEiyfZSd1hx8zc0f0-FgNNEWpFY=.hash",
       "Source": "D:\\WorkingVersionsRepo\\Studio37Media\\Client\\obj\\Debug\\netstandard2.1\\blazor\\service-worker-assets.js",
       "Target": "obj\\Debug\\netstandard2.1\\compressed\\service-worker-assets.js.gz"
     }

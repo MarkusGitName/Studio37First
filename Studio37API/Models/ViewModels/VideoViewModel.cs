@@ -12,6 +12,7 @@ namespace Studio37API.Models.ViewModels
         public VideoViewModel(Video incomingVideo)
         {
             id = incomingVideo.id;
+            Caption = incomingVideo.Caption;
             Path = incomingVideo.Path;
 
             List<PostVideoViewModel> newPostVideoViewModel = new List<PostVideoViewModel>();
