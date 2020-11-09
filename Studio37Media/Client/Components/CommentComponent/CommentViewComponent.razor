@@ -1,4 +1,50 @@
-﻿<h3>CommentViewComponent</h3>
+﻿<div class="card my-4 col-7 container-fluid">
+    <div class="card-header bg-transparent border-bottom-0">
+        <div class="media">
+            <img class="rounded-circle mr-3" style="max-width: 64px; height: 64px;" src="300px-Leonardo_DiCaprio_Laughing.jpg" alt="Avatar">
+            <div class="my-3"><h5>Username</h5></div>
+
+        </div>
+    </div>
+    <div class="card-body">
+        <img src="free.jpg" alt="unable to load" class="card-img-top">
+
+    </div>
+    <div class="card-footer bg-transparent border-top-0">
+        <button class="btn" href="#">
+            <i class="far fa-heart fa-2x"></i>
+        </button>
+        <button class="btn" data-toggle="collapse" data-target="#demo" href="#">
+            <i class="far fa-comment fa-2x"></i>
+        </button>
+        <button class="btn" href="#">
+            <i class="fas fa-share-alt fa-2x"></i>
+        </button>
+        <div class="container-fluid">
+            <h6>likes</h6>
+            <h5 class="card-text my-2">This is the Caption of this image</h5>
+            <small><i>Posted on...</i></small>
+        </div>
+        <p><a class="nav-link text-dark" data-toggle="collapse" href="#demo">View all Comments</a></p>
+
+    </div>
+
+    <div id="demo" class="collapse">
+        <hr />
+        <div class="container-fluid">
+            <Studio37Media.Client.Components.CommentComponent.CommentViewComponent />
+        </div>
+        <hr />
+        <div class="form-group form-inline my-3">
+            <img class="rounded-circle mr-3" style="max-width: 64px;" src="300px-Leonardo_DiCaprio_Laughing.jpg" alt="Avatar">
+            <input type="text" class="form-control col-11" id="comment" placeholder="write a comment...">
+        </div>
+    </div>
+</div>
+
+@code {
+
+}
 
 @code {
 

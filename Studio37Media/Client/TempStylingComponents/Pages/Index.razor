@@ -1,0 +1,105 @@
+﻿@page "/testindex"
+
+<TopNavBar />
+
+<div calss="conatiner my-4">
+    <button class="btn btn-block font-weight-bold text-muted" data-toggle="modal" data-target="#selectPostType">
+        <span class="oi oi-plus"></span>
+        New Post
+    </button>
+</div>
+
+<div class="modal" id="selectPostType">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Create a Post</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-info w-25 mx-3" data-toggle="modal" data-target="#textPostModal">Text Post</button>
+                <button type="button" class="btn btn-success w-25 mx-3" data-toggle="modal" data-target="#photoPostModal">Picture</button>
+                <button tupe="button" class="btn btn-warning w-25 mx-3" data-toggle="modal" data-target="#videoPostModal">Video Clip</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="textPostModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Text Post</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" id="textPost" placeholder="Write post..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="photoPostModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Photo</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="custom-file my-2" id="customFile" lang="es">
+                        <input type="file" class="custom-file-input" id="photoPost" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="photoPost">
+                            Select file...
+                        </label>
+                    </div>
+                    <textarea class="form-control my-2" rows="5" id="caption" placeholder="caption"></textarea>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="videoPostModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Video Clip</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="custom-file my-2" id="customFile2" lang="es">
+                        <input type="file" class="custom-file-input" id="videoPost" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="videoPost">
+                            Select file...
+                        </label>
+                    </div>
+                    <textarea class="form-control my-2" rows="5" id="caption" placeholder="caption"></textarea>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<a href="/uploadVideo" class="text-decoration-none">
+    <div calss="conatiner my-4">
+        <button class="btn btn-block font-weight-bold text-muted" type="button">
+            <span class="oi oi-plus"></span>
+            New Class
+        </button>
+    </div>
+</a>
+<VideoListCard/>
+<VideoListCard/>
+<Post/>
+<Post/>
+<Footer/>

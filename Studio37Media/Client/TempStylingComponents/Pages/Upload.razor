@@ -1,0 +1,73 @@
+﻿@page "/uploadVideo"
+
+<h1 class="col-9 mx-auto py-4">Upload Video</h1>
+
+<TopNavBar />
+
+
+<div class="conatiner col-4 py-3 mx-auto">
+    <button class="btn btn-block font-weight-bold text-muted" data-toggle="modal" data-target="#selectVideoFile">
+        <span class="oi oi-plus"></span>
+        Select Video
+    </button>
+</div>
+
+<div class="row col-11">
+    <div class="container">
+        <div class="form-group col-8 mx-auto">
+            <input type="text" class="form-control my-2" id="title" placeholder="title">
+            <textarea class="form-control my-2" rows="5" id="description" placeholder="description"></textarea>
+            <textarea class="form-control my-2" rows="3" id="tags" placeholder="tags"></textarea>
+            <div class="custom-file my-2" id="customFile4" lang="es">
+                <input type="file" class="custom-file-input" id="thumbnailImage" aria-describedby="fileHelp">
+                <label class="custom-file-label" for="thumbnailImage">
+                    Upload Thumbnail...
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-light btn-block">Save Changes</button>
+    </div>
+    <div class="container col-3">
+        <div class="card my-2">
+            <div class="embed-responsive mx-0 my-0 embed-responsive-16by9">
+                <video src="notgoodvodka.mp4" controls></video>
+            </div>
+            <div class="card-footer">
+                <small><p class="text-muted">video link</p></small>
+                <p>original ID of video uploaded/ video link</p>
+                <small><p class="text-muted">file name</p></small>
+                <p>Name of file uploaded</p>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+<div class="modal" id="selectVideoFile">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Upload Video</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="custom-file my-2" id="customFile" lang="es">
+                        <input type="file" class="custom-file-input" id="photoPost" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="photoPost">
+                            Select file...
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<Footer/>
+
+@code {
+
+}

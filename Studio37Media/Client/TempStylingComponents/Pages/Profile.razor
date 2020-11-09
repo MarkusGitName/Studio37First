@@ -1,0 +1,157 @@
+﻿@page "/profileTest"
+
+<TopNavBar/>
+
+    <!-- Header info -->
+    <div class="container-fluid my-4">
+        <div class="row">
+            <div class="clearfix col-4">
+                <img src="300px-Leonardo_DiCaprio_Laughing.jpg" class="img-fluid rounded-circle px-4 float-right" alt="Haha">
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">followers</a></h2>
+                    <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">following</a></h2>
+                </div>
+                <h4 class="pl-5">name</h4>
+                <h6 class="pl-5">Description</h6>
+                <h6 class="pl-5">website link</h6>
+            </div>
+            <div class="clearfix col-4">
+                <button class="btn btn-outline-danger mx-5 my-5 w-25" href="#">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow button -->
+    <div class="container-fluid py-4">
+        <button class="btn btn-block btn-outline-danger ">Follow</button>
+
+    </div>
+
+    <div class="dropdown-divider"></div>
+
+    <div class="btn-group btn-block">
+        <a href="/profile" class="btn font-weight-bold text-muted">
+            Timeline
+        </a>
+        <a href="/profileClasses" class="btn font-weight-bold text-muted">
+            Classes
+        </a>
+        <a href="/profileCourses" class="btn font-weight-bold text-muted">
+            Courses
+        </a>
+    </div>
+<div class="dropdown-divider"></div>
+
+
+<!--Create post Modal & Open Modal button-->
+    <div calss="conatiner my-4">
+        <button class="btn btn-block font-weight-bold text-muted" data-toggle="modal" data-target="#selectPostType">
+            <span class="oi oi-plus"></span>
+            New Post
+        </button>
+    </div>
+
+<div class="modal" id="selectPostType">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Create a Post</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-info w-25 mx-3" data-toggle="modal" data-target="#textPostModal">Text Post</button>
+                <button type="button" class="btn btn-success w-25 mx-3" data-toggle="modal" data-target="#photoPostModal">Picture</button>
+                <button tupe="button" class="btn btn-warning w-25 mx-3" data-toggle="modal" data-target="#videoPostModal">Video Clip</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="textPostModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Text Post</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" id="textPost" placeholder="Write post..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="photoPostModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Photo</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="custom-file my-2" id="customFile" lang="es">
+                        <input type="file" class="custom-file-input" id="photoPost" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="photoPost">
+                            Select file...
+                        </label>
+                    </div>
+                    <textarea class="form-control my-2" rows="5" id="caption" placeholder="caption"></textarea>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="videoPostModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <h4 class="modal-title">Video Clip</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="custom-file my-2" id="customFile2" lang="es">
+                        <input type="file" class="custom-file-input" id="videoPost" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="videoPost">
+                            Select file...
+                        </label>
+                    </div>
+                    <textarea class="form-control my-2" rows="5" id="caption" placeholder="caption"></textarea>
+                </div>
+                <button type="submit" class="btn btn-light btn-block" data-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul class="nav nav-tabs nav-justified">
+    <li class="nav-item">
+        <a class="nav-link" href="/profile">Timeline</a>
+        <Post />
+        <Post />
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/profile">Tutorials</a>
+        <Post />
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/profile">Workshops</a>
+        <Post />
+    </li>
+</ul>
+<Footer/>
+        
+
+
+    @code {
+
+    }

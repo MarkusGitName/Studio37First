@@ -7,13 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Components\NewFolder\**" />
     <Compile Remove="uploads\**" />
-    <Content Remove="Components\NewFolder\**" />
     <Content Remove="uploads\**" />
-    <EmbeddedResource Remove="Components\NewFolder\**" />
     <EmbeddedResource Remove="uploads\**" />
-    <None Remove="Components\NewFolder\**" />
     <None Remove="uploads\**" />
   </ItemGroup>
 
@@ -43,6 +39,32 @@
     <Folder Include="Components\LiveShowComponents\" />
     <Folder Include="Components\MessageComponents\" />
     <Folder Include="Components\PaymentComponents\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="TempStylingComponents\Pages\Comment.razor" />
+    <None Include="TempStylingComponents\Pages\CommentReply.razor" />
+    <None Include="TempStylingComponents\Pages\Counter.razor" />
+    <None Include="TempStylingComponents\Pages\CoursePaylists.razor" />
+    <None Include="TempStylingComponents\Pages\EditVideos.razor" />
+    <None Include="TempStylingComponents\Pages\FetchData.razor" />
+    <None Include="TempStylingComponents\Pages\Footer.razor" />
+    <None Include="TempStylingComponents\Pages\GridVideoCard.razor" />
+    <None Include="TempStylingComponents\Pages\Index.razor" />
+    <None Include="TempStylingComponents\Pages\LikeButton.razor" />
+    <None Include="TempStylingComponents\Pages\PlaylistGridCard.razor" />
+    <None Include="TempStylingComponents\Pages\PlaylistVideoListCard.razor" />
+    <None Include="TempStylingComponents\Pages\PlaylistView.razor" />
+    <None Include="TempStylingComponents\Pages\Post.razor" />
+    <None Include="TempStylingComponents\Pages\Profile.razor" />
+    <None Include="TempStylingComponents\Pages\Profile_Classes.razor" />
+    <None Include="TempStylingComponents\Pages\Profile_Courses.razor" />
+    <None Include="TempStylingComponents\Pages\TopNavBar.razor" />
+    <None Include="TempStylingComponents\Pages\Upload.razor" />
+    <None Include="TempStylingComponents\Pages\UserVideoListCard.razor" />
+    <None Include="TempStylingComponents\Pages\UserVideos.razor" />
+    <None Include="TempStylingComponents\Pages\VideoListCard.razor" />
+    <None Include="TempStylingComponents\Pages\VideoView.razor" />
   </ItemGroup>
 
 </Project>

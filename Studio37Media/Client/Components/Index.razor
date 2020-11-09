@@ -40,20 +40,7 @@ else
     {
         foreach (Post post in posts)
         {
-            <div class="container col-3">
-                <div class="card my-2">
-                    <div class="embed-responsive mx-0 my-0 embed-responsive-16by9">
-                    </div>
-                    <div>
-                    </div>
-                    <div class="card-footer">
-                        <p>@post.Text</p>
-                        <p></p>
-                    </div>
-
-                </div>
-
-            </div>
+           <Studio37Media.Client.Components.PostComponents.PostViewComponent post="post"/>
         }
     }
 }
