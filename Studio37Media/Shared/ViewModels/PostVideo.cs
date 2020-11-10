@@ -17,6 +17,9 @@ namespace Studio37Media.Shared.ViewModels
 
         public Guid VideoID { get; set; }
 
+
+        public string Caption { get; set; }
+
         public virtual Post Post { get; set; }
 
         public virtual Video Video { get; set; }

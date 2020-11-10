@@ -329,9 +329,7 @@ namespace Studio37API.Models.DataBaseMdels
                 .WithRequired(e => e.Photo)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Post>()
-                .Property(e => e.Caption)
-                .IsUnicode(false);
+         
 
             modelBuilder.Entity<Post>()
                 .Property(e => e.Text)

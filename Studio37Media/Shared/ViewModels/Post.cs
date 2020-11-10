@@ -32,9 +32,6 @@ namespace Studio37Media.Shared.ViewModels
         [StringLength(450)]
         public string UserId { get; set; }
 
-        [Required]
-        [StringLength(450)]
-        public string Caption { get; set; }
 
         [Column(TypeName = "text")]
         [Required]

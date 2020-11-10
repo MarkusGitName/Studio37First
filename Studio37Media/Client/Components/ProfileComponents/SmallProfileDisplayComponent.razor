@@ -1,0 +1,33 @@
+﻿@using Studio37Media.Shared.ViewModels
+@inject HttpClient Http
+
+@if (profile == null)
+{
+    <dif>Loading</dif>
+}
+else
+{
+    <div class="card-header bg-transparent border-bottom-0">
+        <div class="media">
+            <img class="rounded-circle mr-3" style="max-width: 64px; height: 64px;" src="@profile.ProfilePhoto" alt="Avatar">
+            <div class="my-3"><h5>@profile.FirstName </h5></div>
+
+        </div>
+    </div>
+
+}
+
+
+@code {
+    [Parameter]
+    public string ProfileId { get; set; }
+
+    public Profile profile { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        profile = await Http.GetFromJsonAsync<Profile>("Profile/GetProfileById/" + ProfileId);
+    }
+
+}

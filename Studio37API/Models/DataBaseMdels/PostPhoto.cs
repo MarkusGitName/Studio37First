@@ -15,6 +15,7 @@ namespace Studio37API.Models.DataBaseMdels
 
         public Guid PhotoID { get; set; }
 
+
         public virtual Photo Photo { get; set; }
 
         public virtual Post Post { get; set; }

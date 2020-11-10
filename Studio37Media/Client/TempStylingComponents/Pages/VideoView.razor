@@ -1,0 +1,51 @@
+﻿@page "/video"
+
+<TopNavBar/>
+
+<div class="container my-3" style="max-width:1150px">
+    <div class="embed-responsive embed-responsive-16by9">
+        <video src="notgoodvodka.mp4" controls></video>
+    </div>
+    <div class="row mt-3 mx-2">
+        <div class="col-10" style="max-width:925px">
+            <h3 class="my-2">Title of video</h3>
+            <div class="row">
+                <p class="ml-3 mr-2">views </p>
+                <p class="mx-2">date posted</p>
+            </div>
+        </div>
+        <div>
+            <button class="btn my-2" href="#">
+                <i class="far fa-heart fa-2x"></i>
+            </button>
+            <button class="btn my-2" href="#">
+                <i class="far fa-bookmark fa-2x"></i>
+            </button>
+            <button class="btn my-2" href="#">
+                <i class="fas fa-share-alt fa-2x"></i>
+            </button>
+        </div>
+    </div>
+    <hr/>
+    <div class="container mx-2">
+        <div class="row mx-2">
+            <img class="rounded-circle mr-3" style="max-width: 64px; height: 64px;" src="300px-Leonardo_DiCaprio_Laughing.jpg" alt="Avatar">
+            <div class="my-3"><h5>Username</h5></div>
+        </div>
+        <p><a class="nav-link text-dark my-3 mx-2 text-center" data-toggle="collapse" href="#videoDescription">SHOW MORE</a></p>
+    </div>
+    <div class="container collapse" id="videoDescription">
+        <p class="mx-2">video description</p>
+    </div>
+    <hr/>
+    <p><a class="nav-link text-dark my-2 mx-2" data-toggle="collapse" href="#videoCommentSection">SHOW COMMENTS</a></p>
+    <div class="container collapse" id="videoCommentSection">
+        <div class="form-group form-inline my-3">
+            <img class="rounded-circle mr-3" style="width: 60px;" src="300px-Leonardo_DiCaprio_Laughing.jpg" alt="Avatar">
+            <input type="text" class="form-control col-11" id="comment" placeholder="write a comment...">
+        </div>
+        <Comment />
+    </div>
+</div>
+
+<Footer/>

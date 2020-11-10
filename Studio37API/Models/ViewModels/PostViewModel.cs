@@ -14,7 +14,6 @@ namespace Studio37API.Models.ViewModels
         {
             id = incomingPost.id;
             UserId = incomingPost.UserId;
-            Caption = incomingPost.Caption;
             Text = incomingPost.Text;
             Date = incomingPost.Date;
 
@@ -93,9 +92,7 @@ namespace Studio37API.Models.ViewModels
         [StringLength(450)]
         public string UserId { get; set; }
 
-        [Required]
-        [StringLength(450)]
-        public string Caption { get; set; }
+        
 
         [Column(TypeName = "text")]
         [Required]

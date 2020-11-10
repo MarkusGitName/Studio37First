@@ -22,6 +22,7 @@ namespace Studio37API.Models.ViewModels
 
         public Guid PhotoID { get; set; }
 
+
         // public virtual Photo Photo { get; set; }
 
         // public virtual Post Post { get; set; }

@@ -1,0 +1,75 @@
+﻿@page "/profileClasses"
+
+    <TopNavBar />
+
+    <!-- Header info -->
+    <div class="container-fluid my-4">
+        <div class="row">
+            <div class="clearfix col-4">
+                <img src="300px-Leonardo_DiCaprio_Laughing.jpg" class="img-fluid rounded-circle px-4 float-right" alt="Haha">
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">followers</a></h2>
+                    <h2><a class="nav-link text-dark px-5 pt-5 pb-3" href="#">following</a></h2>
+                </div>
+                <h4 class="pl-5">name</h4>
+                <h6 class="pl-5">Description</h6>
+                <h6 class="pl-5">website link</h6>
+            </div>
+            <div class="clearfix col-4">
+                <button class="btn btn-outline-danger mx-5 my-5 w-25" href="#">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Follow button -->
+    <div class="container-fluid py-4">
+        <button class="btn btn-block btn-outline-danger ">Follow</button>
+
+    </div>
+
+    <div class="dropdown-divider"></div>
+    <div class="btn-group btn-block">
+        <a href="/profile" class="btn font-weight-bold text-muted">
+            Timeline
+        </a>
+        <a href="/profileClasses" class="btn font-weight-bold text-muted">
+            Classes
+        </a>
+        <a href="/profileCourses" class="btn font-weight-bold text-muted">
+            Courses
+        </a>
+    </div>
+    <div class="dropdown-divider"></div>
+
+   
+    <a href="/uploadVideo" class="text-decoration-none">
+        <div calss="conatiner my-4">
+            <button class="btn btn-block font-weight-bold text-muted" type="button">
+                <span class="oi oi-plus"></span>
+                New Class
+            </button>
+        </div>
+    </a>
+
+    <div class="conatiner col-11 container-fluid">
+        <div class="row align-items-start">
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+            <GridVideoCard />
+        </div>
+    </div>
+
+<Footer/>
+
+    @code {
+
+    }

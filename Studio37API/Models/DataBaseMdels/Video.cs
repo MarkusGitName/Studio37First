@@ -16,6 +16,9 @@ namespace Studio37API.Models.DataBaseMdels
 
         public Guid id { get; set; }
 
+
+        public string Caption { get; set; }
+
         [Required]
         [StringLength(450)]
         public string Path { get; set; }

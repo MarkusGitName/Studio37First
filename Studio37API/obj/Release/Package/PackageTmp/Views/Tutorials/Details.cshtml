@@ -1,0 +1,67 @@
+﻿@model Studio37API.Models.DataBaseMdels.Tutorial
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tutorial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Desctription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Desctription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceRand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceRand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfesionalID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfesionalID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PriceCredits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PriceCredits)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

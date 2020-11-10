@@ -24,8 +24,9 @@ namespace Studio37API.Models.ViewModels
 
         public Guid VideoID { get; set; }
 
-       // public virtual Post Post { get; set; }
 
-       // public virtual Video Video { get; set; }
+        // public virtual Post Post { get; set; }
+
+        // public virtual Video Video { get; set; }
     }
 }

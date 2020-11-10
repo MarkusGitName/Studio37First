@@ -19,5 +19,7 @@ namespace Studio37Media.Server.Controllers.ModelControllers
             ClassVideoSale ReturnClassVideoSale = APILibrary.APIPost<ClassVideoSale>(Model, "ClassVideoSales");
             return ReturnClassVideoSale;
         }
+
+     
     }
 }

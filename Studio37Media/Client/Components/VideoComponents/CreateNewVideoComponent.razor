@@ -1,0 +1,98 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+@using Studio37Media.Shared.ViewModels
+
+
+@using System.IO
+@using BlazorInputFile
+@using System.IO.MemoryMappedFiles
+
+
+@attribute [Authorize]
+@inject HttpClient Http
+<EditForm Model="@newVideo" OnValidSubmit="@HandleVideoFormSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="modal" id="videoPostModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h4 class="modal-title">Video Clip</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="custom-file my-2" id="customFile2" lang="es">
+                            <InputFile OnChange="VideoSelection" type="file" class="custom-file-input" id="videoPost" aria-describedby="fileHelp" />
+
+                            <label class="custom-file-label" for="videoPost">
+                                @VideoUploadStats
+                            </label>
+                        </div>
+                        <InputTextArea @bind-Value="newVideo.Caption" class="form-control my-2" rows="5" id="caption" placeholder="caption" />
+
+                    </div>
+                    <button type="submit" class="btn btn-light btn-block" btn btn-primary"">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+
+
+@code {
+
+    [Parameter]
+    public EventCallback<Video> ReturnVideo { get; set; }
+
+    string VideoUploadStats = "Select file...";
+
+    // file contents declaration
+    MultipartFormDataContent VideoContent = new MultipartFormDataContent();
+
+    Video newVideo = new Video();
+
+    //This runs on form submit
+    async void HandleVideoFormSubmit()
+    {
+        Console.WriteLine("form handle started");
+        newVideo.id = Guid.NewGuid();
+
+        //post call to fileUploadConstructer (endpoint)
+        await Http.PostAsync("FileUpload", VideoContent);
+       // await Http.PostAsJsonAsync<Video>("Video/NewVideo", newVideo);
+
+        Console.WriteLine("form handle ran");
+
+
+        await ReturnVideo.InvokeAsync(newVideo);
+    }
+
+
+    // This runs on profile Photo file selection
+    async Task VideoSelection(IFileListEntry[] files)
+    {
+
+        Console.WriteLine("file selection started");
+        var file = files.FirstOrDefault();
+        if (file != null)
+        {
+            // Just load into .NET memory to show it can be done
+            // Alternatively it could be saved to disk, or parsed in memory, or similar
+            var ms = new MemoryStream();
+            await file.Data.CopyToAsync(ms);
+
+            VideoUploadStats = $"Finished loading {file.Size} bytes from {file.Name}";
+
+            VideoContent = new MultipartFormDataContent {
+                { new ByteArrayContent(ms.GetBuffer()), "uploads/PostVideo", file.Name }
+            };
+
+            newVideo.Path = "/uploads/PostVideo/" + file.Name;
+
+
+        }
+
+    }
+}
