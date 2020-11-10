@@ -1519,7 +1519,8 @@ D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\TempS
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\TempStylingComponents\Pages\VideoView.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\RazorDeclaration\Components\ProfileComponents\SmallProfileDisplayComponent.razor.g.cs
 D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\Razor\Components\ProfileComponents\SmallProfileDisplayComponent.razor.g.cs
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\Oxjs7NzeyIuInYNdOgyZ5XD9T5-NWJwD86di8NLpLII=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\a3HoFgZslzACOtud1r67IBtKUGdCDiWvuShHXgDaqNY=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\2A-ZJuTn_LVg02AJ_q21jRsvRroJibXaEDtUxkv-EKk=.hash
-D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\__YCQp3W90zusxYsPQDC3zwWxIQqkCj-xgIhwt_SRXA=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\XNB7DbJEBlCOIxIzSxNos215vdF4QwoX3hN-usicoOs=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\DqeSp_XMXEwo9d9f0SMP9_E6a1WnY6qMdxEVxzr3zmo=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\UoJF8bbZe5_znPQ1oYAvTKzPKgrxu74upXt2iQ1PDdg=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\c4MqliBNCzs3XM7KysO3-xMWZB4oJDREx4WB2ac4rxo=.hash
+D:\WorkingVersionsRepo\Studio37Media\Client\obj\Debug\netstandard2.1\integrity\IiSdAASvLFsWWz9hzWNJ2rVqFyf5dJbXLohASQXXEgQ=.hash

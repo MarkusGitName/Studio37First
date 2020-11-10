@@ -19,5 +19,12 @@ namespace Studio37Media.Server.Controllers.ModelControllers
             ClassVideo ReturnClassVideo = APILibrary.APIPost<ClassVideo>(Model, "ClassVideos");
             return ReturnClassVideo;
         }
+
+        [HttpGet("{apiname}", Name = "GetClassVideos")]
+        public IEnumerable<ClassVideo> Get()
+        {
+            IEnumerable<ClassVideo> classVideo = APILibrary.APIGetALL<IEnumerable<ClassVideo>>("Profiles");
+            return classVideo;
+        }
     }
 }

@@ -68,7 +68,7 @@
 
     public string view = "TimeLine";
 
-
+    
     protected override async Task OnInitializedAsync()
     {
         try
@@ -76,6 +76,7 @@
             profile = await Http.GetFromJsonAsync<Profile>("Profile/GetProfileById/0");
             //await Http.PostAsJsonAsync();
             //<Profile>("Profile");
+            profile.
         }
         catch (AccessTokenNotAvailableException exception)
         {
